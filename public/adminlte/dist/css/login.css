@@ -1,0 +1,21 @@
+.container {
+  width: 30%;
+  margin-top: 9%;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.4);
+  padding: 30px;
+}
+
+body {
+  /* background-image: url(images/slide3.jpg); */
+  background-size: cover;
+  background-position: center;
+  font-family: sans-serif;
+}
+
+button {
+  width: 48%;
+}
+
+.form-control {
+  background: transparent;
+}
