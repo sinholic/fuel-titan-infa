@@ -123,7 +123,12 @@ to get the desired effect
                 </a>
               </li>
 
-              
+              <li class="nav-item">
+                <a href="/organization" class="nav-link">
+                  <i class="fas fa-gas-pump"></i>
+                  <p>User HE</p>
+                </a>
+              </li>
 
               <li class="nav-item">
                 <a href="/voucher" class="nav-link">
