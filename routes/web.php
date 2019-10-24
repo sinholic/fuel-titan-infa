@@ -100,13 +100,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/organization/export_excel', 'OrganizationController@export_excel');
 
     //User LV
-    Route::get('/userlv', 'UserLvController@userlv');
-    Route::get('/tampiladduserlv', 'UserLvController@tambah');
-    Route::post('/userlv/create', 'UserLvController@create');
-    Route::get('/userlv/edit/{id}', 'UserLvController@edit');
-    Route::post('/userlv/update/{id}', 'UserLvController@update');
-    Route::get('/userlv/{id}/delete', 'UserLvController@delete');
-    Route::get('/userlv/export_excel', 'UserLvController@export_excel');
+    Route::get('/userlv', 'UserLVController@userlv');
+    Route::get('/tampiladduserlv', 'UserLVController@tambah');
+    Route::post('/userlv/create', 'UserLVController@create');
+    Route::get('/userlv/edit/{id}', 'UserLVController@edit');
+    Route::post('/userlv/update/{id}', 'UserLVController@update');
+    Route::get('/userlv/{id}/delete', 'UserLVController@delete');
+    Route::get('/userlv/export_excel', 'UserLVController@export_excel');
 
     //Voucher
     Route::get('/voucher', 'VoucherController@voucher');
