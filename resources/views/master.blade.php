@@ -141,54 +141,6 @@ to get the desired effect
 
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Widgets
-              </p>
-            </a>
-          </li>
-            <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
-                <p>
-                    Layout Options
-                    <i class="fas fa-angle-left right"></i>
-                </p>
-                </a>
-                <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="pages/layout/top-nav.html" class="nav-link">
-                    
-                    <p>Top Navigation</p>
-                    </a>
-                </li>
-            
-                <li class="nav-item">
-                    <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
-                    
-                    <p>Collapsed Sidebar</p>
-                    </a>
-                </li>
-                </ul>
-
-                <br><br>
-
-                <li class="nav-item">
-                    <a href="{{route('logout')}}" class="nav-link"
-                        onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                        <i class="fas fa-sign-out-alt"></i>
-                            {{ __('Logout')}}
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form> 
-                </li>
-            </li>
-         
-       
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
