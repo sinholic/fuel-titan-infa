@@ -108,8 +108,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/userlv/{id}/delete', 'UserLvController@delete');
     Route::get('/userlv/export_excel', 'UserLvController@export_excel');
 
-    //QR Code
-    Route::get('qr-code', function () {
-        return QrCode::size(500)->generate('Selamat Datang di Titan Infra');
-    });
+    //Voucher
+    Route::get('/voucher', 'VoucherController@voucher');
+    Route::get('/tampiladdvoucher', 'VoucherController@tambah');
+    Route::post('/voucher/create', 'VoucherController@create');
+    Route::get('/voucher/edit/{id}', 'VoucherController@edit');
+    Route::post('/voucher/update/{id}', 'VoucherController@update');
+    Route::get('/voucher/{id}/delete', 'VoucherController@delete');
 });

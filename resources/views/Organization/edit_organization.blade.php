@@ -10,7 +10,7 @@
            
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Edit Master organization-</h3>
+                    <h3 class="card-title">Edit User HE</h3>
                 </div>
 
                 <div class="card-body">

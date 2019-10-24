@@ -48,6 +48,6 @@ class OrganizationController extends Controller
 
     public function export_excel()
     {
-        return Excel::download(new OrganizationExport, 'master_organization.xlsx');
+        return Excel::download(new OrganizationExport, 'master_user_HE.xlsx');
     }
 }

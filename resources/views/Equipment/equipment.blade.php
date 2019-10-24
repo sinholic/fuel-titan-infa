@@ -42,6 +42,7 @@
                     <th class="text-center">No</th>
                     <th class="text-center">Name Equipment</th>
                     <th class="text-center">Equipment Number</th>
+                    <th class="text-center">Type Equipment</th>
                     <th class="text-center">Equipment Category</th>
                     <th class="text-center">Location</th>
                     <th class="text-center" width="5%">Fuel Capacity</th>

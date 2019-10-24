@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Titan Infra Energy</title>
+  <title>Fuel Management System</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="/adminlte/plugins/fontawesome-free/css/all.min.css">
@@ -54,9 +54,9 @@ to get the desired effect
   <aside class="main-sidebar sidebar-dark-primary elevation-8" style="background-color: #9C5C22">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="/adminlte/dist/img/logo_titaninfra.png" alt="Titan Infra" class="brand-image"
+      <img src="/adminlte/dist/img/logo_titaninfra.png" alt="Titan Infra"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Titan Infra</span>
+      <span class="brand-text font-weight-light"><h5>Fuel Management System</h5></span>
     </a>
 
     <!-- Sidebar -->
@@ -87,17 +87,11 @@ to get the desired effect
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview offset-md-2">
               <li class="nav-item">
                 <a href="/station" class="nav-link">
                   <i class="fas fa-gas-pump"></i>
                     Master Station
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/fuel" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
-                  <p>Penerimaan Fuel</p>
                 </a>
               </li>
 
@@ -129,15 +123,10 @@ to get the desired effect
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a href="/organization" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
-                  <p>Organization</p>
-                </a>
-              </li>
+              
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/voucher" class="nav-link">
                   <i class="fas fa-gas-pump"></i>
                   <p>Voucher</p>
                 </a>
@@ -171,14 +160,14 @@ to get the desired effect
                 <ul class="nav nav-treeview">
                 <li class="nav-item">
                     <a href="pages/layout/top-nav.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    
                     <p>Top Navigation</p>
                     </a>
                 </li>
             
                 <li class="nav-item">
                     <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    
                     <p>Collapsed Sidebar</p>
                     </a>
                 </li>
