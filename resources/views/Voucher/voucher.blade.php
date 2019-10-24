@@ -59,7 +59,7 @@
                     @endphp
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{!! QrCode::size(300)->generate($string); !!}</td>
+                    <td>{!! QrCode::size(200)->generate($string); !!}</td>
                     <td>{{$s->qty}}</td>
                     <td>{{$s->owner}}</td>
                     <td>{{$s->expired_date}}</td>
