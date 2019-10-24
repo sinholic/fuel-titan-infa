@@ -33,7 +33,7 @@ to get the desired effect
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="background-color: #9C5C22">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="background-color: white">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -46,7 +46,7 @@ to get the desired effect
         <a href="#" class="nav-link">Contact</a>
       </li>
     </ul>
-
+    
   </nav>
   <!-- /.navbar -->
   {{-- #9C5C22 --}}
