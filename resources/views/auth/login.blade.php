@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Titan | Login</title>
+  <title>Login | Fuel Management System</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,7 +23,7 @@
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
-      <p style="color: #9C5C22"><b>Titan</b></p>
+      <p style="color: #9C5C22"><b>Titan Infra</b></p>
     </div>
     <!-- /.login-logo -->
     <div class="shadow-lg">
@@ -67,15 +67,17 @@
                 </div>
               </div>
             </div>
-            
+
+            <br><br>
+
             <div class="row">
               <div class="col-8">
-                <div class="icheck-primary">
+                {{-- <div class="icheck-primary">
                   <input type="checkbox" class="form-check-input" name="remember" id="remember" {{old('remember') ? 'checked' : ''}}>
                   <label for="remember">
                     {{ __('Remember Me')}}
                   </label>
-                </div>
+                </div> --}}
               </div>
               <!-- /.col -->
               <div class="col-md-8 offset-md-4">
@@ -90,17 +92,17 @@
 
             <!-- /.social-auth-links -->
 
-            <p class="mb-1">
+            {{-- <p class="mb-1">
               @if(Route::has('password.request'))
                 <a href="{{route('password.request')}}">
                   {{ __('Lupa Password Anda?')}}
                 </a>
               @endif
-            </p>
+            </p> --}}
           </form>
-          <p class="mb-0">
+          {{-- <p class="mb-0">
           Belum Punya Akun?<a href="{{route('register')}}" class="text-center"> Register</a>
-          </p>
+          </p> --}}
         </div>
         <!-- /.login-card-body -->
       </div>
