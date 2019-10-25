@@ -32,7 +32,7 @@
 <div class="card" style="border-top: 3px solid #9C5C22">
 
         <div class="card-header">
-            <h4>Master Equipment</h4>
+            <h4>Equipment & Unit Data</h4>
         </div>
 
     <div class="card-body">
@@ -40,14 +40,15 @@
             <thead>
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Name Equipment</th>
                     <th class="text-center">Equipment Number</th>
-                    <th class="text-center">Type Equipment</th>
                     <th class="text-center">Equipment Category</th>
                     <th class="text-center">Location</th>
-                    <th class="text-center" width="5%">Fuel Capacity</th>
-                    <th class="text-center">Machine Hours</th>
+                    <th class="text-center">Fuel Capacity</th>
+                    <th class="text-center" width="5%">Machine Hours</th>
                     <th class="text-center">Last Machine Hours</th>
+                    <th class="text-center">Std Consumption</th>
+                    <th class="text-center">Last Ending Stock</th>
+                    <th class="text-center">Add Fuel</th>
                     <th class="text-center">Last Maintenance</th>
                     <th class="text-center">PIC</th>
                     <th class="text-center" width="8%">Action</th>
@@ -59,13 +60,15 @@
                  @foreach($equipment ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->equipment_name}}</td>
                     <td>{{$s->equipment_number}}</td>
                     <td>{{$s->equipment_category}}</td>
                     <td>{{$s->location}}</td>
                     <td>{{$s->fuel_capacity}}</td>
                     <td>{{$s->machine_hours}}</td>
                     <td>{{$s->last_machine_hours}}</td>
+                    <td>{{$s->std_consumption}}</td>
+                    <td>{{$s->last_ending_stock}}</td>
+                    <td>{{$s->add_fuel}}</td>
                     <td>{{$s->last_maintenance}}</td>
                     <td>{{$s->pic}}</td>
                     <td>
