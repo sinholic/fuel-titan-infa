@@ -45,6 +45,7 @@ to get the desired effect
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li>
+      
     </ul>
     
   </nav>
@@ -98,14 +99,7 @@ to get the desired effect
               <li class="nav-item">
                 <a href="/equipment" class="nav-link">
                   <i class="fas fa-gas-pump"></i>
-                  <p>Equipment</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="/unitdata" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
-                  <p>Unit Data</p>
+                  <p>Equipment & Unit Data</p>
                 </a>
               </li>
 
@@ -146,7 +140,21 @@ to get the desired effect
 
             </ul>
           </li>
+
+          <li class="nav-item">
+            <a href="{{route('logout')}}" class="nav-link pull-right"
+              onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">
+              <i class="fas fa-sign-out-alt"></i>
+                  {{ __('Logout')}}
+            </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+              </form> 
+          </li>
         </ul>
+        
+
       </nav>
       <!-- /.sidebar-menu -->
     </div>
