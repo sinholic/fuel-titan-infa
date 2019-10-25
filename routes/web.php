@@ -52,25 +52,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/fuel/export_excel', 'FuelController@export_excel');
     Route::post('/fuel/import_excel', 'FuelController@import_excel');
 
-
-    //Equipment
+    //Equipment & Unit Data
     Route::get('/equipment', 'EquipmentController@equipment');
-    Route::get('/tampiladdequipment', 'EquipmentController@tampiladd');
+    Route::get('/tampiladdequipment', 'EquipmentController@tambah');
     Route::post('/equipment/create', 'EquipmentController@create');
     Route::get('/equipment/edit/{id}', 'EquipmentController@edit');
     Route::post('/equipment/update/{id}', 'EquipmentController@update');
-    Route::get('/equipment/{id}/delete', 'EquipmentController@delete');
-    Route::get('/equipment/export_excel', 'EquipmentController@export_excel');
-    Route::post('/equipment/import_excel', 'EquipmentController@import_excel');
-
-    //Unit Data
-    Route::get('/tampiladdunitdata', 'UnitDataController@tambah');
-    Route::get('/unitdata', 'UnitDataController@unitdata');
-    Route::post('/unitdata/create', 'UnitDataController@create');
-    Route::get('/unitdata/edit/{id}', 'UnitDataController@edit');
-    Route::post('/unitdata/update/{id}', 'UnitDataController@update');
-    Route::get('/unitdata/{id}/delete', 'UnitDataController@delete');
-    Route::get('/unitdata/export_excel', 'UnitDataController@export_excel');
 
     //Owner
     Route::get('/owner', 'OwnerController@owner');
