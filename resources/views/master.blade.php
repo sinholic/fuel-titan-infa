@@ -33,21 +33,50 @@ to get the desired effect
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="background-color: white">
+ <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Home</a>
+        <a href="/home" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li>
-      
     </ul>
-    
+   
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="fas fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fa fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fa fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fa fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+    </ul>
   </nav>
   <!-- /.navbar -->
   {{-- #9C5C22 --}}
@@ -84,7 +113,7 @@ to get the desired effect
             <a href="#" class="nav-link">
               {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
               <p>
-                Manajemen Data Master
+                Master Data
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -126,7 +155,7 @@ to get the desired effect
 
               <li class="nav-item">
                 <a href="/voucher" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
+                  <i class="fas fa-qrcode"></i>
                   <p>Voucher</p>
                 </a>
               </li>
@@ -145,24 +174,12 @@ to get the desired effect
             <a href="#" class="nav-link">
               {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
               <p>
-                Master Station
+                 Pengisian Ulang Mobil Station
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview offset-md-2">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
-                    Pengisian Solar
-                </a>
-              </li>  
 
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
-                  <p>Penerimaan Fuel</p>
-                </a>
-              </li>
 
               <li class="nav-item">
                 <a href="#" class="nav-link">
@@ -174,6 +191,195 @@ to get the desired effect
             </ul>
           </li>
 
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link">
+              {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+              <p>
+                Penerimaan Solar
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview offset-md-2">
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  
+                  <p>On Mobile Station</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-gas-pump"></i>
+                  <p>On Fix Station</p>
+                </a>
+              </li>
+
+               <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-gas-pump"></i>
+                  <p>Daftar Pengisian</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link">
+              {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+              <p>
+                Pengisian Solar
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview offset-md-2">
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  
+                  <p>On Mobile Station</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-gas-pump"></i>
+                  <p>On Fix Station</p>
+                </a>
+              </li>
+
+               <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-gas-pump"></i>
+                  <p>Daftar Pengisian</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+           <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link">
+              {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+              <p>
+                Peminjaman Solar
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview offset-md-2">
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  
+                  <p>On Mobile Station</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-gas-pump"></i>
+                  <p>On Fix Station</p>
+                </a>
+              </li>
+
+               <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-gas-pump"></i>
+                  <p>Daftar Pengisian</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+           <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link">
+              {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+              <p>
+                Pengembalian Solar
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview offset-md-2">
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  
+                  <p>On Mobile Station</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-gas-pump"></i>
+                  <p>On Fix Station</p>
+                </a>
+              </li>
+
+               <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-gas-pump"></i>
+                  <p>Daftar Pengisian</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link">
+              {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+              <p>
+                Consignment
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview offset-md-2">
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  
+                  <p>On Mobile Station</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-gas-pump"></i>
+                  <p>On Fix Station</p>
+                </a>
+              </li>
+
+               <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-gas-pump"></i>
+                  <p>Daftar Pengisian</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link">
+              {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+              <p>
+                Non Consignment
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview offset-md-2">
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  
+                  <p>On Mobile Station</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
 
           <li class="nav-item">
             <a href="{{route('logout')}}" class="nav-link pull-right"
