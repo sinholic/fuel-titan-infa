@@ -38,7 +38,7 @@
 
                     <div class="form-group">
                         <label>Expired Date</label>
-                        <input type="text" name="expired_date" value="{{$voucher->expired_date}}" class="form-control" required autofocus>
+                        <input type="date" name="expired_date" value="{{$voucher->expired_date}}" class="form-control" required autofocus>
                     </div>
 
                 </div>
