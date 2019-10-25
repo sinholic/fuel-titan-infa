@@ -109,6 +109,7 @@ to get the desired effect
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
@@ -117,6 +118,36 @@ to get the desired effect
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            
+            <ul class="nav nav-treeview">
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="text-light fa fa nav-icon"></i>
+                        <p  class="text-light">
+                            Master Station
+                            <i class="right fa fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview offset-md-1">
+
+
+                        <li class="nav-item offset-md-3">
+                            <a href="" class="nav-link">
+                              <i class="fas fa-gas-pump"></i>
+                                Fix Master Station
+                            </a>
+                        </li>
+                        <li class="nav-item offset-md-3">
+                            <a href="" class="nav-link">
+                              <i class="fas fa-gas-pump"></i>
+                                Mobile Master Station
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+
             <ul class="nav nav-treeview offset-md-2">
               <li class="nav-item">
                 <a href="/station" class="nav-link">
@@ -128,7 +159,7 @@ to get the desired effect
               <li class="nav-item">
                 <a href="/equipment" class="nav-link">
                   <i class="fas fa-gas-pump"></i>
-                  <p>Equipment & Unit Data</p>
+                  <p> Master Equipment</p>
                 </a>
               </li>
 
@@ -168,6 +199,7 @@ to get the desired effect
               </li>
 
             </ul>
+
           </li>
 
           <li class="nav-item has-treeview menu-open">
@@ -191,38 +223,12 @@ to get the desired effect
             </ul>
           </li>
 
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item">
             <a href="#" class="nav-link">
-              {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
               <p>
                 Penerimaan Solar
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview offset-md-2">
-
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  
-                  <p>On Mobile Station</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
-                  <p>On Fix Station</p>
-                </a>
-              </li>
-
-               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
-                  <p>Daftar Pengisian</p>
-                </a>
-              </li>
-
-            </ul>
           </li>
 
           <li class="nav-item has-treeview menu-open">
