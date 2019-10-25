@@ -141,6 +141,40 @@ to get the desired effect
             </ul>
           </li>
 
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link">
+              {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+              <p>
+                Master Station
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview offset-md-2">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-gas-pump"></i>
+                    Pengisian Solar
+                </a>
+              </li>  
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-gas-pump"></i>
+                  <p>Penerimaan Fuel</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-gas-pump"></i>
+                  <p>Reloading Fuel</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+
           <li class="nav-item">
             <a href="{{route('logout')}}" class="nav-link pull-right"
               onclick="event.preventDefault();
