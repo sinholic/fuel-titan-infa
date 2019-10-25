@@ -10,7 +10,7 @@
            
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Edit</h3>
+                    <h3 class="card-title">Edit Equipment & Unit Data</h3>
                 </div>
 
                 <div class="card-body">
@@ -22,17 +22,11 @@
                     @endif
 
                     <div class="form-group">
-                        <label>Equipment Name</label>
-                        <input type="text" name="equipment_name" value="{{$equipment->equipment_name}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Equipment Number</label>
+                        <label>Equipment Number</label>
                         <input type="text" name="equipment_number" value="{{$equipment->equipment_number}}" class="form-control" required autofocus>
                     </div>
-
                     <div class="form-group">
-                        <label>Equipment Category</label>
+                        <label for="">Equipment Category</label>
                         <input type="text" name="equipment_category" value="{{$equipment->equipment_category}}" class="form-control" required autofocus>
                     </div>
 
@@ -52,13 +46,28 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="">Last Machine Hours</label>
-                        <input type="text" name="last_machine_hours" class="form-control" value="{{$equipment->last_machine_hours}}" required autofocus>
+                        <label>Last Machine Hours</label>
+                        <input type="text" name="last_machine_hours" value="{{$equipment->last_machine_hours}}" class="form-control" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Std Consumption</label>
+                    <input type="text" name="std_consumption" class="form-control" value="{{$equipment->std_consumption}}" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Last Ending Stock</label>
+                        <input type="text" name="last_ending_stock" class="form-control" value="{{$equipment->last_ending_stock}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Add Fuel</label>
+                        <input type="text" name="add_fuel" class="form-control" value="{{$equipment->add_fuel}}">
                     </div>
 
                     <div class="form-group">
                         <label for="">Last Maintenance</label>
-                    <input type="text" name="last_maintenance" class="form-control" value="{{$equipment->last_maintenance}}" required autofocus>
+                        <input type="text" name="last_maintenance" class="form-control" value="{{$equipment->last_maintenance}}">
                     </div>
 
                     <div class="form-group">
