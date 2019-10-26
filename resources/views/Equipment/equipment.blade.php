@@ -32,7 +32,7 @@
 <div class="card" style="border-top: 3px solid #9C5C22">
 
         <div class="card-header">
-            <h4>Equipment & Unit Data</h4>
+            <h4>Master Equipment</h4>
         </div>
 
     <div class="card-body">
@@ -40,7 +40,9 @@
             <thead>
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Equipment Number</th>
+                    <th class="text-center">Nomor Equipment</th>
+                    <th class="text-center">Nama Equipment</th>
+                    <th class="text-center">Nomor Equipment (SAP)</th>
                     <th class="text-center">Equipment Category</th>
                     <th class="text-center">Location</th>
                     <th class="text-center">Fuel Capacity</th>
