@@ -155,14 +155,13 @@ to get the desired effect
                     Master Station
                 </a>
               </li> --}}
-
+              
               <li class="nav-item">
                 <a href="/equipment" class="nav-link">
                   <i class="fas fa-gas-pump"></i>
                   <p> Master Equipment</p>
                 </a>
               </li>
-
               <li class="nav-item">
                 <a href="/owner" class="nav-link">
                   <i class="fas fa-gas-pump"></i>
