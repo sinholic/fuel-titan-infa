@@ -45,7 +45,6 @@
                     <th class="text-center">Unit Category</th>
                     <th class="text-center">Vendor</th>
                     <th class="text-center">Address</th>
-                    <th class="text-center">Qr Code</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
@@ -60,7 +59,6 @@
                     <td>{{$s->unit_category}}</td>
                     <td>{{$s->vendor}}</td>
                     <td>{{$s->address}}</td>
-                    <td>{!! QrCode::generate('Selamat Datang di Titan Infra'); !!}</td>
                     <td>
                          <div class="btn-group">
 
