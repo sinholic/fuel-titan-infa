@@ -27,6 +27,16 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () {
 
+    Route::get('/admin', function () {
+        return view('admin');
+    })->name('adminpage');
+
+    Route::get('admin-login', 'Auth\AdminLoginController@showLoginForm');
+    Route::post('admin-login', ['as' => 'admin-login', 'uses' => 'Auth\AdminLoginController@login']);
+    Route::get('/admin-register', 'Auth\AdminLoginController@showRegisterPage');
+    Route::post('admin-register', 'Auth\AdminLoginController@register')->name('admin.register');
+
+
     Route::get('user', 'UserController@index');
     Route::get('user/json', 'UserController@json');
 
@@ -41,6 +51,19 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/station1', 'StationController@station');
     Route::get('/station/export_excel', 'StationController@export_excel');
     Route::post('/station/import_excel', 'StationController@import_excel');
+
+    //Mobile Station
+    Route::get('/mobile', 'MobileController@mobile');
+    Route::get('/tampiladdmobile', 'MobileController@tambah');
+    Route::post('/mobile/create', 'MobileController@create');
+    Route::get('/mobile/edit/{id}', 'MobileController@edit');
+    Route::post('/mobile/update/{id}', 'MobileController@update');
+    Route::get('/mobile/{id}/delete', 'MobileController@delete');
+
+    //Fix Station
+    Route::get('/fix', 'FixStationController@fix');
+    Route::get('/tampiladdfix', 'FixStationController@tambah');
+    Route::post('/fix/create', 'FixStationController@create');
 
     //Fuel
     Route::get('/fuel', 'FuelController@fuel');
