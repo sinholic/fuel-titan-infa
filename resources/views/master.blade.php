@@ -132,13 +132,13 @@ to get the desired effect
 
 
                         <li class="nav-item offset-md-3">
-                            <a href="" class="nav-link">
+                            <a href="/fix" class="nav-link">
                               <i class="fas fa-gas-pump"></i>
                                 Fix Master Station
                             </a>
                         </li>
                         <li class="nav-item offset-md-3">
-                            <a href="" class="nav-link">
+                            <a href="/mobile" class="nav-link">
                               <i class="fas fa-gas-pump"></i>
                                 Mobile Master Station
                             </a>
@@ -149,12 +149,12 @@ to get the desired effect
             </ul>
 
             <ul class="nav nav-treeview offset-md-2">
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="/station" class="nav-link">
                   <i class="fas fa-gas-pump"></i>
                     Master Station
                 </a>
-              </li>
+              </li> --}}
 
               <li class="nav-item">
                 <a href="/equipment" class="nav-link">
