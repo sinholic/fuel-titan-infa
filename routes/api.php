@@ -23,6 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['middleware' => 'auth:api'], function () {
     Route::post('details', 'API\UserController@details');
 });
+
 Route::group(['prefix' => 'equipment'], function () {
     Route::get('lists', 'API\EquipmentController@lists');
     Route::post('create', 'API\EquipmentController@create');
