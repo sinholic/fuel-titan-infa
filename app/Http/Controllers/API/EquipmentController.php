@@ -11,6 +11,9 @@ class EquipmentController extends Controller
     public function lists()
     {
         $equipments = EquipmentModel::all();
+        //  status => 200
+        //  message => Data sucessfully fetched
+        //  count => (jumlah data pakai count di php)
         return response()->json(['data' => $equipments]);
     }
 
