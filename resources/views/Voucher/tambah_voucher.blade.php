@@ -27,8 +27,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="">Quantity</label>
-                        <input type="text" name="qty" placeholder="" class="form-control" required autofocus>
+                        <label for="">Quantity Liter</label>
+                        <input type="number" name="qty" placeholder="Jumlah Liter" class="form-control" required autofocus>
                     </div>
                     
                     <div class="form-group">
