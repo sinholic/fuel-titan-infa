@@ -31,10 +31,10 @@ Route::group(['middleware' => 'auth'], function () {
         return view('admin');
     })->name('adminpage');
 
-    Route::get('admin-login', 'Auth\AdminLoginController@showLoginForm');
-    Route::post('admin-login', ['as' => 'admin-login', 'uses' => 'Auth\AdminLoginController@login']);
-    Route::get('/admin-register', 'Auth\AdminLoginController@showRegisterPage');
-    Route::post('admin-register', 'Auth\AdminLoginController@register')->name('admin.register');
+    // Route::get('admin-login', 'Auth\AdminLoginController@showLoginForm');
+    // Route::post('admin-login', ['as' => 'admin-login', 'uses' => 'Auth\AdminLoginController@login']);
+    // Route::get('/admin-register', 'Auth\AdminLoginController@showRegisterPage');
+    // Route::post('admin-register', 'Auth\AdminLoginController@register')->name('admin.register');
 
 
     Route::get('user', 'UserController@index');
@@ -68,14 +68,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/fix/update/{id}', 'FixStationController@update');
 
     //Fuel
-    Route::get('/fuel', 'FuelController@fuel');
-    Route::get('/tampiladdfuel', 'FuelController@tambah');
-    Route::post('/fuel/create', 'FuelController@create');
-    Route::get('/fuel/edit/{id}', 'FuelController@edit');
-    Route::post('/fuel/update/{id}', 'FuelController@update');
-    Route::get('/fuel/{id}/delete', 'FuelController@delete');
-    Route::get('/fuel/export_excel', 'FuelController@export_excel');
-    Route::post('/fuel/import_excel', 'FuelController@import_excel');
+    Route::get('/fuel', 'FuelmanController@fuel');
+    Route::get('/tampiladdfuel', 'FuelmanController@tambah');
+    Route::post('/fuel/create', 'FuelmanController@create');
+    Route::get('/fuel/edit/{id}', 'FuelmanController@edit');
+    Route::post('/fuel/update/{id}', 'FuelmanController@update');
+    Route::get('/fuel/{id}/delete', 'FuelmanController@delete');
+    Route::get('/fuel/export_excel', 'FuelmanController@export_excel');
+    Route::post('/fuel/import_excel', 'FuelmanController@import_excel');
 
     //Equipment & Unit Data
     Route::get('/equipment', 'EquipmentController@equipment');
