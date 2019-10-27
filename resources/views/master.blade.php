@@ -83,9 +83,9 @@ to get the desired effect
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-8" style="background-color: #9C5C22">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="#" class="brand-link">
       <img src="/adminlte/dist/img/logo_titaninfra.png" alt="Titan Infra"
-           style="opacity: .8">
+           style="opacity: .9">
       <span class="brand-text font-weight-light"><h5>Fuel Management System</h5></span>
     </a>
 
