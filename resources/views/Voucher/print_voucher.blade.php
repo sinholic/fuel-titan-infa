@@ -16,7 +16,23 @@
 
     <div class="container">
         <div class="row">
-            <div class="col">
+            @foreach($voucher  as $s)
+                @php $string = 
+                    "Voucher: $s->code_number, 
+                    Qty: $s->qty, 
+                    Nama: $s->owner,
+                    Expired: $s->expired_date"
+                @endphp
+                <div class="col-4">
+                    {{ $loop->iteration }} <br>
+                    {!! QrCode::size(200)->generate($string); !!} <br>
+                    Jumlah: {{$s->qty}} <br> Owner: {{$s->owner}} <br> Kadaluarsa: {{$s->expired_date}}
+                </div>
+            @endforeach
+        </div>
+        <div class="row">
+            <div class="col-6">
+
                 <table border=0 id="myTable">
                     <thead>
                         <tr>
