@@ -127,4 +127,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/voucher/edit/{id}', 'VoucherController@edit');
     Route::post('/voucher/update/{id}', 'VoucherController@update');
     Route::get('/voucher/{id}/delete', 'VoucherController@delete');
+    Route::get('/print_voucher', 'VoucherController@print');
 });
