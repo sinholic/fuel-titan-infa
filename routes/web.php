@@ -64,6 +64,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/fix', 'FixStationController@fix');
     Route::get('/tampiladdfix', 'FixStationController@tambah');
     Route::post('/fix/create', 'FixStationController@create');
+    Route::get('/fix/edit/{id}', 'FixStationController@edit');
+    Route::post('/fix/update/{id}', 'FixStationController@update');
 
     //Fuel
     Route::get('/fuel', 'FuelController@fuel');
