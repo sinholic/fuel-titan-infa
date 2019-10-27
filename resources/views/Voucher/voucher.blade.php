@@ -24,6 +24,10 @@
     <a href="/voucher/export_excel" class="btn btn-success my-1" target="_blank">
         <i class="fas fa-file-excel"></i> Export Excel
     </a>
+
+    <a href="/print_voucher" class="btn btn-success pull-right" onclick="window.open('/print_voucher', 'newwindow', 'width=1000, height=1000'); return false;">
+        <i class="fas fa-print"></i> Print Voucher
+    </a>
     
         <a href="/tampiladdvoucher" class="btn btn-primary">
             <i class="fa fa-plus nav-icon"></i>
@@ -41,7 +45,7 @@
                 <tr>
                     <th class="text-center">No</th>
                     <th class="text-center">Qr Code</th>
-                    <th class="text-center">Qty</th>
+                    <th class="text-center">Qty (ltr)</th>
                     <th class="text-center">Owner</th>
                     <th class="text-center">Expired Date</th>
                     <th class="text-center" width="8%">Action</th>
@@ -59,7 +63,7 @@
                     @endphp
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{!! QrCode::size(200)->generate($string); !!}</td>
+                    <td>{!! QrCode::size(200)->generate($string); !!}</a>
                     <td>{{$s->qty}}</td>
                     <td>{{$s->owner}}</td>
                     <td>{{$s->expired_date}}</td>
