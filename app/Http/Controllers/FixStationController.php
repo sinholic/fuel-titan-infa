@@ -23,4 +23,24 @@ class FixStationController extends Controller
         FixStationModel::create($request->all());
         return redirect('/fix')->with('sukses', 'Data Berhasil Di Input!');
     }
+
+    public function edit($id)
+    {
+        $fix = FixStationModel::find($id);
+        return view('Fix Station.edit_fixstation', ['fix' => $fix]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $fix = FixStationModel::find($id);
+        $fix->update($request->all());
+        return redirect('/fix')->with('sukses', 'Data Berhasil Di Update!');
+    }
+
+    public function delete($id)
+    {
+        $fix = FixStationModel::find($id);
+        $fix->delete($fix);
+        return redirect('/fix')->with('sukses', 'Data Berhasil dihapus!');
+    }
 }
