@@ -43,4 +43,10 @@ class VoucherController extends Controller
         $voucher->delete($voucher);
         return redirect('/voucher')->with('sukses', 'Data berhasil dihapus!');
     }
+
+    public function print()
+    {
+        $voucher = VoucherModel::all();
+        return view('Voucher.print_voucher', ['voucher' => $voucher]);
+    }
 }
