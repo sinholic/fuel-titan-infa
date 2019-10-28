@@ -48,6 +48,7 @@
                     <th class="text-center">Fuel Capacity</th>
                     <th class="text-center" width="5%">Machine Hours</th>
                     <th class="text-center">Last Machine Hours</th>
+                    <th class="text-center">Last Odomenter</th>
                     <th class="text-center">Std Consumption</th>
                     <th class="text-center">Last Ending Stock</th>
                     <th class="text-center">Add Fuel</th>
