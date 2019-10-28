@@ -16,10 +16,18 @@ class UserController extends Controller
     {
         if (Auth::attempt(['email' => request('email'), 'password' => request('password'), 'imei' => request('imei')])) {
             $user = Auth::user();
-            $success['token'] = $user->createToken('nApp')->accessToken;
-            return response()->json(['success' => $success], $this->successStatus);
+            $data['token'] = $user->createToken('nApp')->accessToken;
+            $data['message'] = "Login successfully";
+            return response()->json([
+                'success' => true,
+                'data' => $data
+            ], $this->successStatus);
         } else {
-            return response()->json(['error' => 'unauthorised'], 401);
+            $data['message'] = "Unauthorised, are you forgotting your password or change device?";
+            return response()->json([
+                'success' => false,
+                'data' => $data
+            ], 401);
         }
     }
 
@@ -47,7 +55,10 @@ class UserController extends Controller
 
     public function details()
     {
-        $user = Auth::user();
-        return response()->json(['success' => $user], $this->successStatus);
+        $data = Auth::user();
+        return response()->json([
+                'success' => true,
+                'data' => $data
+            ], $this->successStatus);
     }
 }
