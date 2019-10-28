@@ -36,7 +36,7 @@
         </div>
 
     <div class="card-body">
-        <table class="table table-bordered" id="myTable">
+        <table class="table table-striped table table-bordered" id="myTable">
             <thead>
                 <tr>
                     <th class="text-center">No</th>
