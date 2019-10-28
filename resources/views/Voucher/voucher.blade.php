@@ -44,7 +44,7 @@
             <thead>
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Qr Code</th>
+                    <th class="text-center">Kode Voucher</th>
                     <th class="text-center">Qty (ltr)</th>
                     <th class="text-center">Owner</th>
                     <th class="text-center">Expired Date</th>
