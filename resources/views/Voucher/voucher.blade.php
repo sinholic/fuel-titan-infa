@@ -40,8 +40,8 @@
         </div>
 
     <div class="card-body">
-        <table class="table table-bordered" id="myTable">
-            <thead>
+        <table class="table table-striped table table-bordered" id="myTable">
+            <thead class="thead-dark">
                 <tr>
                     <th class="text-center">No</th>
                     <th class="text-center">Kode Voucher</th>
