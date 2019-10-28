@@ -55,15 +55,15 @@
             <tbody>
                 @php $i=1 @endphp
                  @foreach($voucher ?? '' as $s)
-                    @php $string = 
+                    {{-- @php $string = 
                         "Voucher: $s->code_number, 
                         Qty: $s->qty, 
                         Nama: $s->owner,
                         Expired: $s->expired_date"  
-                    @endphp
+                    @endphp --}}
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{!! QrCode::size(200)->generate($string); !!}</a>
+                    <td>{{$s->code_number}}</a>
                     <td>{{$s->qty}}</td>
                     <td>{{$s->owner}}</td>
                     <td>{{$s->expired_date}}</td>
