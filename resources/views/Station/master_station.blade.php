@@ -32,8 +32,8 @@
         Master Station
     </div>
     <div class="card-body">
-        <table class="table table-bordered" id="myTable">
-            <thead>
+        <table class="table table-striped table table-bordered" id="myTable">
+            <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
                     <th class="text-center">Name Station</th>

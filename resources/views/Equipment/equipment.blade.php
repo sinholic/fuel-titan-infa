@@ -36,8 +36,8 @@
         </div>
 
     <div class="card-body">
-        <table class="table table-bordered" id="myTable">
-            <thead>
+        <table class="table table-striped table table-bordered" id="myTable">
+            <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
                     <th class="text-center">Nomor Equipment</th>
@@ -48,6 +48,7 @@
                     <th class="text-center">Fuel Capacity</th>
                     <th class="text-center" width="5%">Machine Hours</th>
                     <th class="text-center">Last Machine Hours</th>
+                    <th class="text-center">Last Odomenter</th>
                     <th class="text-center">Std Consumption</th>
                     <th class="text-center">Last Ending Stock</th>
                     <th class="text-center">Add Fuel</th>

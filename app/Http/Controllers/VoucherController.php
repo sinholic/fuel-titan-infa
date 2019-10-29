@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\VoucherModel;
+use Illuminate\Support\Str;
 
 class VoucherController extends Controller
 {
@@ -20,7 +21,13 @@ class VoucherController extends Controller
 
     public function create(Request $request)
     {
-        VoucherModel::create($request->all());
+
+        $baru = new VoucherModel;
+        $baru->code_number = Str::random(20);
+        $baru->qty = $request->qty;
+        $baru->owner = $request->owner;
+        $baru->expired_date = $request->expired_date;
+        $baru->save();
         return redirect('/voucher')->with('sukses', 'Data berhasil di Input!');
     }
 

@@ -11,86 +11,34 @@
     <title>Print Voucher</title>
   </head>
   <body>
-    <a href="#" class="btn btn-primary" onclick="window.print();">Print</a>
-    <h5>Tes Print Voucher</h5>
+<a href="#" class="btn btn-primary" onclick="window.print();">Print</a>
 
-    <div class="container">
-        <div class="row">
-            @foreach($voucher  as $s)
-                @php $string = 
-                    "Voucher: $s->code_number, 
-                    Qty: $s->qty, 
-                    Nama: $s->owner,
-                    Expired: $s->expired_date"
-                @endphp
-                <div class="col-4">
-                    {{ $loop->iteration }} <br>
-                    {!! QrCode::size(200)->generate($string); !!} <br>
-                    Jumlah: {{$s->qty}} <br> Owner: {{$s->owner}} <br> Kadaluarsa: {{$s->expired_date}}
-                </div>
-            @endforeach
-        </div>
-        <div class="row">
-            <div class="col-6">
-
-                <table border=0 id="myTable">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th class="text-center">Qr Code</th>
-                            <th>Ket</th> 
-                        </tr>
-                    </thead>
-                    @php $i=1 @endphp
-                    <tbody>
-                        @php $i=1 @endphp
-                        @foreach($voucher  as $s)
-                            @php $string = 
-                                "Voucher: $s->code_number, 
-                                Qty: $s->qty, 
-                                Nama: $s->owner,
-                                Expired: $s->expired_date"
-                            @endphp
-                            <tr>
-                                <td>{{$i++}}</td>
-                                <td>{!! QrCode::size(200)->generate($string); !!}</a>
-                                <td>Jumlah: {{$s->qty}} <br> Owner: {{$s->owner}} <br> Kadaluarsa: {{$s->expired_date}}</td>  
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-
-            {{-- <div class="col">
-                <table border=0 id="myTable">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th class="text-center">Qr Code</th>
-                            <th>Ket</th>   
-                        </tr>
-                    </thead>
-                    @php $i=1 @endphp
-                    <tbody>
-                        @php $i=1 @endphp
-                            @foreach($voucher  as $s)
-                        @php $string = 
-                            "Voucher: $s->code_number, 
-                            Qty: $s->qty, 
-                            Nama: $s->owner,
-                            Expired: $s->expired_date"
-                        @endphp
-                            <tr>
-                                <td>{{$i++}}</td>
-                                <td>{!! QrCode::size(200)->generate($string); !!}</a>
-                                <td>Jumlah: {{$s->qty}} <br> Owner: {{$s->owner}} <br> Kadaluarsa: {{$s->expired_date}}</td>   
-                            </tr>
-                            @endforeach
-                    </tbody>
-                </table>
-            </div> --}}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table border="3">
+                <tr>
+                    <th rowspan="2" colspan="2" class="text-center"><b>UNIT IDENTITY CARD</b></th>
+                    <th colspan="2"></td>
+                </tr>
+                <tbody>
+                @foreach($voucher  as $s)
+                    @php $string = 
+                       "Voucher: $s->code_number, 
+                        Qty: $s->qty, 
+                        Nama: $s->owner,
+                        Expired: $s->expired_date"
+                    @endphp
+                <tr>
+                    <td>{!! QrCode::size(200)->generate($string); !!}</td>
+                    <td>Jumlah:  {{$s->qty}} Ltr <br> Owner: {{$s->owner}} <br> Kadaluarsa: {{$s->expired_date}}</td>
+                </tr>
+                 @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
 
    
     <!-- Optional JavaScript -->

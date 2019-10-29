@@ -40,11 +40,11 @@
         </div>
 
     <div class="card-body">
-        <table class="table table-bordered" id="myTable">
-            <thead>
+        <table class="table table-striped table table-bordered" id="myTable">
+            <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Qr Code</th>
+                    <th class="text-center">Kode Voucher</th>
                     <th class="text-center">Qty (ltr)</th>
                     <th class="text-center">Owner</th>
                     <th class="text-center">Expired Date</th>
@@ -55,15 +55,15 @@
             <tbody>
                 @php $i=1 @endphp
                  @foreach($voucher ?? '' as $s)
-                    @php $string = 
+                    {{-- @php $string = 
                         "Voucher: $s->code_number, 
                         Qty: $s->qty, 
                         Nama: $s->owner,
                         Expired: $s->expired_date"  
-                    @endphp
+                    @endphp --}}
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{!! QrCode::size(200)->generate($string); !!}</a>
+                    <td>{{$s->code_number}}</a>
                     <td>{{$s->qty}}</td>
                     <td>{{$s->owner}}</td>
                     <td>{{$s->expired_date}}</td>
