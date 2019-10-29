@@ -11,34 +11,34 @@
     <title>Print Voucher</title>
   </head>
   <body>
-    <a href="#" class="btn btn-primary" onclick="window.print();">Print</a>
-    <h5>Tes Print Voucher</h5>
+<a href="#" class="btn btn-primary" onclick="window.print();">Print</a>
 
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <table>
-                    @php $i=1 @endphp
-                    <tbody>
-                        @php $i=1 @endphp
-                            @foreach($voucher  as $s)
-                        @php $string = 
-                            "Voucher: $s->code_number, 
-                            Qty: $s->qty, 
-                            Nama: $s->owner,
-                            Expired: $s->expired_date"
-                        @endphp
-                        <tr>
-                            <td>{{$i++}}</td>
-                            <td>{!! QrCode::size(200)->generate($string); !!}</a>
-                            <td>Jumlah: {{$s->qty}} <br> Owner: {{$s->owner}} <br> Kadaluarsa: {{$s->expired_date}}</td>   
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table border="3">
+                <tr>
+                    <th rowspan="2" colspan="2" class="text-center"><b>UNIT IDENTITY CARD</b></th>
+                    <th colspan="2"></td>
+                </tr>
+                <tbody>
+                @foreach($voucher  as $s)
+                    @php $string = 
+                       "Voucher: $s->code_number, 
+                        Qty: $s->qty, 
+                        Nama: $s->owner,
+                        Expired: $s->expired_date"
+                    @endphp
+                <tr>
+                    <td>{!! QrCode::size(200)->generate($string); !!}</td>
+                    <td>Jumlah:  {{$s->qty}} <br> Owner: {{$s->owner}} <br> Kadaluarsa: {{$s->expired_date}}</td>
+                </tr>
+                 @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
 
    
     <!-- Optional JavaScript -->
