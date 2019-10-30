@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\EquipmentModel;
 use App\FuelmanModel;
 use App\VoucherModel;
@@ -17,6 +18,24 @@ class SyncronizeController extends Controller
      */
     public function index()
     {
+        $data['message'] = "Syncronize succeccfully";
+        
+        if(!Auth::user()) {
+            $data['message'] = "No user detected, are you try to hack?";
+            return response()->json([
+                'success' => false,
+                'data' => $data
+            ], 200);
+        }
+
+        if(Auth::user()->syncpassword != request('syncpassword')) {
+            $data['message'] = "Are you forgot your sync password?";
+            return response()->json([
+                'success' => false,
+                'data' => $data
+            ], 200);
+        }
+
         $equipments = EquipmentModel::all(); // No get()!
         $sql = $equipments->map(function ($item, $key) {
             return implode(",", $item->toArray());
