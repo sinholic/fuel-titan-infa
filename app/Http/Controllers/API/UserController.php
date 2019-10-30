@@ -57,8 +57,8 @@ class UserController extends Controller
     {
         $data = Auth::user();
         return response()->json([
-                'success' => true,
-                'data' => $data
-            ], $this->successStatus);
+            'success' => true,
+            'data' => $data
+        ], $this->successStatus);
     }
 }
