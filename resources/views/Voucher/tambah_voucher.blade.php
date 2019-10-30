@@ -21,13 +21,13 @@
 					</div>
 					@endif
 
-					{{-- <div class="form-group">
-						<label>Code Voucher</label>
-						<input type="text " name="code_number" placeholder="" class="form-control" required autofocus>
-                    </div> --}}
+					<div class="form-group">
+						<label>Jumlah Voucher</label>
+						<input type="number" name="" placeholder="Jumlah Voucher" class="form-control" required autofocus>
+                    </div>
 
                     <div class="form-group">
-                        <label for="">Quantity Liter</label>
+                        <label for="">Jumlah Liter</label>
                         <input type="number" name="qty" placeholder="Jumlah Liter" class="form-control" required autofocus>
                     </div>
                     
