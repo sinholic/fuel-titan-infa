@@ -25,9 +25,49 @@
         <i class="fas fa-file-excel"></i> Export Excel
     </a>
 
-    <a href="/print_voucher" class="btn btn-success pull-right" onclick="window.open('/print_voucher', 'newwindow', 'width=1000, height=1000'); return false;">
-        <i class="fas fa-print"></i> Print Voucher
-    </a>
+
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+  Print
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Print Qr Code</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <div class="form-group">
+                <label for="">Jumlah Voucher</label>
+                <input type="number" name="jumlah_voucher" placeholder="Jumlah Voucher" class="form-control" required autofocus>
+            </div>
+
+            <div class="form-group">
+                <label for="">Jumlah Liter</label>
+                <input type="number" name="jumlah_liter" placeholder="Jumlah Liter" class="form-control" required autofocus>
+            </div>
+
+            <div class="form-group">
+                <label for="">Tanggal Kadaluarsa</label>
+                <input type="date" name="expired_date" placeholder="Tanggal Kadaluarsa" class="form-control" required autofocus>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="/print_voucher" class="btn btn-success pull-right" onclick="window.open('/print_voucher', 'newwindow', 'width=1000, height=1000'); return false;">
+            <i class="fas fa-print"></i> Print Voucher
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
     
         <a href="/tampiladdvoucher" class="btn btn-primary">
             <i class="fa fa-plus nav-icon"></i>
@@ -44,7 +84,7 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Kode Voucher</th>
+                    <th class="text-center">Jumlah Voucher</th>
                     <th class="text-center">Qty (ltr)</th>
                     <th class="text-center">Owner</th>
                     <th class="text-center">Expired Date</th>
@@ -63,16 +103,17 @@
                     @endphp --}}
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->code_number}}</a>
+                    {{-- <td>{{$s->code_number}}</a> --}}
+                    <td></td>
                     <td>{{$s->qty}}</td>
                     <td>{{$s->owner}}</td>
-                    <td>{{$s->expired_date}}</td>
+                    <td>{{date('l, d-M-Y', strtotime($s->expired_date))}}</td>
                     <td>
                          <div class="btn-group">
 
                             <!-- URL::to('/admin/category/detail.id='.$cate-id -->
-                            <a href="#" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Info">
-                                <i class="fa fa-info-circle nav-icon"></i>
+                            <a href="#" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="bottom" title="Print">
+                                <i class="fas fa-print nav-icon"></i>
                             </a>
 
                             <a href="/voucher/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
