@@ -14,30 +14,29 @@ class EquipmentController extends Controller
         //  status => 200
         //  message => Data sucessfully fetched
         //  count => (jumlah data pakai count di php)
-        return response()->json(['data' => $equipments]);
-    }
-
-    public function tambah()
-    {
-        return view('Equipment.tambah_equipment');
+        return response()->json([
+            'status' => true,
+            'data' => $equipments,
+            'count' => count($equipments)
+        ]);
     }
 
     public function create(Request $request)
     {
         $equipment = EquipmentModel::create($request->all());
-        return response()->json(['data' => $equipment]);
-    }
-
-    public function edit($id)
-    {
-        $equipment = EquipmentModel::find($id);
-        return view('Equipment.edit_equipment', ['equipment' => $equipment]);
+        return response()->json([
+            'status' => true,
+            'data' => $equipment
+        ]);
     }
 
     public function update(Request $request, $id)
     {
         $equipment = EquipmentModel::find($id);
         $equipment->update($request->all());
-        return redirect('/equipment')->with('sukses', 'Data berhasil di Update!');
+        return response()->json([
+            'status' => true,
+            'data' => $equipment
+        ]);
     }
 }
