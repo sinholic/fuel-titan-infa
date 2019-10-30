@@ -140,7 +140,7 @@ to get the desired effect
                         
                         <li class="nav-item offset-md-3">
                             <a href="/mobile" class="nav-link">
-                              <i class="fas fa-gas-pump"></i>
+                              <i class="fas fa-car-buiding"></i>
                                 Mobile Master Station
                             </a>
                         </li>
