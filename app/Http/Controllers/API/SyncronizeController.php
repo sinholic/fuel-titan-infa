@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\EquipmentModel;
+use App\FuelmanModel;
 
 class SyncronizeController extends Controller
 {
@@ -15,13 +16,23 @@ class SyncronizeController extends Controller
      */
     public function index()
     {
-        $equipments = EquipmentModel::all()->toArray(); // No get()!
+        $equipments = EquipmentModel::all(); // No get()!
+        $sql = $equipments->map(function ($item, $key){
+            return implode($item->toArray(), ',');
+        });
 
-        // $sql = 'INSERT INTO record ' . $equipments->toSql();
+        $data['sql'] = 'INSERT INTO equipment_unitdata VALUES('. implode($sql->toArray(), '),(') .');' ;
+
+        $equipments = FuelmanModel::all(); // No get()!
+        $sql = $equipments->map(function ($item, $key){
+            return implode($item->toArray(), ',');
+        });
+
+        $data['sql'] .= 'INSERT INTO fuelman VALUES('. implode($sql->toArray(), '),(') .');' ;
 
         return response()->json([
                 'success' => true,
-                'data' => $equipments
+                'data' => $data
             ], 200);
     }
 
