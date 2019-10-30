@@ -31,7 +31,7 @@
                     @endphp
                 <tr>
                     <td>{!! QrCode::size(200)->generate($string); !!}</td>
-                    <td>Jumlah:  {{$s->qty}} Ltr <br> Owner: {{$s->owner}} <br> Kadaluarsa: {{$s->expired_date}}</td>
+                    <td>Jumlah:  {{$s->qty}} Ltr <br> Owner: {{$s->owner}} <br> Kadaluarsa: {{date('d-M-Y', strtotime($s->expired_date))}}</td>
                 </tr>
                  @endforeach
                 </tbody>
