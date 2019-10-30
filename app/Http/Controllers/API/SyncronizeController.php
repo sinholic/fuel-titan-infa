@@ -23,8 +23,8 @@ class SyncronizeController extends Controller
 
         $data['sql'] = 'INSERT INTO equipment_unitdata VALUES('. implode($sql->toArray(), '),(') .');' ;
 
-        $equipments = FuelmanModel::all(); // No get()!
-        $sql = $equipments->map(function ($item, $key){
+        $fuelmans = FuelmanModel::all(); // No get()!
+        $sql = $fuelmans->map(function ($item, $key){
             return implode($item->toArray(), ',');
         });
 
