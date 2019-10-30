@@ -46,6 +46,13 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::post('/create', 'API\OrganizationController@create');
         Route::post('/update/{id}', 'API\OrganizationController@update');
     });
+
+    //Fuelman
+    Route::group(['prefix' => 'fuel'], function () {
+        Route::get('/', 'API\FuelmanController@lists');
+        Route::post('/create', 'API\FuelmanController@create');
+        Route::post('/update/{id}', 'API\FuelmanController@update');
+    });
 });
 
 // Route::get('siswa', 'SiswaController@index');
