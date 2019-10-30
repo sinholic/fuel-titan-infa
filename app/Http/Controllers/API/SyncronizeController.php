@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\EquipmentModel;
 use App\FuelmanModel;
+use App\VoucherModel;
 
 class SyncronizeController extends Controller
 {
@@ -17,23 +18,31 @@ class SyncronizeController extends Controller
     public function index()
     {
         $equipments = EquipmentModel::all(); // No get()!
-        $sql = $equipments->map(function ($item, $key){
-            return implode($item->toArray(), ',');
+        $sql = $equipments->map(function ($item, $key) {
+            return implode(",", $item->toArray());
         });
 
-        $data['sql'] = 'INSERT INTO equipment_unitdata VALUES('. implode($sql->toArray(), '),(') .');' ;
+        $data['sql'] = "INSERT INTO equipment_unitdata VALUES(' . implode($sql->toArray(), '),(') . ');";
 
         $fuelmans = FuelmanModel::all(); // No get()!
-        $sql = $fuelmans->map(function ($item, $key){
-            return implode($item->toArray(), ',');
+        $sql = $fuelmans->map(function ($item, $key) {
+            return implode(",", $item->toArray());
         });
 
-        $data['sql'] .= 'INSERT INTO fuelman VALUES('. implode($sql->toArray(), '),(') .');' ;
+        $data['sql'] .= "INSERT INTO fuelman VALUES(' . implode($sql->toArray(), '),(') . ');";
+
+        //Vocher
+        $vouchers = VoucherModel::all(); // No get()!
+        $sql = $vouchers->map(function ($item, $key) {
+            return implode(",", $item->toArray());
+        });
+
+        $data['sql'] .= "INSERT INTO voucher VALUES(' . implode($sql->toArray(), '),(') . ');";
 
         return response()->json([
-                'success' => true,
-                'data' => $data
-            ], 200);
+            'success' => true,
+            'data' => $data
+        ], 200);
     }
 
     /**
