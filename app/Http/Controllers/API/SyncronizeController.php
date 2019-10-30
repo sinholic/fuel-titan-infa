@@ -22,14 +22,16 @@ class SyncronizeController extends Controller
             return implode(",", $item->toArray());
         });
 
-        $data['sql'] = "INSERT INTO equipment_unitdata VALUES(' . implode($sql->toArray(), '),(') . ');";
+        // dd($sql);
+
+        $data['sql'] = 'INSERT INTO equipment_unitdata VALUES(' . implode('),(', $sql->toArray()) . ');';
 
         $fuelmans = FuelmanModel::all(); // No get()!
         $sql = $fuelmans->map(function ($item, $key) {
             return implode(",", $item->toArray());
         });
 
-        $data['sql'] .= "INSERT INTO fuelman VALUES(' . implode($sql->toArray(), '),(') . ');";
+        $data['sql'] .= 'INSERT INTO fuelman VALUES(' . implode('),(', $sql->toArray()) . ');';
 
         //Vocher
         $vouchers = VoucherModel::all(); // No get()!
@@ -37,7 +39,9 @@ class SyncronizeController extends Controller
             return implode(",", $item->toArray());
         });
 
-        $data['sql'] .= "INSERT INTO voucher VALUES(' . implode($sql->toArray(), '),(') . ');";
+        $data['sql'] .= 'INSERT INTO voucher VALUES(' . implode('),(',$sql->toArray()) . ');';
+
+        // $data['sql'] = $sql;
 
         return response()->json([
             'success' => true,
