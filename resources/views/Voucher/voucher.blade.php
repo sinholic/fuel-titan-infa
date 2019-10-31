@@ -58,7 +58,7 @@
                         Expired: $s->expired_date"  
                     @endphp --}}
                 <tr>
-                    <td>{{$i++}}</td>
+                    <td>{{ $loop->iteration }}</td>
                     {{-- <td>{{$s->code_number}}</a> --}}
                     <td>{{$s->jumlah}}</td>
                     <td>{{$s->qty}}</td>

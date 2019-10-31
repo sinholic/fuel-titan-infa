@@ -11,7 +11,7 @@ class VoucherController extends Controller
 {
     public function voucher()
     {
-        $voucher = VoucherModel::all();
+        $voucher = VoucherModel::select(\DB::raw('count(*) as jumlah'), 'qty', 'owner', 'expired_date')->groupBy('owner', 'expired_date', 'qty')->get();
         return view('Voucher.voucher', ['voucher' => $voucher]);
     }
 
