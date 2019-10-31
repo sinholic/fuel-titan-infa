@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class VoucherModel extends Model
 {
     protected $table = "voucher";
-    protected $fillable = ['code_number', 'qty', 'owner', 'expired_date', '', ''];
+    protected $fillable = ['code_number', 'qty', 'owner', 'expired_date'];
 }
