@@ -36,66 +36,71 @@
         </div>
 
     <div class="card-body">
-        <table class="table table-striped table table-bordered" id="myTable">
-            <thead style="background-color: #9C5C22">
-                <tr>
-                    <th class="text-center">No</th>
-                    <th class="text-center">Nomor Equipment</th>
-                    <th class="text-center">Nama Equipment</th>
-                    <th class="text-center">Nomor Equipment (SAP)</th>
-                    <th class="text-center">Equipment Category</th>
-                    <th class="text-center">Location</th>
-                    <th class="text-center">Fuel Capacity</th>
-                    <th class="text-center" width="5%">Machine Hours</th>
-                    <th class="text-center">Last Machine Hours</th>
-                    <th class="text-center">Last Odomenter</th>
-                    <th class="text-center">Std Consumption</th>
-                    <th class="text-center">Last Ending Stock</th>
-                    <th class="text-center">Add Fuel</th>
-                    <th class="text-center">Last Maintenance</th>
-                    <th class="text-center">PIC</th>
-                    <th class="text-center" width="8%">Action</th>
-                </tr>
-            </thead>
-            @php $i=1 @endphp
-            <tbody>
+        <div class="table-responsive-sm">
+            <table class="table table-sm table-hover table-bordered" id="myTable">
+                <thead style="background-color: #9C5C22">
+                    <tr>
+                        <th class="text-center">No</th>
+                        <th class="text-center">Nomor Equipment</th>
+                        <th class="text-center">Nama Equipment</th>
+                        <th class="text-center">Nomor Equipment (SAP)</th>
+                        <th class="text-center">Equipment Category</th>
+                        <th class="text-center">Location</th>
+                        <th class="text-center">Fuel Capacity</th>
+                        <th class="text-center" width="5%">Machine Hours</th>
+                        <th class="text-center">Last Machine Hours</th>
+                        <th class="text-center">Last Odomenter</th>
+                        <th class="text-center">Std Consumption</th>
+                        <th class="text-center">Last Ending Stock</th>
+                        <th class="text-center">Add Fuel</th>
+                        <th class="text-center">Last Maintenance</th>
+                        <th class="text-center">PIC</th>
+                        <th class="text-center" width="8%">Action</th>
+                    </tr>
+                </thead>
                 @php $i=1 @endphp
-                 @foreach($equipment ?? '' as $s)
-                <tr>
-                    <td>{{$i++}}</td>
-                    <td>{{$s->equipment_number}}</td>
-                    <td>{{$s->equipment_category}}</td>
-                    <td>{{$s->location}}</td>
-                    <td>{{$s->fuel_capacity}}</td>
-                    <td>{{$s->machine_hours}}</td>
-                    <td>{{$s->last_machine_hours}}</td>
-                    <td>{{$s->std_consumption}}</td>
-                    <td>{{$s->last_ending_stock}}</td>
-                    <td>{{$s->add_fuel}}</td>
-                    <td>{{$s->last_maintenance}}</td>
-                    <td>{{$s->pic}}</td>
-                    <td>
-                         <div class="btn-group">
+                <tbody>
+                    @php $i=1 @endphp
+                    @foreach($equipment ?? '' as $s)
+                    <tr>
+                        <td>{{$i++}}</td>
+                        <td>{{$s->equipment_number}}</td>
+                        <td>{{$s->equipment_name}}</td>
+                        <td>{{$s->equipment_sap}}</td>
+                        <td>{{$s->equipment_category}}</td>
+                        <td>{{$s->location}}</td>
+                        <td>{{$s->fuel_capacity}}</td>
+                        <td>{{$s->machine_hours}}</td>
+                        <td>{{$s->last_machine_hours}}</td>
+                        <td>{{$s->last_odometer}}</td>
+                        <td>{{$s->std_consumption}}</td>
+                        <td>{{$s->last_ending_stock}}</td>
+                        <td>{{$s->add_fuel}}</td>
+                        <td>{{$s->last_maintenance}}</td>
+                        <td>{{$s->pic}}</td>
+                        <td>
+                            <div class="btn-group">
 
-                            <!-- URL::to('/admin/category/detail.id='.$cate-id -->
-                             <a href="#" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Info">
-                                <i class="fa fa-info-circle nav-icon"></i>
-                            </a>
+                                <!-- URL::to('/admin/category/detail.id='.$cate-id -->
+                                <a href="#" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Info">
+                                    <i class="fa fa-info-circle nav-icon"></i>
+                                </a>
 
-                            <a href="/equipment/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
-                                <i class="fa fa-edit nav-icon"></i>
-                            </a>
+                                <a href="/equipment/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
+                                    <i class="fa fa-edit nav-icon"></i>
+                                </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/equipment/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
-                                <i class="fa fa-trash nav-icon"></i>
-                            </a>
+                                <a onClick="return confirm('Yakin ingin menghapus data?')" href="/equipment/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
+                                    <i class="fa fa-trash nav-icon"></i>
+                                </a>
 
-                        </div>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

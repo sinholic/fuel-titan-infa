@@ -140,7 +140,7 @@ to get the desired effect
                         
                         <li class="nav-item offset-md-3">
                             <a href="/mobile" class="nav-link">
-                              <i class="fas fa-car-buiding"></i>
+                              <i class="fas fa-building"></i>
                                 Mobile Master Station
                             </a>
                         </li>
@@ -197,7 +197,6 @@ to get the desired effect
                   <p>User LV</p>
                 </a>
               </li>
-
             </ul>
 
           </li>
@@ -214,7 +213,7 @@ to get the desired effect
 
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/reloading" class="nav-link">
                   <i class="fas fa-gas-pump"></i>
                   <p>Reloading Fuel</p>
                 </a>
