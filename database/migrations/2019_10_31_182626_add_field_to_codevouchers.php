@@ -13,7 +13,7 @@ class AddFieldToCodevouchers extends Migration
      */
     public function up()
     {
-        Schema::table('codevouchers', function (Blueprint $table) {
+        Schema::table('vouchercodes', function (Blueprint $table) {
             $table->bigInteger('voucher_id');
             $table->string('code_number');
             $table->softDeletes();
@@ -27,7 +27,7 @@ class AddFieldToCodevouchers extends Migration
      */
     public function down()
     {
-        Schema::table('codevouchers', function (Blueprint $table) {
+        Schema::table('vouchercodes', function (Blueprint $table) {
             $table->dropColumn('voucher_id', 'code_number');
             $table->dropSoftDeletes();
         });
