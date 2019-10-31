@@ -23,7 +23,7 @@
 
 					<div class="form-group">
 						<label>Jumlah Voucher</label>
-						<input type="number" name="" placeholder="Jumlah Voucher" class="form-control" required autofocus>
+						<input type="number" name="jumlah" placeholder="Jumlah Voucher" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
