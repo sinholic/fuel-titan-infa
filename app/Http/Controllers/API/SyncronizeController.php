@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use App\EquipmentModel;
 use App\FuelmanModel;
 use App\VoucherModel;
+use App\FixStationModel;
+use App\MobileModel;
+use App\OwnerModel;
+use App\OrganizationModel;
+use App\UserLVModel;
 
 class SyncronizeController extends Controller
 {
@@ -36,16 +41,50 @@ class SyncronizeController extends Controller
 
         //$data['sql'] .= 'INSERT INTO fuelman VALUES(' . implode('),(', $sql->toArray()) . ');';
         $data['sql'] .= str_replace(",'',''", "", str_replace("')'", "')", str_replace(",", "',", "INSERT INTO fuelman VALUES('" . join("),('", $sql->toArray()) . ");")));
+
         //Vocher
         $vouchers = VoucherModel::all(); // No get()!
         $sql = $vouchers->map(function ($item, $key) {
             //return implode(",", $item->toArray());
             return join(",'", $item->toArray()) . "'";
         });
-
-        //$data['sql'] .= 'INSERT INTO voucher VALUES(' . implode('),(', $sql->toArray()) . ');';
         $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO voucher VALUES('" . join("),('", $sql->toArray()) . ");"));
-        // $data['sql'] = $sql;
+
+
+        //Fix Station
+        $fix = FixStationModel::all();
+        $sql = $fix->map(function ($item, $key) {
+            return join(",'", $item->toArray()) . "'";
+        });
+        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO fix_station VALUES('" . join("),('", $sql->toArray()) . ");"));
+
+        //Mobile Station
+        $mobile = MobileModel::all();
+        $sql = $mobile->map(function ($item, $key) {
+            return join(",'", $item->toArray()) . "'";
+        });
+        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO mobile_station VALUES('" . join("),('", $sql->toArray()) . ");"));
+
+        //Owner
+        $owner = OwnerModel::all();
+        $sql = $owner->map(function ($item, $key) {
+            return join(",'", $item->toArray()) . "'";
+        });
+        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO owner VALUES('" . join("),('", $sql->toArray()) . ");"));
+
+        //User HE
+        $userHe = OrganizationModel::all();
+        $sql = $userHe->map(function ($item, $key) {
+            return join(",'", $item->toArray()) . "'";
+        });
+        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO organization VALUES('" . join("),('", $sql->toArray()) . ");"));
+
+        //User LV
+        $userLV = UserLVModel::all();
+        $sql = $userLV->map(function ($item, $key) {
+            return join(",'", $item->toArray()) . "'";
+        });
+        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO userlv VALUES('" . join("),('", $sql->toArray()) . ");"));
 
         return response()->json([
             'success' => true,
