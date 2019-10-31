@@ -26,6 +26,8 @@ class EquipmentUnitdata extends Migration
             $table->string('add_fuel');
             $table->string('last_maintenance');
             $table->string('pic');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
