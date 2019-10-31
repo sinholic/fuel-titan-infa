@@ -67,7 +67,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/fix/edit/{id}', 'FixStationController@edit');
     Route::post('/fix/update/{id}', 'FixStationController@update');
 
-    //Fuel
+    //Fuelman
     Route::get('/fuel', 'FuelmanController@fuel');
     Route::get('/tampiladdfuel', 'FuelmanController@tambah');
     Route::post('/fuel/create', 'FuelmanController@create');
@@ -125,7 +125,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/tampiladdvoucher', 'VoucherController@tambah');
     Route::post('/voucher/create', 'VoucherController@create');
     Route::get('/voucher/edit/{id}', 'VoucherController@edit');
-    Route::post('/voucher/update/{id}', 'VoucherController@update');
+    Route::post('/voucher/update/{id_voucher}', 'VoucherController@update');
     Route::get('/voucher/{id}/delete', 'VoucherController@delete');
     Route::get('/print_voucher', 'VoucherController@print');
+
+    //Reloading
+    Route::get('/reloading', 'ReloadingController@reloading');
+    Route::get('/tampiladdreloading', 'ReloadingController@tambah');
+    Route::post('/reloading/create', 'ReloadingController@create');
+    Route::get('/reloading/edit/{id_reloading}', 'ReloadingController@edit');
+    Route::post('/reloading/update/{id_reloading}', 'ReloadingController@update');
+    Route::get('/reloading/{id_reloading}/delete', 'ReloadingController@delete');
 });
