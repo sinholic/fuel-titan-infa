@@ -10,8 +10,8 @@
     <title>Print Voucher</title>
     <style type="text/css">
         .table {
-            height: 4cm;
-            width: 4cm;
+            height: 3cm;
+            width: 8cm;
         }
         .jumlah {
             font-size: 30px;
