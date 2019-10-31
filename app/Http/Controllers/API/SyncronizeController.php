@@ -11,8 +11,7 @@ use App\VoucherModel;
 use App\FixStationModel;
 use App\MobileModel;
 use App\OwnerModel;
-use App\OrganizationModel;
-use App\UserLVModel;
+use App\User;
 
 class SyncronizeController extends Controller
 {
@@ -92,18 +91,11 @@ class SyncronizeController extends Controller
         $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO owner VALUES('" . join("),('", $sql->toArray()) . ");"));
 
         //User HE
-        $userHe = OrganizationModel::all();
+        $userHe = User::all();
         $sql = $userHe->map(function ($item, $key) {
             return join(",'", $item->toArray()) . "'";
         });
-        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO organization VALUES('" . join("),('", $sql->toArray()) . ");"));
-
-        //User LV
-        $userLV = UserLVModel::all();
-        $sql = $userLV->map(function ($item, $key) {
-            return join(",'", $item->toArray()) . "'";
-        });
-        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO userlv VALUES('" . join("),('", $sql->toArray()) . ");"));
+        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO users VALUES('" . join("),('", $sql->toArray()) . ");"));
 
         return response()->json([
             'success' => true,
