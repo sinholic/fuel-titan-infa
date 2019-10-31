@@ -27,8 +27,8 @@
                     </div> --}}
 
                     <div class="form-group">
-                        <label for="">Qty</label>
-                        <input type="text" name="qty" value="{{$voucher->qty}}" class="form-control" required autofocus>
+                        <label for="">Qty (ltr)</label>
+                        <input type="number" name="qty" value="{{$voucher->qty}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
