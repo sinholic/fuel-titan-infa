@@ -11,6 +11,7 @@ class VoucherController extends Controller
 {
     public function voucher()
     {
+        //$voucher = VoucherModel::groupBy('owner')->groupBy('expired_date')->get();
         $voucher = VoucherModel::all();
         return view('Voucher.voucher', ['voucher' => $voucher]);
     }
