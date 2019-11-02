@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\EquipmentModel;
-use App\FuelmanModel;
 use App\VoucherModel;
 use App\FixStationModel;
 use App\MobileModel;
@@ -48,17 +47,7 @@ class SyncronizeController extends Controller
         // dd($sql);
 
         $data['sql'] = str_replace("')'", "')", str_replace(",", "',", "INSERT INTO equipment_unitdata VALUES('" . join("),('", $sql->toArray()) . ");"));
-
         //$data['sql'] = str_replace($data['sql'], ",", "',");
-
-        $fuelmans = FuelmanModel::all(); // No get()!
-        $sql = $fuelmans->map(function ($item, $key) {
-            //return implode(",", $item->toArray());
-            return join(",'", $item->toArray()) . "'";
-        });
-
-        //$data['sql'] .= 'INSERT INTO fuelman VALUES(' . implode('),(', $sql->toArray()) . ');';
-        $data['sql'] .= str_replace(",'',''", "", str_replace("')'", "')", str_replace(",", "',", "INSERT INTO fuelman VALUES('" . join("),('", $sql->toArray()) . ");")));
 
         //Vocher
         $vouchers = VoucherModel::all(); // No get()!

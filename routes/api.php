@@ -40,20 +40,6 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('/{id}/delete', 'API\OwnerController@delete');
     });
 
-    //Organization
-    Route::group(['prefix' => 'organization'], function () {
-        Route::get('/', 'API\OrganizationController@lists');
-        Route::post('/create', 'API\OrganizationController@create');
-        Route::post('/update/{id}', 'API\OrganizationController@update');
-    });
-
-    //Fuelman
-    Route::group(['prefix' => 'fuel'], function () {
-        Route::get('/', 'API\FuelmanController@lists');
-        Route::post('/create', 'API\FuelmanController@create');
-        Route::post('/update/{id}', 'API\FuelmanController@update');
-    });
-
     Route::group(['prefix' => 'syncronize'], function () {
         Route::post('/', 'API\SyncronizeController@index');
     });
