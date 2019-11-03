@@ -171,20 +171,6 @@ to get the desired effect
               </li>
 
               <li class="nav-item">
-                <a href="/fuelman" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
-                  <p>Fuelman</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="/organization" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
-                  <p>User HE</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
                 <a href="/voucher" class="nav-link">
                   <i class="fas fa-qrcode"></i>
                   <p>Voucher</p>
@@ -192,9 +178,9 @@ to get the desired effect
               </li>
 
               <li class="nav-item">
-                <a href="/userlv" class="nav-link">
+                <a href="/users" class="nav-link">
                   <i class="fas fa-gas-pump"></i>
-                  <p>User LV</p>
+                  <p>Users</p>
                 </a>
               </li>
             </ul>

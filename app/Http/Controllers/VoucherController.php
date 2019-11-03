@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\VoucherModel;
+use App\Vouchercode;
+use App\OwnerModel;
 use Faker\Provider\Uuid;
 use Illuminate\Support\Str;
 
@@ -17,20 +19,37 @@ class VoucherController extends Controller
 
     public function tambah()
     {
-        return view('Voucher.tambah_voucher');
+        $owners = OwnerModel::all();
+        return view('Voucher.tambah_voucher', ['owners' => $owners]);
+    }
+
+    public function validator(Request $request)
+    {
+        # code...
     }
 
     public function create(Request $request)
     {
         $num_cols = $request->input('jumlah');
+        $voucher = new VoucherModel;
+        $voucher->qty = $request->qty;
+        // $baru->code_number = Str::random(20);
+        $voucher->owner = $request->owner;
+        $voucher->expired_date = $request->expired_date;
+        $voucher->save();
+
+        $vouceherCodes = array();
+
         for ($i = 1; $i <= $num_cols; $i++) {
-            $baru = new VoucherModel;
-            $baru->code_number = Str::random(20);
-            $baru->qty = $request->qty;
-            $baru->owner = $request->owner;
-            $baru->expired_date = $request->expired_date;
-            $baru->save();
+            $vouceherCodes[] = new Vouchercode(array(
+                'voucher_id' => $voucher->id,
+                // 'voucher_id' => 1,
+                'code_number' => sha1(time()),
+            ));
         }
+
+        $voucher->vouchercodes()->saveMany($vouceherCodes);
+
         //dd($request->all());
         return redirect('/voucher')->with('sukses', 'Data berhasil di Input!');
     }

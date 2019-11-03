@@ -9,10 +9,10 @@ class Vouchercode extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['code_number', 'qty', 'owner', 'expired_date', '', ''];
+    protected $fillable = ['code_number', 'voucher_id'];
 
-    public function vouchercodes()
+    public function voucher()
     {
-        return $this->hasMany('App\Vouchercode', 'voucher_id', 'id');
+        return $this->belongsTo('App\VoucherModel', 'voucher_id', 'id');
     }
 }

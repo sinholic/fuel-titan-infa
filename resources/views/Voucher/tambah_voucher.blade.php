@@ -33,7 +33,7 @@
                     
                     <div class="form-group">
 						<label>Owner</label>
-						<input type="text" name="owner" placeholder="" class="form-control" required autofocus>
+						{{ Form::select('owner', $owners, null, ['placeholder' => 'Pilih owner...', 'required', 'class' => 'form-control']) }}
                     </div>
                     
                     <div class="form-group">
