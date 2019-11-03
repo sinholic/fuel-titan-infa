@@ -4,22 +4,22 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSiswasTable extends Migration
+class CreatePenerimaanTable extends Migration
 {
     /**
      * Run the migrations.
      *
-     * @return void
+     * @return void 
      */
     public function up()
     {
-        Schema::create('siswas', function (Blueprint $table) {
+        Schema::create('penerimaan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('jenis_unit');
-            $table->string('unit_number');
-            $table->string('unit_category');
-            $table->string('vendor');
-            $table->string('address');
+            $table->string('remark');
+            $table->string('supplier');
+            $table->string('no_po');
+            $table->string('qty');
+            $table->string('no_tangki');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -32,6 +32,6 @@ class CreateSiswasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('siswas');
+        Schema::dropIfExists('penerimaan');
     }
 }

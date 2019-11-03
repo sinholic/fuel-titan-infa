@@ -33,12 +33,12 @@
 
                     <div class="form-group">
                         <label>Kapasitas Tangki</label>
-                        <input type="text" name="fuel_capacity" value="{{$mobile->fuel_capacity}}" class="form-control" required autofocus>
+                        <input type="number" name="fuel_capacity" value="{{$mobile->fuel_capacity}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
                         <label>Induk Station</label>
-                        <input type="text" name="induk_station" value="{{$mobile->induk_station}}" class="form-control" required autofocus>
+                        <input type="number" name="induk_station" value="{{$mobile->induk_station}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">

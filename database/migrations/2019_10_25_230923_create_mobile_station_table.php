@@ -21,6 +21,7 @@ class CreateMobileStationTable extends Migration
             $table->string('induk_station');
             $table->string('fuelman_assignment');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

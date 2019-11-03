@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     });
 
     Route::group(['prefix' => 'syncronize'], function () {
-        Route::post('/', 'API\SyncronizeController@index');
+        Route::get('/', 'API\SyncronizeController@index');
     });
 });
 

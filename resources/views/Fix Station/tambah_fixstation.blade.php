@@ -48,7 +48,7 @@
 
                     <div class="form-group">
 						<label>Kapasitas Tangki</label>
-						<input type="text" name="fuel_capacity" placeholder="" class="form-control" required autocomplete="">
+						<input type="number" name="fuel_capacity" placeholder="" class="form-control" required autocomplete="">
                     </div> 
 
                     <div class="form-group">
@@ -58,17 +58,17 @@
 
                     <div class="form-group">
 						<label>Pengisian Terakhir</label>
-						<input type="text" name="last_refuel" placeholder="" class="form-control" required autocomplete="">
+						<input type="date" name="last_refuel" placeholder="" class="form-control" required autocomplete="">
                     </div> 
 
                     <div class="form-group">
 						<label>Ending Stock Date</label>
-						<input type="text" name="ending_stock_date" placeholder="" class="form-control" required autocomplete="">
+						<input type="date" name="ending_stock_date" placeholder="" class="form-control" required autocomplete="">
                     </div> 
 
                     <div class="form-group">
 						<label>Ending Stock Quantity</label>
-						<input type="text" name="ending_stock_quantity" placeholder="" class="form-control" required autocomplete="">
+						<input type="number" name="ending_stock_quantity" placeholder="" class="form-control" required autocomplete="">
                     </div> 
 
 				</div>

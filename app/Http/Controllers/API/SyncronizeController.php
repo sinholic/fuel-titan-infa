@@ -22,8 +22,8 @@ class SyncronizeController extends Controller
     public function index()
     {
         $data['message'] = "Syncronize succeccfully";
-        
-        if(!Auth::user()) {
+
+        if (!Auth::user()) {
             $data['message'] = "No user detected, are you try to hack?";
             return response()->json([
                 'success' => false,
@@ -31,7 +31,7 @@ class SyncronizeController extends Controller
             ], 200);
         }
 
-        if(Auth::user()->syncpassword != request('syncpassword')) {
+        if (Auth::user()->syncpassword != request('syncpassword')) {
             $data['message'] = "Are you forgot your sync password?";
             return response()->json([
                 'success' => false,

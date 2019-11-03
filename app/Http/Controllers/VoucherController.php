@@ -30,6 +30,14 @@ class VoucherController extends Controller
 
     public function create(Request $request)
     {
+        $messages = [
+            'required' => ':Tidak boleh mengisi tanggal kemarin',
+        ];
+
+        $this->validate($request, [
+            'expired_date' => 'required|date|after_or_equal:start_date'
+        ], $messages);
+
         $num_cols = $request->input('jumlah');
         $voucher = new VoucherModel;
         $voucher->qty = $request->qty;

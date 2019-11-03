@@ -20,6 +20,14 @@ class EquipmentController extends Controller
 
     public function create(Request $request)
     {
+        $messages = [
+            'required' => ':Tidak boleh mengisi tanggal besok',
+        ];
+
+        $this->validate($request, [
+            'last_maintenance' => 'required|date|before_or_equal:date'
+        ], $messages);
+
         EquipmentModel::create($request->all());
         return redirect('/equipment')->with('sukses', 'Data Berhasil di Input!');
     }
@@ -35,5 +43,12 @@ class EquipmentController extends Controller
         $equipment = EquipmentModel::find($id);
         $equipment->update($request->all());
         return redirect('/equipment')->with('sukses', 'Data berhasil di Update!');
+    }
+
+    public function delete($id)
+    {
+        $equipment = EquipmentModel::find($id);
+        $equipment->delete($equipment);
+        return redirect('/equipment')->with('sukses', 'Data berhasil dihapus!');
     }
 }
