@@ -16,62 +16,49 @@
 			<strong>{{ $sukses }}</strong>
 		</div>
     @endif
-
-    {{-- Menampilkan error validasi --}}
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{$error}}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     
     <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
 		 <i class="fas fa-file-excel"></i> Import Excel
     </button>
 
-    <a href="/fuelman/export_excel" class="btn btn-success my-1" target="_blank">
+    <a href="/reloading/export_excel" class="btn btn-success my-1" target="_blank">
         <i class="fas fa-file-excel"></i> Export Excel
     </a>
     
-        <a href="/tampiladdfuelman" class="btn btn-primary">
+        <a href="/tampiladdreloading" class="btn btn-primary">
             <i class="fa fa-plus nav-icon"></i>
         </a>
 
 <div class="card" style="border-top: 3px solid #9C5C22">
-    
-    <div class="card-header">
-        <h4>Master Fuelman</h4>
-    </div>
+        
+       <div class="card-header">
+            <h4>Pengisian Ulang Mobile Station</h4>
+        </div>
 
     <div class="card-body">
         <table class="table table-striped table table-bordered" id="myTable">
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">NIK</th>
-                    <th class="text-center">Name</th>
-                    <th class="text-center">Location Assignment</th>
-                    <th class="text-center">Password Login</th>
-                    <th class="text-center">Password Sync</th>
-                    <th class="text-center">IMEI</th>
+                    <th class="text-center">No.PO/SJ/SPK</th>
+                    <th class="text-center">Unit Mobile Station</th>
+                    <th class="text-center">Driver Mobile Statis</th>
+                    <th class="text-center">Qty Solar</th>
+                    <th class="text-center">Odometer (KM)</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
             @php $i=1 @endphp
             <tbody>
                 @php $i=1 @endphp
-                 @foreach($fuelman ?? '' as $s)
+                 @foreach($reloading ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->nik}}</td>
-                    <td>{{$s->name}}</td>
-                    <td>{{$s->location_assignment}}</td>
-                    <td>{{$s->password_login}}</td>
-                    <td>{{$s->password_sync}}</td>
-                    <td>{{$s->imei}}</td>
+                    <td>{{$s->no_po}}</td>
+                    <td>{{$s->unit_mobile_station}}</td>
+                    <td>{{$s->driver_mobile_statis}}</td>
+                    <td>{{$s->qty_solar}}</td>
+                    <td>{{$s->odometer}}</td>
                     <td>
                          <div class="btn-group">
 
@@ -80,16 +67,17 @@
                                 <i class="fa fa-info-circle nav-icon"></i>
                             </a>
 
-                            <a href="/fuelman/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
+                            <a href="/reloading/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/fuelman/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
+                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/reloading/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
                                 <i class="fa fa-trash nav-icon"></i>
                             </a>
 
                         </div>
                     </td>
+                    
                 </tr>
                 @endforeach
             </tbody>

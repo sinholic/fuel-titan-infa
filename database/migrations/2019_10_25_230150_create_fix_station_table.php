@@ -26,6 +26,7 @@ class CreateFixStationTable extends Migration
             $table->string('ending_stock_date');
             $table->string('ending_stock_quantity');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

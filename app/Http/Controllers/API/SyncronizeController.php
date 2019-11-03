@@ -4,14 +4,14 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\EquipmentModel;
 use App\FuelmanModel;
 use App\VoucherModel;
 use App\FixStationModel;
 use App\MobileModel;
 use App\OwnerModel;
-use App\OrganizationModel;
-use App\UserLVModel;
+use App\User;
 
 class SyncronizeController extends Controller
 {
@@ -22,6 +22,24 @@ class SyncronizeController extends Controller
      */
     public function index()
     {
+        $data['message'] = "Syncronize succeccfully";
+
+        if (!Auth::user()) {
+            $data['message'] = "No user detected, are you try to hack?";
+            return response()->json([
+                'success' => false,
+                'data' => $data
+            ], 200);
+        }
+
+        if (Auth::user()->syncpassword != request('syncpassword')) {
+            $data['message'] = "Are you forgot your sync password?";
+            return response()->json([
+                'success' => false,
+                'data' => $data
+            ], 200);
+        }
+
         $equipments = EquipmentModel::all(); // No get()!
         $sql = $equipments->map(function ($item, $key) {
             return join(",'", $item->toArray()) . "'";
@@ -72,19 +90,12 @@ class SyncronizeController extends Controller
         });
         $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO owner VALUES('" . join("),('", $sql->toArray()) . ");"));
 
-        // //User HE
-        // $userHe = OrganizationModel::all();
-        // $sql = $userHe->map(function ($item, $key) {
-        //     return join(",'", $item->toArray()) . "'";
-        // });
-        // $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO organization VALUES('" . join("),('", $sql->toArray()) . ");"));
-
-        // //User LV
-        // $userLV = UserLVModel::all();
-        // $sql = $userLV->map(function ($item, $key) {
-        //     return join(",'", $item->toArray()) . "'";
-        // });
-        // $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO userlv VALUES('" . join("),('", $sql->toArray()) . ");"));
+        //User HE
+        $userHe = User::all();
+        $sql = $userHe->map(function ($item, $key) {
+            return join(",'", $item->toArray()) . "'";
+        });
+        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO users VALUES('" . join("),('", $sql->toArray()) . ");"));
 
         return response()->json([
             'success' => true,

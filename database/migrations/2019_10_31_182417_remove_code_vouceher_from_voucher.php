@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImeiToUsers extends Migration
+class RemoveCodeVouceherFromVoucher extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddImeiToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('imei')->after('password');
+        Schema::table('voucher', function (Blueprint $table) {
+            $table->dropColumn(['code_number']);
         });
     }
 
@@ -25,8 +25,8 @@ class AddImeiToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('imei');
+        Schema::table('voucher', function (Blueprint $table) {
+            $table->string('code_number');
         });
     }
 }

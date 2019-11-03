@@ -11,8 +11,7 @@ class VoucherController extends Controller
 {
     public function voucher()
     {
-        //$voucher = VoucherModel::groupBy('owner')->groupBy('expired_date')->get();
-        $voucher = VoucherModel::all();
+        $voucher = VoucherModel::select(\DB::raw('count(*) as jumlah'), 'qty', 'owner', 'expired_date')->groupBy('owner', 'expired_date', 'qty')->get();
         return view('Voucher.voucher', ['voucher' => $voucher]);
     }
 
@@ -23,6 +22,14 @@ class VoucherController extends Controller
 
     public function create(Request $request)
     {
+        $messages = [
+            'required' => ':Tidak boleh mengisi tanggal kemarin',
+        ];
+
+        $this->validate($request, [
+            'expired_date' => 'required|date|after_or_equal:start_date'
+        ], $messages);
+
         $num_cols = $request->input('jumlah');
         for ($i = 1; $i <= $num_cols; $i++) {
             $baru = new VoucherModel;

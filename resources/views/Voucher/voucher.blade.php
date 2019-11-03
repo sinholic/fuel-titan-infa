@@ -16,6 +16,17 @@
 			<strong>{{ $sukses }}</strong>
 		</div>
     @endif
+
+    {{-- Menampilkan error validasi --}}
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     
     <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
 		 <i class="fas fa-file-excel"></i> Import Excel
@@ -58,7 +69,7 @@
                         Expired: $s->expired_date"  
                     @endphp --}}
                 <tr>
-                    <td>{{$i++}}</td>
+                    <td>{{ $loop->iteration }}</td>
                     {{-- <td>{{$s->code_number}}</a> --}}
                     <td>{{$s->jumlah}}</td>
                     <td>{{$s->qty}}</td>
@@ -68,7 +79,7 @@
                          <div class="btn-group">
 
                             <!-- URL::to('/admin/category/detail.id='.$cate-id -->
-                            <a href="/print_voucher" class="btn btn-success btn-sm" data-toggle="tooltip" title="Print" onclick="window.open('/print_voucher', 'newwindow', 'width=100%, height=100%'); return false;">
+                            <a href="/print_voucher" class="btn btn-success btn-sm" data-toggle="tooltip" title="Print" onclick="window.open('/print_voucher', 'newwindow', 'width=1000px, height=1000px'); return false;">
                                 <i class="fas fa-print"></i>
                             </a>
 

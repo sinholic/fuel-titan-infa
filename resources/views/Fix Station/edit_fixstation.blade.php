@@ -48,7 +48,7 @@
 
                     <div class="form-group">
                         <label>Kapasitas Tangki</label>
-                        <input type="text" name="fuel_capacity" value="{{$fix->fuel_capacity}}" class="form-control" required autofocus>
+                        <input type="int" name="fuel_capacity" value="{{$fix->fuel_capacity}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
@@ -58,17 +58,17 @@
 
                     <div class="form-group">
                         <label>Pengisian Terakhir</label>
-                        <input type="text" name="last_refuel" value="{{$fix->last_refuel}}" class="form-control" required autofocus>
+                        <input type="date" name="last_refuel" value="{{$fix->last_refuel}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
                         <label>Ending Stock Date</label>
-                        <input type="text" name="ending_stock_date" value="{{$fix->ending_stock_date}}" class="form-control" required autofocus>
+                        <input type="date" name="ending_stock_date" value="{{$fix->ending_stock_date}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
                         <label>Ending Stock Quantity</label>
-                        <input type="text" name="ending_stock_quantity" value="{{$fix->ending_stock_quantity}}" class="form-control" required autofocus>
+                        <input type="date" name="ending_stock_quantity" value="{{$fix->ending_stock_quantity}}" class="form-control" required autofocus>
                     </div>
 
 

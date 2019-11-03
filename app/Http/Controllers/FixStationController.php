@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\FixStationModel;
+use App\Http\Controllers\Controller;
 
 class FixStationController extends Controller
 {

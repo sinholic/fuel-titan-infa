@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMobileStationTable extends Migration
+class CreateOwnerTable1 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateMobileStationTable extends Migration
      */
     public function up()
     {
-        Schema::create('mobile_station', function (Blueprint $table) {
+        Schema::create('owner', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('number_vehicle');
-            $table->string('name_vehicle');
-            $table->string('fuel_capacity');
-            $table->string('induk_station');
-            $table->string('fuelman_assignment');
+            $table->string('jenis_unit');
+            $table->string('unit_number');
+            $table->string('unit_category');
+            $table->string('vendor');
+            $table->string('address');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -32,6 +32,8 @@ class CreateMobileStationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mobile_station');
+        Schema::table('owner', function (Blueprint $table) {
+            Schema::dropIfExists('owner');
+        });
     }
 }

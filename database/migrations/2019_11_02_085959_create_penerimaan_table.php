@@ -4,22 +4,22 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMobileStationTable extends Migration
+class CreatePenerimaanTable extends Migration
 {
     /**
      * Run the migrations.
      *
-     * @return void
+     * @return void 
      */
     public function up()
     {
-        Schema::create('mobile_station', function (Blueprint $table) {
+        Schema::create('penerimaan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('number_vehicle');
-            $table->string('name_vehicle');
-            $table->string('fuel_capacity');
-            $table->string('induk_station');
-            $table->string('fuelman_assignment');
+            $table->string('remark');
+            $table->string('supplier');
+            $table->string('no_po');
+            $table->string('qty');
+            $table->string('no_tangki');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -32,6 +32,6 @@ class CreateMobileStationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mobile_station');
+        Schema::dropIfExists('penerimaan');
     }
 }

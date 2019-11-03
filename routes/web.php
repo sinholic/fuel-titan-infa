@@ -83,6 +83,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/equipment/create', 'EquipmentController@create');
     Route::get('/equipment/edit/{id}', 'EquipmentController@edit');
     Route::post('/equipment/update/{id}', 'EquipmentController@update');
+    Route::get('/equipment/{id}/delete', 'EquipmentController@delete');
 
     //Owner
     Route::get('/owner', 'OwnerController@owner');
@@ -133,7 +134,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/reloading', 'ReloadingController@reloading');
     Route::get('/tampiladdreloading', 'ReloadingController@tambah');
     Route::post('/reloading/create', 'ReloadingController@create');
-    Route::get('/reloading/edit/{id_reloading}', 'ReloadingController@edit');
-    Route::post('/reloading/update/{id_reloading}', 'ReloadingController@update');
-    Route::get('/reloading/{id_reloading}/delete', 'ReloadingController@delete');
+    Route::get('/reloading/edit/{id}', 'ReloadingController@edit');
+    Route::post('/reloading/update/{id}', 'ReloadingController@update');
+    Route::get('/reloading/{id}/delete', 'ReloadingController@delete');
+
+    //Penerimaan Solar
+    Route::get('/penerimaan', 'PenerimaanController@penerimaan');
 });
