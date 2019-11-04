@@ -163,6 +163,14 @@ to get the desired effect
                   <p> Master Equipment</p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-gas-pump"></i>
+                  <p> Kategori Equipment</p>
+                </a>
+              </li>
+
               <li class="nav-item">
                 <a href="/owner" class="nav-link">
                   <i class="fas fa-gas-pump"></i>
@@ -178,12 +186,20 @@ to get the desired effect
               </li>
 
               <li class="nav-item">
-                <a href="/users" class="nav-link">
+                <a href="/user1" class="nav-link">
                   <i class="fas fa-gas-pump"></i>
                   <p>Users</p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="/status" class="nav-link">
+                  <i class="fas fa-gas-pump"></i>
+                  <p>Status</p>
+                </a>
+              </li>
             </ul>
+
 
           </li>
 

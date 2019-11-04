@@ -140,4 +140,20 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Penerimaan Solar
     Route::get('/penerimaan', 'PenerimaanController@penerimaan');
+
+    //User
+    Route::get('/user1', 'UserController@user1');
+    Route::get('/tampiladduser', 'UserController@tambah');
+    Route::post('/user/create', 'UserController@create');
+    Route::get('/user/edit/{id}', 'UserController@edit');
+    Route::post('/user/update/{id}', 'UserController@update');
+    Route::get('/user/{id}/delete', 'UserController@delete');
+
+
+
+    //Status Id
+    Route::get('/status', 'StatusController@index');
+    Route::get('/tampilstatus', 'StatusController@tambah');
+    Route::post('/status/create', 'StatusController@create');
+    Route::get('status/edit/{id}', 'StatusController@edit');
 });
