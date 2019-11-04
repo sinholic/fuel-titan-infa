@@ -48,7 +48,8 @@ class VoucherController extends Controller
             $vouceherCodes[] = new Vouchercode(array(
                 'voucher_id' => $voucher->id,
                 // 'voucher_id' => 1,
-                'code_number' => sha1(time() + $i),
+                'code_number' => sha1(time()+$i),
+                'used' => 0
             ));
         }
 
@@ -78,10 +79,15 @@ class VoucherController extends Controller
         return redirect('/voucher')->with('sukses', 'Data berhasil dihapus!');
     }
 
-    public function print(Request $request)
+    public function print($id)
     {
+<<<<<<< HEAD
 
         $voucher = VoucherModel::all();
+=======
+        $voucher = VoucherModel::with('vouchercodes', 'voucherowner')->find($id);
+        // dd($voucher->voucherowner);
+>>>>>>> bd24ea8cb9d1c68aeb7a45178cb25e9dcf2c491f
         return view('Voucher.print_voucher', ['voucher' => $voucher]);
     }
 }

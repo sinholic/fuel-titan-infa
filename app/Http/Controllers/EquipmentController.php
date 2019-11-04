@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\EquipmentModel;
+use App\OwnerModel;
 
 class EquipmentController extends Controller
 {
@@ -15,7 +16,8 @@ class EquipmentController extends Controller
 
     public function tambah()
     {
-        return view('Equipment.tambah_equipment');
+        $owners = OwnerModel::pluck('vendor', 'id');
+        return view('Equipment.tambah_equipment', ['owners' => $owners]);
     }
 
     public function create(Request $request)

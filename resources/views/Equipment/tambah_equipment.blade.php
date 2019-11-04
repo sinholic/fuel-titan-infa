@@ -72,8 +72,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label>PIC</label>
-                        <input type="text" name="pic" placeholder="" class="form-control" required autocomplete="">
+                        <label>Owner</label>
+                        {{ Form::select('owner', $owners, null, ['placeholder' => 'Pilih owner...', 'required', 'class' => 'form-control']) }}
                     </div>
 
                 </div>

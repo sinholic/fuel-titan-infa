@@ -16,4 +16,9 @@ class VoucherModel extends Model
     {
         return $this->hasMany('App\Vouchercode', 'voucher_id', 'id');
     }
+
+    public function voucherowner()
+    {
+        return $this->belongsTo('App\OwnerModel', 'owner', 'id');
+    }
 }

@@ -58,28 +58,21 @@
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
-            @php $i=1 @endphp
+
             <tbody>
-                @php $i=1 @endphp
+
                  @foreach($voucher ?? '' as $s)
-                    {{-- @php $string = 
-                        "Voucher: $s->code_number, 
-                        Qty: $s->qty, 
-                        Nama: $s->owner,
-                        Expired: $s->expired_date"  
-                    @endphp --}}
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    {{-- <td>{{$s->code_number}}</a> --}}
                     <td>{{$s->vouchercodes->count()}}</td>
                     <td>{{$s->qty}}</td>
-                    <td>{{$s->owner}}</td>
+                    <td>{{$s->voucherowner->vendor ?? 'Owner not found'}}</td>
                     <td>{{date('l, d-M-Y', strtotime($s->expired_date))}}</td>
                     <td>
                          <div class="btn-group">
 
                             <!-- URL::to('/admin/category/detail.id='.$cate-id -->
-                            <a href="/print_voucher" class="btn btn-success btn-sm" data-toggle="tooltip" title="Print" onclick="window.open('/print_voucher', 'newwindow', 'width=1000px, height=1000px'); return false;">
+                            <a href="/print_voucher" class="btn btn-success btn-sm" data-toggle="tooltip" title="Print" onclick="window.open('/print_voucher/{{$s->id}}', 'newwindow', 'width=1000px, height=1000px'); return false;">
                                 <i class="fas fa-print"></i>
                             </a>
 
