@@ -36,6 +36,11 @@
                         <input type="text" name="imei" value="{{$user->imei}}" class="form-control" required autofocus>
                     </div>
 
+                    <div class="form-group">
+                        <label>User level</label>
+                        <input type="text" name="imei" value="{{$user->imei}}" class="form-control" required autofocus>
+                    </div>
+
                 </div>
 
                 <div class="card-footer">

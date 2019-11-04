@@ -186,7 +186,7 @@ to get the desired effect
               </li>
 
               <li class="nav-item">
-                <a href="/user1" class="nav-link">
+                <a href="/user" class="nav-link">
                   <i class="fas fa-gas-pump"></i>
                   <p>Users</p>
                 </a>

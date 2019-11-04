@@ -64,7 +64,11 @@
                  @foreach($voucher ?? '' as $s)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{$s->vouchercodes->count()}}</td>
+                    <td>
+                        <a href="#" onclick="window.open('/lists/{{$s->id}}', 'newwindow', 'width=1000px, height=1000px'); return false;">
+                        {{$s->vouchercodes->count()}}
+                        </a>
+                    </td>
                     <td>{{$s->qty}}</td>
                     <td>{{$s->voucherowner->vendor ?? 'Owner not found'}}</td>
                     <td>{{date('l, d-M-Y', strtotime($s->expired_date))}}</td>

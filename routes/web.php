@@ -67,16 +67,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/fix/edit/{id}', 'FixStationController@edit');
     Route::post('/fix/update/{id}', 'FixStationController@update');
 
-    //Fuelman
-    Route::get('/fuel', 'FuelmanController@fuel');
-    Route::get('/tampiladdfuel', 'FuelmanController@tambah');
-    Route::post('/fuel/create', 'FuelmanController@create');
-    Route::get('/fuel/edit/{id}', 'FuelmanController@edit');
-    Route::post('/fuel/update/{id}', 'FuelmanController@update');
-    Route::get('/fuel/{id}/delete', 'FuelmanController@delete');
-    Route::get('/fuel/export_excel', 'FuelmanController@export_excel');
-    Route::post('/fuel/import_excel', 'FuelmanController@import_excel');
-
     //Equipment & Unit Data
     Route::get('/equipment', 'EquipmentController@equipment');
     Route::get('/tampiladdequipment', 'EquipmentController@tambah');
@@ -94,33 +84,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/owner/{id}/delete', 'OwnerController@delete');
     Route::get('/owner/export_excel', 'OwnerController@export_excel');
 
-    //Fuelman
-    Route::get('/fuelman', 'FuelmanController@fuelman');
-    Route::get('/tampiladdfuelman', 'FuelmanController@tambah');
-    Route::post('/fuelman/create', 'FuelmanController@create');
-    Route::get('/fuelman/edit/{id}', 'FuelmanController@edit');
-    Route::post('/fuelman/update/{id}', 'FuelmanController@update');
-    Route::get('/fuelman/{id}/delete', 'FuelmanController@delete');
-    Route::get('/fuelman/export_excel', 'FuelmanController@export_excel');
-
-    //Organization
-    Route::get('/organization', 'OrganizationController@organization');
-    Route::get('/tampiladdorganization', 'OrganizationController@tambah');
-    Route::post('/organization/create', 'OrganizationController@create');
-    Route::get('/organization/edit/{id}', 'OrganizationController@edit');
-    Route::post('/organization/update/{id}', 'OrganizationController@update');
-    Route::get('/organization/{id}/delete', 'OrganizationController@delete');
-    Route::get('/organization/export_excel', 'OrganizationController@export_excel');
-
-    //User LV
-    Route::get('/userlv', 'UserLVController@userlv');
-    Route::get('/tampiladduserlv', 'UserLVController@tambah');
-    Route::post('/userlv/create', 'UserLVController@create');
-    Route::get('/userlv/edit/{id}', 'UserLVController@edit');
-    Route::post('/userlv/update/{id}', 'UserLVController@update');
-    Route::get('/userlv/{id}/delete', 'UserLVController@delete');
-    Route::get('/userlv/export_excel', 'UserLVController@export_excel');
-
     //Voucher
     Route::get('/voucher', 'VoucherController@voucher');
     Route::get('/tampiladdvoucher', 'VoucherController@tambah');
@@ -129,6 +92,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/voucher/update/{id_voucher}', 'VoucherController@update');
     Route::get('/voucher/{id}/delete', 'VoucherController@delete');
     Route::get('/print_voucher/{id}', 'VoucherController@print');
+    Route::get('/lists/{id}', 'VoucherController@lists');
+
 
     //Reloading
     Route::get('/reloading', 'ReloadingController@reloading');
@@ -142,7 +107,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/penerimaan', 'PenerimaanController@penerimaan');
 
     //User
-    Route::get('/user1', 'UserController@user1');
+    Route::get('/user', 'UserController@user');
     Route::get('/tampiladduser', 'UserController@tambah');
     Route::post('/user/create', 'UserController@create');
     Route::get('/user/edit/{id}', 'UserController@edit');

@@ -7,55 +7,22 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Print Voucher</title>
-    <style type="text/css">
-        table.one {
-            border-collapse:separate;
-            border:solid black 1px;
-            border-radius:6px;
-            -moz-border-radius:6px;
-        }
-
-        td.one, tr.one {
-            border-left:solid black 1px;
-            border-top:solid black 1px;
-        }
-
-        tr.one {
-            background-color: white;
-            border-top: none;
-        }
-
-        td:first-child, tr:first-child {
-            border-left: none;
-            margin-top: 30px;
-        }
-
-        /* .qr{
-            display: block;
-            margin-left: -3;
-        } */
-
-        h4 {
-        font-size: 25px;
-        }
-
-        p {
-        font-size: 15px;
-        left: 25px;
-        }
-    </style>
+    <title>Lists Voucher</title>
+    
   </head>
   <body>
-<a href="#" class="btn btn-primary" style="float: right"; onclick="window.print();">Print</a>
+<a href="#" class="btn btn-primary" style="float: right"; onClick="javascript:window.close('','_parent','');">Close</a>
 
 <div class="container">
     <div class="row">
         <div class="col">
-            <table border="1" class="one">
-                <td style="width: 40mm; height: 40mm;">
-			
-                    <table>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Voucher codes</th>
+                    </tr>
+                </thead>
+                <tbody>
                     @foreach($voucher->vouchercodes as $s)
                         @php $string = 
                             "Voucher: $s->code_number,
@@ -64,21 +31,11 @@
                             Expired: $voucher->expired_date"
                         @endphp
                         <tr>
-                            <td style="margin-left: -6px">{!! QrCode::size(150)->margin(0)->generate($string); !!}</td>
-                            <td><h4>{{$voucher->qty}} ltr</h4></td>
-                        </tr>
-                        <tr>
-                            <td style="margin-top: 30px" colspan=2>
-                                <p>Owner : {{$voucher->voucherowner->vendor}} </p>
-                                <p>Exp. Date : {{date('d M Y', strtotime($voucher->expired_date))}}</p>
-                                <hr >
-                            </td>
+                            <td>{{ $s->code_number }}</td>
                         </tr>
                     @endforeach
-                    </table>
-		
-		        </td>
-    {{-- </table> --}}
+                </tbody>
+            </table>
         </div>
     </div>
 </div> 

@@ -39,6 +39,7 @@
                     <th class="text-center">Nama</th>
                     <th class="text-center">Email</th>
                     <th class="text-center">IMEI</th>
+                    <th class="text-center">Level</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
@@ -51,6 +52,7 @@
                     <td>{{$s->name}}</td>
                     <td>{{$s->email}}</td>
                     <td>{{$s->imei}}</td>
+                    <td>{{$s->status->nama}}</td>
                     <td>
                          <div class="btn-group">
 

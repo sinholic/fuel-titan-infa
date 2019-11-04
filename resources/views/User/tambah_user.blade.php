@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<form action="/user1/create" method="POST">
+		<form action="/user/create" method="POST">
 
 			@csrf
 
@@ -36,6 +36,13 @@
 						<input type="text" name="imei" placeholder="" class="form-control" required autofocus>
                     </div>
 
+					<div class="form-group">
+						<label>User level</label>
+						{{ Form::select('status_id', $statuses, null, ['placeholder' => 'Pilih user level...', 'required', 'class' => 'form-control']) }}
+                    </div>
+
+					{{ Form::hidden('password', \Str::random(10)) }}
+					{{ Form::hidden('syncpassword', \Str::random(10)) }}
 				</div>
 
 				<div class="card-footer">
