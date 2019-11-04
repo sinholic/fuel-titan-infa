@@ -56,41 +56,28 @@
                 <td style="width: 40mm; height: 40mm;">
 			
                     <table>
-                    @foreach($voucher as $s)
+                    @foreach($voucher->vouchercodes as $s)
                         @php $string = 
                             "Voucher: $s->code_number,
-                                Qty : $s->qty,
-                                Owner: $s->owner,
-                                Expired: $s->expired_date"
+                            Qty : $voucher->qty,
+                            Owner: $voucher->voucherowner->vendor,
+                            Expired: $voucher->expired_date"
                         @endphp
                         <tr>
-                            <td style="margin-left: -6px">{!! QrCode::size(200)->generate($string); !!}</td>
-                            <td><h4>{{$s->qty}} ltr</h4></td>
+                            <td style="margin-left: -6px">{!! QrCode::size(150)->margin(0)->generate($string); !!}</td>
+                            <td><h4>{{$voucher->qty}} ltr</h4></td>
                         </tr>
                         <tr>
-                            <td style="margin-top: 30px">
-                                <p>Owner : {{$s->owner}} </p>
-                                <p>Exp. Date : {{date('d M Y', strtotime($s->expired_date))}}</p>
+                            <td style="margin-top: 30px" colspan=2>
+                                <p>Owner : {{$voucher->voucherowner->vendor}} </p>
+                                <p>Exp. Date : {{date('d M Y', strtotime($voucher->expired_date))}}</p>
+                                <hr >
                             </td>
                         </tr>
                     @endforeach
                     </table>
 		
 		        </td>
-                {{-- <tbody>
-                    @foreach($voucher  as $s)
-                        @php $string = 
-                        "Voucher: $s->code_number, 
-                            Qty: $s->qty, 
-                            Nama: $s->owner,
-                            Expired: $s->expired_date"
-                        @endphp
-                        <tr>
-                            <td>{!! QrCode::size(200)->generate($string); !!}
-                            <b class="jumlah">{{$s->qty}} Ltr</b></<b> <br> Owner: {{$s->owner}} <br> Exp. Date: {{date('d M Y', strtotime($s->expired_date))}}</td>
-                        </tr>
-                    @endforeach
-                </tbody> --}}
     {{-- </table> --}}
         </div>
     </div>
