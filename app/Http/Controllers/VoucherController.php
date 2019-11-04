@@ -78,10 +78,10 @@ class VoucherController extends Controller
         return redirect('/voucher')->with('sukses', 'Data berhasil dihapus!');
     }
 
-    public function print(Request $request)
+    public function print($id)
     {
-        
-        $voucher = VoucherModel::all();
+        $voucher = VoucherModel::with('vouchercodes', 'voucherowner')->find($id);
+        // dd($voucher->voucherowner);
         return view('Voucher.print_voucher', ['voucher' => $voucher]);
     }
 }
