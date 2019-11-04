@@ -81,13 +81,8 @@ class VoucherController extends Controller
 
     public function print($id)
     {
-<<<<<<< HEAD
-
-        $voucher = VoucherModel::all();
-=======
         $voucher = VoucherModel::with('vouchercodes', 'voucherowner')->find($id);
         // dd($voucher->voucherowner);
->>>>>>> bd24ea8cb9d1c68aeb7a45178cb25e9dcf2c491f
         return view('Voucher.print_voucher', ['voucher' => $voucher]);
     }
 }
