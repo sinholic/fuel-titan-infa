@@ -66,7 +66,7 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{$s->vouchercodes->count()}}</td>
                     <td>{{$s->qty}}</td>
-                    <td>{{$s->owner}}</td>
+                    <td>{{$s->voucherowner->vendor ?? 'Owner not found'}}</td>
                     <td>{{date('l, d-M-Y', strtotime($s->expired_date))}}</td>
                     <td>
                          <div class="btn-group">
