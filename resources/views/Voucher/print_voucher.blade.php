@@ -56,12 +56,17 @@
                 <td style="width: 40mm; height: 40mm;">
 			
                     <table>
+                    @php 
+                        $qty = $voucher->qty;
+                        $vendorName = $voucher->voucherowner->vendor;
+                        $expired_date = $voucher->expired_date;
+                    @endphp
                     @foreach($voucher->vouchercodes as $s)
                         @php $string = 
                             "Voucher: $s->code_number,
-                            Qty : $voucher->qty,
-                            Owner: $voucher->voucherowner->vendor,
-                            Expired: $voucher->expired_date"
+Qty : $qty,
+Owner: $vendorName,
+Expired: $expired_date"
                         @endphp
                         <tr>
                             <td style="margin-left: -6px">{!! QrCode::size(150)->margin(0)->generate($string); !!}</td>
