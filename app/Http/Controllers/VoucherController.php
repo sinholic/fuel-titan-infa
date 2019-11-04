@@ -24,11 +24,6 @@ class VoucherController extends Controller
         return view('Voucher.tambah_voucher', ['owners' => $owners]);
     }
 
-    public function validator(Request $request)
-    {
-        # code...
-    }
-
     public function create(Request $request)
     {
         $messages = [
@@ -83,8 +78,9 @@ class VoucherController extends Controller
         return redirect('/voucher')->with('sukses', 'Data berhasil dihapus!');
     }
 
-    public function print()
+    public function print(Request $request)
     {
+        
         $voucher = VoucherModel::all();
         return view('Voucher.print_voucher', ['voucher' => $voucher]);
     }
