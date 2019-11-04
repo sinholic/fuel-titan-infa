@@ -13,13 +13,14 @@ class VoucherController extends Controller
 {
     public function voucher()
     {
-        $voucher = VoucherModel::select(\DB::raw('count(*) as jumlah'), 'qty', 'owner', 'expired_date')->groupBy('owner', 'expired_date', 'qty')->get();
+        $voucher = VoucherModel::all();
         return view('Voucher.voucher', ['voucher' => $voucher]);
     }
 
     public function tambah()
     {
-        $owners = OwnerModel::all();
+        $owners = OwnerModel::pluck('vendor', 'id');
+        // dd($owners);
         return view('Voucher.tambah_voucher', ['owners' => $owners]);
     }
 
@@ -52,7 +53,7 @@ class VoucherController extends Controller
             $vouceherCodes[] = new Vouchercode(array(
                 'voucher_id' => $voucher->id,
                 // 'voucher_id' => 1,
-                'code_number' => sha1(time()),
+                'code_number' => sha1(time()+$i),
             ));
         }
 

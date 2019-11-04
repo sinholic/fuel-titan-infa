@@ -71,7 +71,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     {{-- <td>{{$s->code_number}}</a> --}}
-                    <td>{{$s->jumlah}}</td>
+                    <td>{{$s->vouchercodes->count()}}</td>
                     <td>{{$s->qty}}</td>
                     <td>{{$s->owner}}</td>
                     <td>{{date('l, d-M-Y', strtotime($s->expired_date))}}</td>

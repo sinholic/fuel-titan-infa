@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\EquipmentModel;
 use App\VoucherModel;
+use App\Vouchercode;
 use App\FixStationModel;
 use App\MobileModel;
 use App\OwnerModel;
@@ -22,21 +23,23 @@ class SyncronizeController extends Controller
     public function index()
     {
         $data['message'] = "Syncronize succeccfully";
-
-        if (!Auth::user()) {
-            $data['message'] = "No user detected, are you try to hack?";
-            return response()->json([
-                'success' => false,
-                'data' => $data
-            ], 200);
-        }
-
-        if (Auth::user()->syncpassword != request('syncpassword')) {
-            $data['message'] = "Are you forgot your sync password?";
-            return response()->json([
-                'success' => false,
-                'data' => $data
-            ], 200);
+        
+        if (request()->method() == "POST") {
+            if (!Auth::user()) {
+                $data['message'] = "No user detected, are you try to hack?";
+                return response()->json([
+                    'success' => false,
+                    'data' => $data
+                ], 200);
+            }
+    
+            if (Auth::user()->syncpassword != request('syncpassword')) {
+                $data['message'] = "Are you forgot your sync password?";
+                return response()->json([
+                    'success' => false,
+                    'data' => $data
+                ], 200);
+            }
         }
 
         $equipments = EquipmentModel::all(); // No get()!
@@ -56,6 +59,14 @@ class SyncronizeController extends Controller
             return join(",'", $item->toArray()) . "'";
         });
         $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO voucher VALUES('" . join("),('", $sql->toArray()) . ");"));
+
+        //Vochercode
+        $vouchercoodes = Vouchercode::all(); // No get()!
+        $sql = $vouchercoodes->map(function ($item, $key) {
+            //return implode(",", $item->toArray());
+            return join(",'", $item->toArray()) . "'";
+        });
+        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO vouchercodes VALUES('" . join("),('", $sql->toArray()) . ");"));
 
 
         //Fix Station
