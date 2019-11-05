@@ -22,28 +22,33 @@
                     @endif
 
                     <div class="form-group">
-                        <label>Jenis Unit</label>
-                        <input type="text" name="jenis_unit" value="{{$owner->jenis_unit}}" class="form-control" required autofocus>
+                        <label>Nama Vendor</label>
+                        <input type="text" name="vendor_name" value="{{$owner->vendor_name}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
-                        <label for="">Unit Number</label>
-                        <input type="text" name="unit_number" value="{{$owner->unit_number}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Unit Category</label>
-                        <input type="text" name="unit_category" value="{{$owner->unit_category}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Vendor</label>
-                        <input type="text" name="vendor" value="{{$owner->vendor}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Address</label>
+                        <label for="">Alamat</label>
                         <input type="text" name="address" value="{{$owner->address}}" class="form-control" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Kategori Owner</label>
+                        <input type="text" name="owner_category" value="{{$owner->owner_category}}" class="form-control" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label>PIC</label>
+                        <input type="text" name="pic" value="{{$owner->pic}}" class="form-control" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" name="phone" value="{{$owner->phone}}" class="form-control" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" value="{{$owner->email}}" class="form-control" required autofocus>
                     </div>
 
 

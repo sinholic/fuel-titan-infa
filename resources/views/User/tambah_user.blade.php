@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<form action="/user1/create" method="POST">
+		<form action="/user/create" method="POST">
 
 			@csrf
 
@@ -40,7 +40,7 @@
 
 				<div class="card-footer">
 
-					<a href="/user1" class="btn btn-default">Back</a>
+					<a href="/user" class="btn btn-default">Back</a>
                     &nbsp;&nbsp;
 					<input type="submit" value="Add Data" class="pull-right btn btn-primary">
 

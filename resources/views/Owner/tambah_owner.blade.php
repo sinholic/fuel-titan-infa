@@ -22,29 +22,34 @@
 					@endif
 
 					<div class="form-group">
-						<label>Jenis Unit</label>
-						<input type="text " name="jenis_unit" placeholder="" class="form-control" required autofocus>
+						<label>Nama Vendor</label>
+						<input type="text " name="vendor_name" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
-                        <label for="">Unit Number</label>
-                        <input type="text" name="unit_number" placeholder="" class="form-control" required autofocus>
+                        <label for="">Alamat</label>
+                        <input type="text" name="address" placeholder="" class="form-control" required autofocus>
                     </div>
                     
                     <div class="form-group">
-						<label>Unit Category</label>
-						<input type="text" name="unit_category" placeholder="" class="form-control" required autofocus>
+						<label>Kategori Owner</label>
+						<input type="text" name="owner_category" placeholder="" class="form-control" required autofocus>
                     </div>
                     
                     <div class="form-group">
-						<label>Vendor</label>
-						<input type="text" name="vendor" placeholder="" class="form-control" required autofocus>
+						<label>PIC</label>
+						<input type="text" name="pic" placeholder="" class="form-control" required autofocus>
                     </div>
                     
                     <div class="form-group">
-						<label>Address</label>
-						<input type="text" name="address" placeholder="" class="form-control" required autocomplete="">
-                    </div> 
+						<label>Phone</label>
+						<input type="text" name="phone" placeholder="" class="form-control" required autocomplete="">
+					</div>
+					
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" name="email" placeholder="" class="form-control" required autocomplete="">
+                    </div>
 
 				</div>
 

@@ -48,7 +48,7 @@ class VoucherController extends Controller
             $vouceherCodes[] = new Vouchercode(array(
                 'voucher_id' => $voucher->id,
                 // 'voucher_id' => 1,
-                'code_number' => sha1(time()+$i),
+                'code_number' => sha1(time() + $i),
                 'used' => 0
             ));
         }

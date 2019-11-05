@@ -23,9 +23,9 @@ class StatusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function tambah()
     {
-        //
+        return view('Status.tambah_status');
     }
 
     /**
@@ -34,9 +34,10 @@ class StatusController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        //
+        Status::create($request->all());
+        return redirect('/status')->with('sukses', 'Data Berhasil Di Input!');
     }
 
     /**
@@ -45,10 +46,7 @@ class StatusController extends Controller
      * @param  \App\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function show(Status $status)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -56,9 +54,10 @@ class StatusController extends Controller
      * @param  \App\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function edit(Status $status)
+    public function edit($id)
     {
-        //
+        $status = Status::find($id);
+        return view('Status.edit_status', ['status' => $status]);
     }
 
     /**
@@ -68,9 +67,11 @@ class StatusController extends Controller
      * @param  \App\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Status $status)
+    public function update(Request $request, $id)
     {
-        //
+        $status = Status::find($id);
+        $status->update($request->all());
+        return redirect('/status')->with('sukses', 'Data Berhasil Di Update!');
     }
 
     /**
@@ -79,8 +80,10 @@ class StatusController extends Controller
      * @param  \App\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Status $status)
+    public function delete($id)
     {
-        //
+        $status = Status::find($id);
+        $status->delete($status);
+        return redirect('/status')->with('sukses', 'Data berhasil dihapus!');
     }
 }

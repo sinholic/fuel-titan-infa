@@ -17,34 +17,70 @@
 		</div>
     @endif
     
+    <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
+		 <i class="fas fa-file-excel"></i> Import Excel
+    </button>
+
+    <a href="/userhe/export_excel" class="btn btn-success my-1" target="_blank">
+        <i class="fas fa-file-excel"></i> Export Excel
+    </a>
     
-        <a href="/tampiladdstatus" class="btn btn-primary">
+        <a href="/tampiladduserhe" class="btn btn-primary">
             <i class="fa fa-plus nav-icon"></i>
         </a>
 
 <div class="card" style="border-top: 3px solid #9C5C22">
         
        <div class="card-header">
-            <h4>Status</h4>
+            <h4>User HE</h4>
         </div>
 
     <div class="card-body">
-        <table class="table table-striped table table-bordered" id="myTable">
+        <table class="table table-striped table-bordered table-responsive" id="myTable">
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Nama</th>
+                    <th class="text-center">No Alat</th>
+                    <th class="text-center">Tipe Alat</th>
+                    <th class="text-center">Tanggal Operasi</th>
+                    <th class="text-center">Nama Unit</th>
+                    <th class="text-center">Penyewa</th>
+                    <th class="text-center">HM Awal</th>
+                    <th class="text-center">HM Akhir</th>
+                    <th class="text-center">Total Jam</th>
+                    <th class="text-center">Job Order</th>
+                    <th class="text-center">BBM</th>
+                    <th class="text-center">Operator</th>
+                    <th class="text-center">Helper</th>
+                    <th class="text-center">Pengawas</th>
+                    <th class="text-center">KM Awal</th>
+                    <th class="text-center">KM Akhir</th>
+                    <th class="text-center">KM Total</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
             @php $i=1 @endphp
             <tbody>
                 @php $i=1 @endphp
-                 @foreach($status ?? '' as $s)
-
+                 @foreach($userhe ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->nama}}</td>
+                    <td>{{$s->no_alat}}</td>
+                    <td>{{$s->tipe_alat}}</td>
+                    <td>{{$s->tanggal_operasi}}</td>
+                    <td>{{$s->nama_unit}}</td>
+                    <td>{{$s->penyewa}}</td>
+                    <td>{{$s->hm_awal}}</td>
+                    <td>{{$s->hm_akhir}}</td>
+                    <td>{{$s->total_jam}}</td>
+                    <td>{{$s->job_order}}</td>
+                    <td>{{$s->bbm}}</td>
+                    <td>{{$s->operator}}</td>
+                    <td>{{$s->helper}}</td>
+                    <td>{{$s->pengawas}}</td>
+                    <td>{{$s->km_awal}}</td>
+                    <td>{{$s->km_akhir}}</td>
+                    <td>{{$s->km_total}}</td>
                     <td>
                          <div class="btn-group">
 
@@ -53,11 +89,11 @@
                                 <i class="fa fa-info-circle nav-icon"></i>
                             </a>
 
-                            <a href="/status/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
+                            <a href="/userhe/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/status/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
+                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/userhe/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
                                 <i class="fa fa-trash nav-icon"></i>
                             </a>
 

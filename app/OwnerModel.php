@@ -9,7 +9,7 @@ class OwnerModel extends Model
 {
     use SoftDeletes;
     protected $table = "owner";
-    protected $fillable = ['jenis_unit', 'unit_number', 'unit_category', 'vendor', 'address'];
+    protected $fillable = ['vendor_name', 'address', 'owner_category', 'pic', 'phone', 'email'];
 
     public function vouchers()
     {

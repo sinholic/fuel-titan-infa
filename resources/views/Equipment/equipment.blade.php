@@ -36,8 +36,7 @@
         </div>
 
     <div class="card-body">
-        <div class="table-responsive-sm">
-            <table class="table table-sm table-hover table-bordered" id="myTable">
+            <table class="table table-sm table-hover table-bordered table-responsive" id="myTable">
                 <thead style="background-color: #9C5C22">
                     <tr>
                         <th class="text-center">No</th>
@@ -100,7 +99,6 @@
                     @endforeach
                 </tbody>
             </table>
-        </div>
     </div>
 </div>
 

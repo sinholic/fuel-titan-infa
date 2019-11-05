@@ -12,10 +12,10 @@ class UserController extends Controller
         return view('User.tambah_user');
     }
 
-    public function user1()
+    public function user()
     {
         $user = UserModel::all();
-        return view('User.user1', ['user' => $user]);
+        return view('User.user', ['user' => $user]);
     }
 
     public function create(Request $request)
