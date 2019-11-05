@@ -161,4 +161,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/userhe', 'UserheController@userhe');
     Route::get('/tampiladduserhe', 'UserheController@tambah');
     Route::post('/userhe/create', 'UserheController@create');
+    Route::get('/userhe/edit/{id}', 'UserheController@edit');
+    Route::post('/userhe/update/{id}', 'UserheController@update');
+    Route::get('/username/{id}delete', 'UserheController@delete');
 });
