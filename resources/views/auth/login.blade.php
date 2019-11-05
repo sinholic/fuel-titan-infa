@@ -22,8 +22,8 @@
 
 <body class="hold-transition login-page">
   <div class="login-box">
+    <p style="color: #9C5C22; font-size: 27px; text-align: center"><b>Fuel Management System</b></p>
     <div class="login-logo">
-      <p style="color: #9C5C22"><b>Titan Infra</b></p>
     </div>
     <!-- /.login-logo -->
     <div class="shadow-lg">

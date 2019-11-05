@@ -41,38 +41,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Machine Hours</label>
-                        <input type="text" name="machine_hours" value="{{$equipment->machine_hours}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Last Machine Hours</label>
-                        <input type="text" name="last_machine_hours" value="{{$equipment->last_machine_hours}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Std Consumption</label>
-                    <input type="text" name="std_consumption" class="form-control" value="{{$equipment->std_consumption}}" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Last Ending Stock</label>
-                        <input type="text" name="last_ending_stock" class="form-control" value="{{$equipment->last_ending_stock}}">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Add Fuel</label>
-                        <input type="text" name="add_fuel" class="form-control" value="{{$equipment->add_fuel}}">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Last Maintenance</label>
-                        <input type="text" name="last_maintenance" class="form-control" value="{{$equipment->last_maintenance}}">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">PIC</label>
-                        <input type="text" name="pic" class="form-control" value="{{$equipment->pic}}">
+                        <label for="">Owner</label>
+                        {{ Form::select('pic', $owners, null, ['placeholder' => 'Pilih owner...', 'required', 'class' => 'form-control']) }}
                     </div>
 
                 </div>

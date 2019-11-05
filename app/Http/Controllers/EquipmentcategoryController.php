@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Status;
+use App\Equipmentcategory;
 use Illuminate\Http\Request;
 
-class StatusController extends Controller
+class EquipmentcategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class StatusController extends Controller
      */
     public function index()
     {
-        $status = Status::all();
-        return view('Status.status', ['status' => $status]);
+        //
     }
 
     /**
@@ -23,9 +22,9 @@ class StatusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function tambah()
+    public function create()
     {
-        return view('Status.tambah_status');
+        //
     }
 
     /**
@@ -34,56 +33,53 @@ class StatusController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function store(Request $request)
     {
-        Status::create($request->all());
-        return redirect('/status')->with('sukses', 'Data Berhasil Di Input!');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Status  $status
+     * @param  \App\Equipmentcategory  $equipmentcategory
      * @return \Illuminate\Http\Response
      */
-
+    public function show(Equipmentcategory $equipmentcategory)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Status  $status
+     * @param  \App\Equipmentcategory  $equipmentcategory
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Equipmentcategory $equipmentcategory)
     {
-        $status = Status::find($id);
-        return view('Status.edit_status', ['status' => $status]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Status  $status
+     * @param  \App\Equipmentcategory  $equipmentcategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Equipmentcategory $equipmentcategory)
     {
-        $status = Status::find($id);
-        $status->update($request->all());
-        return redirect('/status')->with('sukses', 'Data Berhasil Di Update!');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Status  $status
+     * @param  \App\Equipmentcategory  $equipmentcategory
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function destroy(Equipmentcategory $equipmentcategory)
     {
-        $status = Status::find($id);
-        $status->delete($status);
-        return redirect('/status')->with('sukses', 'Data berhasil dihapus!');
+        //
     }
 }

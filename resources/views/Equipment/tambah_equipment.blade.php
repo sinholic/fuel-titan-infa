@@ -42,38 +42,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Machine Hours</label>
-                        <input type="text" name="machine_hours" placeholder="" class="form-control" required autocomplete="">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Last Machine Hours</label>
-                        <input type="text" name="last_machine_hours" placeholder="" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Std Consumption</label>
-                        <input type="text" name="std_consumption" placeholder="" class="form-control" required autocomplete="">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Last Ending Stock</label>
-                        <input type="text" name="last_ending_stock" placeholder="" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Add Fuel</label>
-                        <input type="text" name="add_fuel" placeholder="" class="form-control" required autocomplete="">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Last Maintenance</label>
-                        <input type="date" name="last_maintenance" placeholder="" class="form-control" required autocomplete="">
-                    </div>
-
-                    <div class="form-group">
                         <label>Owner</label>
-                        {{ Form::select('owner', $owners, null, ['placeholder' => 'Pilih owner...', 'required', 'class' => 'form-control']) }}
+                        {{ Form::select('pic', $owners, null, ['placeholder' => 'Pilih owner...', 'required', 'class' => 'form-control']) }}
                     </div>
 
                 </div>

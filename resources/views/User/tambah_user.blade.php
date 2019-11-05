@@ -47,7 +47,7 @@
 
 				<div class="card-footer">
 
-					<a href="/user1" class="btn btn-default">Back</a>
+					<a href="/user" class="btn btn-default">Back</a>
                     &nbsp;&nbsp;
 					<input type="submit" value="Add Data" class="pull-right btn btn-primary">
 

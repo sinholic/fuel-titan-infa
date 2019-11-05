@@ -37,8 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
     // Route::post('admin-register', 'Auth\AdminLoginController@register')->name('admin.register');
 
 
-    Route::get('user', 'UserController@index');
-    Route::get('user/json', 'UserController@json');
+    // Route::get('user', 'UserController@index');
+    // Route::get('user/json', 'UserController@json');
 
     //Master Station
     Route::get('/station', 'StationController@index');
@@ -114,11 +114,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/user/update/{id}', 'UserController@update');
     Route::get('/user/{id}/delete', 'UserController@delete');
 
-
-
     //Status Id
     Route::get('/status', 'StatusController@index');
-    Route::get('/tampilstatus', 'StatusController@tambah');
+    Route::get('/tampiladdstatus', 'StatusController@tambah');
     Route::post('/status/create', 'StatusController@create');
-    Route::get('status/edit/{id}', 'StatusController@edit');
+    Route::get('/status/edit/{id}', 'StatusController@edit');
+    Route::post('/status/update/{id}', 'StatusController@update');
+    Route::get('/status/{id}/delete', 'StatusController@delete');
+
+    //User He
+    Route::get('/userhe', 'UserheController@userhe');
+    Route::get('/tampiladduserhe', 'UserheController@tambah');
+    Route::post('/userhe/create', 'UserheController@create');
+
+    Route::resource('equipment-category','EquipmentCategory');
 });
