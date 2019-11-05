@@ -18,6 +18,7 @@ class CreateEquipmentcategoriesTable extends Migration
             $table->string('nama');
             $table->string('inisial');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
