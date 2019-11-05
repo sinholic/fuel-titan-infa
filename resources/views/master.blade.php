@@ -47,6 +47,7 @@ to get the desired effect
       </li>
     </ul>
    
+     
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Notifications Dropdown Menu -->
@@ -77,6 +78,17 @@ to get the desired effect
         </div>
       </li>
     </ul>
+     <!-- Logout -->
+        <a href="{{route('logout')}}" class="btn btn-light"
+          onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();">
+          <i class="fas fa-sign-out-alt"></i>
+              {{ __('Logout')}}
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+          @csrf
+        </form> 
+    <!-- Tutup Logout -->
   </nav>
   <!-- /.navbar -->
   {{-- #9C5C22 --}}
@@ -109,7 +121,6 @@ to get the desired effect
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
@@ -186,41 +197,34 @@ to get the desired effect
                   <p>Status</p>
                 </a>
               </li>
-
-              <li class="nav-item">
-                <a href="/userhe" class="nav-link">
-                  <p>User HE</p>
-                </a>
-              </li>
             </ul>
 
 
           </li>
 
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link">
+            <a href="/userhe" class="nav-link">
+              {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+              <p>
+                 Timesheet Heavy Equipment
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item has-treeview menu-open">
+            <a href="/reloading" class="nav-link">
               {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
               <p>
                  Pengisian Ulang Mobil Station
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview offset-md-2">
-
-
-              <li class="nav-item">
-                <a href="/reloading" class="nav-link">
-                  <p>Reloading Fuel</p>
-                </a>
-              </li>
-
-            </ul>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item has-treeview menu-open">
             <a href="/penerimaan_solar" class="nav-link">
+              {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
               <p>
-                Penerimaan Solar
+                 Penerimaan Solar
               </p>
             </a>
           </li>
@@ -373,17 +377,6 @@ to get the desired effect
             </ul>
           </li>
 
-          <li class="nav-item">
-            <a href="{{route('logout')}}" class="nav-link pull-right"
-              onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();">
-              <i class="fas fa-sign-out-alt"></i>
-                  {{ __('Logout')}}
-            </a>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                @csrf
-              </form> 
-          </li>
         </ul>
         
 
