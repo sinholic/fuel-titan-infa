@@ -14,6 +14,7 @@ class ChangeEquipmentsFields extends Migration
     public function up()
     {
         Schema::table('equipment_unitdata', function (Blueprint $table) {
+            $table->collation = 'utf8_unicode_ci';
             $table->bigInteger('equipment_category')->change();
             $table->dropColumn('machine_hours');
             $table->dropColumn('last_machine_hours');
@@ -33,7 +34,7 @@ class ChangeEquipmentsFields extends Migration
     public function down()
     {
         Schema::table('equipment_unitdata', function (Blueprint $table) {
-            
+            $table->collation = 'utf8_unicode_ci';
             $table->string('equipment_category')->change();
             $table->string('machine_hours');
             $table->string('last_machine_hours');
