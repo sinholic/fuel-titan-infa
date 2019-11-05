@@ -40,11 +40,12 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Jenis Unit</th>
-                    <th class="text-center">Unit Number</th>
-                    <th class="text-center">Unit Category</th>
-                    <th class="text-center">Vendor</th>
-                    <th class="text-center">Address</th>
+                    <th class="text-center">Nama Owner</th>
+                    <th class="text-center">Alamat</th>
+                    <th class="text-center">Kategori Owner</th>
+                    <th class="text-center">PIC</th>
+                    <th class="text-center">Phone</th>
+                    <th class="text-center">Email</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
@@ -54,11 +55,12 @@
                  @foreach($owner ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->jenis_unit}}</td>
-                    <td>{{$s->unit_number}}</td>
-                    <td>{{$s->unit_category}}</td>
-                    <td>{{$s->vendor}}</td>
+                    <td>{{$s->vendor_name}}</td>
                     <td>{{$s->address}}</td>
+                    <td>{{$s->owner_category}}</td>
+                    <td>{{$s->pic}}</td>
+                    <td>{{$s->phone}}</td>
+                    <td>{{$s->email}}</td>
                     <td>
                          <div class="btn-group">
 
