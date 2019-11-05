@@ -83,8 +83,8 @@ to get the desired effect
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-8" style="background-color: #9C5C22">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
-      <img src="/adminlte/dist/img/logo_titaninfra.png" alt="Titan Infra"
+    <a href="#" class="brand-link"> <!-- logo_fms.png -->
+      <img src="/adminlte/dist/img/logo_fms.png" style="width: 70px; height: 70px;" alt="Titan Infra"
            style="opacity: .9">
       <span class="brand-text font-weight-light"><h5>Fuel Management System</h5></span>
     </a>
@@ -128,19 +128,19 @@ to get the desired effect
                             <i class="right fa fa-angle-left"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview offset-md-1">
+                    <ul class="nav nav-treeview offset-md-0">
 
 
                         <li class="nav-item offset-md-3">
                             <a href="/fix" class="nav-link">
-                              <i class="fas fa-gas-pump"></i>
+          
                                 Fix Master Station
                             </a>
                         </li>
                         
                         <li class="nav-item offset-md-3">
                             <a href="/mobile" class="nav-link">
-                              <i class="fas fa-building"></i>
+          
                                 Mobile Master Station
                             </a>
                         </li>
@@ -159,43 +159,37 @@ to get the desired effect
               
               <li class="nav-item">
                 <a href="/equipment" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
                   <p> Master Equipment</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
-                  <p> Kategori Equipment</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
                 <a href="/owner" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
                   <p>Owner</p>
                 </a>
               </li>
 
               <li class="nav-item">
                 <a href="/voucher" class="nav-link">
-                  <i class="fas fa-qrcode"></i>
                   <p>Voucher</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="/user1" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
+                <a href="/user" class="nav-link">
                   <p>Users</p>
                 </a>
               </li>
 
               <li class="nav-item">
                 <a href="/status" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
                   <p>Status</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="/userhe" class="nav-link">
+                  <p>User HE</p>
                 </a>
               </li>
             </ul>
@@ -216,7 +210,6 @@ to get the desired effect
 
               <li class="nav-item">
                 <a href="/reloading" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
                   <p>Reloading Fuel</p>
                 </a>
               </li>
@@ -251,14 +244,12 @@ to get the desired effect
 
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
                   <p>On Fix Station</p>
                 </a>
               </li>
 
                <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
                   <p>Daftar Pengisian</p>
                 </a>
               </li>
@@ -285,14 +276,12 @@ to get the desired effect
 
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
                   <p>On Fix Station</p>
                 </a>
               </li>
 
                <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
                   <p>Daftar Pengisian</p>
                 </a>
               </li>
@@ -319,14 +308,12 @@ to get the desired effect
 
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
                   <p>On Fix Station</p>
                 </a>
               </li>
 
                <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
                   <p>Daftar Pengisian</p>
                 </a>
               </li>
@@ -353,14 +340,12 @@ to get the desired effect
 
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
                   <p>On Fix Station</p>
                 </a>
               </li>
 
                <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="fas fa-gas-pump"></i>
                   <p>Daftar Pengisian</p>
                 </a>
               </li>
