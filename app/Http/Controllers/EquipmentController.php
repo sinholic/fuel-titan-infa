@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\EquipmentModel;
+use App\Reloadingunit;
 use App\OwnerModel;
+use App\Equipmentcategory;
 
 class EquipmentController extends Controller
 {
@@ -17,12 +19,28 @@ class EquipmentController extends Controller
     public function tambah()
     {
         $owners = OwnerModel::pluck('vendor', 'id');
-        return view('Equipment.tambah_equipment', ['owners' => $owners]);
+        $equipment_categories = Equipmentcategory::pluck('nama', 'id');
+        return view('Equipment.tambah_equipment', ['owners' => $owners, 'equipment_categories' => $equipment_categories]);
     }
 
     public function create(Request $request)
     {
-        EquipmentModel::create($request->all());
+        $equipment = new EquipmentModel;
+        $equipment->equipment_category = $request->equipment_category;   
+        $equipment->equipment_number = $request->equipment_number; 
+        $equipment->fuel_capacity = $request->fuel_capacity; 
+        $equipment->location = $request->location; 
+        $equipment->pic = $request->pic; 
+        $equipment->save();
+
+        $reloading_units = array(
+            'equipment_id' => $equipment->id,
+            'odometer' => $request->odometer,
+            'machinehours' => $request->machinehours,
+            'ending_stock' => $request->ending_stock,
+        );
+        Reloadingunit::create($reloading_units);
+        
         return redirect('/equipment')->with('sukses', 'Data Berhasil di Input!');
     }
 
@@ -30,7 +48,8 @@ class EquipmentController extends Controller
     {
         $equipment = EquipmentModel::find($id);
         $owners = OwnerModel::pluck('vendor', 'id');
-        return view('Equipment.edit_equipment', ['equipment' => $equipment, 'owners' => $owners]);
+        $equipment_categories = Equipmentcategory::pluck('nama', 'id');
+        return view('Equipment.edit_equipment', ['equipment' => $equipment, 'owners' => $owners, 'equipment_categories' => $equipment_categories]);
     }
 
     public function update(Request $request, $id)

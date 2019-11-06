@@ -27,8 +27,13 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Equipment Name</label>
+                        <input type="text " name="name" placeholder="" class="form-control" required autofocus>
+                    </div>
+
+                    <div class="form-group">
                         <label for="">Equipment Category</label>
-                        <input type="text" name="equipment_category" placeholder="" class="form-control" required autofocus>
+                        {{ Form::select('equipment_category', $equipment_categories, null, ['placeholder' => 'Pilih kategori...', 'required', 'class' => 'form-control']) }}
                     </div>
 
                     <div class="form-group">
@@ -44,6 +49,21 @@
                     <div class="form-group">
                         <label>Owner</label>
                         {{ Form::select('pic', $owners, null, ['placeholder' => 'Pilih owner...', 'required', 'class' => 'form-control']) }}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Last Odometer</label>
+                        <input type="text" name="odometer" placeholder="" class="form-control" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Last Machine Hours</label>
+                        <input type="text" name="machinehours" placeholder="" class="form-control" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Last Ending Stock</label>
+                        <input type="text" name="ending_stock" placeholder="" class="form-control" required autofocus>
                     </div>
 
                 </div>

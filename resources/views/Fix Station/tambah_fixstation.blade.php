@@ -42,7 +42,7 @@
                     </div>
                     
                     <div class="form-group">
-						<label>Tank Number</label>
+						<label>Total Tank</label>
 						<input type="text" name="tank_number" placeholder="" class="form-control" required autocomplete="">
                     </div> 
 

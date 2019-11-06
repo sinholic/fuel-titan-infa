@@ -25,9 +25,15 @@
                         <label>Equipment Number</label>
                         <input type="text" name="equipment_number" value="{{$equipment->equipment_number}}" class="form-control" required autofocus>
                     </div>
+
+                    <div class="form-group">
+                        <label>Equipment Name</label>
+                        <input type="text" name="name" value="{{$equipment->name}}" class="form-control" required autofocus>
+                    </div>
+
                     <div class="form-group">
                         <label for="">Equipment Category</label>
-                        <input type="text" name="equipment_category" value="{{$equipment->equipment_category}}" class="form-control" required autofocus>
+                        {{ Form::select('equipment_category', $equipment_categories, $equipment->equipment_category, ['placeholder' => 'Pilih kategori...', 'required', 'class' => 'form-control']) }}
                     </div>
 
                     <div class="form-group">
@@ -42,7 +48,7 @@
 
                     <div class="form-group">
                         <label for="">Owner</label>
-                        {{ Form::select('pic', $owners, null, ['placeholder' => 'Pilih owner...', 'required', 'class' => 'form-control']) }}
+                        {{ Form::select('pic', $owners, $equipment->pic, ['placeholder' => 'Pilih owner...', 'required', 'class' => 'form-control']) }}
                     </div>
 
                 </div>

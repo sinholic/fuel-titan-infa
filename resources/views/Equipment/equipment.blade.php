@@ -57,10 +57,10 @@
                         <td>{{$i++}}</td>
                         <td>{{$s->equipment_number}}</td>
                         <td>{{$s->equipment_name}}</td>
-                        <td>{{$s->equipment_category}}</td>
+                        <td>{{$s->equipmentcategory->nama ?? ''}}</td>
                         <td>{{$s->location}}</td>
                         <td>{{$s->fuel_capacity}}</td>
-                        <td>{{$s->pic}}</td>
+                        <td>{{$s->equipmentowner->vendor ?? ''}}</td>
                         <td>
                             <div class="btn-group">
 
