@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\MobileModel;
 use App\Http\Controllers\Controller;
+use App\Exports\MobileExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MobileController extends Controller
 {
@@ -30,7 +32,7 @@ class MobileController extends Controller
         $mobile = MobileModel::find($id);
         return view('Mobile Station.edit_mobile', ['mobile' => $mobile]);
     }
- 
+
     public function update(Request $request, $id)
     {
         $mobile = MobileModel::find($id);
@@ -43,5 +45,10 @@ class MobileController extends Controller
         $mobile = MobileModel::find($id);
         $mobile->delete($mobile);
         return redirect('/mobile')->with('sukses', 'Data berhasil dihapus!');
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new MobileModel, 'master_mobile_station.xlsx');
     }
 }
