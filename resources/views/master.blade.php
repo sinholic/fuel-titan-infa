@@ -175,6 +175,12 @@ to get the desired effect
               </li>
 
               <li class="nav-item">
+                <a href="/equipment-category" class="nav-link">
+                  <p>Kategori Equipment</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
                 <a href="/owner" class="nav-link">
                   <p>Owner</p>
                 </a>
@@ -221,7 +227,7 @@ to get the desired effect
           </li>
 
           <li class="nav-item has-treeview menu-open">
-            <a href="/penerimaan_solar" class="nav-link">
+            <a href="/penerimaan" class="nav-link">
               {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
               <p>
                  Penerimaan Solar
@@ -240,14 +246,14 @@ to get the desired effect
             <ul class="nav nav-treeview offset-md-2">
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/pengisian_mobile" class="nav-link">
                   
                   <p>On Mobile Station</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/pengisian_fix" class="nav-link">
                   <p>On Fix Station</p>
                 </a>
               </li>

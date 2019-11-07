@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'imei', 'syncpassword'
+        'name', 'email', 'password', 'imei', 'syncpassword', 'status_id'
     ];
 
     /**
@@ -38,4 +38,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Add a mutator to ensure hashed passwords
+     */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function status()
+    {
+        return $this->belongsTo('App\Status', 'status_id', 'id');
+    }
 }

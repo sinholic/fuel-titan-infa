@@ -23,7 +23,7 @@
 
 					<div class="form-group">
 						<label>Nama Vendor</label>
-						<input type="text " name="vendor_name" placeholder="" class="form-control" required autofocus>
+						<input type="text " name="vendor" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
@@ -33,7 +33,7 @@
                     
                     <div class="form-group">
 						<label>Kategori Owner</label>
-						<input type="text" name="owner_category" placeholder="" class="form-control" required autofocus>
+						{{ Form::select('owner_category', ['Internal', 'External'], null, ['placeholder' => 'Pilih kategori...', 'required', 'class' => 'form-control']) }}
                     </div>
                     
                     <div class="form-group">

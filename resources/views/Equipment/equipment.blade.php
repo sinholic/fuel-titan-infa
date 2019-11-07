@@ -36,25 +36,17 @@
         </div>
 
     <div class="card-body">
-            <table class="table table-sm table-hover table-bordered table-responsive" id="myTable">
+            <table class="table table-hover table-bordered" id="myTable">
                 <thead style="background-color: #9C5C22">
                     <tr>
                         <th class="text-center">No</th>
                         <th class="text-center">Nomor Equipment</th>
                         <th class="text-center">Nama Equipment</th>
-                        <th class="text-center">Nomor Equipment (SAP)</th>
                         <th class="text-center">Equipment Category</th>
                         <th class="text-center">Location</th>
                         <th class="text-center">Fuel Capacity</th>
-                        <th class="text-center" width="5%">Machine Hours</th>
-                        <th class="text-center">Last Machine Hours</th>
-                        <th class="text-center">Last Odomenter</th>
-                        <th class="text-center">Std Consumption</th>
-                        <th class="text-center">Last Ending Stock</th>
-                        <th class="text-center">Add Fuel</th>
-                        <th class="text-center">Last Maintenance</th>
                         <th class="text-center">PIC</th>
-                        <th class="text-center" width="8%">Action</th>
+                        <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 @php $i=1 @endphp
@@ -65,17 +57,9 @@
                         <td>{{$i++}}</td>
                         <td>{{$s->equipment_number}}</td>
                         <td>{{$s->equipment_name}}</td>
-                        <td>{{$s->equipment_sap}}</td>
                         <td>{{$s->equipment_category}}</td>
                         <td>{{$s->location}}</td>
                         <td>{{$s->fuel_capacity}}</td>
-                        <td>{{$s->machine_hours}}</td>
-                        <td>{{$s->last_machine_hours}}</td>
-                        <td>{{$s->last_odometer}}</td>
-                        <td>{{$s->std_consumption}}</td>
-                        <td>{{$s->last_ending_stock}}</td>
-                        <td>{{$s->add_fuel}}</td>
-                        <td>{{$s->last_maintenance}}</td>
                         <td>{{$s->pic}}</td>
                         <td>
                             <div class="btn-group">

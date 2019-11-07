@@ -31,7 +31,7 @@ class ChangeOwnerTable extends Migration
      */
     public function down()
     {
-        Schema::table('vouchercodes', function (Blueprint $table) {
+        Schema::table('owner', function (Blueprint $table) {
             $table->dropColumn('owner_category');
             $table->dropColumn('pic');
             $table->dropColumn('phone');

@@ -59,6 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/mobile/edit/{id}', 'MobileController@edit');
     Route::post('/mobile/update/{id}', 'MobileController@update');
     Route::get('/mobile/{id}/delete', 'MobileController@delete');
+    Route::get('/mobile/export_excel', 'MobileController@export_excel');
 
     //Fix Station
     Route::get('/fix', 'FixStationController@fix');
@@ -66,16 +67,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/fix/create', 'FixStationController@create');
     Route::get('/fix/edit/{id}', 'FixStationController@edit');
     Route::post('/fix/update/{id}', 'FixStationController@update');
-
-    //Fuelman
-    Route::get('/fuel', 'FuelmanController@fuel');
-    Route::get('/tampiladdfuel', 'FuelmanController@tambah');
-    Route::post('/fuel/create', 'FuelmanController@create');
-    Route::get('/fuel/edit/{id}', 'FuelmanController@edit');
-    Route::post('/fuel/update/{id}', 'FuelmanController@update');
-    Route::get('/fuel/{id}/delete', 'FuelmanController@delete');
-    Route::get('/fuel/export_excel', 'FuelmanController@export_excel');
-    Route::post('/fuel/import_excel', 'FuelmanController@import_excel');
+    Route::get('/fix/{id}/delete', 'FixStationController@delete');
+    Route::get('/fix/export_excel', 'FixStationController@export_excel');
 
     //Equipment & Unit Data
     Route::get('/equipment', 'EquipmentController@equipment');
@@ -94,33 +87,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/owner/{id}/delete', 'OwnerController@delete');
     Route::get('/owner/export_excel', 'OwnerController@export_excel');
 
-    //Fuelman
-    Route::get('/fuelman', 'FuelmanController@fuelman');
-    Route::get('/tampiladdfuelman', 'FuelmanController@tambah');
-    Route::post('/fuelman/create', 'FuelmanController@create');
-    Route::get('/fuelman/edit/{id}', 'FuelmanController@edit');
-    Route::post('/fuelman/update/{id}', 'FuelmanController@update');
-    Route::get('/fuelman/{id}/delete', 'FuelmanController@delete');
-    Route::get('/fuelman/export_excel', 'FuelmanController@export_excel');
-
-    //Organization
-    Route::get('/organization', 'OrganizationController@organization');
-    Route::get('/tampiladdorganization', 'OrganizationController@tambah');
-    Route::post('/organization/create', 'OrganizationController@create');
-    Route::get('/organization/edit/{id}', 'OrganizationController@edit');
-    Route::post('/organization/update/{id}', 'OrganizationController@update');
-    Route::get('/organization/{id}/delete', 'OrganizationController@delete');
-    Route::get('/organization/export_excel', 'OrganizationController@export_excel');
-
-    //User LV
-    Route::get('/userlv', 'UserLVController@userlv');
-    Route::get('/tampiladduserlv', 'UserLVController@tambah');
-    Route::post('/userlv/create', 'UserLVController@create');
-    Route::get('/userlv/edit/{id}', 'UserLVController@edit');
-    Route::post('/userlv/update/{id}', 'UserLVController@update');
-    Route::get('/userlv/{id}/delete', 'UserLVController@delete');
-    Route::get('/userlv/export_excel', 'UserLVController@export_excel');
-
     //Voucher
     Route::get('/voucher', 'VoucherController@voucher');
     Route::get('/tampiladdvoucher', 'VoucherController@tambah');
@@ -129,6 +95,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/voucher/update/{id_voucher}', 'VoucherController@update');
     Route::get('/voucher/{id}/delete', 'VoucherController@delete');
     Route::get('/print_voucher/{id}', 'VoucherController@print');
+    Route::get('/lists/{id}', 'VoucherController@lists');
+
 
     //Reloading
     Route::get('/reloading', 'ReloadingController@reloading');
@@ -140,6 +108,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Penerimaan Solar
     Route::get('/penerimaan', 'PenerimaanController@penerimaan');
+    Route::get('/tampiladdpenerimaan', 'PenerimaanController@tambah');
+    Route::post('/penerimaan/create', 'PenerimaanController@create');
+    Route::get('/penerimaan/edit/{id}', 'PenerimaanController@edit');
+    Route::post('/penerimaan/update/{id}', 'PenerimaanController@update');
+    Route::get('/penerimaan/{id}/delete', 'PenerimaanController@delete');
 
     //User
     Route::get('/user', 'UserController@user');
@@ -163,5 +136,21 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/userhe/create', 'UserheController@create');
     Route::get('/userhe/edit/{id}', 'UserheController@edit');
     Route::post('/userhe/update/{id}', 'UserheController@update');
-    Route::get('/username/{id}delete', 'UserheController@delete');
+    Route::get('/userhe/{id}/delete', 'UserheController@delete');
+
+    Route::resource('equipment-category', 'EquipmentCategory');
+
+    //Pengisian Solar On Mobile
+    Route::get('/pengisian_mobile', 'PengisianMobileController@pengisian_mobile');
+    Route::get('/addpengisian_mobile', 'PengisianMobileController@tambah');
+    Route::post('/pengisian_mobile/create', 'PengisianMobileController@create');
+    Route::get('/pengisian_mobile/edit/{id}', 'PengisianMobileController@edit');
+
+    //Pengisian Solar On Fix
+    Route::get('/pengisian_fix', 'PengisianFixController@pengisian_fix');
+    Route::get('/addpengisian_fix', 'PengisianFixController@tambah');
+    Route::post('/pengisian_fix/create', 'PengisianFixController@create');
+    Route::get('/pengisian_fix/edit/{id}', 'PengisianFixController@edit');
+    Route::post('/pengisian_fix/update/{id}', 'PengisianFixController@update');
+    Route::get('/pengisian_fix/{id}/delete', 'PengisianFixController@delete');
 });

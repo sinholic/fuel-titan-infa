@@ -17,6 +17,13 @@ class VoucherController extends Controller
         return view('Voucher.voucher', ['voucher' => $voucher]);
     }
 
+    public function lists($id)
+    {
+        $voucher = VoucherModel::with('vouchercodes', 'voucherowner')->find($id);
+        // dd($voucher->voucherowner);
+        return view('Voucher.list_vouchercodes', ['voucher' => $voucher]);
+    }
+
     public function tambah()
     {
         $owners = OwnerModel::pluck('vendor', 'id');
