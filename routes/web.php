@@ -41,16 +41,16 @@ Route::group(['middleware' => 'auth'], function () {
     // Route::get('user/json', 'UserController@json');
 
     //Master Station
-    Route::get('/station', 'StationController@index');
-    Route::get('/station/json', 'StationController@json');
-    Route::post('/station/create', 'StationController@create');
-    Route::get('/tampiladdstation', 'StationController@tampiladd');
-    Route::get('/station/{id}/delete', 'StationController@delete');
-    Route::get('/station/edit/{id}', 'StationController@edit');
-    Route::post('/station/update/{id}', 'StationController@update');
-    Route::get('/station1', 'StationController@station');
-    Route::get('/station/export_excel', 'StationController@export_excel');
-    Route::post('/station/import_excel', 'StationController@import_excel');
+    // Route::get('/station', 'StationController@index');
+    // Route::get('/station/json', 'StationController@json');
+    // Route::post('/station/create', 'StationController@create');
+    // Route::get('/tampiladdstation', 'StationController@tampiladd');
+    // Route::get('/station/{id}/delete', 'StationController@delete');
+    // Route::get('/station/edit/{id}', 'StationController@edit');
+    // Route::post('/station/update/{id}', 'StationController@update');
+    // Route::get('/station1', 'StationController@station');
+    // Route::get('/station/export_excel', 'StationController@export_excel');
+    // Route::post('/station/import_excel', 'StationController@import_excel');
 
     //Mobile Station
     Route::get('/mobile', 'MobileController@mobile');
@@ -138,7 +138,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/userhe/update/{id}', 'UserheController@update');
     Route::get('/userhe/{id}/delete', 'UserheController@delete');
 
-    Route::resource('equipment-category', 'EquipmentCategory');
+    //Equipment Category
+    Route::get('/equipment_category', 'EquipmentcategoryController@index');
+    Route::get('/addequipment_category', 'EquipmentcategoryController@tambah');
+    Route::post('/equipment_category/create', 'EquipmentcategoryController@store');
+    Route::get('/equipment_category/edit/{id}', 'EquipmentCategoryController@edit');
+    Route::post('/equipment_category/update/{id}', 'EquipmentCategoryController@update');
+    Route::get('/equipment_category/{id}/delete', 'EquipmentCategoryController@destroy');
 
     //Pengisian Solar On Mobile
     Route::get('/pengisian_mobile', 'PengisianMobileController@pengisian_mobile');
