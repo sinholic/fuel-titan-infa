@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('imei');
             $table->string('syncpassword');
+            $table->bigInteger('companycode_id');
+            $table->bigInteger('imei2');
             $table->bigInteger('status_id');
             $table->rememberToken();
             $table->timestamps();

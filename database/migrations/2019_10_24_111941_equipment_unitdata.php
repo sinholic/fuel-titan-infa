@@ -16,16 +16,11 @@ class EquipmentUnitdata extends Migration
         Schema::create('equipment_unitdata', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('equipment_number');
-            $table->string('equipment_category');
+            $table->string('nama');
+            $table->bigInteger('equipment_category');
             $table->string('location');
             $table->string('fuel_capacity');
-            $table->string('machine_hours');
-            $table->string('last_machine_hours');
-            $table->string('std_consumption');
-            $table->string('last_ending_stock');
-            $table->string('add_fuel');
-            $table->string('last_maintenance');
-            $table->string('pic');
+            $table->bigInteger('pic');
             $table->timestamps();
             $table->softDeletes();
         });

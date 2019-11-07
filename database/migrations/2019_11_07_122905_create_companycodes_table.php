@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddAnotherFieldsToEquipmentUnitdataTable extends Migration
+class CreateCompanycodesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class AddAnotherFieldsToEquipmentUnitdataTable extends Migration
      */
     public function up()
     {
-        Schema::table('equipment_unitdata', function (Blueprint $table) {
-            $table->string('nama')->after('id');
-
+        Schema::create('companycodes', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('company_name');
+            $table->string('company_inisial');
+            $table->timestamps();
+            $table->softdeletes();
         });
     }
 
@@ -26,9 +29,6 @@ class AddAnotherFieldsToEquipmentUnitdataTable extends Migration
      */
     public function down()
     {
-        Schema::table('equipment_unitdata', function (Blueprint $table) {
-            $table->dropColumn('nama');
-
-        });
+        Schema::dropIfExists('companycodes');
     }
 }

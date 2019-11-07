@@ -15,11 +15,12 @@ class CreateOwnerTable1 extends Migration
     {
         Schema::create('owner', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('jenis_unit');
-            $table->string('unit_number');
-            $table->string('unit_category');
-            $table->string('vendor');
+            $table->string('vendor_name');
             $table->string('address');
+            $table->enum('owner_category', ['Internal', 'External']);
+            $table->string('pic');
+            $table->string('phone');
+            $table->string('email');
             $table->timestamps();
             $table->softDeletes();
         });
