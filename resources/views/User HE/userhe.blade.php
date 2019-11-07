@@ -32,7 +32,7 @@
 <div class="card" style="border-top: 3px solid #9C5C22">
         
        <div class="card-header">
-            <h4>User HE</h4>
+            <h4>Timesheet Running Hour Machine</h4>
         </div>
 
     <div class="card-body">
@@ -67,7 +67,7 @@
                     <td>{{$i++}}</td>
                     <td>{{$s->no_alat}}</td>
                     <td>{{$s->tipe_alat}}</td>
-                    <td>{{$s->tanggal_operasi}}</td>
+                    <td>{{date('d-M-Y', strtotime($s->tanggal_operasi))}}</td>
                     <td>{{$s->nama_unit}}</td>
                     <td>{{$s->penyewa}}</td>
                     <td>{{$s->hm_awal}}</td>
