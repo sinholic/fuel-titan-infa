@@ -9,10 +9,21 @@ class EquipmentModel extends Model
 {
     use SoftDeletes;
     protected $table = "equipment_unitdata";
-    protected $fillable = ['equipment_number', 'equipment_category', 'location', 'fuel_capacity', 'machine_hours', 'last_machine_hours', 'std_consumption', 'last_ending_stock', 'add_fuel', 'last_maintenance', 'pic'];
+    protected $fillable = ['equipment_number', 'equipment_category', 'location', 'fuel_capacity', 'pic'];
 
     public function equipmentowner()
     {
         return $this->belongsTo('App\OwnerModel', 'pic', 'id');
+    }
+
+    public function equipmentcategory()
+    {
+        return $this->belongsTo('App\Equipmentcategory', 'equipment_category', 'id');
+    }
+
+    
+    public function reloadingunits()
+    {
+        return $this->belongsTo('App\Reloadingunit', 'equipment_id', 'id');
     }
 }

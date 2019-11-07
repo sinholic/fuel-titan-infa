@@ -50,13 +50,14 @@ class VoucherController extends Controller
         $voucher->save();
 
         $vouceherCodes = array();
-
+        $runningNumber = time();
         for ($i = 1; $i <= $num_cols; $i++) {
             $vouceherCodes[] = new Vouchercode(array(
                 'voucher_id' => $voucher->id,
-                // 'voucher_id' => 1,
-                'code_number' => sha1(time() + $i),
-                'used' => 0
+                'running_number' => $runningNumber + $i,
+                'code_number' => sha1($runningNumber + $i),
+                'used' => 0,
+                'rejected' => 0
             ));
         }
 

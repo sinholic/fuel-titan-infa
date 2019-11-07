@@ -36,31 +36,21 @@
         </div>
 
     <div class="card-body">
-            <table class="table table-hover table-responsive table-bordered" id="myTable">
+            <table class="table table-hover table-bordered" id="myTable">
                 <thead style="background-color: #9C5C22">
                     <tr>
                         <th class="text-center">No</th>
-                        <th class="text-center">Nomor Equipment</th>
-                        <th class="text-center">Nama Equipment</th>
-                        <th class="text-center">Equipment Category</th>
-                        <th class="text-center">Location</th>
-                        <th class="text-center">Fuel Capacity</th>
-                        <th class="text-center">PIC</th>
+                        <th class="text-center">Nama Kategori</th>
+                        <th class="text-center">Inisial</th>
                         <th class="text-center">Action</th>
                     </tr>
                 </thead>
-                @php $i=1 @endphp
                 <tbody>
-                    @php $i=1 @endphp
-                    @foreach($equipment ?? '' as $s)
+                    @foreach($equipmentcategories ?? '' as $s)
                     <tr>
-                        <td>{{$i++}}</td>
-                        <td>{{$s->equipment_number}}</td>
-                        <td>{{$s->equipment_name}}</td>
-                        <td>{{$s->equipmentcategory->nama ?? ''}}</td>
-                        <td>{{$s->location}}</td>
-                        <td>{{$s->fuel_capacity}}</td>
-                        <td>{{$s->equipmentowner->vendor ?? ''}}</td>
+                        <td>{{ $loop->itteration }}</td>
+                        <td>{{$s->nama}}</td>
+                        <td>{{$s->inisial}}</td>
                         <td>
                             <div class="btn-group">
 
