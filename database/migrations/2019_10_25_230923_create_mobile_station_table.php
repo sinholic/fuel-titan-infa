@@ -15,10 +15,11 @@ class CreateMobileStationTable extends Migration
     {
         Schema::create('mobile_station', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('fixstation_id');
             $table->string('number_vehicle');
             $table->string('name_vehicle');
             $table->string('fuel_capacity');
-            $table->bigInteger('induk_station');
+            $table->string('fuel_max_reload');
             // $table->string('fuelman_assignment');
             $table->timestamps();
             $table->softDeletes();

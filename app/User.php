@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Status', 'status_id', 'id');
     }
+
+    public function companycode()
+    {
+        return $this->belongsTo('App\Companycode', 'companycode_id', 'id');
+    }
 }

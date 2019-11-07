@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOwnerTable1 extends Migration
+class CreateOwnerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -33,8 +33,6 @@ class CreateOwnerTable1 extends Migration
      */
     public function down()
     {
-        Schema::table('owner', function (Blueprint $table) {
-            Schema::dropIfExists('owner');
-        });
+        Schema::dropIfExists('owner');
     }
 }
