@@ -127,5 +127,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/tampiladduserhe', 'UserheController@tambah');
     Route::post('/userhe/create', 'UserheController@create');
 
-    Route::resource('equipment-category','EquipmentCategory');
+    Route::resource('equipment-category','EquipmentcategoryController');
 });
