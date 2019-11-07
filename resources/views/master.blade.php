@@ -175,7 +175,7 @@ to get the desired effect
               </li>
 
               <li class="nav-item">
-                <a href="/equipment-category" class="nav-link">
+                <a href="/equipment_category" class="nav-link">
                   <p>Kategori Equipment</p>
                 </a>
               </li>
