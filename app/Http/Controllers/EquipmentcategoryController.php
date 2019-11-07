@@ -14,7 +14,8 @@ class EquipmentcategoryController extends Controller
      */
     public function index()
     {
-        //
+        $equipment_category = Equipmentcategory::all();
+        return view('Equipment Category.equipment_category', ['equipment_category' => $equipment_category]);
     }
 
     /**
@@ -22,9 +23,9 @@ class EquipmentcategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function tambah()
     {
-        //
+        return view('Equipment Category.addequipment_category');
     }
 
     /**
@@ -35,29 +36,14 @@ class EquipmentcategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Equipmentcategory::create($request->all());
+        return redirect('/equipment_category')->with('sukses', 'Data Berhasil Di Input!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Equipmentcategory  $equipmentcategory
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Equipmentcategory $equipmentcategory)
+    public function edit($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Equipmentcategory  $equipmentcategory
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Equipmentcategory $equipmentcategory)
-    {
-        //
+        $equipment_category = Equipmentcategory::find($id);
+        return view('Equipment Category.edit_equipment_category', ['equipment_category' => $equipment_category]);
     }
 
     /**
@@ -67,9 +53,11 @@ class EquipmentcategoryController extends Controller
      * @param  \App\Equipmentcategory  $equipmentcategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Equipmentcategory $equipmentcategory)
+    public function update(Request $request, $id)
     {
-        //
+        $equipment_category = Equipmentcategory::find($id);
+        $equipment_category->update($request->all());
+        return redirect('/equipment_category')->with('sukses', 'Data Berhasil Di Update!');
     }
 
     /**
@@ -78,8 +66,10 @@ class EquipmentcategoryController extends Controller
      * @param  \App\Equipmentcategory  $equipmentcategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Equipmentcategory $equipmentcategory)
+    public function destroy($id)
     {
-        //
+        $equipment_category = Equipmentcategory::find($id);
+        $equipment_category->delete($equipment_category);
+        return redirect('/equipment_category')->with('sukses', 'Data berhasil dihapus!');
     }
 }
