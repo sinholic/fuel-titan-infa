@@ -21,10 +21,10 @@ class CreateFixStationTable extends Migration
             $table->string('koordinat_gps');
             $table->string('tank_number');
             $table->string('fuel_capacity');
-            $table->string('fuel_assignment');
-            $table->string('last_refuel');
-            $table->string('ending_stock_date');
-            $table->string('ending_stock_quantity');
+            // $table->string('fuel_assignment');
+            // $table->string('last_refuel');
+            // $table->string('ending_stock_date');
+            // $table->string('ending_stock_quantity');
             $table->timestamps();
             $table->softDeletes();
         });

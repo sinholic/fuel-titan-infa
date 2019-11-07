@@ -18,8 +18,8 @@ class CreateMobileStationTable extends Migration
             $table->string('number_vehicle');
             $table->string('name_vehicle');
             $table->string('fuel_capacity');
-            $table->string('induk_station');
-            $table->string('fuelman_assignment');
+            $table->bigInteger('induk_station');
+            // $table->string('fuelman_assignment');
             $table->timestamps();
             $table->softDeletes();
         });

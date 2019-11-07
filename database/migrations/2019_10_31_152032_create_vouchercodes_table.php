@@ -15,7 +15,14 @@ class CreateVouchercodesTable extends Migration
     {
         Schema::create('vouchercodes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('voucher_id');
+            $table->string('code_number')->unique();
+            $table->string('serial_number')->unique();
+            $table->boolean('used');
+            $table->boolean('rejected');
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 
