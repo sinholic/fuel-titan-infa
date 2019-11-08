@@ -16,7 +16,7 @@ class EquipmentUnitdata extends Migration
         Schema::create('equipment_unitdata', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('equipment_number');
-            $table->string('nama');
+            $table->string('equipment_name');
             $table->bigInteger('equipment_category');
             $table->string('location');
             $table->string('fuel_capacity');

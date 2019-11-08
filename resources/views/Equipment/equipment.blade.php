@@ -60,7 +60,7 @@
                         <td>{{$s->equipmentcategory->nama ?? ''}}</td>
                         <td>{{$s->location}}</td>
                         <td>{{$s->fuel_capacity}}</td>
-                        <td>{{$s->equipmentowner->vendor ?? ''}}</td>
+                        <td>{{$s->equipmentowner->vendor_name ?? ''}}</td>
                         <td>
                             <div class="btn-group">
 
