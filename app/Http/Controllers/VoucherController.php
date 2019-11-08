@@ -43,7 +43,7 @@ class VoucherController extends Controller
 
         $num_cols = $request->input('jumlah');
         $voucher = new VoucherModel;
-        // $voucher->qty = $request->qty;
+        $voucher->qty = $request->qty;
         // $baru->code_number = Str::random(20);
         $voucher->owner = $request->owner;
         $voucher->expired_date = $request->expired_date;
