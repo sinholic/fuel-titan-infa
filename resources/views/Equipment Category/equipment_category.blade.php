@@ -48,7 +48,7 @@
             @php $i=1 @endphp
             <tbody>
                 @php $i=1 @endphp
-                 @foreach($equipment_category ?? '' as $s)
+                @foreach($equipment_category ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
                     <td>{{$s->nama}}</td>
