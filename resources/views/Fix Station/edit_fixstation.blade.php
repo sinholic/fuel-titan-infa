@@ -41,36 +41,32 @@
                         <input type="text" name="koordinat_gps" value="{{$fix->koordinat_gps}}" class="form-control" required autofocus>
                     </div>
 
-                    <div class="form-group">
-                        <label>Tank Number</label>
-                        <input type="text" name="tank_number" value="{{$fix->tank_number}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Kapasitas Tangki</label>
-                        <input type="int" name="fuel_capacity" value="{{$fix->fuel_capacity}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Fuelman Assignment</label>
-                        <input type="text" name="fuel_assignment" value="{{$fix->fuel_assignment}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Pengisian Terakhir</label>
-                        <input type="date" name="last_refuel" value="{{$fix->last_refuel}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Ending Stock Date</label>
-                        <input type="date" name="ending_stock_date" value="{{$fix->ending_stock_date}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Ending Stock Quantity</label>
-                        <input type="date" name="ending_stock_quantity" value="{{$fix->ending_stock_quantity}}" class="form-control" required autofocus>
-                    </div>
-
+                    <div id="tanks">
+                            @foreach ($tanks as $tank)
+                                <div id="{{ $loop->first ? 'tank' : ''}}">
+                                    <div class="form-group">
+                                        <label>Tank Number</label>
+                                    <input type="text" name="tank_number[]" value="{{ $tank->tank_number }}" placeholder="" class="form-control" required autocomplete="">
+                                    </div> 
+        
+                                    <div class="form-group">
+                                        <label>Tank Capacity</label>
+                                        <div class="input-group">
+                                        <input type="number" name="fuel_capacity[]" value="{{ $tank->fuel_capacity }}" placeholder="" class="form-control" required autocomplete="">
+                                            <div class="input-group-btn">
+                                                @if ($loop->first)
+                                                    {{-- <button id="addtank" class="btn btn-success" type="button">
+                                                        <i class="fa fa-plus"></i>
+                                                    </button> --}}
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="form-"></div>
+                                </div>    
+                            @endforeach
+                        </div>
 
                 </div>
 

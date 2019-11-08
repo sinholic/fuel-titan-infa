@@ -25,7 +25,6 @@ class Companycode extends Model
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
     ];
 
     /**
@@ -34,6 +33,15 @@ class Companycode extends Model
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
     ];
+
+    public function users()
+    {
+        return $this->hasMany('App\User', 'companycode_id', 'id');
+    }
+
+    public function fixstations()
+    {
+        return $this->hasMany('App\FixStationModel', 'companycode_id', 'id');
+    }
 }

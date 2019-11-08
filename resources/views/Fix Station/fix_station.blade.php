@@ -36,7 +36,7 @@
         </div>
 
     <div class="card-body">
-        <table class="table table-striped table-responsive table-bordered" id="myTable">
+        <table class="table table-striped table-bordered" id="myTable">
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
@@ -44,12 +44,8 @@
                     <th class="text-center">Alamat</th>
                     <th class="text-center">Nama Lokasi</th>
                     <th class="text-center">Koordinat GPS</th>
-                    <th class="text-center">Tank Number</th>
-                    <th class="text-center">Kapasitas Tangki</th>
-                    <th class="text-center">Fuelman Assignment</th>
-                    <th class="text-center">Pengisian Terakhir</th>
-                    <th class="text-center">Ending Stock Date</th>
-                    <th class="text-center">Ending Stock Quantity</th>
+                    <th class="text-center">Total Tangki</th>
+                    <th class="text-center">Total Kapasitas Tangki</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
@@ -63,12 +59,8 @@
                     <td>{{$s->address}}</td>
                     <td>{{$s->nama_lokasi}}</td>
                     <td>{{$s->koordinat_gps}}</td>
-                    <td>{{$s->tank_number}}</td>
-                    <td>{{$s->fuel_capacity}}</td>
-                    <td>{{$s->fuel_assignment}}</td>
-                    <td>{{$s->last_refuel}}</td>
-                    <td>{{$s->ending_stock_date}}</td>
-                    <td>{{$s->ending_stock_quantity}}</td>
+                    <td>{{$s->total_tank}}</td>
+                    <td>{{$s->total_fuel_capacity}}</td>
                     <td>
                          <div class="btn-group">
 

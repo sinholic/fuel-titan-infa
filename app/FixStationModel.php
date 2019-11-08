@@ -9,5 +9,10 @@ class FixStationModel extends Model
 {
     use SoftDeletes;
     protected $table = "fix_station";
-    protected $fillable = ['name_station', 'address', 'nama_lokasi', 'koordinat_gps', 'tank_number', 'fuel_capacity', 'fuel_assignment', 'last_refuel', 'ending_stock_date', 'ending_stock_quantity'];
+    protected $guarded = [];
+
+    public function company()
+    {
+        return $this->belongsTo('App\Companycode', 'companycode_id', 'id');
+    }
 }

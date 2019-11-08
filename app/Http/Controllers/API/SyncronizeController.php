@@ -102,49 +102,42 @@ class SyncronizeController extends Controller
             'data' => $data
         ], 200);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    
+    public function upload(Request $request)
     {
-        //
-    }
+        $data['message'] = "Syncronize succeccfully";
+        
+        if (request()->method() == "POST") {
+            if (!Auth::user()) {
+                $data['message'] = "No user detected, are you try to hack?";
+                return response()->json([
+                    'success' => false,
+                    'data' => $data
+                ], 200);
+            }
+    
+            if (Auth::user()->syncpassword != request('syncpassword')) {
+                $data['message'] = "Are you forgot your sync password?";
+                return response()->json([
+                    'success' => false,
+                    'data' => $data
+                ], 200);
+            }
+        }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $file = $request->file('filesql')->storeAs(
+            'sqlfiles', Auth::user()->id . "-" . \Carbon\Carbon::now()->timestamp . ".sql"
+        );
+        if ($file) {
+            $data['filepath'] = $file;
+            return response()->json([
+                'success' => true,
+                'data' => $data
+            ], 200);
+        }
+        return response()->json([
+            'success' => false,
+            'data' => $data
+        ], 200);
     }
 }

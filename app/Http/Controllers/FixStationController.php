@@ -10,7 +10,12 @@ class FixStationController extends Controller
 {
     public function fix()
     {
-        $fix = FixStationModel::all();
+        $fix = FixStationModel::select('id','name_station','address','nama_lokasi','koordinat_gps','tank_number','fuel_capacity',
+        \DB::raw('count(*) as total_tank'), \DB::raw('sum(fuel_capacity) as total_fuel_capacity'))
+        ->where('companycode_id', \Auth::user()->companycode_id)
+        ->groupBy('name_station', 'address')
+        ->with('company')
+        ->get();
         return view('Fix Station.fix_station', ['fix' => $fix]);
     }
 
@@ -21,20 +26,48 @@ class FixStationController extends Controller
 
     public function create(Request $request)
     {
-        FixStationModel::create($request->all());
+        // dd($request->all());
+        foreach ($request->tank_number as $key => $tank_number) {
+            FixStationModel::create([
+                'companycode_id' => \Auth::user()->companycode_id,
+                'name_station' => $request->name_station,
+                'address' => $request->address,
+                'nama_lokasi' => $request->nama_lokasi,
+                'koordinat_gps' => $request->koordinat_gps,
+                'tank_number' => $tank_number,
+                'fuel_capacity' => $request->fuel_capacity[$key],
+            ]);
+        }
+        // FixStationModel::create();
         return redirect('/fix')->with('sukses', 'Data Berhasil Di Input!');
     }
 
     public function edit($id)
     {
         $fix = FixStationModel::find($id);
-        return view('Fix Station.edit_fixstation', ['fix' => $fix]);
+        $tanks = FixStationModel::where('name_station', $fix->name_station)->get();
+        return view('Fix Station.edit_fixstation', ['fix' => $fix, 'tanks' => $tanks]);
     }
 
     public function update(Request $request, $id)
     {
         $fix = FixStationModel::find($id);
-        $fix->update($request->all());
+        $tanks = FixStationModel::where('name_station', $fix->name_station)->get();
+        if (count($tanks) != count($request->tank_number)) {
+            
+        }else {
+            foreach ($tanks as $key => $tank) {
+                FixStationModel::find($tank->id)->update([
+                    'name_station' => $request->name_station,
+                    'address' => $request->address,
+                    'nama_lokasi' => $request->nama_lokasi,
+                    'koordinat_gps' => $request->koordinat_gps,
+                    'tank_number' => $request->tank_number[$key],
+                    'fuel_capacity' => $request->fuel_capacity[$key],
+                ]);
+            }
+        }
+        // $fix->update($request->all());
         return redirect('/fix')->with('sukses', 'Data Berhasil Di Update!');
     }
 

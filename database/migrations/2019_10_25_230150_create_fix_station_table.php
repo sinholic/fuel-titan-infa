@@ -20,7 +20,7 @@ class CreateFixStationTable extends Migration
             $table->string('address');
             $table->string('nama_lokasi');
             $table->string('koordinat_gps');
-            $table->string('total_tank');
+            $table->string('tank_number');
             $table->string('fuel_capacity');
             // $table->string('fuel_assignment');
             // $table->string('last_refuel');

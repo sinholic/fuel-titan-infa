@@ -27,7 +27,7 @@ class UserController extends Controller
             return response()->json([
                 'success' => false,
                 'data' => $data
-            ], 401);
+            ], $this->successStatus);
         }
     }
 

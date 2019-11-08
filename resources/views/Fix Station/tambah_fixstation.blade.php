@@ -39,37 +39,30 @@
                     <div class="form-group">
 						<label>Koordinat GPS</label>
 						<input type="text" name="koordinat_gps" placeholder="" class="form-control" required autofocus>
-                    </div>
-                    
-                    <div class="form-group">
-						<label>Total Tank</label>
-						<input type="text" name="tank_number" placeholder="" class="form-control" required autocomplete="">
-                    </div> 
+					</div>
+					
+					<div id="tanks">
+						<div id="tank">
+							<div class="form-group">
+								<label>Tank Number</label>
+								<input type="text" name="tank_number[]" placeholder="" class="form-control" required autocomplete="">
+							</div> 
 
-                    <div class="form-group">
-						<label>Kapasitas Tangki</label>
-						<input type="number" name="fuel_capacity" placeholder="" class="form-control" required autocomplete="">
-                    </div> 
+							<div class="form-group">
+								<label>Tank Capacity</label>
+								<div class="input-group">
+									<input type="number" name="fuel_capacity[]" placeholder="" class="form-control" required autocomplete="">
+									<div class="input-group-btn">
+										<button id="addtank" class="btn btn-success" type="button">
+											<i class="fa fa-plus"></i>
+										</button>
+									</div>
+								</div>
+							</div>
 
-                    <div class="form-group">
-						<label>Fuel Assignment</label>
-						<input type="text" name="fuel_assignment" placeholder="" class="form-control" required autocomplete="">
-                    </div> 
-
-                    <div class="form-group">
-						<label>Pengisian Terakhir</label>
-						<input type="date" name="last_refuel" placeholder="" class="form-control" required autocomplete="">
-                    </div> 
-
-                    <div class="form-group">
-						<label>Ending Stock Date</label>
-						<input type="date" name="ending_stock_date" placeholder="" class="form-control" required autocomplete="">
-                    </div> 
-
-                    <div class="form-group">
-						<label>Ending Stock Quantity</label>
-						<input type="number" name="ending_stock_quantity" placeholder="" class="form-control" required autocomplete="">
-                    </div> 
+							<div class="form-"></div>
+						</div>
+					</div> 
 
 				</div>
 
@@ -88,6 +81,19 @@
 	</div>
 </div>
 
-
-
 @endsection
+
+@push('scripts')
+	<script>
+		
+		$('#addtank').click(function () {
+			console.log("HAI");
+			
+      		var tank = $('#tank');
+      		var clone = $('#tank').clone();
+			clone.find('.btn').remove();
+			clone.appendTo("#tanks");
+    	})
+	</script>
+@endpush
+

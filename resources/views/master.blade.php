@@ -449,11 +449,11 @@ to get the desired effect
 <script src="{{asset('adminlte/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
 
 @stack('scripts')
-</body>
-</html>
 
 <script>
-  $(document).ready(function(){
-    $('#myTable').DataTable();
-  });
-</script>
+    $(document).ready(function(){
+      $('#myTable').DataTable();
+    });
+  </script>
+</body>
+</html>
