@@ -159,4 +159,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pengisian_fix/edit/{id}', 'PengisianFixController@edit');
     Route::post('/pengisian_fix/update/{id}', 'PengisianFixController@update');
     Route::get('/pengisian_fix/{id}/delete', 'PengisianFixController@delete');
+
+    //Company Code
+    Route::get('/companycode', 'CompanycodeController@index');
+    Route::get('/addcompany', 'CompanycodeController@tambah');
+    Route::post('/companycode/create', 'CompanycodeController@create');
+    Route::get('/companycode/edit/{id}', 'CompanycodeController@edit');
+    Route::post('/companycode/update/{id}', 'CompanycodeController@update');
+    Route::get('/companycode/{id}/delete', 'CompanycodeController@delete');
 });
