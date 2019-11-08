@@ -176,7 +176,13 @@ to get the desired effect
 
               <li class="nav-item">
                 <a href="/equipment_category" class="nav-link">
-                  <p>Kategori Equipment</p>
+                  <p>Category Equipment</p>
+                </a>
+              </li>
+
+               <li class="nav-item">
+                <a href="/companycode" class="nav-link">
+                  <p>Company Code</p>
                 </a>
               </li>
 
