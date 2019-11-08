@@ -26,7 +26,7 @@ class VoucherController extends Controller
 
     public function tambah()
     {
-        $owners = OwnerModel::pluck('vendor', 'id');
+        $owners = OwnerModel::pluck('vendor_name', 'id');
         // dd($owners);
         return view('Voucher.tambah_voucher', ['owners' => $owners]);
     }
@@ -50,7 +50,9 @@ class VoucherController extends Controller
         $voucher->save();
 
         $vouceherCodes = array();
-        $runningNumber = time();
+        // $runningNumber = 
+        $runningNumber = $request->owner . \Carbon\Carbon::now()->format('yYn') . "0000001";
+        // dd($runningNumber);
         for ($i = 1; $i <= $num_cols; $i++) {
             $vouceherCodes[] = new Vouchercode(array(
                 'voucher_id' => $voucher->id,

@@ -128,6 +128,13 @@ class SyncronizeController extends Controller
         $file = $request->file('filesql')->storeAs(
             'sqlfiles', Auth::user()->id . "-" . \Carbon\Carbon::now()->timestamp . ".sql"
         );
+
+        // dd(storage_path('app/filesql')."/7-1573198561.sql");
+
+        \Artisan::call('import:sqlfile', [
+            'sqlfile' => storage_path('app/').$file
+        ]);
+        
         if ($file) {
             $data['filepath'] = $file;
             return response()->json([
@@ -139,5 +146,14 @@ class SyncronizeController extends Controller
             'success' => false,
             'data' => $data
         ], 200);
+    }
+
+    public function exec_bg($cmd) { 
+        if (substr(php_uname(), 0, 7) == "Windows"){ 
+            pclose(popen("start /B ". $cmd, "r"));  
+        } 
+        else { 
+            exec($cmd . " > /dev/null &");   
+        }
     }
 }

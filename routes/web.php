@@ -167,4 +167,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/companycode/edit/{id}', 'CompanycodeController@edit');
     Route::post('/companycode/update/{id}', 'CompanycodeController@update');
     Route::get('/companycode/{id}/delete', 'CompanycodeController@delete');
+
 });

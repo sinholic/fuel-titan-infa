@@ -55,7 +55,7 @@
                  @foreach($owner ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->vendor}}</td>
+                    <td>{{$s->vendor_name}}</td>
                     <td>{{$s->address}}</td>
                     <td>{{$s->owner_category}}</td>
                     <td>{{$s->pic}}</td>

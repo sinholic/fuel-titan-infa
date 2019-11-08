@@ -70,7 +70,7 @@
                         </a>
                     </td>
                     <td>{{$s->qty}}</td>
-                    <td>{{$s->voucherowner->vendor ?? 'Owner not found'}}</td>
+                    <td>{{$s->voucherowner->vendor_name ?? 'Owner not found'}}</td>
                     <td>{{date('l, d-M-Y', strtotime($s->expired_date))}}</td>
                     <td>
                          <div class="btn-group">
