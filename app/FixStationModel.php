@@ -15,4 +15,9 @@ class FixStationModel extends Model
     {
         return $this->belongsTo('App\Companycode', 'companycode_id', 'id');
     }
+
+    public function mobiles()
+    {
+        return $this->hasMany('App\MobileModel', 'fixstation_id', 'id');
+    }
 }

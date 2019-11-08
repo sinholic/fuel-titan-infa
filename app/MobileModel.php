@@ -9,5 +9,10 @@ class MobileModel extends Model
 {
     use SoftDeletes;
     protected $table = "mobile_station";
-    protected $fillable = ['number_vehicle', 'name_vehicle', 'fuel_capacity', 'induk_station', 'fuelman_assignment'];
+    protected $guarded = [];
+
+    public function fixstation()
+    {
+        return $this->belongsTo('App\FixStationModel', 'fixstation_id', 'id');
+    }
 }
