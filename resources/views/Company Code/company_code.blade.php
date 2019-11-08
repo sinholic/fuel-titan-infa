@@ -21,18 +21,18 @@
 		 <i class="fas fa-file-excel"></i> Import Excel
     </button>
 
-    <a href="/equipment_category/export_excel" class="btn btn-success my-1" target="_blank">
+    <a href="/companycode/export_excel" class="btn btn-success my-1" target="_blank">
         <i class="fas fa-file-excel"></i> Export Excel
     </a>
     
-        <a href="/addequipment_category" class="btn btn-primary">
+        <a href="/addcompany" class="btn btn-primary">
             <i class="fa fa-plus nav-icon"></i>
         </a>
 
 <div class="card" style="border-top: 3px solid #9C5C22">
         
        <div class="card-header">
-            <h4>Equipment Category</h4>
+            <h4>Company Code</h4>
         </div>
 
     <div class="card-body">
@@ -40,19 +40,19 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Nama Equipment</th>
-                    <th class="text-center">Inisial</th>
+                    <th class="text-center">Name Company Code</th>
+                    <th class="text-center">Inisial Company Code</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
             @php $i=1 @endphp
             <tbody>
                 @php $i=1 @endphp
-                @foreach($equipment_category ?? '' as $s)
+                 @foreach($companycode ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->nama}}</td>
-                    <td>{{$s->inisial}}</td>
+                    <td>{{$s->company_name}}</td>
+                    <td>{{$s->company_inisial}}</td>
                     <td>
                          <div class="btn-group">
 
@@ -61,11 +61,11 @@
                                 <i class="fa fa-info-circle nav-icon"></i>
                             </a>
 
-                            <a href="/equipment_category/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
+                            <a href="/companycode/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/equipment_category/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
+                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/companycode/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
                                 <i class="fa fa-trash nav-icon"></i>
                             </a>
 

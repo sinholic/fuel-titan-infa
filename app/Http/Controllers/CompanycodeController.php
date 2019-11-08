@@ -14,7 +14,8 @@ class CompanycodeController extends Controller
      */
     public function index()
     {
-        //
+        $companycode = Companycode::all();
+        return view('Company Code.company_code', ['companycode' => $companycode]);
     }
 
     /**
@@ -22,9 +23,9 @@ class CompanycodeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function tambah()
     {
-        //
+        return view('Company Code.tambah_company');
     }
 
     /**
@@ -33,20 +34,10 @@ class CompanycodeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Companycode  $companycode
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Companycode $companycode)
-    {
-        //
+        Companycode::create($request->all());
+        return redirect('/companycode')->with('sukses', 'Data Berhasil Di Input!');
     }
 
     /**
@@ -55,9 +46,10 @@ class CompanycodeController extends Controller
      * @param  \App\Companycode  $companycode
      * @return \Illuminate\Http\Response
      */
-    public function edit(Companycode $companycode)
+    public function edit($id)
     {
-        //
+        $companycode = Companycode::find($id);
+        return view('Company Code.edit_companycode', ['companycode' => $companycode]);
     }
 
     /**
@@ -67,9 +59,11 @@ class CompanycodeController extends Controller
      * @param  \App\Companycode  $companycode
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Companycode $companycode)
+    public function update(Request $request, $id)
     {
-        //
+        $companycode = Companycode::find($id);
+        $companycode->update($request->all());
+        return redirect('/companycode')->with('sukses', 'Data Berhasil Di Update!');
     }
 
     /**
@@ -78,8 +72,10 @@ class CompanycodeController extends Controller
      * @param  \App\Companycode  $companycode
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Companycode $companycode)
+    public function delete($id)
     {
-        //
+        $companycode = Companycode::find($id);
+        $companycode->delete($companycode);
+        return redirect('/companycode')->with('sukses', 'Data berhasil dihapus!');
     }
 }
