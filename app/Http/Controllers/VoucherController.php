@@ -43,7 +43,7 @@ class VoucherController extends Controller
 
         $num_cols = $request->input('jumlah');
         $voucher = new VoucherModel;
-        $voucher->qty = $request->qty;
+        // $voucher->qty = $request->qty;
         // $baru->code_number = Str::random(20);
         $voucher->owner = $request->owner;
         $voucher->expired_date = $request->expired_date;
@@ -52,11 +52,12 @@ class VoucherController extends Controller
         $vouceherCodes = array();
         // $runningNumber = 
         $runningNumber = $request->owner . \Carbon\Carbon::now()->format('yYn') . "0000001";
+        $runningNumber = (int) $runningNumber;
         // dd($runningNumber);
         for ($i = 1; $i <= $num_cols; $i++) {
             $vouceherCodes[] = new Vouchercode(array(
                 'voucher_id' => $voucher->id,
-                'running_number' => $runningNumber + $i,
+                'serial_number' => $runningNumber + $i,
                 'code_number' => sha1($runningNumber + $i),
                 'used' => 0,
                 'rejected' => 0

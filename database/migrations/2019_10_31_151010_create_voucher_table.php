@@ -16,6 +16,7 @@ class CreateVoucherTable extends Migration
         Schema::create('voucher', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('owner');
+            $table->bigInteger('qty');
             $table->date('expired_date');
             $table->timestamps();
             $table->softDeletes();
