@@ -18,7 +18,7 @@ class EquipmentController extends Controller
 
     public function tambah()
     {
-        $owners = OwnerModel::pluck('vendor', 'id');
+        $owners = OwnerModel::pluck('vendor_name', 'id');
         $equipment_categories = Equipmentcategory::pluck('nama', 'id');
         return view('Equipment.tambah_equipment', ['owners' => $owners, 'equipment_categories' => $equipment_categories]);
     }
