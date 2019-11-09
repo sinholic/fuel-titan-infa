@@ -74,7 +74,6 @@ Qty : $qty,
 Owner: $vendorName,
 Used: $used,
 Rejected: $rejected,
-Owner: $vendorName,
 Expired: $expired_date"
                         @endphp
                         <tr>
