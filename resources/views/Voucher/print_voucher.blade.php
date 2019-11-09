@@ -43,6 +43,7 @@
         p {
         font-size: 15px;
         left: 25px;
+        margin: 0;
         }
     </style>
   </head>
@@ -58,12 +59,13 @@
                     <table>
                     @php 
                         $qty = $voucher->qty;
-                        $vendorName = $voucher->voucherowner->vendor;
+                        $vendorName = $voucher->voucherowner->vendor_name;
                         $expired_date = $voucher->expired_date;
                     @endphp
                     @foreach($voucher->vouchercodes as $s)
                         @php $string = 
                             "Voucher: $s->code_number,
+SN: $s->serial_number,
 Qty : $qty,
 Owner: $vendorName,
 Expired: $expired_date"
@@ -74,8 +76,9 @@ Expired: $expired_date"
                         </tr>
                         <tr>
                             <td style="margin-top: 30px" colspan=2>
-                                <p>Owner : {{$voucher->voucherowner->vendor}} </p>
-                                <p>Exp. Date : {{date('d M Y', strtotime($voucher->expired_date))}}</p>
+                                <p>Owner: {{$voucher->voucherowner->vendor_name}} </p>
+                                <p>SN: {{$s->serial_number}} </p>
+                                <p>Exp. Date: {{date('d M Y', strtotime($voucher->expired_date))}}</p>
                                 <hr >
                             </td>
                         </tr>
