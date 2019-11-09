@@ -41,6 +41,15 @@ class VoucherController extends Controller
             'expired_date' => 'required|date|after_or_equal:start_date'
         ], $messages);
 
+        $last_data = VoucherModel::where('owner', $request->owner)->get()->last();
+        $runningNumber = 0;
+        if ($last_data) {
+            $runningNumber = $last_data->vouchercodes->last()->serial_number;
+        }else {
+            $runningNumber = $request->owner . \Carbon\Carbon::now()->format('yYn') . "0000001";
+        }
+        $runningNumber = (int) $runningNumber;
+
         $num_cols = $request->input('jumlah');
         $voucher = new VoucherModel;
         $voucher->qty = $request->qty;
@@ -50,9 +59,6 @@ class VoucherController extends Controller
         $voucher->save();
 
         $vouceherCodes = array();
-        // $runningNumber = 
-        $runningNumber = $request->owner . \Carbon\Carbon::now()->format('yYn') . "0000001";
-        $runningNumber = (int) $runningNumber;
         // dd($runningNumber);
         for ($i = 1; $i <= $num_cols; $i++) {
             $vouceherCodes[] = new Vouchercode(array(

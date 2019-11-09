@@ -17,7 +17,7 @@
 		</div>
     @endif
     
-    <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
+    {{-- <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
 		 <i class="fas fa-file-excel"></i> Import Excel
     </button>
 
@@ -27,7 +27,7 @@
     
         <a href="/addpengisian_fix" class="btn btn-primary">
             <i class="fa fa-plus nav-icon"></i>
-        </a>
+        </a> --}}
 
 <div class="card" style="border-top: 3px solid #9C5C22">
         
