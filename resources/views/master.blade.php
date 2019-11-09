@@ -18,7 +18,11 @@
   <!-- DataTables -->
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js">
-
+  <style>
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+      padding: 0;
+    }
+  </style>
 </head>
 <!--
 BODY TAG OPTIONS:

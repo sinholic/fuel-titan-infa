@@ -42,10 +42,10 @@
                     <th class="text-center">No</th>
                     <th class="text-center">ID Driver</th>
                     <th class="text-center">Unit Equipment</th>
-                    <th class="text-center">Qty Solar</th>
+                    <th class="text-center">Voucher</th>
                     <th class="text-center">Odometer</th>
                     <th class="text-center">Remark</th>
-                    <th class="text-center" width="8%">Action</th>
+                    {{-- <th class="text-center" width="8%">Action</th> --}}
                 </tr>
             </thead>
             @php $i=1 @endphp
@@ -56,13 +56,12 @@
                     <td>{{$i++}}</td>
                     <td>{{$s->id_driver}}</td>
                     <td>{{$s->unit_equipment}}</td>
-                    <td>{{$s->qty_solar}}</td>
+                    <td>{{$s->voucher}}</td>
                     <td>{{$s->odometer}}</td>
                     <td>{{$s->remark}}</td>
-                    <td>
+                    {{-- <td>
                          <div class="btn-group">
 
-                            <!-- URL::to('/admin/category/detail.id='.$cate-id -->
                              <a href="#" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Info">
                                 <i class="fa fa-info-circle nav-icon"></i>
                             </a>
@@ -76,7 +75,7 @@
                             </a>
 
                         </div>
-                    </td>
+                    </td> --}}
                     
                 </tr>
                 @endforeach
