@@ -63,10 +63,17 @@
                         $expired_date = $voucher->expired_date;
                     @endphp
                     @foreach($voucher->vouchercodes as $s)
+                        @php    
+                        $used = $s->used ? "true" : "false";
+                        $rejected = $s->rejected ? "true" : "false";
+                        @endphp
                         @php $string = 
                             "Voucher: $s->code_number,
 SN: $s->serial_number,
 Qty : $qty,
+Owner: $vendorName,
+Used: $used,
+Rejected: $rejected,
 Owner: $vendorName,
 Expired: $expired_date"
                         @endphp
