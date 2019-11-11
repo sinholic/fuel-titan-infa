@@ -10,7 +10,7 @@ class VoucherModel extends Model
     use SoftDeletes;
 
     protected $table = "voucher";
-    protected $fillable = ['code_number', 'qty', 'owner', 'expired_date', '', ''];
+    protected $guarded = [];
 
     public function vouchercodes()
     {

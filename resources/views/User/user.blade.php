@@ -52,7 +52,7 @@
                     <td>{{$s->name}}</td>
                     <td>{{$s->email}}</td>
                     <td>{{$s->imei}}</td>
-                    <td>{{$s->status->nama}}</td>
+                    <td>{{$s->status->nama ?? ''}}</td>
                     <td>
                          <div class="btn-group">
 

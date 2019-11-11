@@ -22,6 +22,11 @@
                     @endif
 
                     <div class="form-group">
+                        <label>Fix Station</label>
+                        {{ Form::select('fixstation_id', $fixstations, $mobile->fixstation_id, ['placeholder' => 'Pilih fix station...', 'required', 'class' => 'form-control']) }}
+                    </div>
+
+                    <div class="form-group">
                         <label>Nomor Vehicle</label>
                         <input type="text" name="number_vehicle" value="{{$mobile->number_vehicle}}" class="form-control" required autofocus>
                     </div>
@@ -37,13 +42,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Induk Station</label>
-                        <input type="number" name="induk_station" value="{{$mobile->induk_station}}" class="form-control" required autofocus>
+                        <label>Fuelman Assignment</label>
+                        <input type="text" name="fuelman_assignment" value="{{$mobile->fuelman_assignment}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
-                        <label>Fuelman Assignment</label>
-                        <input type="text" name="fuelman_assignment" value="{{$mobile->fuelman_assignment}}" class="form-control" required autofocus>
+                        <label>Maksimal Pengisian Ulang</label>
+                        <input type="text" name="fuel_max_reload" value="{{$mobile->fuel_max_reload}}" placeholder="" class="form-control" required autocomplete="">
                     </div>
 
 

@@ -26,7 +26,7 @@ class VoucherController extends Controller
 
     public function tambah()
     {
-        $owners = OwnerModel::pluck('vendor', 'id');
+        $owners = OwnerModel::pluck('vendor_name', 'id');
         // dd($owners);
         return view('Voucher.tambah_voucher', ['owners' => $owners]);
     }
@@ -41,6 +41,15 @@ class VoucherController extends Controller
             'expired_date' => 'required|date|after_or_equal:start_date'
         ], $messages);
 
+        $last_data = VoucherModel::where('owner', $request->owner)->get()->last();
+        $runningNumber = 0;
+        if ($last_data) {
+            $runningNumber = $last_data->vouchercodes->last()->serial_number;
+        }else {
+            $runningNumber = $request->owner . \Carbon\Carbon::now()->format('yYn') . "0000000";
+        }
+        $runningNumber = (int) $runningNumber;
+
         $num_cols = $request->input('jumlah');
         $voucher = new VoucherModel;
         $voucher->qty = $request->qty;
@@ -50,11 +59,11 @@ class VoucherController extends Controller
         $voucher->save();
 
         $vouceherCodes = array();
-        $runningNumber = time();
+        // dd($runningNumber);
         for ($i = 1; $i <= $num_cols; $i++) {
             $vouceherCodes[] = new Vouchercode(array(
                 'voucher_id' => $voucher->id,
-                'running_number' => $runningNumber + $i,
+                'serial_number' => $runningNumber + $i,
                 'code_number' => sha1($runningNumber + $i),
                 'used' => 0,
                 'rejected' => 0

@@ -10,7 +10,7 @@ class UserheController extends Controller
     public function userhe()
     {
         $userhe = UserheModel::all();
-        return view('User He.userhe', ['userhe' => $userhe]);
+        return view('User HE.userhe', ['userhe' => $userhe]);
     }
 
     public function tambah()

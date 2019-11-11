@@ -9,7 +9,7 @@ class Vouchercode extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['code_number', 'voucher_id', 'used'];
+    protected $guarded = [];
 
     public function voucher()
     {

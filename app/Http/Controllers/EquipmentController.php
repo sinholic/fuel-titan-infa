@@ -16,9 +16,20 @@ class EquipmentController extends Controller
         return view('Equipment.equipment', ['equipment' => $equipment]);
     }
 
+    public function print(Request $request)
+    {
+        $equipments = EquipmentModel::with(
+            'equipmentowner',
+            'equipmentcategory',
+            'reloadingunits',
+        )->get();
+        // dd($Equipment->Equipmentowner);
+        return view('Equipment.print_qr', ['equipments' => $equipments]);
+    }
+
     public function tambah()
     {
-        $owners = OwnerModel::pluck('vendor', 'id');
+        $owners = OwnerModel::pluck('vendor_name', 'id');
         $equipment_categories = Equipmentcategory::pluck('nama', 'id');
         return view('Equipment.tambah_equipment', ['owners' => $owners, 'equipment_categories' => $equipment_categories]);
     }

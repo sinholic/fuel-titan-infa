@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Print Voucher</title>
+    <title>Print QR Equipment</title>
     <style type="text/css">
         table.one {
             border-collapse:separate;
@@ -53,46 +53,39 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <table border="1" class="one">
-                <td style="width: 40mm; height: 40mm;">
-			
-                    <table>
-                    @php 
-                        $qty = $voucher->qty;
-                        $vendorName = $voucher->voucherowner->vendor_name;
-                        $expired_date = $voucher->expired_date;
-                    @endphp
-                    @foreach($voucher->vouchercodes as $s)
-                        @php    
-                        $used = $s->used ? "true" : "false";
-                        $rejected = $s->rejected ? "true" : "false";
+            <table border="0" class="one" style="width:40mm">
+                {{-- <td style="width: 40mm; height: 40mm;"> --}}
+                    
+                    {{-- <table> --}}
+                    @foreach($equipments as $equipment)
+                        @php
+                            $category = $equipment->equipmentcategory->nama;
+                            $owner = $equipment->equipmentowner->vendor_name;
                         @endphp
                         @php $string = 
-                            "Voucher: $s->code_number,
-SN: $s->serial_number,
-Qty : $qty,
-Owner: $vendorName,
-Used: $used,
-Rejected: $rejected,
-Expired: $expired_date"
+"Equipment Number: $equipment->equipment_number,
+Equipment Name: $equipment->equipment_name,
+Category: $category,
+Owner: $owner
+"
                         @endphp
                         <tr>
-                            <td style="margin-left: -6px">{!! QrCode::size(150)->margin(0)->generate($string); !!}</td>
-                            <td><h4>{{$voucher->qty}} ltr</h4></td>
+                            <td style="margin-left: -6px; height:40mm">{!! QrCode::size(150)->margin(0)->generate($string); !!}</td>
                         </tr>
                         <tr>
                             <td style="margin-top: 30px" colspan=2>
-                                <p>Owner: {{$voucher->voucherowner->vendor_name}} </p>
-                                <p>SN: {{$s->serial_number}} </p>
-                                <p>Exp. Date: {{date('d M Y', strtotime($voucher->expired_date))}}</p>
+                                <p>Number: {{$equipment->equipment_number}}</p>
+                                <p>Name: {{$equipment->equipment_name}}</p>
+                                <p>Category: {{$category}}</p>
+                                <p>Owner: {{$owner}}</p>
                                 <hr >
                             </td>
                         </tr>
                     @endforeach
-                    </table>
+                    {{-- </table> --}}
 		
 		        </td>
-    {{-- </table> --}}
+            </table>
         </div>
     </div>
 </div> 

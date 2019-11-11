@@ -77,6 +77,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/equipment/edit/{id}', 'EquipmentController@edit');
     Route::post('/equipment/update/{id}', 'EquipmentController@update');
     Route::get('/equipment/{id}/delete', 'EquipmentController@delete');
+    Route::get('/equipment/print_qr', 'EquipmentController@print');
+
 
     //Owner
     Route::get('/owner', 'OwnerController@owner');
@@ -86,6 +88,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/owner/update/{id}', 'OwnerController@update');
     Route::get('/owner/{id}/delete', 'OwnerController@delete');
     Route::get('/owner/export_excel', 'OwnerController@export_excel');
+    Route::get('/owner/print_qr', 'OwnerController@print');
+
 
     //Voucher
     Route::get('/voucher', 'VoucherController@voucher');
@@ -180,6 +184,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pengembalian', 'PengembalianController@pengembalian');
     Route::get('/tambahpengembalian', 'PengembalianController@tambah');
     Route::post('/pengembalian/create', 'PengembalianController@create');
+    Route::get('/pengembalian/edit/{id}', 'PengembalianController@edit');
+    Route::post('/pengembalian/update/{id}', 'PengembalianController@update');
+    Route::get('/pengembalian/{id}/delete', 'PengembalianController@delete');
 
     //Pengambilan
     Route::get('/pengambilan', 'PengambilanController@pengambilan');
@@ -187,9 +194,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/pengambilan/create', 'PengambilanController@create');
     Route::get('/pengambilan/edit/{id}', 'PengambilanController@edit');
     Route::post('/pengambilan/update/{id}', 'PengambilanController@update');
+    Route::get('/pengambilan/{id}/delete', 'PengambilanController@delete');
 
     //Pengajuan
     Route::get('/pengajuan', 'PengajuanController@pengajuan');
     Route::get('/tambahpengajuan', 'PengajuanController@tambah');
     Route::post('/pengajuan/create', 'PengajuanController@create');
+    Route::get('/pengajuan/edit/{id}', 'PengajuanController@edit');
+    Route::post('/pengajuan/update/{id}', 'PengajuanController@update');
+    Route::get('/pengajuan/{id}/delete', 'PengajuanController@delete');
 });
