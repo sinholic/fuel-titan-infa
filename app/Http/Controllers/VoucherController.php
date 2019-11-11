@@ -102,4 +102,13 @@ class VoucherController extends Controller
         // dd($voucher->voucherowner);
         return view('Voucher.print_voucher', ['voucher' => $voucher]);
     }
+
+    public function reject($id_voucher, $id_vouchercode)
+    {
+        $voucher = VoucherModel::with('vouchercodes', 'voucherowner')->find($id_voucher);
+
+        $vouchercode = Vouchercode::find($id_vouchercode)->update(['rejected' => 1]);
+        return view('Voucher.list_vouchercodes', ['voucher' => $voucher]);
+
+    }
 }

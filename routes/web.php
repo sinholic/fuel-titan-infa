@@ -98,8 +98,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/voucher/edit/{id}', 'VoucherController@edit');
     Route::post('/voucher/update/{id_voucher}', 'VoucherController@update');
     Route::get('/voucher/{id}/delete', 'VoucherController@delete');
-    Route::get('/print_voucher/{id}', 'VoucherController@print');
-    Route::get('/lists/{id}', 'VoucherController@lists');
+    Route::get('/voucher/print/{id}', 'VoucherController@print');
+    Route::get('/voucher/lists/{id}', 'VoucherController@lists');
+    Route::get('/voucher/reject/{id_voucher}/{id_vouchercode}', 'VoucherController@reject');
 
 
     //Reloading

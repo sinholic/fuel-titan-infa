@@ -65,8 +65,8 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>
-                        <a href="#" onclick="window.open('/lists/{{$s->id}}', 'newwindow', 'width=1000px, height=1000px'); return false;">
-                        {{$s->vouchercodes->count()}}
+                        <a href="#" onclick="window.open('/voucher/lists/{{$s->id}}', 'newwindow', 'width=1000px, height=1000px'); return false;">
+                            {{$s->vouchercodes->count()}}
                         </a>
                     </td>
                     <td>{{$s->qty}}</td>
@@ -76,7 +76,7 @@
                          <div class="btn-group">
 
                             <!-- URL::to('/admin/category/detail.id='.$cate-id -->
-                            <a href="/print_voucher" class="btn btn-success btn-sm" data-toggle="tooltip" title="Print" onclick="window.open('/print_voucher/{{$s->id}}', 'newwindow', 'width=1000px, height=1000px'); return false;">
+                            <a href="#" class="btn btn-success btn-sm" data-toggle="tooltip" title="Print" onclick="window.open('/voucher/print/{{$s->id}}', 'newwindow', 'width=1000px, height=1000px'); return false;">
                                 <i class="fas fa-print"></i>
                             </a>
 
