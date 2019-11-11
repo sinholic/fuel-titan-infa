@@ -35,6 +35,7 @@
             <h4>Timesheet Running Hour Machine</h4>
         </div>
 
+    {{--  Ada dua nama yg diganti, area kerja (nama_unit) Owner (penyewa)--}}
     <div class="card-body">
         <table class="table table-striped table-bordered table-responsive" id="myTable">
             <thead style="background-color: #9C5C22">
@@ -43,8 +44,8 @@
                     <th class="text-center">No Alat</th>
                     <th class="text-center">Tipe Alat</th>
                     <th class="text-center">Tanggal Operasi</th>
-                    <th class="text-center">Nama Unit</th>
-                    <th class="text-center">Penyewa</th>
+                    <th class="text-center">Area Kerja</th>
+                    <th class="text-center">Owner</th>
                     <th class="text-center">HM Awal</th>
                     <th class="text-center">HM Akhir</th>
                     <th class="text-center">Total Jam</th>
