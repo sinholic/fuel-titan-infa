@@ -37,12 +37,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Nama Unit</label>
+                        <label>Area Kerja</label>
                         <input type="text" name="nama_unit" value="{{$userhe->nama_unit}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
-                        <label>Penyewa</label>
+                        <label>Owner</label>
                         <input type="text" name="penyewa" value="{{$userhe->penyewa}}" class="form-control" required autofocus>
                     </div>
 
