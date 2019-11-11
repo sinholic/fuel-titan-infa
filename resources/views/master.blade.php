@@ -209,6 +209,15 @@ to get the desired effect
 
           </li>
 
+           <li class="nav-item has-treeview menu-open">
+            <a href="/card" class="nav-link">
+              {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+              <p>
+                 Card Number
+              </p>
+            </a>
+          </li>
+
           <li class="nav-item has-treeview menu-open">
             <a href="/userhe" class="nav-link">
               {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
