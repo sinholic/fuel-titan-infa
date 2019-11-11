@@ -46,62 +46,92 @@
                         <input type="text" name="penyewa" value="{{$userhe->penyewa}}" class="form-control" required autofocus>
                     </div>
 
-                    <div class="form-group">
-                        <label>HM Awal</label>
-                        <input type="number" name="hm_awal" value="{{$userhe->hm_awal}}" class="form-control" required autofocus>
-                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>HM Awal</label>
+                                <input type="number" name="hm_awal" value="{{$userhe->hm_awal}}" class="form-control" required autofocus>
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label>HM Akhir</label>
-                        <input type="n" name="hm_akhir" value="{{$userhe->hm_akhir}}" class="form-control" required autofocus>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>KM Awal</label>
+                                <input type="number" name="km_awal" value="{{$userhe->km_awal}}" class="form-control" required autofocus>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>HM Akhir</label>
+                                <input type="number" name="hm_akhir" value="{{$userhe->hm_akhir}}" class="form-control" required autofocus>
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label>Total Jam</label>
-                        <input type="number" name="total_jam" value="{{$userhe->total_jam}}" class="form-control" required autofocus>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>KM Akhir</label>
+                                <input type="number" name="km_akhir" value="{{$userhe->km_akhir}}" class="form-control" required autofocus>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                             <div class="form-group">
+                                <label>Total Jam</label>
+                                <input type="number" name="total_jam" value="{{$userhe->total_jam}}" class="form-control" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>KM Total</label>
+                                <input type="number" name="km_total" value="{{$userhe->km_total}}" class="form-control" required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                   
 
                     <div class="form-group">
                         <label>Job Order</label>
-                        <input type="text" name="job_order" value="{{$userhe->job_order}}" class="form-control" required autofocus>
+                        {{-- <input type="text" name="job_order" value="{{$userhe->job_order}}" class="form-control" required autofocus> --}}
+                        <textarea name="job_order" class="form-control" rows="3" required autocomplete=""><?php echo htmlspecialchars($userhe->job_order); ?></textarea>
                     </div>
 
-                    <div class="form-group">
-                        <label>BBM</label>
-                        <input type="text" name="bbm" value="{{$userhe->bbm}}" class="form-control" required autofocus>
-                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                             <div class="form-group">
+                                <label>BBM</label>
+                                <input type="text" name="bbm" value="{{$userhe->bbm}}" class="form-control" required autofocus>
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label>Operator</label>
-                        <input type="text" name="operator" value="{{$userhe->operator}}" class="form-control" required autofocus>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Operator</label>
+                                <input type="text" name="operator" value="{{$userhe->operator}}" class="form-control" required autofocus>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label>Helper</label>
-                        <input type="text" name="helper" value="{{$userhe->helper}}" class="form-control" required autofocus>
+                   
+                    <div class="row">
+                        <div class="col-md-6">
+                             <div class="form-group">
+                                <label>Helper</label>
+                                <input type="text" name="helper" value="{{$userhe->helper}}" class="form-control" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Pengawas</label>
+                                <input type="text" name="pengawas" value="{{$userhe->pengawas}}" class="form-control" required autofocus>
+                            </div> 
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label>Pengawas</label>
-                        <input type="text" name="pengawas" value="{{$userhe->pengawas}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>KM Awal</label>
-                        <input type="number" name="km_awal" value="{{$userhe->km_awal}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>KM Akhir</label>
-                        <input type="number" name="km_akhir" value="{{$userhe->km_akhir}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>KM Total</label>
-                        <input type="number" name="km_total" value="{{$userhe->km_total}}" class="form-control" required autofocus>
-                    </div>
-
-
                 </div>
 
                 <div class="card-footer">
