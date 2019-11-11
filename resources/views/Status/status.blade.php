@@ -25,7 +25,7 @@
 <div class="card" style="border-top: 3px solid #9C5C22">
         
        <div class="card-header">
-            <h4>Status</h4>
+            <h4>User Level</h4>
         </div>
 
     <div class="card-body">
@@ -33,7 +33,8 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Nama</th>
+                    <th class="text-center">Nama Level</th>
+                    <th class="text-center">Total Users </th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
@@ -45,6 +46,7 @@
                 <tr>
                     <td>{{$i++}}</td>
                     <td>{{$s->nama}}</td>
+                    <td>{{$s->users->count()}}</td>
                     <td>
                          <div class="btn-group">
 

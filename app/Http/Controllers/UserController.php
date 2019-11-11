@@ -18,14 +18,15 @@ class UserController extends Controller
 
     public function user()
     {
-        $user = User::all();
+        $user = User::where('companycode_id', \Auth::user()->companycode_id)->ge();
         return view('User.user', ['user' => $user]);
     }
 
     public function create(Request $request)
     {
-        
-        User::create($request->all());
+        $datas = $request->all();
+        $datas['companycode_id'] = \Auth::user()->companycode_id;
+        User::create($datas);
         return redirect('/user')->with('sukses', 'Data Berhasil Di Input!');
     }
 

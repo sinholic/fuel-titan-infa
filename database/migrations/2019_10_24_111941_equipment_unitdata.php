@@ -21,6 +21,8 @@ class EquipmentUnitdata extends Migration
             $table->string('location');
             $table->string('fuel_capacity');
             $table->bigInteger('pic');
+            $table->bigInteger('companycode_id');
+            $table->unique(['equipment_number', 'companycode_id']);
             $table->timestamps();
             $table->softDeletes();
         });
