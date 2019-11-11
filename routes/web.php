@@ -204,4 +204,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pengajuan/edit/{id}', 'PengajuanController@edit');
     Route::post('/pengajuan/update/{id}', 'PengajuanController@update');
     Route::get('/pengajuan/{id}/delete', 'PengajuanController@delete');
+
+    //Equipment Card
+    Route::get('/card', 'EquipmentcardController@card');
+    Route::get('/tambahcard', 'EquipmentcardController@tambah');
+    Route::post('/card/create', 'EquipmentcardController@create');
+    Route::get('/card/edit/{id}', 'EquipmentcardController@edit');
+    Route::post('/card/update/{id}', 'EquipmentcardController@update');
+    Route::get('/card/{id}/delete', 'EquipmentcardController@delete');
 });
