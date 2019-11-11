@@ -77,6 +77,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/equipment/edit/{id}', 'EquipmentController@edit');
     Route::post('/equipment/update/{id}', 'EquipmentController@update');
     Route::get('/equipment/{id}/delete', 'EquipmentController@delete');
+    Route::get('/equipment/print_qr', 'EquipmentController@print');
+
 
     //Owner
     Route::get('/owner', 'OwnerController@owner');
@@ -86,6 +88,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/owner/update/{id}', 'OwnerController@update');
     Route::get('/owner/{id}/delete', 'OwnerController@delete');
     Route::get('/owner/export_excel', 'OwnerController@export_excel');
+    Route::get('/owner/print_qr', 'OwnerController@print');
+
 
     //Voucher
     Route::get('/voucher', 'VoucherController@voucher');

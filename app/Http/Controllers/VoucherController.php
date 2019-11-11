@@ -46,7 +46,7 @@ class VoucherController extends Controller
         if ($last_data) {
             $runningNumber = $last_data->vouchercodes->last()->serial_number;
         }else {
-            $runningNumber = $request->owner . \Carbon\Carbon::now()->format('yYn') . "0000001";
+            $runningNumber = $request->owner . \Carbon\Carbon::now()->format('yYn') . "0000000";
         }
         $runningNumber = (int) $runningNumber;
 

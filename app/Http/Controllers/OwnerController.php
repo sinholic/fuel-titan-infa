@@ -52,4 +52,11 @@ class OwnerController extends Controller
     {
         return Excel::download(new OwnerExport, 'master_owner_data.xlsx');
     }
+
+    public function print(Request $request)
+    {
+        $owners = OwnerModel::all();
+        // dd($Equipment->Equipmentowner);
+        return view('Owner.print_qr', ['owners' => $owners]);
+    }
 }
