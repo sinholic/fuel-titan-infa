@@ -23,6 +23,6 @@ class FixStationModel extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\User', 'userassignments', 'user_id', 'fixstation_id')->withPivot('start_date', 'end_date')->withTimestamps();
+        return $this->belongsToMany('App\User', 'userassignments', 'user_id', 'station_id')->withPivot('start_date', 'end_date','mobile')->withTimestamps();
     }
 }

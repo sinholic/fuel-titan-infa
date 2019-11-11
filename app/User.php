@@ -59,6 +59,6 @@ class User extends Authenticatable
 
     public function assignments()
     {
-        return $this->belongsToMany('App\FixStationModel', 'userassignments', 'user_id', 'fixstation_id')->withPivot('start_date', 'end_date')->withTimestamps();
+        return $this->belongsToMany('App\FixStationModel', 'userassignments', 'user_id', 'station_id')->withPivot('start_date', 'end_date', 'mobile')->withTimestamps();
     }
 }

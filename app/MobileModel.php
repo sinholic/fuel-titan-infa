@@ -15,4 +15,9 @@ class MobileModel extends Model
     {
         return $this->belongsTo('App\FixStationModel', 'fixstation_id', 'id');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\User', 'userassignments', 'user_id', 'station_id')->withPivot('start_date', 'end_date','mobile')->withTimestamps();
+    }
 }

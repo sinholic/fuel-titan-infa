@@ -16,7 +16,8 @@ class CreateUserassignmentsTable extends Migration
         Schema::create('userassignments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
-            $table->bigInteger('fixstation_id');
+            $table->bigInteger('station_id');
+            $table->boolean('mobile')->nullable()->default(false);
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();
