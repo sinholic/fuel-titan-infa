@@ -32,6 +32,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Owner</label>
+                        <input type="text" name="penyewa" value="{{$userhe->penyewa}}" class="form-control" required autofocus>
+                    </div>
+
+                    <div class="form-group">
                         <label>Tanggal Operasi</label>
                         <input type="date" name="tanggal_operasi" value="{{$userhe->tanggal_operasi}}" class="form-control" required autofocus>
                     </div>
@@ -39,11 +44,6 @@
                     <div class="form-group">
                         <label>Area Kerja</label>
                         <input type="text" name="nama_unit" value="{{$userhe->nama_unit}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Owner</label>
-                        <input type="text" name="penyewa" value="{{$userhe->penyewa}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="row">
@@ -94,6 +94,18 @@
                         </div>
                     </div>
                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Status</label>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>Working</option>
+                                    <option>Stand By</option>
+                                    <option>Break Down</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         <label>Job Order</label>
@@ -101,7 +113,7 @@
                         <textarea name="job_order" class="form-control" rows="3" required autocomplete=""><?php echo htmlspecialchars($userhe->job_order); ?></textarea>
                     </div>
 
-                    <div class="row">
+                    <div class="row"></div>
                         <div class="col-md-6">
                              <div class="form-group">
                                 <label>BBM</label>
