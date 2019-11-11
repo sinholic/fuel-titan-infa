@@ -13,9 +13,12 @@ class CreateDebtsTable extends Migration
      */
     public function up()
     {
-        Schema::create('debts', function (Blueprint $table) {
+        Schema::create('pengambilan', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('qty');
+            $table->date('date');
             $table->timestamps();
+            $table->softdeletes();
         });
     }
 

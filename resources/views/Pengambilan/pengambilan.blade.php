@@ -21,18 +21,18 @@
 		 <i class="fas fa-file-excel"></i> Import Excel
     </button>
 
-    <a href="/pengisian_mobile/export_excel" class="btn btn-success my-1" target="_blank">
+    <a href="/pengambilan/export_excel" class="btn btn-success my-1" target="_blank">
         <i class="fas fa-file-excel"></i> Export Excel
     </a>
     
-        <a href="/addpengisian_mobile" class="btn btn-primary">
+        <a href="/tambahpengambilan" class="btn btn-primary">
             <i class="fa fa-plus nav-icon"></i>
         </a>
 
 <div class="card" style="border-top: 3px solid #9C5C22">
         
        <div class="card-header">
-            <h4>Pengisian Solar On Mobile Station</h4>
+            <h4>Pengambilan Solar</h4>
         </div>
 
     <div class="card-body">
@@ -40,26 +40,21 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">ID Driver</th>
-                    <th class="text-center">Unit Equipment</th>
-                    <th class="text-center">Qty Solar</th>
-                    <th class="text-center">Odometer</th>
-                    <th class="text-center">Remark</th>
+                    <th class="text-center">Hutang</th>
+                    <th class="text-center">Qty</th>
+                    <th class="text-center">Date</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
-
             @php $i=1 @endphp
             <tbody>
                 @php $i=1 @endphp
-                 @foreach($pengisian_mobile ?? '' as $s)
+                 @foreach($pengambilan ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->id_driver}}</td>
-                    <td>{{$s->unit_equipment}}</td>
-                    <td>{{$s->qty_solar}}</td>
-                    <td>{{$s->odometer}}</td>
-                    <td>{{$s->remark}}</td>
+                    <td></td>
+                    <td>{{$s->qty}}</td>
+                    <td>{{date('d M Y', strtotime($s->date))}}</td>
                     <td>
                          <div class="btn-group">
 
@@ -68,11 +63,11 @@
                                 <i class="fa fa-info-circle nav-icon"></i>
                             </a>
 
-                            <a href="/pengisian_mobile/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
+                            <a href="/pengambilan/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
-                            </a> 
+                            </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/pengisian_mobile/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
+                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/pengambilan/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
                                 <i class="fa fa-trash nav-icon"></i>
                             </a>
 
@@ -89,7 +84,7 @@
  <!-- Import Excel -->
 		<div class="modal fade" id="importExcel" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
-				<form method="post" action="/equipment/import_excel" enctype="multipart/form-data">
+				<form method="post" action="/pengambilan/import_excel" enctype="multipart/form-data">
 					<div class="modal-content">
 						<div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>

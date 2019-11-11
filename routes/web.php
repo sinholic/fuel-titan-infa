@@ -173,4 +173,35 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/companycode/update/{id}', 'CompanycodeController@update');
     Route::get('/companycode/{id}/delete', 'CompanycodeController@delete');
 
+    //Peminjaman Solar
+    Route::get('/peminjaman', 'PeminjamanController@peminjaman');
+    Route::get('/addpeminjaman', 'PeminjamanController@tambah');
+    Route::post('/peminjaman/create', 'PeminjamanController@create');
+    Route::get('/peminjaman/edit/{id}', 'PeminjamanController@edit');
+    Route::post('/peminjaman/update/{id}', 'PeminjamanController@update');
+    Route::get('/peminjaman/{id}/delete', 'PeminjamanController@delete');
+
+    //Pengembalian
+    Route::get('/pengembalian', 'PengembalianController@pengembalian');
+    Route::get('/tambahpengembalian', 'PengembalianController@tambah');
+    Route::post('/pengembalian/create', 'PengembalianController@create');
+    Route::get('/pengembalian/edit/{id}', 'PengembalianController@edit');
+    Route::post('/pengembalian/update/{id}', 'PengembalianController@update');
+    Route::get('/pengembalian/{id}/delete', 'PengembalianController@delete');
+
+    //Pengambilan
+    Route::get('/pengambilan', 'PengambilanController@pengambilan');
+    Route::get('/tambahpengambilan', 'PengambilanController@tambah');
+    Route::post('/pengambilan/create', 'PengambilanController@create');
+    Route::get('/pengambilan/edit/{id}', 'PengambilanController@edit');
+    Route::post('/pengambilan/update/{id}', 'PengambilanController@update');
+    Route::get('/pengambilan/{id}/delete', 'PengambilanController@delete');
+
+    //Pengajuan
+    Route::get('/pengajuan', 'PengajuanController@pengajuan');
+    Route::get('/tambahpengajuan', 'PengajuanController@tambah');
+    Route::post('/pengajuan/create', 'PengajuanController@create');
+    Route::get('/pengajuan/edit/{id}', 'PengajuanController@edit');
+    Route::post('/pengajuan/update/{id}', 'PengajuanController@update');
+    Route::get('/pengajuan/{id}/delete', 'PengajuanController@delete');
 });
