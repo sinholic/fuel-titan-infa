@@ -77,8 +77,8 @@ Rejected: $rejected,
 Expired: $expired_date"
                         @endphp
                         <tr>
-                            <td style="margin-left: -6px">{!! QrCode::size(150)->margin(0)->generate($string); !!}</td>
-                            <td><h4>{{$voucher->qty}} ltr</h4></td>
+                            <td style="margin-left: -6px">{!! QrCode::size(100)->margin(0)->generate($string); !!}</td>
+                            <td><h6 style="margin:0">{{$voucher->qty}} ltr</h6></td>
                         </tr>
                         <tr>
                             <td style="margin-top: 30px" colspan=2>

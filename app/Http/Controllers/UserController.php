@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function user()
     {
-        $user = User::where('companycode_id', \Auth::user()->companycode_id)->ge();
+        $user = User::where('companycode_id', \Auth::user()->companycode_id)->get();
         return view('User.user', ['user' => $user]);
     }
 
