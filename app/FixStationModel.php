@@ -20,4 +20,9 @@ class FixStationModel extends Model
     {
         return $this->hasMany('App\MobileModel', 'fixstation_id', 'id');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\User', 'userassignments', 'user_id', 'fixstation_id')->withPivot('start_date', 'end_date')->withTimestamps();
+    }
 }

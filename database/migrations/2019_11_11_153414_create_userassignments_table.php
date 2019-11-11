@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDebtsTable extends Migration
+class CreateUserassignmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateDebtsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pengambilan', function (Blueprint $table) {
+        Schema::create('userassignments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('qty');
-            $table->date('date');
+            $table->bigInteger('user_id');
+            $table->bigInteger('fixstation_id');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
-            $table->softdeletes();
+            $table->softDeletes();
         });
     }
 
@@ -29,6 +31,6 @@ class CreateDebtsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pengambilan');
+        Schema::dropIfExists('userassignments');
     }
 }

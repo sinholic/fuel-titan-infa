@@ -102,6 +102,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/voucher/lists/{id}', 'VoucherController@lists');
     Route::get('/voucher/reject/{id_voucher}/{id_vouchercode}', 'VoucherController@reject');
 
+    Route::group(['prefix' => 'userassignment'], function () {
+        Route::get('/', 'UserassignmentController@index')->name('userassignment.index');
+    });
 
     //Reloading
     Route::get('/reloading', 'ReloadingController@reloading');

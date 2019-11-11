@@ -35,6 +35,6 @@ class CreateCreditsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('credits');
+        Schema::dropIfExists('pengajuan_hutang');
     }
 }
