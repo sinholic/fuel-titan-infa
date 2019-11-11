@@ -167,4 +167,29 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/companycode/edit/{id}', 'CompanycodeController@edit');
     Route::post('/companycode/update/{id}', 'CompanycodeController@update');
     Route::get('/companycode/{id}/delete', 'CompanycodeController@delete');
+
+    //Peminjaman Solar
+    Route::get('/peminjaman', 'PeminjamanController@peminjaman');
+    Route::get('/addpeminjaman', 'PeminjamanController@tambah');
+    Route::post('/peminjaman/create', 'PeminjamanController@create');
+    Route::get('/peminjaman/edit/{id}', 'PeminjamanController@edit');
+    Route::post('/peminjaman/update/{id}', 'PeminjamanController@update');
+    Route::get('/peminjaman/{id}/delete', 'PeminjamanController@delete');
+
+    //Pengembalian
+    Route::get('/pengembalian', 'PengembalianController@pengembalian');
+    Route::get('/tambahpengembalian', 'PengembalianController@tambah');
+    Route::post('/pengembalian/create', 'PengembalianController@create');
+
+    //Pengambilan
+    Route::get('/pengambilan', 'PengambilanController@pengambilan');
+    Route::get('/tambahpengambilan', 'PengambilanController@tambah');
+    Route::post('/pengambilan/create', 'PengambilanController@create');
+    Route::get('/pengambilan/edit/{id}', 'PengambilanController@edit');
+    Route::post('/pengambilan/update/{id}', 'PengambilanController@update');
+
+    //Pengajuan
+    Route::get('/pengajuan', 'PengajuanController@pengajuan');
+    Route::get('/tambahpengajuan', 'PengajuanController@tambah');
+    Route::post('/pengajuan/create', 'PengajuanController@create');
 });
