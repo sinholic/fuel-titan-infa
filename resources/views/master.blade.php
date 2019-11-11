@@ -240,6 +240,7 @@ to get the desired effect
               </p>
             </a>
           </li>
+          
 
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
@@ -273,6 +274,15 @@ to get the desired effect
             </ul>
           </li>
 
+          <li class="nav-item has-treeview menu-open">
+            <a href="/upload" class="nav-link">
+              {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+              <p>
+                 Uploaded File
+              </p>
+            </a>
+          </li>
+
            <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
@@ -284,53 +294,20 @@ to get the desired effect
             <ul class="nav nav-treeview offset-md-2">
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  
-                  <p>On Mobile Station</p>
+                <a href="/pengambilan" class="nav-link">
+                  <p>Pengambilan Solar</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <p>On Fix Station</p>
+                <a href="/pengajuan" class="nav-link">
+                  <p>Pengajuan Hutang</p>
                 </a>
               </li>
 
                <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <p>Daftar Pengisian</p>
-                </a>
-              </li>
-
-            </ul>
-          </li>
-
-           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link">
-              {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-              <p>
-                Pengembalian Solar
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview offset-md-2">
-
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  
-                  <p>On Mobile Station</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <p>On Fix Station</p>
-                </a>
-              </li>
-
-               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <p>Daftar Pengisian</p>
+                <a href="/pengembalian" class="nav-link">
+                  <p>Pengembalian Solar</p>
                 </a>
               </li>
 
