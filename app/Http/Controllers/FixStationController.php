@@ -26,7 +26,14 @@ class FixStationController extends Controller
 
     public function create(Request $request)
     {
-        // dd($request->all());
+        $this->validate($request, [
+            'name_station' => 'required|unique:fix_station,name_station,'.$request->name_station.',id,companycode_id,'.\Auth::user()->companycode_id,
+            'address' => 'required',
+            'nama_lokasi' => 'required',
+            'koordinat_gps' => 'required',
+            'tank_number' => 'required',
+            'fuel_capacity' => 'required',
+        ]);
         foreach ($request->tank_number as $key => $tank_number) {
             FixStationModel::create([
                 'companycode_id' => \Auth::user()->companycode_id,

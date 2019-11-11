@@ -12,7 +12,7 @@ class EquipmentController extends Controller
 {
     public function equipment()
     {
-        $equipment = EquipmentModel::all();
+        $equipment = EquipmentModel::where('companycode_id', \Auth::user()->companycode_id)->get();
         return view('Equipment.equipment', ['equipment' => $equipment]);
     }
 
@@ -21,7 +21,7 @@ class EquipmentController extends Controller
         $equipments = EquipmentModel::with(
             'equipmentowner',
             'equipmentcategory',
-            'reloadingunits',
+            'reloadingunits'
         )->get();
         // dd($Equipment->Equipmentowner);
         return view('Equipment.print_qr', ['equipments' => $equipments]);
@@ -36,12 +36,22 @@ class EquipmentController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request, [
+            'equipment_category' => 'required',
+            'equipment_number' => 'required|unique:equipment_unitdata,equipment_number,'.$request->equipment_number.',id,companycode_id,'.\Auth::user()->companycode_id ,
+            'equipment_name' => 'required',
+            'fuel_capacity' => 'required',
+            'location' => 'required',
+            'pic' => 'required',
+        ]);
         $equipment = new EquipmentModel;
         $equipment->equipment_category = $request->equipment_category;   
         $equipment->equipment_number = $request->equipment_number; 
+        $equipment->equipment_name = $request->equipment_name; 
         $equipment->fuel_capacity = $request->fuel_capacity; 
         $equipment->location = $request->location; 
         $equipment->pic = $request->pic; 
+        $equipment->companycode_id = \Auth::user()->companycode_id; 
         $equipment->save();
 
         $reloading_units = array(
