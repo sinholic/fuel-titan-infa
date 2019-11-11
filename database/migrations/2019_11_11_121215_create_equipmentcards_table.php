@@ -15,6 +15,8 @@ class CreateEquipmentcardsTable extends Migration
     {
         Schema::create('equipmentcards', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->uuid('cardnumber');
+            $table->integer('equipment_id');
             $table->timestamps();
         });
     }

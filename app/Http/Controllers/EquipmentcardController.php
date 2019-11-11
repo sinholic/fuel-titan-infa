@@ -12,74 +12,40 @@ class EquipmentcardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function card()
     {
-        //
+        $card = Equipmentcard::all();
+        return view('Card.card', ['card' => $card]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function tambah()
     {
-        //
+        return view('Card.tambah_card');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        //
+        Equipmentcard::create($request->all());
+        return redirect('/card')->with('sukses', 'Data Berhasil Di Input!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Equipmentcard  $equipmentcard
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Equipmentcard $equipmentcard)
+    public function edit($id)
     {
-        //
+        $card = Equipmentcard::find($id);
+        return view('Card.edit_card', ['card' => $card]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Equipmentcard  $equipmentcard
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Equipmentcard $equipmentcard)
+    public function update(Request $request, $id)
     {
-        //
+        $card = Equipmentcard::find($id);
+        $card->update($request->all());
+        return redirect('/card')->with('sukses', 'Data Berhasil Di Update!');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Equipmentcard  $equipmentcard
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Equipmentcard $equipmentcard)
+    public function delete($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Equipmentcard  $equipmentcard
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Equipmentcard $equipmentcard)
-    {
-        //
+        $card = Equipmentcard::find($id);
+        $card->delete($card);
+        return redirect('/card')->with('sukses', 'Data berhasil dihapus!');
     }
 }

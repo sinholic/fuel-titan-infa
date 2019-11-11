@@ -5,7 +5,6 @@
              with font-awesome or any other icon font library -->
         <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
                     Master Data
                     <i class="right fas fa-angle-left"></i>
@@ -20,8 +19,15 @@
 
                 <li class="nav-item">
                     <a href="/mobile" class="nav-link">
-
                         Master Mobile Station
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/card" class="nav-link">
+                        <p>
+                            Card Number
+                        </p>
                     </a>
                 </li>
 
