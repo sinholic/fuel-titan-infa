@@ -24,6 +24,11 @@
 					<div class="form-group">
 						<label>Nama Vendor</label>
 						<input type="text " name="vendor_name" placeholder="" class="form-control" required autofocus>
+					</div>
+					
+					<div class="form-group">
+						<label>Inisial Vendor</label>
+						<input type="text " name="vendor_inisial" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">

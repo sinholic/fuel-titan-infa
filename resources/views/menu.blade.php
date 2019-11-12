@@ -23,13 +23,11 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="/card" class="nav-link">
-                        <p>
-                            Card Number
-                        </p>
+                        Equipment Card
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item">
                     <a href="/equipment" class="nav-link">
