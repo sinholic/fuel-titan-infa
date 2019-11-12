@@ -33,6 +33,7 @@
                     
                     <div class="form-group">
 						<label>Qty Solar</label>
+						{{-- {{ Form::select('mobile', $qty_solar, null, ['placeholder' => 'Pilih kategori...', 'required', 'class' => 'form-control']) }} --}}
 						<select class="form-control" name="prodi">
                             <option value="5 ltr">5 ltr</option>
                             <option value="10 ltr">10 ltr</option>

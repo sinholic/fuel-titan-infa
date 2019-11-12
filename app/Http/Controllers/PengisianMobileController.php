@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\PengisianMobileModel;
+use App\QtySolarModel;
 
 class PengisianMobileController extends Controller
 {
@@ -15,6 +16,7 @@ class PengisianMobileController extends Controller
 
     public function tambah()
     {
+        $qty_solar = QtySolarModel::pluck('qty_solar');
         return view('Pengisian Mobile.addpengisian_mobile');
     }
 
