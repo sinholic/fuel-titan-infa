@@ -49,6 +49,7 @@
                     <th class="text-center">HM Awal</th>
                     <th class="text-center">HM Akhir</th>
                     <th class="text-center">Total Jam</th>
+                    <th class="text-center">Status</th>
                     <th class="text-center">Job Order</th>
                     <th class="text-center">BBM</th>
                     <th class="text-center">Operator</th>
@@ -74,6 +75,7 @@
                     <td>{{$s->hm_awal}}</td>
                     <td>{{$s->hm_akhir}}</td>
                     <td>{{$s->total_jam}}</td>
+                    <td></td>
                     <td>{{$s->job_order}}</td>
                     <td>{{$s->bbm}}</td>
                     <td>{{$s->operator}}</td>

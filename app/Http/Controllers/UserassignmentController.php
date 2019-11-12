@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\FixStationModel;    
+use App\FixStationModel;
+use App\Status;
 
 class UserassignmentController extends Controller
 {
@@ -19,8 +20,8 @@ class UserassignmentController extends Controller
         // \DB::enableQueryLog();
         $user = User::where('companycode_id', \Auth::user()->companycode_id)
             ->with('assignments')
-            ->whereHas('assignments', function($q){
-                $q->where('start_date', '<=' ,\Carbon\Carbon::now()->toDateString())
+            ->whereHas('assignments', function ($q) {
+                $q->where('start_date', '<=', \Carbon\Carbon::now()->toDateString())
                     ->whereDate('end_date', '>=', \Carbon\Carbon::now()->toDateString());
             })
             ->get();
@@ -33,7 +34,7 @@ class UserassignmentController extends Controller
         $datas = $request->all();
         $datas['companycode_id'] = \Auth::user()->companycode_id;
         User::create($datas);
-        return redirect('/user')->with('sukses', 'Data Berhasil Di Input!');
+        return redirect('/userassign')->with('sukses', 'Data Berhasil Di Input!');
     }
 
     public function edit($id)
@@ -47,13 +48,13 @@ class UserassignmentController extends Controller
     {
         $user = User::find($id);
         $user->update($request->all());
-        return redirect('/user')->with('sukses', 'Data Berhasil Di Update!');
+        return redirect('/userassign')->with('sukses', 'Data Berhasil Di Update!');
     }
 
     public function delete($id)
     {
         $user = User::find($id);
         $user->delete($user);
-        return redirect('/user')->with('sukses', 'Data berhasil dihapus!');
+        return redirect('/userassign')->with('sukses', 'Data berhasil dihapus!');
     }
 }

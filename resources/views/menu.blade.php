@@ -87,7 +87,7 @@
             </a>
             <ul class="nav nav-treeview offset-md-2">
                 <li class="nav-item">
-                    <a href="{{ route('userassignment.index') }}" class="nav-link">
+                    <a href="/userassign" class="nav-link">
                         List assignment
                     </a>
                 </li>
@@ -131,6 +131,12 @@
                 </p>
             </a>
             <ul class="nav nav-treeview offset-md-2">
+
+                <li class="nav-item">
+                    <a href="/qty_solar" class="nav-link">
+                        <p>Tambah Qty Solar</p>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a href="/pengisian_mobile" class="nav-link">
@@ -280,183 +286,6 @@
             </ul>
         </li>
 
-        <li class="nav-item has-treeview">
-            <a href="/userhe" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-                <p>
-                    Timesheet Heavy Equipment
-                </p>
-            </a>
-        </li>
-
-        <li class="nav-item has-treeview">
-            <a href="/reloading" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-                <p>
-                    Pengisian Ulang Mobil Station
-                </p>
-            </a>
-        </li>
-
-        <li class="nav-item has-treeview">
-            <a href="/penerimaan" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-                <p>
-                    Penerimaan Solar
-                </p>
-            </a>
-        </li>
-
-        <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-                <p>
-                    Pengisian Solar
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview offset-md-2">
-
-                <li class="nav-item">
-                    <a href="/pengisian_mobile" class="nav-link">
-
-                        <p>On Mobile Station</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/pengisian_fix" class="nav-link">
-                        <p>On Fix Station</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <p>Daftar Pengisian</p>
-                    </a>
-                </li>
-
-            </ul>
-        </li>
-
-        <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-                <p>
-                    Peminjaman Solar
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview offset-md-2">
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-
-                        <p>On Mobile Station</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <p>On Fix Station</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <p>Daftar Pengisian</p>
-                    </a>
-                </li>
-
-            </ul>
-        </li>
-
-        <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-                <p>
-                    Pengembalian Solar
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview offset-md-2">
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-
-                        <p>On Mobile Station</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <p>On Fix Station</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <p>Daftar Pengisian</p>
-                    </a>
-                </li>
-
-            </ul>
-        </li>
-
-        <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-                <p>
-                    Consignment
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview offset-md-2">
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-
-                        <p>On Mobile Station</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <p>On Fix Station</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <p>Daftar Pengisian</p>
-                    </a>
-                </li>
-
-            </ul>
-        </li>
-
-        <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-                <p>
-                    Non Consignment
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview offset-md-2">
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-
-                        <p>On Mobile Station</p>
-                    </a>
-                </li>
-
-            </ul>
-        </li>
-
     </ul>
-
-
 </nav>
 <!-- /.sidebar-menu -->

@@ -102,9 +102,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/voucher/lists/{id}', 'VoucherController@lists');
     Route::get('/voucher/reject/{id_voucher}/{id_vouchercode}', 'VoucherController@reject');
 
-    Route::group(['prefix' => 'userassignment'], function () {
-        Route::get('/', 'UserassignmentController@index')->name('userassignment.index');
-    });
+    //User Assignment
+    // Route::group(['prefix' => 'userassignment'], function () {
+    //     Route::get('/', 'UserassignmentController@index')->name('userassignment.index');
+    // });
+
+    Route::get('/userassign', 'UserassignmentController@index');
+    Route::get('/adduserassign', 'UserassignmentController@tambah');
+    Route::post('/userassign/create', 'UserassignmentController@create');
+    Route::get('/userassign/edit/{id}', 'UserassignmentController@edit');
+    Route::post('/userassign/update/{id}', 'UserassignmentController@update');
+    Route::get('/userassign/{id}/delete', 'UserassignmentController@delete');
 
     //Reloading
     Route::get('/reloading', 'ReloadingController@reloading');
@@ -215,4 +223,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/card/edit/{id}', 'EquipmentcardController@edit');
     Route::post('/card/update/{id}', 'EquipmentcardController@update');
     Route::get('/card/{id}/delete', 'EquipmentcardController@delete');
+
+    //Qty Solar
+    Route::get('/qty_solar', 'QtySolarController@qty_solar');
+    Route::get('/tambah_qtysolar', 'QtySolarController@tambah');
+    Route::post('/qty_solar/create', 'QtySolarController@create');
+    Route::get('/qty_solar/edit/{id}', 'QtySolarController@edit');
+    Route::post('/qty_solar/update/{id}', 'QtySolarController@update');
+    Route::get('/qty_solar/{id}/delete', 'QtySolarController@delete');
 });
