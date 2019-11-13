@@ -23,15 +23,23 @@
                     </a>
                 </li>
 
-                {{-- <li class="nav-item">
-                    <a href="/card" class="nav-link">
-                        Equipment Card
+                <li class="nav-item">
+                    <a href="/qty_solar" class="nav-link">
+                        <p>Tambah Varian Qty Solar</p>
                     </a>
-                </li> --}}
+                </li>
 
                 <li class="nav-item">
                     <a href="/equipment" class="nav-link">
                         <p> Master Equipment</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/card" class="nav-link">
+                        <p>
+                            Card Number Equipment
+                        </p>
                     </a>
                 </li>
 
@@ -66,8 +74,14 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="/status" class="nav-link">
+                    <a href="/status" class="nav-link menu">
                         <p>User Level</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/userassign" class="nav-link">
+                        <p>User Assignment</p>
                     </a>
                 </li>
             </ul>
@@ -75,10 +89,10 @@
 
         </li>
 
-        <li class="nav-item has-treeview">
+        {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-                <p>
+                {{-- <p>
                     User Assignment
                     <i class="right fas fa-angle-left"></i>
                 </p>
@@ -89,6 +103,38 @@
                         List assignment
                     </a>
                 </li>
+            </ul> --}}
+        {{--</li> --}}
+
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+                <p>
+                    Pengisian Solar
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview offset-md-2">
+
+                <li class="nav-item">
+                    <a href="/pengisian_mobile" class="nav-link">
+
+                        <p>On Mobile Station</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/pengisian_fix" class="nav-link">
+                        <p>On Fix Station</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <p>Daftar Pengisian</p>
+                    </a>
+                </li>
+
             </ul>
         </li>
 
@@ -119,45 +165,6 @@
             </a>
         </li>
 
-
-        <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-                <p>
-                    Pengisian Solar
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview offset-md-2">
-
-                <li class="nav-item">
-                    <a href="/qty_solar" class="nav-link">
-                        <p>Tambah Qty Solar</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/pengisian_mobile" class="nav-link">
-
-                        <p>On Mobile Station</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/pengisian_fix" class="nav-link">
-                        <p>On Fix Station</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <p>Daftar Pengisian</p>
-                    </a>
-                </li>
-
-            </ul>
-        </li>
-
         <li class="nav-item has-treeview">
             <a href="/upload" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
@@ -167,31 +174,19 @@
             </a>
         </li>
 
-        <li class="nav-item has-treeview">
+         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    Peminjaman Solar
+                    Piutang Solar
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
             <ul class="nav nav-treeview offset-md-2">
 
                 <li class="nav-item">
-                    <a href="/pengambilan" class="nav-link">
-                        <p>Pengambilan Solar</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/pengajuan" class="nav-link">
-                        <p>Pengajuan Hutang</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/pengembalian" class="nav-link">
-                        <p>Pengembalian Solar</p>
+                    <a href="#" class="nav-link">
+                        <p>Penerimaan Piutang Solar</p>
                     </a>
                 </li>
 
@@ -202,32 +197,44 @@
             <a href="#" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    Consignment
+                    Hutang Solar
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
             <ul class="nav nav-treeview offset-md-2">
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-
-                        <p>On Mobile Station</p>
+                    <a href="/pengajuan" class="nav-link">
+                        <p>Pengajuan Hutang Solar</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <p>On Fix Station</p>
+                    <a href="/pengambilan" class="nav-link">
+                        <p>Pengambilan Solar</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <p>Daftar Pengisian</p>
+                    <a href="/pengembalian" class="nav-link">
+                        <p>Pengembalian Solar</p>
                     </a>
                 </li>
-
             </ul>
+        </li>
+
+        
+
+        
+
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+                <p>
+                    Consignment
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
         </li>
 
         <li class="nav-item has-treeview">
@@ -238,50 +245,15 @@
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
-            <ul class="nav nav-treeview offset-md-2">
+        </li>
 
-                <li class="nav-item">
-                    <a href="/equipment" class="nav-link">
-                        <p> Master Equipment</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/equipment_category" class="nav-link">
-                        <p>Category Equipment</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/companycode" class="nav-link">
-                        <p>Company Code</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/owner" class="nav-link">
-                        <p>Owner</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/voucher" class="nav-link">
-                        <p>Voucher</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/user" class="nav-link">
-                        <p>Users</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/status" class="nav-link">
-                        <p>User Level</p>
-                    </a>
-                </li>
-            </ul>
+         <li class="nav-item has-treeview">
+            <a href="/penerimaan" class="nav-link">
+                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+                <p>
+                    Stock Opname
+                </p>
+            </a>
         </li>
 
     </ul>

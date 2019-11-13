@@ -32,8 +32,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Qty Solar</label>
-                        {{ Form::select('qty_solar', ['5 ltr', '10 ltr', '15 ltr', '20 ltr'], $pengisian_mobile->qty_solar, ['placeholder' => 'Pilih Jumlah Solar', 'required', 'class' => 'form-control']) }}
+						<label>Qty Solar</label>
+						{{ Form::select('qty_solar', $qty_solar, null, ['placeholder' => 'Pilih jumlah solar...', 'required', 'class' => 'form-control']) }}
                     </div>
 
                     <div class="form-group">

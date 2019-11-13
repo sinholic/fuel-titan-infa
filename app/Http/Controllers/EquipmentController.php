@@ -40,20 +40,20 @@ class EquipmentController extends Controller
     {
         $this->validate($request, [
             'equipment_category' => 'required',
-            'equipment_number' => 'required|unique:equipment_unitdata,equipment_number,'.$request->equipment_number.',id,companycode_id,'.\Auth::user()->companycode_id ,
+            'equipment_number' => 'required|unique:equipment_unitdata,equipment_number,' . $request->equipment_number . ',id,companycode_id,' . \Auth::user()->companycode_id,
             'equipment_name' => 'required',
             'fuel_capacity' => 'required',
             'location' => 'required',
             'pic' => 'required',
         ]);
         $equipment = new EquipmentModel;
-        $equipment->equipment_category = $request->equipment_category;   
-        $equipment->equipment_number = $request->equipment_number; 
-        $equipment->equipment_name = $request->equipment_name; 
-        $equipment->fuel_capacity = $request->fuel_capacity; 
-        $equipment->location = $request->location; 
-        $equipment->pic = $request->pic; 
-        $equipment->companycode_id = \Auth::user()->companycode_id; 
+        $equipment->equipment_category = $request->equipment_category;
+        $equipment->equipment_number = $request->equipment_number;
+        $equipment->equipment_name = $request->equipment_name;
+        $equipment->fuel_capacity = $request->fuel_capacity;
+        $equipment->location = $request->location;
+        $equipment->pic = $request->pic;
+        $equipment->companycode_id = \Auth::user()->companycode_id;
         $equipment->save();
 
         $reloading_units = array(
@@ -62,25 +62,7 @@ class EquipmentController extends Controller
             'machinehours' => $request->machinehours,
             'ending_stock' => $request->ending_stock,
         );
-        // Reloadingunit::create($reloading_units);
-        $equipment->reloadingunits()->create($reloading_units);
-
-        $owner = OwnerModel::find($request->pic);
-        $inisial = substr($owner->vendor_inisial,0,3);
-        $inisial_number = null;
-        for ($i=0; $i < strlen($inisial) ; $i++) { 
-            $inisial_number .= ord(substr($inisial, $i));
-        }
-
-        $card_number = \Carbon\Carbon::now()->format('yndm');
-        // dd($inisial_number.$card_number.mt_rand(10,99));   
-
-        $cards = array(
-            'equipment_id' => $equipment->id,
-            'cardnumber' => $inisial_number.$card_number.mt_rand(10,99),
-        );
-        // Equipmentcard::create($cards);
-        $equipment->cards()->create($cards);
+        Reloadingunit::create($reloading_units);
 
         return redirect('/equipment')->with('sukses', 'Data Berhasil di Input!');
     }

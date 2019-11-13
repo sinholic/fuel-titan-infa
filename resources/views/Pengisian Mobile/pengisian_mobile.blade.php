@@ -36,7 +36,7 @@
         </div>
 
     <div class="card-body">
-        <table class="table table-striped table table-bordered" id="myTable">
+        <table class="table table-striped table-responsive table table-bordered" id="myTable">
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
@@ -57,7 +57,7 @@
                     <td>{{$i++}}</td>
                     <td>{{$s->id_driver}}</td>
                     <td>{{$s->unit_equipment}}</td>
-                    <td>{{$s->qty_solar}}</td>
+                    <td>{{$s->qtysolar->qty_solar ?? ''}}</td>
                     <td>{{$s->odometer}}</td>
                     <td>{{$s->remark}}</td>
                     <td>
