@@ -50,11 +50,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Fuelman Assignment</label>
-                        <input type="text" name="fuelman_assignment" value="{{$mobile->fuelman_assignment}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
                         <label>Maksimal Pengisian Ulang</label>
                         <input type="text" name="fuel_max_reload" value="{{$mobile->fuel_max_reload}}" placeholder="" class="form-control" required autocomplete="">
                     </div>
