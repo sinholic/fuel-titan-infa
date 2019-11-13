@@ -64,7 +64,7 @@
                     <td>{{$s->equipment_number}}</td>
                     <td>{{$s->equipment_name}}</td>
                     <td>{{$s->equipmentcategory->nama ?? ''}}</td>
-                    <td></td>
+                    <td>{{$s->status_vehicle}}</td>
                     <td>{{$s->location}}</td>
                     <td>{{$s->fuel_capacity}}</td>
                     <td>{{$s->equipmentowner->vendor_name ?? ''}}</td>

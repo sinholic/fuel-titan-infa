@@ -49,6 +49,7 @@ class EquipmentController extends Controller
         $equipment->equipment_category = $request->equipment_category;
         $equipment->equipment_number = $request->equipment_number;
         $equipment->equipment_name = $request->equipment_name;
+        $equipment->status_vehicle = $request->status_vehicle;
         $equipment->fuel_capacity = $request->fuel_capacity;
         $equipment->location = $request->location;
         $equipment->pic = $request->pic;
