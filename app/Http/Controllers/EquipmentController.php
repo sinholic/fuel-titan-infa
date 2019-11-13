@@ -50,6 +50,7 @@ class EquipmentController extends Controller
         $equipment->equipment_category = $request->equipment_category;
         $equipment->equipment_number = $request->equipment_number;
         $equipment->equipment_name = $request->equipment_name;
+        $equipment->status_vehicle = $request->status_vehicle;
         $equipment->fuel_capacity = $request->fuel_capacity;
         $equipment->location = $request->location;
         $equipment->pic = $request->pic;
@@ -78,6 +79,7 @@ class EquipmentController extends Controller
     public function update(Request $request, $id)
     {
         $equipment = EquipmentModel::find($id);
+        $owners = OwnerModel::pluck('vendor', 'id');
         $equipment->update($request->all());
         return redirect('/equipment')->with('sukses', 'Data berhasil di Update!');
     }

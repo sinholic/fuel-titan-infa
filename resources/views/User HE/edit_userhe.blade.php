@@ -82,14 +82,14 @@
                         <div class="col-md-6">
                              <div class="form-group">
                                 <label>Total Jam</label>
-                                <input type="number" name="total_jam" value="{{$userhe->total_jam}}" class="form-control" required autofocus>
+                                <input type="number" name="total_jam" value="{{$userhe->total_jam}}" class="form-control" readonly required autofocus>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>KM Total</label>
-                                <input type="number" name="km_total" value="{{$userhe->km_total}}" class="form-control" required autofocus>
+                                <input type="number" name="km_total" value="{{$userhe->km_total}}" class="form-control" readonly required autofocus>
                             </div>
                         </div>
                     </div>

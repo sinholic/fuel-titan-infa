@@ -37,13 +37,16 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Kapasitas Tangki</label>
-                        <input type="number" name="fuel_capacity" value="{{$mobile->fuel_capacity}}" class="form-control" required autofocus>
-                    </div>
+						<label for="exampleFormControlSelect1">Status Kendaraan</label>
+						<select class="form-control" aria-placeholder="Pilih Status.." name="status_vehicle" id="exampleFormControlSelect1">
+						<option>Rental</option>
+						<option>Internal</option>
+						</select>
+					</div>
 
                     <div class="form-group">
-                        <label>Fuelman Assignment</label>
-                        <input type="text" name="fuelman_assignment" value="{{$mobile->fuelman_assignment}}" class="form-control" required autofocus>
+                        <label>Kapasitas Tangki</label>
+                        <input type="number" name="fuel_capacity" value="{{$mobile->fuel_capacity}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">

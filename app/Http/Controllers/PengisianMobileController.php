@@ -31,6 +31,20 @@ class PengisianMobileController extends Controller
     {
         $pengisian_mobile = PengisianMobileModel::find($id);
         $qty_solar = QtySolarModel::pluck('qty_solar', 'id');
-        return view('Pengisian Mobile.edit_pengisian_mobile', ['pengisian_mobile' => $qty_solar, 'qty_solar' => $qty_solar]);
+        return view('Pengisian Mobile.edit_pengisian_mobile', ['pengisian_mobile' => $pengisian_mobile, 'qty_solar' => $qty_solar]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $pengisian_mobile = PengisianMobileModel::find($id);
+        $pengisian_mobile->update($request->all());
+        return redirect('/pengisian_mobile')->with('sukses', 'Data berhasil di Update!');
+    }
+
+    public function delete($id)
+    {
+        $pengisian_mobile = PengisianMobileModel::find($id);
+        $pengisian_mobile->delete($pengisian_mobile);
+        return redirect('/pengisian_mobile')->with('sukses', 'Data berhasil dihapus!');
     }
 }

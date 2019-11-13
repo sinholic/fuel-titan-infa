@@ -19,6 +19,7 @@ class EquipmentUnitdata extends Migration
             $table->string('equipment_name');
             $table->bigInteger('equipment_category');
             $table->string('location');
+            $table->enum('status_vehicle', ['Rental', 'Internal']);
             $table->string('fuel_capacity');
             $table->bigInteger('pic');
             $table->bigInteger('companycode_id');

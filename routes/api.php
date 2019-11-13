@@ -50,7 +50,7 @@ Route::group(['prefix' => 'syncronize'], function () {
     Route::get('/', 'API\SyncronizeController@index');
 });
 
-// Route::get('/', 'API\SyncronizeController@index');
+Route::get('/', 'API\SyncronizeController@index');
 
 
 // Route::get('siswa', 'SiswaController@index');
