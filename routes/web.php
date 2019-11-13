@@ -160,13 +160,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/equipment_category/create', 'EquipmentcategoryController@store');
     Route::get('/equipment_category/edit/{id}', 'EquipmentCategoryController@edit');
     Route::post('/equipment_category/update/{id}', 'EquipmentCategoryController@update');
-    Route::get('/equipment_category/{id}/delete', 'EquipmentCategoryController@destroy');
+    Route::get('/equipment_category/{id}/delete', 'EquipmentCategoryController@delete');
 
     //Pengisian Solar On Mobile
     Route::get('/pengisian_mobile', 'PengisianMobileController@pengisian_mobile');
     Route::get('/addpengisian_mobile', 'PengisianMobileController@tambah');
     Route::post('/pengisian_mobile/create', 'PengisianMobileController@create');
     Route::get('/pengisian_mobile/edit/{id}', 'PengisianMobileController@edit');
+    Route::post('/pengisian_mobile/update/{id}', 'PengisianMobileController@update');
+    Route::get('/pengisian_mobile/{id}/delete', 'PengisianMobileController@delete');
 
     //Pengisian Solar On Fix
     Route::get('/pengisian_fix', 'PengisianFixController@pengisian_fix');

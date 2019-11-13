@@ -34,7 +34,15 @@
                     <div class="form-group">
                         <label for="">Nama Vehicle</label>
                         <input type="text" name="name_vehicle" placeholder="" class="form-control" required autofocus>
-                    </div>
+					</div>
+					
+					<div class="form-group">
+						<label for="exampleFormControlSelect1">Status Kendaraan</label>
+						<select class="form-control" id="exampleFormControlSelect1">
+						<option>Rental</option>
+						<option>Internal</option>
+						</select>
+					</div>
                     
                     <div class="form-group">
 						<label>Kapasitas Tangki</label>

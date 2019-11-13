@@ -40,9 +40,10 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Induk Station</th>
                     <th class="text-center">Nomor Vehicle</th>
                     <th class="text-center">Nama Vehicle</th>
+                    <th class="text-center">Status Kendaraan</th>
+                    <th class="text-center">Induk Station</th>
                     <th class="text-center">Kapasitas Tangki</th>
                     <th class="text-center">Maksimum Pengisian Ulang</th>
                     <th class="text-center" width="8%">Action</th>
@@ -57,6 +58,7 @@
                     <td>{{$s->fixstation->name_station}}</td>
                     <td>{{$s->number_vehicle}}</td>
                     <td>{{$s->name_vehicle}}</td>
+                    <td></td>
                     <td>{{$s->fuel_capacity}}</td>
                     <td>{{$s->fuel_max_reload}}</td>
                     <td>

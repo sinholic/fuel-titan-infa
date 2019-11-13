@@ -47,6 +47,7 @@
                     <th class="text-center">Nomor Equipment</th>
                     <th class="text-center">Nama Equipment</th>
                     <th class="text-center">Equipment Category</th>
+                    <th class="text-center">Status Kendaraan</th>
                     <th class="text-center">Location</th>
                     <th class="text-center">Fuel Capacity</th>
                     <th class="text-center">PIC</th>
@@ -63,6 +64,7 @@
                     <td>{{$s->equipment_number}}</td>
                     <td>{{$s->equipment_name}}</td>
                     <td>{{$s->equipmentcategory->nama ?? ''}}</td>
+                    <td></td>
                     <td>{{$s->location}}</td>
                     <td>{{$s->fuel_capacity}}</td>
                     <td>{{$s->equipmentowner->vendor_name ?? ''}}</td>

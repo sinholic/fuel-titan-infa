@@ -82,14 +82,14 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Total Jam</label>
-								<input type="number" name="total_jam" placeholder="" class="form-control" required autocomplete="">
+								<input type="number" name="total_jam" placeholder="" class="form-control" readonly required autocomplete="">
 							</div>
 						</div>
 
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Total KM</label>
-								<input type="number" name="km_total" placeholder="" class="form-control" required autocomplete="">
+								<input type="number" name="km_total" placeholder="" class="form-control" readonly required autocomplete="">
                     		</div>
 						</div>
 					</div>
