@@ -42,12 +42,15 @@ class VoucherController extends Controller
         ], $messages);
 
         $last_data = VoucherModel::where('owner', $request->owner)->get()->last();
+        $owner = OwnerModel::find($request->owner);
         $runningNumber = 0;
         if ($last_data) {
             $runningNumber = $last_data->vouchercodes->last()->serial_number;
+            $runningNumber = preg_replace( '/[^0-9 ]/i', '', $runningNumber);
         }else {
-            $runningNumber = $request->owner . \Carbon\Carbon::now()->format('yYn') . "0000000";
+            $runningNumber = \Carbon\Carbon::now()->format('ynd') . "0000000";
         }
+
         $runningNumber = (int) $runningNumber;
 
         $num_cols = $request->input('jumlah');
@@ -63,8 +66,8 @@ class VoucherController extends Controller
         for ($i = 1; $i <= $num_cols; $i++) {
             $vouceherCodes[] = new Vouchercode(array(
                 'voucher_id' => $voucher->id,
-                'serial_number' => $runningNumber + $i,
-                'code_number' => sha1($runningNumber + $i),
+                'serial_number' => $owner->vendor_inisial."-".($runningNumber + $i),
+                'code_number' => sha1($owner->vendor_inisial."-".($runningNumber + $i)),
                 'used' => 0,
                 'rejected' => 0
             ));
@@ -108,7 +111,7 @@ class VoucherController extends Controller
         $voucher = VoucherModel::with('vouchercodes', 'voucherowner')->find($id_voucher);
 
         $vouchercode = Vouchercode::find($id_vouchercode)->update(['rejected' => 1]);
-        return view('Voucher.list_vouchercodes', ['voucher' => $voucher]);
+        return redirect()->action('VoucherController@lists', [$voucher]);
 
     }
 }

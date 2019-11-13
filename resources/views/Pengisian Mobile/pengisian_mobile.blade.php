@@ -57,7 +57,7 @@
                     <td>{{$i++}}</td>
                     <td>{{$s->id_driver}}</td>
                     <td>{{$s->unit_equipment}}</td>
-                    <td>{{$s->qty_solar}}</td>
+                    <td>{{$s->qtysolar->qty_solar ?? ''}}</td>
                     <td>{{$s->odometer}}</td>
                     <td>{{$s->remark}}</td>
                     <td>

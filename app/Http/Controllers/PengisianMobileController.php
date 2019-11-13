@@ -17,7 +17,8 @@ class PengisianMobileController extends Controller
     public function tambah()
     {
         $qty_solar = QtySolarModel::pluck('qty_solar', 'id');
-        return view('Pengisian Mobile.addpengisian_mobile');
+
+        return view('Pengisian Mobile.addpengisian_mobile', ['qty_solar' => $qty_solar]);
     }
 
     public function create(Request $request)
@@ -29,6 +30,7 @@ class PengisianMobileController extends Controller
     public function edit($id)
     {
         $pengisian_mobile = PengisianMobileModel::find($id);
-        return view('Pengisian Mobile.edit_pengisian_mobile', ['pengisian_mobile' => $pengisian_mobile]);
+        $qty_solar = QtySolarModel::pluck('qty_solar', 'id');
+        return view('Pengisian Mobile.edit_pengisian_mobile', ['pengisian_mobile' => $qty_solar, 'qty_solar' => $qty_solar]);
     }
 }

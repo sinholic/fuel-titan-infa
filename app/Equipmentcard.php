@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Equipmentcard extends Model
 {
-    protected $fillable = ['cardnumber', 'equipment_id'];
+    protected $guarded = [];
+
+    public function equipment()
+    {
+        return $this->belongsTo('App\EquipmentModel', 'equipment_id', 'id');
+    }
 }

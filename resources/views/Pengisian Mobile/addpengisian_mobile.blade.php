@@ -33,7 +33,7 @@
                     
                     <div class="form-group">
 						<label>Qty Solar</label>
-						{{ Form::select('qty_solar', $qty_solar, null, ['placeholder' => 'Pilih kategori...', 'required', 'class' => 'form-control']) }}
+						{{ Form::select('qty_solar', $qty_solar, null, ['placeholder' => 'Pilih jumlah solar...', 'required', 'class' => 'form-control']) }}
                     </div>
                     
                     <div class="form-group">

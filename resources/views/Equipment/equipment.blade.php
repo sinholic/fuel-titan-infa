@@ -50,6 +50,7 @@
                     <th class="text-center">Location</th>
                     <th class="text-center">Fuel Capacity</th>
                     <th class="text-center">PIC</th>
+                    <th class="text-center">Card Issued</th>
                     <th class="text-center">Action</th>
                 </tr>
             </thead>
@@ -65,6 +66,7 @@
                     <td>{{$s->location}}</td>
                     <td>{{$s->fuel_capacity}}</td>
                     <td>{{$s->equipmentowner->vendor_name ?? ''}}</td>
+                    <td>{{$s->cards->count()}}</td>
                     <td>
                         <div class="btn-group">
 

@@ -23,7 +23,12 @@
 
                     <div class="form-group">
                         <label>Nama Vendor</label>
-                        <input type="text" name="vendor" value="{{$owner->vendor_name}}" class="form-control" required autofocus>
+                        <input type="text" name="vendor_name" value="{{$owner->vendor_name}}" class="form-control" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+						<label>Inisial Vendor</label>
+						<input type="text " name="vendor_inisial" value="{{$owner->vendor_inisial}}" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">

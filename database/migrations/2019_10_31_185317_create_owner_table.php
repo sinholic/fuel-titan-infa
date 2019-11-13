@@ -16,6 +16,7 @@ class CreateOwnerTable extends Migration
         Schema::create('owner', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('vendor_name');
+            $table->string('vendor_inisial');
             $table->string('address');
             $table->enum('owner_category', ['Internal', 'External']);
             $table->string('pic');

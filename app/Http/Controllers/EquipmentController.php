@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 use \App\EquipmentModel;
 use App\Reloadingunit;
 use App\OwnerModel;
+use App\Equipmentcard;
 use App\Equipmentcategory;
 
 class EquipmentController extends Controller
 {
     public function equipment()
     {
-        $equipment = EquipmentModel::where('companycode_id', \Auth::user()->companycode_id)->get();
+        $equipment = EquipmentModel::with('cards')->where('companycode_id', \Auth::user()->companycode_id)->get();
         return view('Equipment.equipment', ['equipment' => $equipment]);
     }
 
