@@ -38,20 +38,20 @@ class EquipmentController extends Controller
     {
         $this->validate($request, [
             'equipment_category' => 'required',
-            'equipment_number' => 'required|unique:equipment_unitdata,equipment_number,'.$request->equipment_number.',id,companycode_id,'.\Auth::user()->companycode_id ,
+            'equipment_number' => 'required|unique:equipment_unitdata,equipment_number,' . $request->equipment_number . ',id,companycode_id,' . \Auth::user()->companycode_id,
             'equipment_name' => 'required',
             'fuel_capacity' => 'required',
             'location' => 'required',
             'pic' => 'required',
         ]);
         $equipment = new EquipmentModel;
-        $equipment->equipment_category = $request->equipment_category;   
-        $equipment->equipment_number = $request->equipment_number; 
-        $equipment->equipment_name = $request->equipment_name; 
-        $equipment->fuel_capacity = $request->fuel_capacity; 
-        $equipment->location = $request->location; 
-        $equipment->pic = $request->pic; 
-        $equipment->companycode_id = \Auth::user()->companycode_id; 
+        $equipment->equipment_category = $request->equipment_category;
+        $equipment->equipment_number = $request->equipment_number;
+        $equipment->equipment_name = $request->equipment_name;
+        $equipment->fuel_capacity = $request->fuel_capacity;
+        $equipment->location = $request->location;
+        $equipment->pic = $request->pic;
+        $equipment->companycode_id = \Auth::user()->companycode_id;
         $equipment->save();
 
         $reloading_units = array(
@@ -61,7 +61,7 @@ class EquipmentController extends Controller
             'ending_stock' => $request->ending_stock,
         );
         Reloadingunit::create($reloading_units);
-        
+
         return redirect('/equipment')->with('sukses', 'Data Berhasil di Input!');
     }
 

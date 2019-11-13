@@ -180,14 +180,14 @@
             <ul class="nav nav-treeview offset-md-2">
 
                 <li class="nav-item">
-                    <a href="/pengambilan" class="nav-link">
-                        <p>Pengambilan Solar</p>
+                    <a href="/pengajuan" class="nav-link">
+                        <p>Pengajuan Hutang Solar</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="/pengajuan" class="nav-link">
-                        <p>Pengajuan Hutang Solar</p>
+                    <a href="/pengambilan" class="nav-link">
+                        <p>Pengambilan Solar</p>
                     </a>
                 </li>
 

@@ -16,7 +16,7 @@ class PengisianMobileController extends Controller
 
     public function tambah()
     {
-        $qty_solar = QtySolarModel::pluck('qty_solar');
+        $qty_solar = QtySolarModel::pluck('qty_solar', 'id');
         return view('Pengisian Mobile.addpengisian_mobile');
     }
 
