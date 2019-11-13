@@ -99,7 +99,7 @@ class SyncronizeController extends Controller
         $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO users VALUES('" . join("),('", $sql->toArray()) . ");"));
 
         //Qty Solar
-        $qtysolar = QtySolarModel::select('id', 'qty_solar', 'updated_at', 'updated_at');
+        $qtysolar = QtySolarModel::all();
         $sql = $qtysolar->map(function ($item, $key) {
             return join(",'", $item->toArray()) . "'";
         });
