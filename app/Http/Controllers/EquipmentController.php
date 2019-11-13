@@ -78,6 +78,7 @@ class EquipmentController extends Controller
     public function update(Request $request, $id)
     {
         $equipment = EquipmentModel::find($id);
+        $owners = OwnerModel::pluck('vendor', 'id');
         $equipment->update($request->all());
         return redirect('/equipment')->with('sukses', 'Data berhasil di Update!');
     }
