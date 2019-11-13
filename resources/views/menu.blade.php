@@ -74,7 +74,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="/status" class="nav-link">
+                    <a href="/status" class="nav-link menu">
                         <p>User Level</p>
                     </a>
                 </li>
@@ -185,7 +185,7 @@
             <ul class="nav nav-treeview offset-md-2">
 
                 <li class="nav-item">
-                    <a href="/pengajuan" class="nav-link">
+                    <a href="#" class="nav-link">
                         <p>Penerimaan Piutang Solar</p>
                     </a>
                 </li>
@@ -243,6 +243,15 @@
                 <p>
                     Non Consignment
                     <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+        </li>
+
+         <li class="nav-item has-treeview">
+            <a href="/penerimaan" class="nav-link">
+                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+                <p>
+                    Stock Opname
                 </p>
             </a>
         </li>
