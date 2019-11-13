@@ -173,7 +173,7 @@
             <a href="#" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    Peminjaman Solar
+                    Hutang Solar
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
@@ -187,7 +187,7 @@
 
                 <li class="nav-item">
                     <a href="/pengajuan" class="nav-link">
-                        <p>Pengajuan Hutang</p>
+                        <p>Pengajuan Hutang Solar</p>
                     </a>
                 </li>
 
