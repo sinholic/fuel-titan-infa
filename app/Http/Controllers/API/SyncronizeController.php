@@ -103,7 +103,7 @@ class SyncronizeController extends Controller
         $sql = $qtysolar->map(function ($item, $key) {
             return join(",'", $item->toArray()) . "'";
         });
-        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO qty_solar VALUES('" . join("),('", $sql->toArray()) . ");"));
+        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO qty_solar ('id, 'qty_solar, 'created_at, 'updated_at') VALUES('" . join("),('", $sql->toArray()) . ");"));
 
         return response()->json([
             'success' => true,
