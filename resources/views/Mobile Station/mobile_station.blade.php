@@ -40,6 +40,7 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
+
                     <th class="text-center">Nomor Vehicle</th>
                     <th class="text-center">Nama Vehicle</th>
                     <th class="text-center">Status Kendaraan</th>
@@ -55,10 +56,11 @@
                  @foreach($mobile ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->fixstation->name_station}}</td>
+                    
                     <td>{{$s->number_vehicle}}</td>
                     <td>{{$s->name_vehicle}}</td>
-                    <td></td>
+                    <td>{{$s->status_vehicle}}</td>
+                    <td>{{$s->fixstation->name_station}}</td>
                     <td>{{$s->fuel_capacity}}</td>
                     <td>{{$s->fuel_max_reload}}</td>
                     <td>

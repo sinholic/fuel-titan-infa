@@ -38,7 +38,7 @@
 					
 					<div class="form-group">
 						<label for="exampleFormControlSelect1">Status Kendaraan</label>
-						<select class="form-control" id="exampleFormControlSelect1">
+						<select class="form-control" name="status_vehicle" id="exampleFormControlSelect1">
 						<option>Rental</option>
 						<option>Internal</option>
 						</select>
