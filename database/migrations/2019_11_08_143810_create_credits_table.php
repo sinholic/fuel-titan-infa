@@ -20,8 +20,7 @@ class CreateCreditsTable extends Migration
             $table->string('remark');
             $table->string('no_spk');
             $table->string('peminjam');
-            $table->boolean('approved');
-            $table->boolean('not_approved');
+            $table->boolean('approved')->nullable();
             $table->string('stockopname');
             $table->timestamps();
             $table->softdeletes();

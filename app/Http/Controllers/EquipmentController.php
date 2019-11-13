@@ -19,7 +19,8 @@ class EquipmentController extends Controller
 
     public function print(Request $request)
     {
-        $equipments = EquipmentModel::with(
+        $equipments = EquipmentModel::where('companycode_id', \Auth::user()->companycode_id)
+        ->with(
             'equipmentowner',
             'equipmentcategory',
             'reloadingunits'

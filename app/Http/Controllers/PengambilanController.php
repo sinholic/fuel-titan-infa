@@ -20,6 +20,14 @@ class PengambilanController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request, [
+            'equipment_category' => 'required',
+            'equipment_number' => 'required|unique:equipment_unitdata,equipment_number,'.$request->equipment_number.',id,companycode_id,'.\Auth::user()->companycode_id ,
+            'equipment_name' => 'required',
+            'fuel_capacity' => 'required',
+            'location' => 'required',
+            'pic' => 'required',
+        ]);
         PengambilanModel::create($request->all());
         return redirect('/pengambilan')->with('sukses', 'Data Berhasil Di Input!');
     }

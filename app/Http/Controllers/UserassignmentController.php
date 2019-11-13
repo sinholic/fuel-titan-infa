@@ -11,8 +11,8 @@ class UserassignmentController extends Controller
 {
     public function tambah()
     {
-        $statuses = Status::pluck('nama', 'id');
-        return view('User Assignment.tambah_assignment', ['statuses' => $statuses]);
+        $users = User::pluck('name', 'id');
+        return view('User Assignment.tambah_assignment', ['users' => $users]);
     }
 
     public function index()
