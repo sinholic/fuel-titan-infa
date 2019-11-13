@@ -137,6 +137,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/user/edit/{id}', 'UserController@edit');
     Route::post('/user/update/{id}', 'UserController@update');
     Route::get('/user/{id}/delete', 'UserController@delete');
+    Route::get('/user/print-qr', 'UserController@print');
 
     //Status Id
     Route::get('/status', 'StatusController@index');
