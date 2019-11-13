@@ -37,6 +37,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="exampleFormControlSelect1">Status Kendaraan</label>
+                        {{ Form::select('status_vehicle', ['Rental' => 'Rental', 'Internal' => 'Internal'], $equipment->status_vehicle, ['placeholder' => 'Pilih status...', 'required', 'class' => 'form-control']) }}
+                    </div>
+
+                    <div class="form-group">
                         <label>Location</label>
                         <input type="text" name="location" value="{{$equipment->location}}" class="form-control" required autofocus>
                     </div>

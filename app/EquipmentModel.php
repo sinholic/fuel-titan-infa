@@ -9,7 +9,7 @@ class EquipmentModel extends Model
 {
     use SoftDeletes;
     protected $table = "equipment_unitdata";
-    protected $fillable = ['equipment_number', 'equipment_category', 'location', 'fuel_capacity', 'pic'];
+    protected $guarded = [];
 
     public function equipmentowner()
     {

@@ -19,7 +19,9 @@ class CreateMobileStationTable extends Migration
             $table->string('number_vehicle');
             $table->string('name_vehicle');
             $table->string('fuel_capacity');
-            $table->string('fuel_max_reload');
+            $table->enum('status_vehicle', ['Internal', 'Rental'])->default('Rental');
+            $table->string('fuel_max_reload')->nullable();
+            $table->boolean('impress_status')->default(false);
             // $table->string('fuelman_assignment');
             $table->timestamps();
             $table->softDeletes();

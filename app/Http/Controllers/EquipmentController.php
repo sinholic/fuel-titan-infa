@@ -63,7 +63,25 @@ class EquipmentController extends Controller
             'machinehours' => $request->machinehours,
             'ending_stock' => $request->ending_stock,
         );
-        Reloadingunit::create($reloading_units);
+        // Reloadingunit::create($reloading_units);
+        $equipment->reloadingunits()->create($reloading_units);
+
+        $owner = OwnerModel::find($request->pic);
+        $inisial = substr($owner->vendor_inisial,0,3);
+        $inisial_number = null;
+        for ($i=0; $i < strlen($inisial) ; $i++) { 
+            $inisial_number .= ord(substr($inisial, $i));
+        }
+
+        $card_number = \Carbon\Carbon::now()->format('yndm');
+        // dd($inisial_number.$card_number.mt_rand(10,99));   
+
+        $cards = array(
+            'equipment_id' => $equipment->id,
+            'cardnumber' => $inisial_number.$card_number.mt_rand(10,99),
+        );
+        // Equipmentcard::create($cards);
+        $equipment->cards()->create($cards);
 
         return redirect('/equipment')->with('sukses', 'Data Berhasil di Input!');
     }
@@ -71,7 +89,7 @@ class EquipmentController extends Controller
     public function edit($id)
     {
         $equipment = EquipmentModel::find($id);
-        $owners = OwnerModel::pluck('vendor', 'id');
+        $owners = OwnerModel::pluck('vendor_name', 'id');
         $equipment_categories = Equipmentcategory::pluck('nama', 'id');
         return view('Equipment.edit_equipment', ['equipment' => $equipment, 'owners' => $owners, 'equipment_categories' => $equipment_categories]);
     }
@@ -79,7 +97,6 @@ class EquipmentController extends Controller
     public function update(Request $request, $id)
     {
         $equipment = EquipmentModel::find($id);
-        $owners = OwnerModel::pluck('vendor', 'id');
         $equipment->update($request->all());
         return redirect('/equipment')->with('sukses', 'Data berhasil di Update!');
     }
