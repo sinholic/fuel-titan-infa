@@ -37,6 +37,15 @@
                     </div>
 
                     <div class="form-group">
+						<label for="exampleFormControlSelect1">Status Kendaraan</label>
+						<select class="form-control" name="status_vehicle" id="exampleFormControlSelect1">
+							<option value="" disabled selected>Pilih Status</option>
+							<option>Rental</option>
+							<option>Internal</option>
+						</select>
+					</div>
+
+                    <div class="form-group">
                         <label>Location</label>
                         <input type="text" name="location" value="{{$equipment->location}}" class="form-control" required autofocus>
                     </div>

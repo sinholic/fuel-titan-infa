@@ -56,7 +56,6 @@
                  @foreach($mobile ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    
                     <td>{{$s->number_vehicle}}</td>
                     <td>{{$s->name_vehicle}}</td>
                     <td>{{$s->status_vehicle}}</td>

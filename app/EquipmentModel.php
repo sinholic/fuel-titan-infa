@@ -9,7 +9,7 @@ class EquipmentModel extends Model
 {
     use SoftDeletes;
     protected $table = "equipment_unitdata";
-    protected $fillable = ['equipment_number', 'equipment_category', 'location', 'fuel_capacity', 'pic'];
+    protected $guarded = [];
 
     public function equipmentowner()
     {
@@ -21,7 +21,7 @@ class EquipmentModel extends Model
         return $this->belongsTo('App\Equipmentcategory', 'equipment_category', 'id');
     }
 
-    
+
     public function reloadingunits()
     {
         return $this->belongsTo('App\Reloadingunit', 'equipment_id', 'id');

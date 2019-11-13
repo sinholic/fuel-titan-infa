@@ -70,7 +70,7 @@ class EquipmentController extends Controller
     public function edit($id)
     {
         $equipment = EquipmentModel::find($id);
-        $owners = OwnerModel::pluck('vendor', 'id');
+        $owners = OwnerModel::pluck('vendor_name', 'id');
         $equipment_categories = Equipmentcategory::pluck('nama', 'id');
         return view('Equipment.edit_equipment', ['equipment' => $equipment, 'owners' => $owners, 'equipment_categories' => $equipment_categories]);
     }
@@ -78,7 +78,6 @@ class EquipmentController extends Controller
     public function update(Request $request, $id)
     {
         $equipment = EquipmentModel::find($id);
-        $owners = OwnerModel::pluck('vendor', 'id');
         $equipment->update($request->all());
         return redirect('/equipment')->with('sukses', 'Data berhasil di Update!');
     }
