@@ -242,4 +242,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/materials/edit/{id}', 'MaterialsController@edit');
     Route::post('/materials/update/{id}', 'MaterialsController@update');
     Route::get('/materials/{id}/delete', 'MaterialsController@delete');
+
+    //Merk
+    Route::get('/merk', 'MerkController@merk');
+    Route::get('/tambah_merk', 'MerkController@tambah');
+    Route::post('/merk/create', 'MerkController@create');
+    Route::get('/merk/edit/{id}', 'MerkController@edit');
+    Route::post('/merk/update/{id}', 'MerkController@update');
+    Route::get('/merk/{id}/delete', 'MerkController@delete');
 });
