@@ -36,8 +36,8 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">ID User</th>
-                    <th class="text-center">ID Station</th>
+                    <th class="text-center">Nama</th>
+                    <th class="text-center">Station Name</th>
                     <th class="text-center">Mobile</th>
                     <th class="text-center">Start Date</th>
                     <th class="text-center">End Date</th>

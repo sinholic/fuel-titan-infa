@@ -22,6 +22,15 @@ class UserController extends Controller
         return view('User.user', ['user' => $user]);
     }
 
+    public function print()
+    {
+        $users = User::where('companycode_id', \Auth::user()->companycode_id)
+        ->with('status')
+        ->get();
+        // dd($Equipment->Equipmentowner);
+        return view('User.print_qr', ['users' => $users]);
+    }
+
     public function create(Request $request)
     {
         $datas = $request->all();

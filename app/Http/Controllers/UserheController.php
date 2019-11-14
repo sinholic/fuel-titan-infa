@@ -20,6 +20,14 @@ class UserheController extends Controller
 
     public function create(Request $request)
     {
+        $messages = [
+            'required' => 'Tidak boleh mengisi tanggal kemarin',
+        ];
+
+        $this->validate($request, [
+            'tanggal_operasi' => 'required|date|after_or_equal:start_date'
+        ], $messages);
+
         UserheModel::create($request->all());
         return redirect('/userhe')->with('sukses', 'Data berhasil diinput!');
     }

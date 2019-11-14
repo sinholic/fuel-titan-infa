@@ -15,6 +15,7 @@ class CreateDebtsTable extends Migration
     {
         Schema::create('pengambilan', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('credit_id');
             $table->string('qty');
             $table->date('date');
             $table->timestamps();

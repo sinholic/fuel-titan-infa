@@ -28,39 +28,43 @@
 
 					<div class="form-group">
 						<label>Nomor Vehicle</label>
-						<input type="text " name="number_vehicle" placeholder="" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Nama Vehicle</label>
-                        <input type="text" name="name_vehicle" placeholder="" class="form-control" required autofocus>
+						<input type="text " name="number_vehicle" placeholder="" class="form-control" required
+							autofocus>
 					</div>
-					
+
+					<div class="form-group">
+						<label for="">Nama Vehicle</label>
+						<input type="text" name="name_vehicle" placeholder="" class="form-control" required autofocus>
+					</div>
+
 					<div class="form-group">
 						<label for="exampleFormControlSelect1">Status Kendaraan</label>
-						<select class="form-control" name="status_vehicle" id="exampleFormControlSelect1">
-							<option value="" disabled selected>Pilih Status</option>
-							<option>Rental</option>
-							<option>Internal</option>
-						</select>
+						{{ Form::select('status_vehicle', ['Rental' => 'Rental', 'Internal' => 'Internal'], old('status_vehicle'), ['placeholder' => 'Pilih status...', 'required', 'class' => 'form-control']) }}
 					</div>
-                    
-                    <div class="form-group">
+
+					<div class="form-group">
 						<label>Kapasitas Tangki</label>
-						<input type="number" name="fuel_capacity" placeholder="" class="form-control" required autofocus>
-                    </div>
-                    
-                    <div class="form-group">
+						<input type="number" name="fuel_capacity" placeholder="" class="form-control" required
+							autofocus>
+					</div>
+
+					<div class="form-check">
+						{{ Form::checkbox('impress_status', 1, null, ['class' => 'form-check-input enable-impress']) }}
+						<label>Enable Impress System</label>
+					</div>
+
+					<div class="form-group max-reload">
 						<label>Maksimal Pengisian Ulang</label>
-						<input type="text" name="fuel_max_reload" placeholder="" class="form-control" required autocomplete="">
-                    </div> 
+						<input type="text" name="fuel_max_reload" placeholder="" class="form-control" required
+							autocomplete="">
+					</div>
 
 				</div>
 
 				<div class="card-footer">
 
 					<a href="/mobile" class="btn btn-default">Back</a>
-                    &nbsp;&nbsp;
+					&nbsp;&nbsp;
 					<input type="submit" value="Add Data" class="pull-right btn btn-primary">
 
 				</div>
@@ -71,7 +75,16 @@
 
 	</div>
 </div>
-
-
-
 @endsection
+
+@push('scripts')
+
+	<script>
+		$('.max-reload').hide();
+		$('.enable-impress').click(function(){
+			$('.max-reload').toggle();
+		})
+	</script>
+
+
+@endpush

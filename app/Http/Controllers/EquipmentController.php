@@ -19,7 +19,8 @@ class EquipmentController extends Controller
 
     public function print(Request $request)
     {
-        $equipments = EquipmentModel::with(
+        $equipments = EquipmentModel::where('companycode_id', \Auth::user()->companycode_id)
+        ->with(
             'equipmentowner',
             'equipmentcategory',
             'reloadingunits'
@@ -62,7 +63,25 @@ class EquipmentController extends Controller
             'machinehours' => $request->machinehours,
             'ending_stock' => $request->ending_stock,
         );
-        Reloadingunit::create($reloading_units);
+        // Reloadingunit::create($reloading_units);
+        $equipment->reloadingunits()->create($reloading_units);
+
+        $owner = OwnerModel::find($request->pic);
+        $inisial = substr($owner->vendor_inisial,0,3);
+        $inisial_number = null;
+        for ($i=0; $i < strlen($inisial) ; $i++) { 
+            $inisial_number .= ord(substr($inisial, $i));
+        }
+
+        $card_number = \Carbon\Carbon::now()->format('yndm');
+        // dd($inisial_number.$card_number.mt_rand(10,99));   
+
+        $cards = array(
+            'equipment_id' => $equipment->id,
+            'cardnumber' => $inisial_number.$card_number.mt_rand(10,99),
+        );
+        // Equipmentcard::create($cards);
+        $equipment->cards()->create($cards);
 
         return redirect('/equipment')->with('sukses', 'Data Berhasil di Input!');
     }

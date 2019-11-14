@@ -22,8 +22,8 @@
 					@endif
 
 					<div class="form-group">
-						<label>ID User</label>
-						<input type="number" name="user_id" placeholder="" class="form-control" required autofocus>
+						<label>Nama</label>
+						{{ Form::select('user_id', $users, null, ['placeholder' => 'Pilih nama...', 'required', 'class' => 'form-control']) }}
                     </div>
 
                     <div class="form-group">

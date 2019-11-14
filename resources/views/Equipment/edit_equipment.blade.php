@@ -37,6 +37,7 @@
                     </div>
 
                     <div class="form-group">
+<<<<<<< HEAD
 						<label for="exampleFormControlSelect1">Status Kendaraan</label>
 						<select class="form-control" name="status_vehicle" id="exampleFormControlSelect1">
 							<option value="" disabled selected>Pilih Status</option>
@@ -44,6 +45,11 @@
 							<option>Internal</option>
 						</select>
 					</div>
+=======
+                        <label for="exampleFormControlSelect1">Status Kendaraan</label>
+                        {{ Form::select('status_vehicle', ['Rental' => 'Rental', 'Internal' => 'Internal'], $equipment->status_vehicle, ['placeholder' => 'Pilih status...', 'required', 'class' => 'form-control']) }}
+                    </div>
+>>>>>>> 67ffbf13e53bc6e5607915c834773bb4369d6c69
 
                     <div class="form-group">
                         <label>Location</label>

@@ -38,10 +38,7 @@
 
                     <div class="form-group">
 						<label for="exampleFormControlSelect1">Status Kendaraan</label>
-						<select class="form-control" aria-placeholder="Pilih Status.." name="status_vehicle" id="exampleFormControlSelect1">
-						<option>Rental</option>
-						<option>Internal</option>
-						</select>
+                        {{ Form::select('status_vehicle', ['Rental' => 'Rental', 'Internal' => 'Internal'], $equipment->status_vehicle, ['placeholder' => 'Pilih status...', 'required', 'class' => 'form-control']) }}
 					</div>
 
                     <div class="form-group">

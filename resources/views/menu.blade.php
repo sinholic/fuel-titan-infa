@@ -119,13 +119,13 @@
                 <li class="nav-item">
                     <a href="/pengisian_mobile" class="nav-link">
 
-                        <p>On Mobile Station</p>
+                        <p>Good Issue On Mobile Station</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="/pengisian_fix" class="nav-link">
-                        <p>On Fix Station</p>
+                        <p>Good Issue On Fix Station</p>
                     </a>
                 </li>
 

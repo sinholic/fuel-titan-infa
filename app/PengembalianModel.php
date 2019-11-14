@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class PengembalianModel extends Model
 {
     protected $table = "pengembalian";
-     protected $fillable = ['qty', 'date'];
+     protected $guarded = [];
 }

@@ -50,14 +50,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>HM Awal</label>
-                                <input type="number" name="hm_awal" value="{{$userhe->hm_awal}}" class="form-control" required autofocus>
+                                <input type="number" id="hmawal" onkeyup="sum()"; name="hm_awal" value="{{$userhe->hm_awal}}" class="form-control" required autofocus>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>KM Awal</label>
-                                <input type="number" name="km_awal" value="{{$userhe->km_awal}}" class="form-control" required autofocus>
+                                <input type="number" id="kmawal" onkeyup="sum()"; name="km_awal" value="{{$userhe->km_awal}}" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -66,14 +66,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>HM Akhir</label>
-                                <input type="number" name="hm_akhir" value="{{$userhe->hm_akhir}}" class="form-control" required autofocus>
+                                <input type="number" id="hmakhir" onkeyup="sum()"; name="hm_akhir" value="{{$userhe->hm_akhir}}" class="form-control">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>KM Akhir</label>
-                                <input type="number" name="km_akhir" value="{{$userhe->km_akhir}}" class="form-control" required autofocus>
+                                <input type="number" id="kmakhir" onkeyup="sum()"; name="km_akhir" value="{{$userhe->km_akhir}}" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -82,14 +82,14 @@
                         <div class="col-md-6">
                              <div class="form-group">
                                 <label>Total Jam</label>
-                                <input type="number" name="total_jam" value="{{$userhe->total_jam}}" class="form-control" readonly required autofocus>
+                                <input type="number" name="total_jam" value="{{$userhe->total_jam}}" class="form-control" readonly required>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>KM Total</label>
-                                <input type="number" name="km_total" value="{{$userhe->km_total}}" class="form-control" readonly required autofocus>
+                                <input type="number" onkeyup="sum()"; name="km_total" value="{{$userhe->km_total}}" class="form-control" readonly required>
                             </div>
                         </div>
                     </div>
@@ -160,6 +160,19 @@
     </div>
 </div>
 
-
+<script>
+	function sum(){
+		var hm1 = document.getElementById('hmawal').value;
+		var hm2 = document.getElementById('hmakhir').value;
+		var km1 = document.getElementById('kmawal').value;
+		var km2 = document.getElementById('kmakhir').value;
+		var result = parseInt(hm1) + parseInt(hm2);
+		var hasil = parseInt(km1) + parseInt(km2);
+		if(!isNaN(result, hasil)){
+			document.getElementById('totaljam').value = result,
+			document.getElementById('totalkm').value = hasil;	
+		}
+	}
+</script>
 
 @endsection('content')
