@@ -39,7 +39,13 @@ class MobileController extends Controller
     public function update(Request $request, $id)
     {
         $mobile = MobileModel::find($id);
-        $mobile->update($request->all());
+        $datas = $request->all();
+        if (!isset($datas['impress_status'])) {
+            $datas['impress_status'] = 0;
+            $datas['fuel_max_reload'] = NULL;
+        }
+        // dd($datas);
+        $mobile->update($datas);
         return redirect('/mobile')->with('sukses', 'Data berhasil di Update!');
     }
 
