@@ -22,6 +22,11 @@
 					@endif
 
 					<div class="form-group">
+						<label>Nama Company</label>
+						{{ Form::select('companycode_id', $companycodes, null, ['placeholder' => 'Pilih company...', 'required', 'class' => 'form-control']) }}
+                    </div>
+
+					<div class="form-group">
 						<label>Nama Station</label>
 						<input type="text " name="name_station" placeholder="" class="form-control" required autofocus>
                     </div>

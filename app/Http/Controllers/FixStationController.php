@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\FixStationModel;
+use App\Companycode;
 use App\Http\Controllers\Controller;
 
 class FixStationController extends Controller
 {
     public function fix()
     {
-        $fix = FixStationModel::select('id','name_station','address','nama_lokasi','koordinat_gps','tank_number','fuel_capacity',
+        $fix = FixStationModel::select('id','name_station','address','nama_lokasi','koordinat_gps','tank_number','fuel_capacity','companycode_id',
         \DB::raw('count(*) as total_tank'), \DB::raw('sum(fuel_capacity) as total_fuel_capacity'))
         ->where('companycode_id', \Auth::user()->companycode_id)
         ->groupBy('name_station', 'address')
@@ -21,7 +22,8 @@ class FixStationController extends Controller
 
     public function tambah()
     {
-        return view('Fix Station.tambah_fixstation');
+        $companycodes = Companycode::pluck('company_name','id');
+        return view('Fix Station.tambah_fixstation', ['companycodes' => $companycodes]);
     }
 
     public function create(Request $request)
@@ -53,7 +55,8 @@ class FixStationController extends Controller
     {
         $fix = FixStationModel::find($id);
         $tanks = FixStationModel::where('name_station', $fix->name_station)->get();
-        return view('Fix Station.edit_fixstation', ['fix' => $fix, 'tanks' => $tanks]);
+        $companycodes = Companycode::pluck('company_name','id');
+        return view('Fix Station.edit_fixstation', ['fix' => $fix, 'tanks' => $tanks, 'companycodes' => $companycodes]);
     }
 
     public function update(Request $request, $id)
