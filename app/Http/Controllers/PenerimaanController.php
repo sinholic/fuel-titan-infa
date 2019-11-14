@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\PenerimaanModel;
+use App\FixStationModel;
 
 class PenerimaanController extends Controller
 {
@@ -15,7 +16,9 @@ class PenerimaanController extends Controller
 
     public function tambah()
     {
-        return view('Penerimaan.tambah_penerimaan');
+        $fixstations = FixStationModel::select(\DB::raw('CONCAT(name_station, " (Tangki nomor ", tank_number, ")") as text'), 'id')->pluck('text', 'id');
+        // dd($fixstations);
+        return view('Penerimaan.tambah_penerimaan', ['fixstations' => $fixstations]);
     }
 
     public function create(Request $request)

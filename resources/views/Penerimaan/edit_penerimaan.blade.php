@@ -42,6 +42,11 @@
                     </div>
 
                     <div class="form-group">
+						<label>Received Qty</label>
+						<input type="text" name="received_qty" value="{{$penerimaan->received_qty}}" class="form-control" required autofocus>
+                    </div>
+
+                    <div class="form-group">
                         <label>No Tangki</label>
                         <input type="text" name="no_tangki" value="{{$penerimaan->no_tangki}}" class="form-control" required autofocus>
                     </div>

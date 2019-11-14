@@ -22,6 +22,31 @@
                     @endif
 
                     <div class="form-group">
+                        <label>equipment info</label>
+                        <input type="text " name="equipment_info" placeholder="" class="form-control" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label>equipment type</label>
+                        <input type="text " name="equipment_type" placeholder="" class="form-control" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label>manufacture</label>
+                        <input type="text " name="manufacture_id" placeholder="" class="form-control" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label>nomor rangka</label>
+                        <input type="text " name="nomor_rangka" placeholder="" class="form-control" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label>nomor mesin</label>
+                        <input type="text " name="nomor_mesin" placeholder="" class="form-control" required autofocus>
+                    </div>
+
+                    <div class="form-group">
                         <label>Equipment Number</label>
                         <input type="text " name="equipment_number" placeholder="" class="form-control" required autofocus>
                     </div>
@@ -37,7 +62,7 @@
                     </div>
 
                     <div class="form-group">
-						<label for="exampleFormControlSelect1">Status Kendaraan</label>
+						<label for="">Status Kendaraan</label>
                         {{ Form::select('status_vehicle', ['Rental' => 'Rental', 'Internal' => 'Internal'], old('status_vehicle'), ['placeholder' => 'Pilih status...', 'required', 'class' => 'form-control']) }}
                     </div>
                     

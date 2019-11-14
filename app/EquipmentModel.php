@@ -24,7 +24,7 @@ class EquipmentModel extends Model
     
     public function reloadingunits()
     {
-        return $this->belongsTo('App\Reloadingunit', 'equipment_id', 'id');
+        return $this->hasMany('App\Reloadingunit', 'equipment_id', 'id');
     }
 
     public function cards()
