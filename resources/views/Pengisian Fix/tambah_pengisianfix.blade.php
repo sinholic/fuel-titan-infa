@@ -10,7 +10,7 @@
 
 			<div class="card" style="border-top: 3px solid #9C5C22">
 				<div class="card-header">
-					<h3 class="card-title">Tambah Pengisian Solar On Fix Station</h3>
+					<h3 class="card-title">Add Good Issue On Fix Station</h3>
 				</div>
 
 				<div class="card-body">

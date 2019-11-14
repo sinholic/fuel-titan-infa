@@ -234,4 +234,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/qty_solar/edit/{id}', 'QtySolarController@edit');
     Route::post('/qty_solar/update/{id}', 'QtySolarController@update');
     Route::get('/qty_solar/{id}/delete', 'QtySolarController@delete');
+
+    //Materials
+    Route::get('/materials', 'MaterialsController@materials');
+    Route::get('/tambah_materials', 'MaterialsController@tambah');
+    Route::post('/materials/create', 'MaterialsController@create');
+    Route::get('/materials/edit/{id}', 'MaterialsController@edit');
+    Route::post('/materials/update/{id}', 'MaterialsController@update');
+    Route::get('/materials/{id}/delete', 'MaterialsController@delete');
 });

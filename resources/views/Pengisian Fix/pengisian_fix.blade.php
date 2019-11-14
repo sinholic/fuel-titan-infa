@@ -32,7 +32,7 @@
 <div class="card" style="border-top: 3px solid #9C5C22">
         
        <div class="card-header">
-            <h4>Pengisian Solar On Fix Station</h4>
+            <h4>Good Issue On Fix Station</h4>
         </div>
 
     <div class="card-body">

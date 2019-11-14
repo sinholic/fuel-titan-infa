@@ -50,14 +50,14 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>HM Awal</label>
-								<input type="number" id="hmawal" onkeyup="sum()"; name="hm_awal" placeholder="" class="form-control" required autocomplete="">
+								<input type="number" id="hmawal" onkeyup="sum()"; name="hm_awal" placeholder="" class="form-control">
 							</div>
 						</div>
 					
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>KM Awal</label>
-								<input type="number" id="kmawal" onkeyup="sum();" name="km_awal" placeholder="" class="form-control" required autocomplete="">
+								<input type="number" id="kmawal" onkeyup="sum();" name="km_awal" placeholder="" class="form-control">
 							</div>
 						</div>
 					</div>
@@ -66,14 +66,14 @@
 						<div class="col-md-6">
                             <div class="form-group">
                                 <label>HM Akhir</label>
-                                <input type="number" id="hmakhir" onkeyup="sum();" name="hm_akhir" placeholder="" class="form-control" required autocomplete="">
+                                <input type="number" id="hmakhir" onkeyup="sum();" name="hm_akhir" placeholder="" class="form-control">
                             </div>
 						</div>
 						
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>KM Akhir</label>
-								<input type="number" id="kmakhir" onkeyup="sum();" name="km_akhir" placeholder="" class="form-control" required autocomplete="">
+								<input type="number" id="kmakhir" onkeyup="sum();" name="km_akhir" placeholder="" class="form-control">
                     		</div>
 						</div>
 					</div>
@@ -82,14 +82,14 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Total Jam</label>
-								<input type="number" id="totaljam" name="total_jam" placeholder="" class="form-control" readonly required autocomplete="">
+								<input type="number" id="totaljam" name="total_jam" placeholder="" class="form-control" readonly>
 							</div>
 						</div>
 
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Total KM</label>
-								<input type="number" id="totalkm" name="km_total" placeholder="" class="form-control" readonly required autocomplete="">
+								<input type="number" id="totalkm" name="km_total" placeholder="" class="form-control" readonly>
                     		</div>
 						</div>
 					</div>
@@ -174,8 +174,6 @@
 			document.getElementById('totalkm').value = hasil;	
 		}
 	}
-
-	
 </script>
 
 

@@ -11,6 +11,13 @@
                 </p>
             </a>
             <ul class="nav nav-treeview offset-md-2">
+
+                <li class="nav-item">
+                    <a href="/materials" class="nav-link">
+                        Master Material
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a href="/fix" class="nav-link">
                         Master Fix Station
@@ -110,7 +117,7 @@
             <a href="#" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    Pengisian Solar
+                    Good Issue
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>

@@ -10,7 +10,7 @@
            
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Edit Pengisian Solar On Mobile Station</h3>
+                    <h3 class="card-title">Edit Good Issue On Mobile Station</h3>
                 </div>
 
                 <div class="card-body">

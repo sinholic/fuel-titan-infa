@@ -23,7 +23,7 @@
 
                     <div class="form-group">
                         <label>Equipment Number</label>
-                        <input type="text " name="equipment_number" placeholder="" class="form-control" required autofocus>
+                        <input type="equipment" name="equipment_number" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
@@ -48,7 +48,7 @@
 
                     <div class="form-group">
                         <label>Fuel Capacity</label>
-                        <input type="text" name="fuel_capacity" placeholder="" class="form-control" required autofocus>
+                        <input type="number" name="fuel_capacity" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
@@ -58,17 +58,17 @@
 
                     <div class="form-group">
                         <label>Last Odometer</label>
-                        <input type="text" name="odometer" placeholder="" class="form-control" required autofocus>
+                        <input type="number" name="odometer" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
                         <label>Last Machine Hours</label>
-                        <input type="text" name="machinehours" placeholder="" class="form-control" required autofocus>
+                        <input type="number" name="machinehours" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
                         <label>Last Ending Stock</label>
-                        <input type="text" name="ending_stock" placeholder="" class="form-control" required autofocus>
+                        <input type="number" name="ending_stock" placeholder="" class="form-control" required autofocus>
                     </div>
 
                 </div>
