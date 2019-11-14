@@ -21,9 +21,9 @@
 					</div>
 					@endif
 
-					<div class="form-group">
-						<label>Remark</label>
-						<input type="text " name="remark" placeholder="" class="form-control" required autofocus>
+                    <div class="form-group">
+						<label>No PO</label>
+						<input type="text" name="no_po" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
@@ -32,18 +32,24 @@
                     </div>
                     
                     <div class="form-group">
-						<label>No PO</label>
-						<input type="text" name="no_po" placeholder="" class="form-control" required autofocus>
-                    </div>
-                    
-                    <div class="form-group">
 						<label>Qty</label>
 						<input type="text" name="qty" placeholder="" class="form-control" required autofocus>
+					</div>
+					
+					<div class="form-group">
+						<label>Received Qty</label>
+						<input type="text" name="received_qty" placeholder="" class="form-control" required autofocus>
+					</div>
+					
+					<div class="form-group">
+						<label>Remark</label>
+						<textarea name="remark" id="" cols="30" rows="10" class="form-control"></textarea>
                     </div>
                     
                     <div class="form-group">
 						<label>No Tangki</label>
-						<input type="text" name="no_tangki" placeholder="" class="form-control" required autocomplete="">
+						{{ Form::select('no_tangki', $fixstations, null, ['placeholder' => 'Pilih nomor tangki...', 'required', 'class' => 'form-control']) }}
+						{{-- <input type="text" name="no_tangki" placeholder="" class="form-control" required autocomplete=""> --}}
 					</div>
 					
 				</div>

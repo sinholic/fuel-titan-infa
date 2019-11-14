@@ -23,6 +23,9 @@
     .dataTables_wrapper .dataTables_paginate .paginate_button {
       padding: 0;
     }
+    .form-control label {
+      text-transform: capitalize;
+    }
   </style>
 </head>
 <!--

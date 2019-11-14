@@ -54,6 +54,11 @@ class EquipmentController extends Controller
         $equipment->fuel_capacity = $request->fuel_capacity;
         $equipment->location = $request->location;
         $equipment->pic = $request->pic;
+        $equipment->equipment_info = $request->equipment_info;
+        $equipment->equipment_type = $request->equipment_type;
+        $equipment->manufacture_id = $request->manufacture_id;
+        $equipment->nomor_rangka = $request->nomor_rangka;
+        $equipment->nomor_mesin = $request->nomor_mesin;
         $equipment->companycode_id = \Auth::user()->companycode_id;
         $equipment->save();
 
@@ -88,7 +93,8 @@ class EquipmentController extends Controller
 
     public function edit($id)
     {
-        $equipment = EquipmentModel::find($id);
+        $equipment = EquipmentModel::with('reloadingunits')->find($id);
+        // dd($equipment);
         $owners = OwnerModel::pluck('vendor_name', 'id');
         $equipment_categories = Equipmentcategory::pluck('nama', 'id');
         return view('Equipment.edit_equipment', ['equipment' => $equipment, 'owners' => $owners, 'equipment_categories' => $equipment_categories]);

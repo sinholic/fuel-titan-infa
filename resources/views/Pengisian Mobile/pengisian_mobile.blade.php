@@ -17,7 +17,7 @@
 		</div>
     @endif
     
-    <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
+    {{-- <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
 		 <i class="fas fa-file-excel"></i> Import Excel
     </button>
 
@@ -27,7 +27,7 @@
     
         <a href="/addpengisian_mobile" class="btn btn-primary">
             <i class="fa fa-plus nav-icon"></i>
-        </a>
+        </a> --}}
 
 <div class="card" style="border-top: 3px solid #9C5C22">
         
@@ -64,17 +64,17 @@
                          <div class="btn-group">
 
                             <!-- URL::to('/admin/category/detail.id='.$cate-id -->
-                             <a href="#" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Info">
+                             {{-- <a href="#" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Info">
                                 <i class="fa fa-info-circle nav-icon"></i>
-                            </a>
+                            </a> --}}
 
                             <a href="/pengisian_mobile/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
                             </a> 
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/pengisian_mobile/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
+                            {{-- <a onClick="return confirm('Yakin ingin menghapus data?')" href="/pengisian_mobile/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
                                 <i class="fa fa-trash nav-icon"></i>
-                            </a>
+                            </a> --}}
 
                         </div>
                     </td>

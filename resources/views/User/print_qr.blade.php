@@ -1,97 +1,56 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Print QR User</title>
-    <style type="text/css">
-        table.one {
-            border-collapse:separate;
-            border:solid black 1px;
-            border-radius:6px;
-            -moz-border-radius:6px;
-        }
-
-        td.one, tr.one {
-            border-left:solid black 1px;
-            border-top:solid black 1px;
-        }
-
-        tr.one {
-            background-color: white;
-            border-top: none;
-        }
-
-        td:first-child, tr:first-child {
-            border-left: none;
-            margin-top: 30px;
-        }
-
-        /* .qr{
-            display: block;
-            margin-left: -3;
-        } */
-
-        h4 {
-        font-size: 25px;
-        }
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Print QR Equipment</title>
+    <style>
         p {
-        font-size: 15px;
-        left: 25px;
-        margin: 0;
+            margin-left: 2mm;
+        }
+
+        serial-number {
+            font-size: 10px;
+            position: relative;
+            bottom: 5mm;
+        }
+
+        table tr {
+            margin: 0;
+            line-height: 1.2;
         }
     </style>
-  </head>
-  <body>
-<a href="#" class="btn btn-primary" style="float: right"; onclick="window.print();">Print</a>
+</head>
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <table border="0" class="one" style="width:40mm">
-                {{-- <td style="width: 40mm; height: 40mm;"> --}}
-                    
-                    {{-- <table> --}}
-                    @foreach($users as $user)
-                        @php
-                            $userLevel = isset($user->status) ? $user->status->nama : "";
-                        @endphp
-                        @php $string = 
-"User Nama: $user->name,
-User ID: $user->id,
-Level: $userLevel
-"
-                        @endphp
-                        <tr>
-                            <td style="margin-left: -6px; height:40mm">{!! QrCode::size(150)->margin(0)->generate($string); !!}</td>
-                        </tr>
-                        <tr>
-                            <td style="margin-top: 30px" colspan=2>
-                                <p>User Nama: {{$user->name}}</p>
-                                <p>User ID: {{$user->id}}</p>
-                                <p>Level: {{$userLevel}}</p>
-                                <hr >
-                            </td>
-                        </tr>
-                    @endforeach
-                    {{-- </table> --}}
-		
-		        </td>
-            </table>
+<body>
+    <a href="#" class="btn btn-primary" style="float: right" ; onclick="window.print();">Print</a>
+    @foreach($users as $user)
+    @php
+    $userLevel = isset($user->status) ? $user->status->nama : "";
+    @endphp
+    @php $string =
+    "User Nama: $user->name,
+    User ID: $user->id,
+    Level: $userLevel
+    "
+    @endphp
+    <div style="height:40mm; width:40mm; border:1px solid black; margin-bottom: 5mm;margin-left:5mm;margin-top:5mm;">
+        {{-- <div style="text-transform:uppercase;text-align:center;font-weight:bold;">unit identity card</div> --}}
+        <div style="width:50%;float:left;">
+            {!! QrCode::size(50)->margin(0)->generate($string); !!}
+        </div>
+        <div style="float:left;width:50%;text-align:center;">
+            
         </div>
     </div>
-</div> 
+    @endforeach
 
-   
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+</body>
+
 </html>

@@ -36,7 +36,7 @@
         </div>
 
     <div class="card-body">
-        <table class="table table-striped table-responsive table table-bordered" id="myTable">
+        <table class="table table-striped table table-bordered" id="myTable">
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
@@ -44,6 +44,7 @@
                     <th class="text-center">Supplier</th>
                     <th class="text-center">No PO</th>
                     <th class="text-center">Qty</th>
+                    <th class="text-center">Received Qty</th>                    
                     <th class="text-center">No Tangki</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
@@ -58,6 +59,7 @@
                     <td>{{$s->supplier}}</td>
                     <td>{{$s->no_po}}</td>
                     <td>{{$s->qty}}</td>
+                    <td>{{$s->received_qty}}</td>
                     <td>{{$s->no_tangki}}</td>
                     <td>
                          <div class="btn-group">
