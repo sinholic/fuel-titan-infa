@@ -57,7 +57,7 @@
                     <div class="form-group max-reload">
                         <label>Maksimal Pengisian Ulang</label>
                         <input type="text" name="fuel_max_reload" value="{{$mobile->fuel_max_reload}}" placeholder=""
-                            class="form-control" required autocomplete="">
+                            class="form-control">
                     </div>
 
 
