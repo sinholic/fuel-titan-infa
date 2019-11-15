@@ -60,7 +60,7 @@
                     <td>{{ $equipment->fuel_capacity }}</td>
                 </tr>
                 <tr>
-                    <td>No. Unit</td>
+                    <td>No. Eq</td>
                     <td>:</td>
                     <td>{{ $equipment->equipment_number }}</td>
                 </tr>
