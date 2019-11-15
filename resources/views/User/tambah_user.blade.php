@@ -21,8 +21,14 @@
 					</div>
 					@endif
 
+					
 					<div class="form-group">
-						<label>Nama Pengguna</label>
+						<label>User level</label>
+						{{ Form::select('companycode_id', $companycodes, null, ['placeholder' => 'Pilih company...', 'required', 'class' => 'form-control']) }}
+                    </div>
+
+					<div class="form-group">
+						<label>Nama</label>
 						<input type="text" name="name" placeholder="" class="form-control" required autofocus>
                     </div>
 
@@ -34,12 +40,17 @@
                     <div class="form-group">
 						<label>IMEI</label>
 						<input type="text" name="imei" placeholder="" class="form-control" required autofocus>
+					</div>
+					
+					<div class="form-group">
+						<label>IMEI 2</label>
+						<input type="text" name="imei2" placeholder="" class="form-control">
                     </div>
 
 					<div class="form-group">
 						<label>User level</label>
 						{{ Form::select('status_id', $statuses, null, ['placeholder' => 'Pilih user level...', 'required', 'class' => 'form-control']) }}
-                    </div>
+					</div>
 
 					{{ Form::hidden('password', \Str::random(10)) }}
 					{{ Form::hidden('syncpassword', \Str::random(10)) }}
