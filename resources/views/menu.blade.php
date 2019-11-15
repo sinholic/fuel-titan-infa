@@ -19,6 +19,12 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="/merk" class="nav-link">
+                        Merk
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="/fix" class="nav-link">
                         Master Fix Station
                     </a>
