@@ -22,27 +22,27 @@
                     @endif
 
                     <div class="form-group">
-                        <label>equipment info</label>
-                        <input type="text " name="equipment_info" placeholder="" class="form-control" required autofocus>
+                        <label>Equipment Info</label>
+                        <input type="text" name="equipment_info" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
-                        <label>equipment type</label>
+                        <label>Equipment Type</label>
                         <input type="text " name="equipment_type" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
-                        <label>manufacture</label>
+                        <label>Manufacture</label>
                         <input type="text " name="manufacture_id" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
-                        <label>nomor rangka</label>
+                        <label>Nomor Rangka</label>
                         <input type="text " name="nomor_rangka" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
-                        <label>nomor mesin</label>
+                        <label>Nomor Mesin</label>
                         <input type="text " name="nomor_mesin" placeholder="" class="form-control" required autofocus>
                     </div>
 

@@ -25,8 +25,8 @@ class UserController extends Controller
     public function print()
     {
         $users = User::where('companycode_id', \Auth::user()->companycode_id)
-        ->with('status')
-        ->get();
+            ->with('status')
+            ->get();
         // dd($Equipment->Equipmentowner);
         return view('User.print_qr', ['users' => $users]);
     }

@@ -22,13 +22,13 @@
 					@endif
 
 					<div class="form-group">
-						<label>Id Driver</label>
-						<input type="text" name="id_driver" placeholder="" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
                         <label for="">Unit Equipment</label>
                         <input type="text" name="unit_equipment" placeholder="" class="form-control" required autofocus>
+                    </div>
+
+					<div class="form-group">
+						<label>Id Driver</label>
+						<input type="text" name="id_driver" placeholder="" class="form-control" required autofocus>
                     </div>
                     
                     <div class="form-group">

@@ -250,4 +250,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/merk/edit/{id}', 'MerkController@edit');
     Route::post('/merk/update/{id}', 'MerkController@update');
     Route::get('/merk/{id}/delete', 'MerkController@delete');
+
+    //Tipe Equipment
+    Route::get('/tipe_equipment', 'TipeController@tipe_equipment');
+    Route::get('/tambah_tipe_equipment', 'TipeController@tambah');
+    Route::post('/tipe_equipment/create', 'TipeController@create');
+    Route::get('/tipe_equipment/edit/{id}', 'TipeController@edit');
+    Route::post('/tipe_equipment/update/{id}', 'TipeController@update');
+    Route::get('/tipe_equipment/{id}/delete', 'TipeController@delete');
 });

@@ -22,13 +22,13 @@
                     @endif
 
                     <div class="form-group">
-                        <label>Id Driver</label>
-                        <input type="text" name="id_driver" value="{{$pengisian_fix->id_driver}}" class="form-control" required autofocus>
+                        <label for="">Unit Equipment</label>
+                        <input type="text" name="unit_equipment" value="{{$pengisian_fix->unit_equipment}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
-                        <label for="">Unit Equipment</label>
-                        <input type="text" name="unit_equipment" value="{{$pengisian_fix->unit_equipment}}" class="form-control" required autofocus>
+                        <label>Id Driver</label>
+                        <input type="text" name="id_driver" value="{{$pengisian_fix->id_driver}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">

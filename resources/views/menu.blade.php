@@ -25,6 +25,12 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="/tipe_equipment" class="nav-link">
+                        Tipe Equipment
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="/fix" class="nav-link">
                         Master Fix Station
                     </a>

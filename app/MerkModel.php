@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class MerkModel extends Model
 {
     protected $table = "merk";
-    protected $fillable = ['merk', 'inisial'];
+    protected $guarded = [];
+
+    public function tipe_equipment()
+    {
+        return $this->hasMany('App\TipeModel', 'merk', 'id');
+    }
 }
