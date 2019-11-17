@@ -30,25 +30,25 @@
                         <label>Equipment info</label>
                         <input type="text " name="equipment_info" placeholder="" class="form-control" required autofocus>
                     </div>
-
+ 
                     <div class="form-group">
-                        <label>Equipment type</label>
-                        <input type="text " name="equipment_type" placeholder="" class="form-control" required autofocus>
+                        <label>Equipment Type</label>
+                        {{ Form::select('equipment_type', $tipe, null, ['placeholder' => 'Pilih Tipe Equipment....', 'required', 'class' => 'form-control'])}}
                     </div>
 
                     <div class="form-group">
                         <label>Manufacture</label>
-                        <input type="text " name="manufacture_id" placeholder="" class="form-control" required autofocus>
+                        <input type="text" name="manufacture_id" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
-                        <label>Nomor rangka</label>
-                        <input type="text " name="nomor_rangka" placeholder="" class="form-control" required autofocus>
+                        <label>Nomor Rangka</label>
+                        <input type="text" name="nomor_rangka" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
-                        <label>Nomor mesin</label>
-                        <input type="text " name="nomor_mesin" placeholder="" class="form-control" required autofocus>
+                        <label>Nomor Mesin</label>
+                        <input type="text" name="nomor_mesin" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group plat-nomor-container">

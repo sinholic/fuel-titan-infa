@@ -36,6 +36,10 @@ class CompanycodeController extends Controller
      */
     public function create(Request $request)
     {
+        $this->validate($request, [
+            'company_name' => 'unique:companycodes',
+            'company_inisial' => 'unique:companycodes',
+        ]);
         Companycode::create($request->all());
         return redirect('/companycode')->with('sukses', 'Data Berhasil Di Input!');
     }

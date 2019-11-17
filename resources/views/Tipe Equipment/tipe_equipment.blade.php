@@ -17,57 +17,62 @@
 		</div>
     @endif
     
-        <a href="/addpengisian_fix" class="btn btn-primary">
+    <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
+		 <i class="fas fa-file-excel"></i> Import Excel
+    </button>
+
+    <a href="/tipe_equipment/export_excel" class="btn btn-success my-1" target="_blank">
+        <i class="fas fa-file-excel"></i> Export Excel
+    </a>
+    
+        <a href="/tambah_tipe_equipment" class="btn btn-primary">
             <i class="fa fa-plus nav-icon"></i>
         </a>
 
 <div class="card" style="border-top: 3px solid #9C5C22">
         
        <div class="card-header">
-            <h4>Good Issue On Fix Station</h4>
+            <h4>Tipe Equipment</h4>
         </div>
 
     <div class="card-body">
-        <table class="table table-striped table table-bordered" id="myTable">
+        <table class="table table-striped table-bordered" id="myTable">
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Unit Equipment</th>
-                    <th class="text-center">ID Driver</th>
-                    <th class="text-center">Voucher</th>
-                    <th class="text-center">Odometer</th>
-                    <th class="text-center">Remark</th>
-                    {{-- <th class="text-center" width="8%">Action</th> --}}
+                    <th class="text-center">Merk</th>
+                    <th class="text-center">Tipe Equipment</th>
+                    <th class="text-center">Kelas Equipment</th>
+                    <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
             @php $i=1 @endphp
             <tbody>
                 @php $i=1 @endphp
-                 @foreach($pengisian_fix ?? '' as $s)
+                 @foreach($tipe_equipment ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->unit_equipment}}</td>
-                    <td>{{$s->id_driver}}</td>
-                    <td>{{$s->voucher}}</td>
-                    <td>{{$s->odometer}}</td>
-                    <td>{{$s->remark}}</td>
-                    {{-- <td>
+                    <td>{{$s->equipmentmerk->merk ?? ''}}</td>
+                    <td>{{$s->tipe ?? ''}}</td>
+                    <td>{{$s->kelas ?? ''}}</td>
+                    <td>
                          <div class="btn-group">
 
+                            <!-- URL::to('/admin/category/detail.id='.$cate-id -->
                              <a href="#" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Info">
                                 <i class="fa fa-info-circle nav-icon"></i>
                             </a>
 
-                            <a href="/pengisian_fix/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
+                            <a href="/tipe_equipment/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/pengisian_fix/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
+                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/tipe_equipment/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
                                 <i class="fa fa-trash nav-icon"></i>
                             </a>
 
                         </div>
-                    </td> --}}
+                    </td>
                     
                 </tr>
                 @endforeach
@@ -79,7 +84,7 @@
  <!-- Import Excel -->
 		<div class="modal fade" id="importExcel" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
-				<form method="post" action="/equipment/import_excel" enctype="multipart/form-data">
+				<form method="post" action="/tipe_equipment/import_excel" enctype="multipart/form-data">
 					<div class="modal-content">
 						<div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>

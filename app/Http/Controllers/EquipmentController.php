@@ -8,6 +8,7 @@ use App\Reloadingunit;
 use App\OwnerModel;
 use App\Equipmentcard;
 use App\Equipmentcategory;
+use App\TipeModel;
 
 class EquipmentController extends Controller
 {
@@ -20,21 +21,22 @@ class EquipmentController extends Controller
     public function print(Request $request)
     {
         $equipments = EquipmentModel::where('companycode_id', \Auth::user()->companycode_id)
-        ->with(
-            'equipmentowner',
-            'equipmentcategory',
-            'reloadingunits'
-        )->get();
+            ->with(
+                'equipmentowner',
+                'equipmentcategory',
+                'reloadingunits'
+            )->get();
         // dd($Equipment->Equipmentowner);
         return view('Equipment.print_qr', ['equipments' => $equipments]);
     }
 
     public function tambah()
     {
+        $tipe = TipeModel::pluck('tipe', 'id');
         $owners = OwnerModel::pluck('vendor_name', 'id');
         $equipment_categories = Equipmentcategory::pluck('nama', 'id');
         $last_id = EquipmentModel::all()->last()->id;
-        return view('Equipment.tambah_equipment', ['owners' => $owners, 'equipment_categories' => $equipment_categories, 'last_id' => $last_id]);
+        return view('Equipment.tambah_equipment', ['owners' => $owners, 'equipment_categories' => $equipment_categories, 'tipe' => $tipe, 'last_id' => $last_id]);
     }
 
     public function create(Request $request)
@@ -73,9 +75,9 @@ class EquipmentController extends Controller
         $equipment->reloadingunits()->create($reloading_units);
 
         $owner = OwnerModel::find($request->pic);
-        $inisial = substr($owner->vendor_inisial,0,3);
+        $inisial = substr($owner->vendor_inisial, 0, 3);
         $inisial_number = null;
-        for ($i=0; $i < strlen($inisial) ; $i++) { 
+        for ($i = 0; $i < strlen($inisial); $i++) {
             $inisial_number .= ord(substr($inisial, $i));
         }
 
@@ -84,7 +86,7 @@ class EquipmentController extends Controller
 
         $cards = array(
             'equipment_id' => $equipment->id,
-            'cardnumber' => $inisial_number.$card_number.mt_rand(10,99),
+            'cardnumber' => $inisial_number . $card_number . mt_rand(10, 99),
         );
         // Equipmentcard::create($cards);
         $equipment->cards()->create($cards);

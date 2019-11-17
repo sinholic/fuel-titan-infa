@@ -20,6 +20,13 @@ class MaterialsController extends Controller
 
     public function create(Request $request)
     {
+        $messages = [
+            'unique' => 'Material sudah ada!',
+        ];
+        $this->validate($request, [
+            'materials' => 'unique:materials'
+        ], $messages);
+
         MaterialsModel::create($request->all());
         return redirect('/materials')->with('sukses', 'Data Berhasil Di Input!');
     }

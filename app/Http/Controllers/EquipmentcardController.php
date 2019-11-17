@@ -25,6 +25,9 @@ class EquipmentcardController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request, [
+            'cardnumber' => 'unique:equipmentcards',
+        ]);
         Equipmentcard::create($request->all());
         return redirect('/card')->with('sukses', 'Data Berhasil Di Input!');
     }
