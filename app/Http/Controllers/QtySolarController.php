@@ -20,6 +20,13 @@ class QtySolarController extends Controller
 
     public function create(Request $request)
     {
+        $messages = [
+            'unique' => 'Varian jumlah solar sudah ada!',
+        ];
+        $this->validate($request, [
+            'qty_solar' => 'unique:qty_solar'
+        ], $messages);
+
         QtySolarModel::create($request->all());
         return redirect('/qty_solar')->with('sukses', 'Data Berhasil Di Input!');
     }

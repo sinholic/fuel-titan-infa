@@ -52,9 +52,9 @@
                  @foreach($tipe_equipment ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->equipmentmerk->merk}}</td>
-                    <td>{{$s->tipe}}</td>
-                    <td>{{$s->kelas}}</td>
+                    <td>{{$s->equipmentmerk->merk ?? ''}}</td>
+                    <td>{{$s->tipe ?? ''}}</td>
+                    <td>{{$s->kelas ?? ''}}</td>
                     <td>
                          <div class="btn-group">
 

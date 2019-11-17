@@ -46,6 +46,7 @@
                     <th class="text-center">No</th>
                     <th class="text-center">Nomor Equipment</th>
                     <th class="text-center">Nama Equipment</th>
+                    <td class="text-center">Tipe Equipment</td>
                     <th class="text-center">Equipment Category</th>
                     <th class="text-center">Status Kendaraan</th>
                     <th class="text-center">Location</th>
@@ -63,6 +64,7 @@
                     <td>{{$i++}}</td>
                     <td>{{$s->equipment_number}}</td>
                     <td>{{$s->equipment_name}}</td>
+                    <td>{{$s->TipeEquipment->tipe_equipment ?? ''}}</td>
                     <td>{{$s->equipmentcategory->nama ?? ''}}</td>
                     <td>{{$s->status_vehicle}}</td>
                     <td>{{$s->location}}</td>

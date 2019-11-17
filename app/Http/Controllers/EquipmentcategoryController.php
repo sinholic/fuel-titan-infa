@@ -36,6 +36,11 @@ class EquipmentcategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'nama' => 'unique:equipmentcategories',
+            'inisial' => 'unique:equipmentcategories',
+        ]);
+
         Equipmentcategory::create($request->all());
         return redirect('/equipment_category')->with('sukses', 'Data Berhasil Di Input!');
     }
@@ -66,7 +71,7 @@ class EquipmentcategoryController extends Controller
      * @param  \App\Equipmentcategory  $equipmentcategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
         $equipment_category = Equipmentcategory::find($id);
         $equipment_category->delete($equipment_category);

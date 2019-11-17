@@ -31,4 +31,9 @@ class EquipmentModel extends Model
     {
         return $this->hasMany('App\Equipmentcard', 'equipment_id', 'id');
     }
+
+    public function Equipmenttipe()
+    {
+        return $this->belongsTo('App\TipeModel', 'tipe', 'id');
+    }
 }

@@ -20,6 +20,11 @@ class MerkController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request, [
+            'inisial' => 'unique:merk,inisial',
+            'merk' => 'unique:merk'
+        ]);
+
         MerkModel::create($request->all());
         return redirect('/merk')->with('sukses', 'Data Berhasil Di Input!');
     }

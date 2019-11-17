@@ -13,4 +13,9 @@ class TipeModel extends Model
     {
         return $this->belongsTo('App\MerkModel', 'merk', 'id');
     }
+
+    public function equipment()
+    {
+        return $this->hasMany('App\EquipmentModel', 'tipe', 'id');
+    }
 }
