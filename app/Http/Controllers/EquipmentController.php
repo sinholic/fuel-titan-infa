@@ -33,7 +33,8 @@ class EquipmentController extends Controller
     {
         $owners = OwnerModel::pluck('vendor_name', 'id');
         $equipment_categories = Equipmentcategory::pluck('nama', 'id');
-        return view('Equipment.tambah_equipment', ['owners' => $owners, 'equipment_categories' => $equipment_categories]);
+        $last_id = EquipmentModel::all()->last()->id;
+        return view('Equipment.tambah_equipment', ['owners' => $owners, 'equipment_categories' => $equipment_categories, 'last_id' => $last_id]);
     }
 
     public function create(Request $request)
@@ -59,7 +60,7 @@ class EquipmentController extends Controller
         $equipment->manufacture_id = $request->manufacture_id;
         $equipment->nomor_rangka = $request->nomor_rangka;
         $equipment->nomor_mesin = $request->nomor_mesin;
-        $equipment->companycode_id = \Auth::user()->companycode_id;
+        $equipment->companycode_id = $request->companycode_id;
         $equipment->save();
 
         $reloading_units = array(

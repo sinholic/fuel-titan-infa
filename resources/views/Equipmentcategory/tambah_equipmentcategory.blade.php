@@ -72,7 +72,7 @@
 
                     <a href="/equipment" class="btn btn-default">Back</a>
                     &nbsp;&nbsp;
-                    <input type="submit" value="Add Data" class="pull-right btn btn-primary">
+                    <input type="submit" value="Save" class="pull-right btn btn-primary">
 
                 </div>
 
