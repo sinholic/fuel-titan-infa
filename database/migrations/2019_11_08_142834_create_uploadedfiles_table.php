@@ -15,6 +15,9 @@ class CreateUploadedfilesTable extends Migration
     {
         Schema::create('uploadedfiles', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('uplodedpath');
+            $table->boolean('uploaded')->nullable();
+            $table->boolean('processed')->default(false);
             $table->timestamps();
         });
     }

@@ -117,7 +117,7 @@
         {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-                {{-- <p>
+        {{-- <p>
                     User Assignment
                     <i class="right fas fa-angle-left"></i>
                 </p>
@@ -199,7 +199,7 @@
             </a>
         </li>
 
-         <li class="nav-item has-treeview">
+        <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
@@ -248,9 +248,9 @@
             </ul>
         </li>
 
-        
 
-        
+
+
 
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">

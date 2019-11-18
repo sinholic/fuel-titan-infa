@@ -40,13 +40,13 @@
     </div>
 
     <div class="card-body">
-        <table class="table table-hover table-responsive table-bordered" id="myTable">
+        <table class="table table-hover table-bordered" id="myTable">
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
                     <th class="text-center">Nomor Equipment</th>
                     <th class="text-center">Nama Equipment</th>
-                    <td class="text-center">Tipe Equipment</td>
+                    <th class="text-center">Tipe Equipment</th>
                     <th class="text-center">Equipment Category</th>
                     <th class="text-center">Status Kendaraan</th>
                     <th class="text-center">Location</th>
@@ -64,7 +64,7 @@
                     <td>{{$i++}}</td>
                     <td>{{$s->equipment_number}}</td>
                     <td>{{$s->equipment_name}}</td>
-                    <td>{{$s->TipeEquipment->tipe_equipment ?? ''}}</td>
+                    <td>{{$s->equipmenttipe->tipe ?? ''}}</td>
                     <td>{{$s->equipmentcategory->nama ?? ''}}</td>
                     <td>{{$s->status_vehicle}}</td>
                     <td>{{$s->location}}</td>

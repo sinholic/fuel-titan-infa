@@ -9,6 +9,8 @@ use App\OwnerModel;
 use App\Equipmentcard;
 use App\Equipmentcategory;
 use App\TipeModel;
+use App\Companycode;
+use App\MerkModel;
 
 class EquipmentController extends Controller
 {
@@ -35,8 +37,17 @@ class EquipmentController extends Controller
         $tipe = TipeModel::pluck('tipe', 'id');
         $owners = OwnerModel::pluck('vendor_name', 'id');
         $equipment_categories = Equipmentcategory::pluck('nama', 'id');
-        $last_id = EquipmentModel::all()->last()->id;
-        return view('Equipment.tambah_equipment', ['owners' => $owners, 'equipment_categories' => $equipment_categories, 'tipe' => $tipe, 'last_id' => $last_id]);
+        $last_id = EquipmentModel::all()->last() == NULL ? 1 : EquipmentModel::all()->last()->id;
+        $companycodes = Companycode::pluck('company_name', 'id');
+        $manufactures = MerkModel::pluck('merk', 'id');
+        return view('Equipment.tambah_equipment', [
+            'owners' => $owners, 
+            'equipment_categories' => $equipment_categories, 
+            'tipe' => $tipe, 
+            'last_id' => $last_id,
+            'companycodes' => $companycodes,
+            'manufactures' => $manufactures
+        ]);
     }
 
     public function create(Request $request)
@@ -47,7 +58,7 @@ class EquipmentController extends Controller
             'equipment_name' => 'required',
             'fuel_capacity' => 'required',
             'location' => 'required',
-            'pic' => 'required',
+            'owner_id' => 'required',
         ]);
         $equipment = new EquipmentModel;
         $equipment->equipment_category = $request->equipment_category;
@@ -56,7 +67,7 @@ class EquipmentController extends Controller
         $equipment->status_vehicle = $request->status_vehicle;
         $equipment->fuel_capacity = $request->fuel_capacity;
         $equipment->location = $request->location;
-        $equipment->pic = $request->pic;
+        $equipment->owner_id = $request->owner_id;
         $equipment->equipment_info = $request->equipment_info;
         $equipment->equipment_type = $request->equipment_type;
         $equipment->manufacture_id = $request->manufacture_id;
@@ -74,7 +85,7 @@ class EquipmentController extends Controller
         // Reloadingunit::create($reloading_units);
         $equipment->reloadingunits()->create($reloading_units);
 
-        $owner = OwnerModel::find($request->pic);
+        $owner = OwnerModel::find($request->owner_id);
         $inisial = substr($owner->vendor_inisial, 0, 3);
         $inisial_number = null;
         for ($i = 0; $i < strlen($inisial); $i++) {

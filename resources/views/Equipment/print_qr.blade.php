@@ -100,7 +100,7 @@
                 <div class="float-left">
                     <input type="checkbox" class="checkbox" checked name="" id="">
                 </div>
-                <div class="unit-identity-card-container {{ $loop->first ? "" : "" }}">
+                <div class="unit-identity-card-container selected">
                     <div class="title">unit identity card</div>
                     <div class="left-container">
                         <table style="margin-left:2mm;margin-top:3mm">

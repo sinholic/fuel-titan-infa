@@ -13,19 +13,19 @@ class CreateMobileStationTable extends Migration
      */
     public function up()
     {
-        Schema::create('mobile_station', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('fixstation_id');
-            $table->string('number_vehicle');
-            $table->string('name_vehicle');
-            $table->string('fuel_capacity');
-            $table->enum('status_vehicle', ['Internal', 'Rental'])->default('Rental');
-            $table->string('fuel_max_reload')->nullable();
-            $table->boolean('impress_status')->default(false);
+        // Schema::create('mobile_station', function (Blueprint $table) {
+            // $table->bigIncrements('id');
+            // $table->bigInteger('fixstation_id');
+            // $table->string('number_vehicle');
+            // $table->string('name_vehicle');
+            // $table->enum('status_vehicle', ['Internal', 'Rental'])->default('Rental');
+            // $table->string('fuel_capacity');
+            // $table->string('fuel_max_reload')->nullable();
+            // $table->boolean('impress_status')->default(false);
             // $table->string('fuelman_assignment');
-            $table->timestamps();
-            $table->softDeletes();
-        });
+            // $table->timestamps();
+            // $table->softDeletes();
+        // });
     }
 
     /**
@@ -35,6 +35,6 @@ class CreateMobileStationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mobile_station');
+        // Schema::dropIfExists('mobile_station');
     }
 }

@@ -30,6 +30,31 @@
                         <label>Equipment info</label>
                         <input type="text " name="equipment_info" placeholder="" class="form-control" required autofocus>
                     </div>
+
+                    <div class="form-group">
+                        <label for="">Equipment Category</label>
+                        {{ Form::select('equipment_category', $equipment_categories, null, ['placeholder' => 'Pilih kategori...', 'required', 'class' => 'form-control']) }}
+                    </div>
+
+                    <div class="form-group own-status-container">
+						<label for="">Status Kendaraan</label>
+                        {{ Form::select('status_vehicle', ['Rental' => 'Rental', 'Internal' => 'Internal'], old('status_vehicle'), ['placeholder' => 'Pilih status...', 'required', 'class' => 'form-control own-status']) }}
+                    </div>
+
+                    <div class="form-group owner-container">
+                        <label>Owner</label>
+                        {{ Form::select('owner_id', $owners, null, ['placeholder' => 'Pilih owner...', 'required', 'class' => 'form-control owner']) }}
+                    </div>
+
+                    <div class="form-group plat-nomor-container">
+                        <label>Nomor Lambung/Plat Nomor</label>
+                        <input type="text" name="" placeholder="" class="form-control plat-nomor" required autofocus>
+                    </div>
+
+                    <div class="form-group unique-number-container">
+                        <label>Equipment Unique Number</label>
+                        <input type="text" name="equipment_number" placeholder="" class="form-control unique-number" readonly>
+                    </div>
  
                     <div class="form-group">
                         <label>Equipment Type</label>
@@ -38,7 +63,7 @@
 
                     <div class="form-group">
                         <label>Manufacture</label>
-                        <input type="text" name="manufacture_id" placeholder="" class="form-control" required autofocus>
+                        {{ Form::select('manufacture_id', $manufactures, null, ['placeholder' => 'Pilih Manufacture....', 'required', 'class' => 'form-control'])}}
                     </div>
 
                     <div class="form-group">
@@ -51,29 +76,9 @@
                         <input type="text" name="nomor_mesin" placeholder="" class="form-control" required autofocus>
                     </div>
 
-                    <div class="form-group plat-nomor-container">
-                        <label>Nomor Lambung/Plat Nomor</label>
-                        <input type="text" name="" placeholder="" class="form-control plat-nomor" required autofocus>
-                    </div>
-
-                    <div class="form-group unique-number-container">
-                        <label>Equipment Unique Number</label>
-                        <input type="text" name="equipment_number" placeholder="" class="form-control unique-number" disabled>
-                    </div>
-
                     <div class="form-group">
                         <label>Equipment Name</label>
                         <input type="text " name="equipment_name" placeholder="" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Equipment Category</label>
-                        {{ Form::select('equipment_category', $equipment_categories, null, ['placeholder' => 'Pilih kategori...', 'required', 'class' => 'form-control']) }}
-                    </div>
-
-                    <div class="form-group own-status-container">
-						<label for="">Status Kendaraan</label>
-                        {{ Form::select('status_vehicle', ['Rental' => 'Rental', 'Internal' => 'Internal'], old('status_vehicle'), ['placeholder' => 'Pilih status...', 'required', 'class' => 'form-control own-status']) }}
                     </div>
                     
                     <div class="form-group">
@@ -84,11 +89,6 @@
                     <div class="form-group">
                         <label>Fuel Capacity</label>
                         <input type="number" name="fuel_capacity" placeholder="" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group owner-container">
-                        <label>Owner</label>
-                        {{ Form::select('pic', $owners, null, ['placeholder' => 'Pilih owner...', 'required', 'class' => 'form-control owner']) }}
                     </div>
 
                     <div class="form-group">

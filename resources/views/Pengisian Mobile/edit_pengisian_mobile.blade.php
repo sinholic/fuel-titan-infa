@@ -43,14 +43,28 @@
 
                     <div class="form-group">
                         <label for="">Remark History</label>
-                        <div class="">
-                            {!!$pengisian_mobile->remark!!}
+                        <div class="clearfix">
+                            {{ $pengisian_mobile->remark1 }}
+                        </div>
+                        <div class="clearfix">
+                            {{ $pengisian_mobile->remark2 }}
+                        </div>
+                        <div class="clearfix">
+                            {{ $pengisian_mobile->remark3 }}
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>Add Remark</label>
-                        <input type="text" name="remark" value="" class="form-control" required autofocus>
+                        @if ($pengisian_mobile->remark1 == NULL)
+                            <input type="text" name="remark1" value="" class="form-control" required autofocus>
+                        @elseif($pengisian_mobile->remark2 == NULL)
+                            <input type="text" name="remark2" value="" class="form-control" required autofocus>
+                        @elseif($pengisian_mobile->remark3 == NULL)
+                            <input type="text" name="remark3" value="" class="form-control" required autofocus>
+                        @else
+                            <input type="text" placeholder="You can't add another remark" name="" id="" disabled>
+                        @endif
                     </div>
 
                 </div>
