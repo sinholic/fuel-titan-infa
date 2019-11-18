@@ -13,7 +13,7 @@ class EquipmentModel extends Model
 
     public function equipmentowner()
     {
-        return $this->belongsTo('App\OwnerModel', 'pic', 'id');
+        return $this->belongsTo('App\OwnerModel', 'owner_id', 'id');
     }
 
     public function equipmentcategory()
@@ -32,8 +32,8 @@ class EquipmentModel extends Model
         return $this->hasMany('App\Equipmentcard', 'equipment_id', 'id');
     }
 
-    public function Equipmenttipe()
+    public function equipmenttipe()
     {
-        return $this->belongsTo('App\TipeModel', 'tipe', 'id');
+        return $this->belongsTo('App\TipeModel', 'equipment_type', 'id');
     }
 }

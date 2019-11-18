@@ -19,12 +19,28 @@
   <!-- DataTables -->
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
   <style>
     .dataTables_wrapper .dataTables_paginate .paginate_button {
       padding: 0;
     }
+
     .form-control label {
       text-transform: capitalize;
+    }
+
+
+
+    .select2-selection__rendered {
+      line-height: 31px !important;
+    }
+
+    .select2-container .select2-selection--single {
+      height: 35px !important;
+    }
+
+    .select2-selection__arrow {
+      height: 34px !important;
     }
   </style>
 </head>
@@ -188,7 +204,7 @@ to get the desired effect
   <!-- DataTables -->
   <script src="{{asset('adminlte/plugins/datatables/jquery.dataTables.js')}}"></script>
   <script src="{{asset('adminlte/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
   @stack('scripts')
 
   <script>

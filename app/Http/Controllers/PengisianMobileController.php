@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PengisianMobileModel;
 use App\QtySolarModel;
+use App\EquipmentModel;
 
 class PengisianMobileController extends Controller
 {
@@ -31,13 +32,16 @@ class PengisianMobileController extends Controller
     {
         $pengisian_mobile = PengisianMobileModel::find($id);
         $qty_solar = QtySolarModel::pluck('qty_solar', 'id');
-        return view('Pengisian Mobile.edit_pengisian_mobile', ['pengisian_mobile' => $pengisian_mobile, 'qty_solar' => $qty_solar]);
+        $equipments = EquipmentModel::pluck('equipment_name', 'id');
+        return view('Pengisian Mobile.edit_pengisian_mobile', ['pengisian_mobile' => $pengisian_mobile, 'qty_solar' => $qty_solar, 'equipments' => $equipments]);
     }
 
     public function update(Request $request, $id)
     {
         $pengisian_mobile = PengisianMobileModel::find($id);
-        $pengisian_mobile->update($request->all());
+        $datas = $request->all();
+        $datas['remark'] = $pengisian_mobile->remark."</br>".$request->remark;
+        $pengisian_mobile->update($datas);
         return redirect('/pengisian_mobile')->with('sukses', 'Data berhasil di Update!');
     }
 

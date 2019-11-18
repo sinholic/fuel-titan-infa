@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUploadedfilesTable extends Migration
+class CreateTimesheetstatusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateUploadedfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('uploadedfiles', function (Blueprint $table) {
+        Schema::create('timesheetstatuses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('uplodedpath');
-            $table->boolean('uploaded')->nullable();
-            $table->boolean('processed')->default(false);
+            $table->enum('category', ['Working','Stand By','Break Down']);
+            $table->string('status');
+            $table->unique(['category', 'status']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -29,6 +30,6 @@ class CreateUploadedfilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('uploadedfiles');
+        Schema::dropIfExists('timesheetstatuses');
     }
 }

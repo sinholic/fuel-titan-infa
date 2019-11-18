@@ -22,18 +22,18 @@
                     @endif
 
                     <div class="form-group">
-                        <label>Id Driver</label>
+                        <label>Nama Pengawas</label>
                         <input type="text" name="id_driver" value="{{$pengisian_mobile->id_driver}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
                         <label for="">Unit Equipment</label>
-                        <input type="text" name="unit_equipment" value="{{$pengisian_mobile->unit_equipment}}" class="form-control" required autofocus>
+                        {{ Form::select('qty_solar', $equipments, $pengisian_mobile->unit_equipment, ['placeholder' => 'Pilih jumlah solar...', 'required', 'class' => 'form-control']) }}
                     </div>
 
                     <div class="form-group">
 						<label>Qty Solar</label>
-						{{ Form::select('qty_solar', $qty_solar, null, ['placeholder' => 'Pilih jumlah solar...', 'required', 'class' => 'form-control']) }}
+						{{ Form::select('qty_solar', $qty_solar, $pengisian_mobile->qty_solar, ['placeholder' => 'Pilih jumlah solar...', 'required', 'class' => 'form-control']) }}
                     </div>
 
                     <div class="form-group">
@@ -42,10 +42,30 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Remark</label>
-                        <input type="text" name="remark" value="{{$pengisian_mobile->remark}}" class="form-control" required autofocus>
+                        <label for="">Remark History</label>
+                        <div class="clearfix">
+                            {{ $pengisian_mobile->remark1 }}
+                        </div>
+                        <div class="clearfix">
+                            {{ $pengisian_mobile->remark2 }}
+                        </div>
+                        <div class="clearfix">
+                            {{ $pengisian_mobile->remark3 }}
+                        </div>
                     </div>
 
+                    <div class="form-group">
+                        <label>Add Remark</label>
+                        @if ($pengisian_mobile->remark1 == NULL)
+                            <input type="text" name="remark1" value="" class="form-control" required autofocus>
+                        @elseif($pengisian_mobile->remark2 == NULL)
+                            <input type="text" name="remark2" value="" class="form-control" required autofocus>
+                        @elseif($pengisian_mobile->remark3 == NULL)
+                            <input type="text" name="remark3" value="" class="form-control" required autofocus>
+                        @else
+                            <input type="text" placeholder="You can't add another remark" name="" id="" disabled>
+                        @endif
+                    </div>
 
                 </div>
 

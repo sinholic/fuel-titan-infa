@@ -41,6 +41,7 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
+                    <th class="text-center">Company</th>
                     <th class="text-center">Nama</th>
                     <th class="text-center">Email</th>
                     <th class="text-center">IMEI</th>
@@ -48,12 +49,11 @@
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
-            @php $i=1 @endphp
             <tbody>
-                @php $i=1 @endphp
                 @foreach($user ?? '' as $s)
                 <tr>
-                    <td>{{$i++}}</td>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$s->companycode->company_name ?? ''}}</td>
                     <td>{{$s->name}}</td>
                     <td>{{$s->email}}</td>
                     <td>{{$s->imei}}</td>

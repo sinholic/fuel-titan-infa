@@ -4,13 +4,13 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<form action="/equipment_category/create" method="POST">
+		<form action="/timesheetstatus/create" method="POST">
 
 			@csrf
 
 			<div class="card" style="border-top: 3px solid #9C5C22">
 				<div class="card-header">
-					<h3 class="card-title">Tambah Equipment Category</h3>
+					<h3 class="card-title">Tambah Timesheet Status</h3>
 				</div>
 
 				<div class="card-body">
@@ -22,20 +22,20 @@
 					@endif
 
 					<div class="form-group">
-						<label>Nama Equipment</label>
-						<input type="text " name="nama" placeholder="" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-						<label>Inisial</label>
-						<input type="text " name="inisial" placeholder="" class="form-control" required autofocus>
-                    </div>        
+						<label>Category</label>
+						{{ Form::select('category', ['Working' => 'Working', 'Stand By' => 'Stand By', 'Break Down' => 'Break Down'], null, ['placeholder' => 'Pilih kategori...', 'required', 'class' => 'form-control']) }}
+					</div>
+					
+					<div class="form-group">
+						<label for="">Cause</label>
+						{!! Form::text('status', old('statys'), ['class' => 'form-control', 'required']) !!}
+					</div>
 
 				</div>
 
 				<div class="card-footer">
 
-					<a href="/equipment_category" class="btn btn-default">Back</a>
+					<a href="/timesheetstatus" class="btn btn-default">Back</a>
                     &nbsp;&nbsp;
 					<input type="submit" value="Save" class="pull-right btn btn-primary">
 

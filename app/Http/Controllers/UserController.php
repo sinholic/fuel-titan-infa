@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Status;
+use App\Companycode;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 
@@ -13,20 +14,20 @@ class UserController extends Controller
     public function tambah()
     {
         $statuses = Status::pluck('nama', 'id');
-        return view('User.tambah_user', ['statuses' => $statuses]);
+        $companycodes = Companycode::pluck('company_name', 'id');
+        return view('User.tambah_user', ['statuses' => $statuses, 'companycodes' => $companycodes]);
     }
 
     public function user()
     {
-        $user = User::where('companycode_id', \Auth::user()->companycode_id)->get();
+        $user = User::all();
         return view('User.user', ['user' => $user]);
     }
 
     public function print()
     {
-        $users = User::where('companycode_id', \Auth::user()->companycode_id)
-            ->with('status')
-            ->get();
+        $users = User::with('status')
+        ->get();
         // dd($Equipment->Equipmentowner);
         return view('User.print_qr', ['users' => $users]);
     }
@@ -34,7 +35,6 @@ class UserController extends Controller
     public function create(Request $request)
     {
         $datas = $request->all();
-        $datas['companycode_id'] = \Auth::user()->companycode_id;
         User::create($datas);
         return redirect('/user')->with('sukses', 'Data Berhasil Di Input!');
     }

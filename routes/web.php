@@ -148,6 +148,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/status/update/{id}', 'StatusController@update');
     Route::get('/status/{id}/delete', 'StatusController@delete');
 
+    //Timesheet Status
+    Route::get('/timesheetstatus', 'TimesheetstatusController@index');
+    Route::get('/tampiladdtimesheetstatus', 'TimesheetstatusController@tambah');
+    Route::post('/timesheetstatus/create', 'TimesheetstatusController@create');
+    Route::get('/timesheetstatus/edit/{id}', 'TimesheetstatusController@edit');
+    Route::post('/timesheetstatus/update/{id}', 'TimesheetstatusController@update');
+    Route::get('/timesheetstatus/{id}/delete', 'TimesheetstatusController@delete');
+
     //User He
     Route::get('/userhe', 'UserheController@userhe');
     Route::get('/tampiladduserhe', 'UserheController@tambah');

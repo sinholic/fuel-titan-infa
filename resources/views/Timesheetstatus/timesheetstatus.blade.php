@@ -17,22 +17,15 @@
 		</div>
     @endif
     
-    {{-- <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
-		 <i class="fas fa-file-excel"></i> Import Excel
-    </button>
-
-    <a href="/pengisian_mobile/export_excel" class="btn btn-success my-1" target="_blank">
-        <i class="fas fa-file-excel"></i> Export Excel
-    </a>
     
-        <a href="/addpengisian_mobile" class="btn btn-primary">
+        <a href="/tampiladdtimesheetstatus" class="btn btn-primary">
             <i class="fa fa-plus nav-icon"></i>
-        </a> --}}
+        </a>
 
 <div class="card" style="border-top: 3px solid #9C5C22">
         
        <div class="card-header">
-            <h4>Good Issue On Mobile Station</h4>
+            <h4>Timesheet Status</h4>
         </div>
 
     <div class="card-body">
@@ -40,41 +33,32 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">ID Driver</th>
-                    <th class="text-center">Unit Equipment</th>
-                    <th class="text-center">Qty Solar</th>
-                    <th class="text-center">Odometer</th>
-                    <th class="text-center">Remark</th>
+                    <th class="text-center">Category</th>
+                    <th class="text-center">Cause </th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
-
-            @php $i=1 @endphp
             <tbody>
-                @php $i=1 @endphp
-                 @foreach($pengisian_mobile ?? '' as $s)
+                 @foreach($status ?? '' as $s)
                 <tr>
-                    <td>{{$i++}}</td>
-                    <td>{{$s->id_driver}}</td>
-                    <td>{{$s->unit_equipment}}</td>
-                    <td>{{$s->qtysolar->qty_solar ?? ''}}</td>
-                    <td>{{$s->odometer}}</td>
-                    <td>{{$s->remark}}</td>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{$s->category}}</td>
+                    <td>{{$s->status}}</td>
                     <td>
                          <div class="btn-group">
 
                             <!-- URL::to('/admin/category/detail.id='.$cate-id -->
-                             {{-- <a href="#" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Info">
+                             <a href="#" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Info">
                                 <i class="fa fa-info-circle nav-icon"></i>
-                            </a> --}}
+                            </a>
 
-                            <a href="/pengisian_mobile/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
+                            <a href="/timesheetstatus/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
-                            </a> 
+                            </a>
 
-                            {{-- <a onClick="return confirm('Yakin ingin menghapus data?')" href="/pengisian_mobile/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
+                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/timesheetstatus/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
                                 <i class="fa fa-trash nav-icon"></i>
-                            </a> --}}
+                            </a>
 
                         </div>
                     </td>

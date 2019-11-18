@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\UserheModel;
+use App\Timesheetstatus;
+use App\EquipmentModel;
 
 class UserheController extends Controller
 {
@@ -15,7 +17,13 @@ class UserheController extends Controller
 
     public function tambah()
     {
-        return view('User HE.tambah_userhe');
+        $categories = Timesheetstatus::select('id','category')->distinct()->get();
+        $statuses = [];
+        foreach ($categories as $key => $category) {
+            $statuses[$category->category] = Timesheetstatus::where('category', $category->category)->pluck('status', 'id'); 
+        }
+        $equipments = EquipmentModel::pluck('equipment_number', 'id');
+        return view('User HE.tambah_userhe', ['statuses' => $statuses, 'equipments' => $equipments]);
     }
 
     public function create(Request $request)
@@ -25,7 +33,7 @@ class UserheController extends Controller
         ];
 
         $this->validate($request, [
-            'tanggal_operasi' => 'required|date|after_or_equal:start_date'
+            'tanggal_operasi' => 'required|date|after_or_equal:start_date',
         ], $messages);
 
         UserheModel::create($request->all());
