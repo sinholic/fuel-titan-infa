@@ -174,8 +174,7 @@
 			document.getElementById('totalkm').value = hasil;	
 		}
 	}
+
 </script>
-
-
 
 @endsection

@@ -11,25 +11,35 @@ class FixStationController extends Controller
 {
     public function fix()
     {
-        $fix = FixStationModel::select('id','name_station','address','nama_lokasi','koordinat_gps','tank_number','fuel_capacity','companycode_id',
-        \DB::raw('count(*) as total_tank'), \DB::raw('sum(fuel_capacity) as total_fuel_capacity'))
-        ->where('companycode_id', \Auth::user()->companycode_id)
-        ->groupBy('name_station', 'address')
-        ->with('company')
-        ->get();
+        $fix = FixStationModel::select(
+            'id',
+            'name_station',
+            'address',
+            'nama_lokasi',
+            'koordinat_gps',
+            'tank_number',
+            'fuel_capacity',
+            'companycode_id',
+            \DB::raw('count(*) as total_tank'),
+            \DB::raw('sum(fuel_capacity) as total_fuel_capacity')
+        )
+            ->where('companycode_id', \Auth::user()->companycode_id)
+            ->groupBy('name_station', 'address')
+            ->with('company')
+            ->get();
         return view('Fix Station.fix_station', ['fix' => $fix]);
     }
 
     public function tambah()
     {
-        $companycodes = Companycode::pluck('company_name','id');
+        $companycodes = Companycode::pluck('company_name', 'id');
         return view('Fix Station.tambah_fixstation', ['companycodes' => $companycodes]);
     }
 
     public function create(Request $request)
     {
         $this->validate($request, [
-            'name_station' => 'required|unique:fix_station,name_station,'.$request->name_station.',id,companycode_id,'.\Auth::user()->companycode_id,
+            'name_station' => 'required|unique:fix_station,name_station,' . $request->name_station . ',id,companycode_id,' . \Auth::user()->companycode_id,
             'address' => 'required',
             'nama_lokasi' => 'required',
             'koordinat_gps' => 'required',
@@ -55,7 +65,7 @@ class FixStationController extends Controller
     {
         $fix = FixStationModel::find($id);
         $tanks = FixStationModel::where('name_station', $fix->name_station)->get();
-        $companycodes = Companycode::pluck('company_name','id');
+        $companycodes = Companycode::pluck('company_name', 'id');
         return view('Fix Station.edit_fixstation', ['fix' => $fix, 'tanks' => $tanks, 'companycodes' => $companycodes]);
     }
 
@@ -63,9 +73,7 @@ class FixStationController extends Controller
     {
         $fix = FixStationModel::find($id);
         $tanks = FixStationModel::where('name_station', $fix->name_station)->get();
-        if (count($tanks) != count($request->tank_number)) {
-            
-        }else {
+        if (count($tanks) != count($request->tank_number)) { } else {
             foreach ($tanks as $key => $tank) {
                 FixStationModel::find($tank->id)->update([
                     'name_station' => $request->name_station,
@@ -86,5 +94,13 @@ class FixStationController extends Controller
         $fix = FixStationModel::find($id);
         $fix->delete($fix);
         return redirect('/fix')->with('sukses', 'Data Berhasil dihapus!');
+    }
+
+    public function detail($id)
+    {
+        $fix = FixStationModel::find($id);
+        $tanks = FixStationModel::where('name_station', $fix->name_station)->get();
+        $companycodes = Companycode::pluck('company_name', 'id');
+        return view('Fix Station.detail_fixstation', ['fix' => $fix, 'tanks' => $tanks, 'companycodes' => $companycodes]);
     }
 }

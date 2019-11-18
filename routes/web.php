@@ -69,6 +69,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/fix/update/{id}', 'FixStationController@update');
     Route::get('/fix/{id}/delete', 'FixStationController@delete');
     Route::get('/fix/export_excel', 'FixStationController@export_excel');
+    Route::get('/fix/detail/{id}', 'FixStationController@detail');
 
     //Equipment & Unit Data
     Route::get('/equipment', 'EquipmentController@equipment');
@@ -250,6 +251,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/merk/edit/{id}', 'MerkController@edit');
     Route::post('/merk/update/{id}', 'MerkController@update');
     Route::get('/merk/{id}/delete', 'MerkController@delete');
+    Route::get('/merk/detail/{id}', 'MerkController@detail');
 
     //Tipe Equipment
     Route::get('/tipe_equipment', 'TipeController@tipe_equipment');
