@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEquipmentcardsTable extends Migration
+class CreateMaterialtransactionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateEquipmentcardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('equipmentcards', function (Blueprint $table) {
+        Schema::create('materialtransactions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->uuid('cardnumber');
-            $table->integer('equipment_id');
-            $table->boolean('active')->nullable()->default(true);
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateEquipmentcardsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('equipmentcards');
+        Schema::dropIfExists('materialtransactions');
     }
 }

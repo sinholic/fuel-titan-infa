@@ -38,17 +38,17 @@
 
                     <div class="form-group">
                         <label>nomor rangka</label>
-                        <input type="text " name="nomor_rangka" value="{{ $equipment->nomor_rangka }}" class="form-control" {{ (isset($equipment->nomor_rangka) ? 'disabled' : '') }}>
+                        <input type="text " name="nomor_rangka" value="{{ $equipment->nomor_rangka }}" class="form-control" {{ (isset($equipment->nomor_rangka) ? 'readonly' : '') }}>
                     </div>
 
                     <div class="form-group">
                         <label>nomor mesin</label>
-                        <input type="text " name="nomor_mesin" value="{{ $equipment->nomor_mesin }}" class="form-control" {{ (isset($equipment->nomor_mesin) ? 'disabled' : '') }}>
+                        <input type="text " name="nomor_mesin" value="{{ $equipment->nomor_mesin }}" class="form-control" {{ (isset($equipment->nomor_mesin) ? 'readonly' : '') }}>
                     </div>
 
                     <div class="form-group">
                         <label>Equipment Number</label>
-                        <input type="text" name="equipment_number" value="{{$equipment->equipment_number}}" class="form-control" required autofocus>
+                        <input type="text" name="equipment_number" value="{{$equipment->equipment_number}}" class="form-control" readonly>
                     </div>
 
                     <div class="form-group">
@@ -62,19 +62,9 @@
                     </div>
 
                     <div class="form-group">
-<<<<<<< HEAD
-						<label for="exampleFormControlSelect1">Status Kendaraan</label>
-						<select class="form-control" name="status_vehicle" id="exampleFormControlSelect1">
-							<option value="" disabled selected>Pilih Status</option>
-							<option>Rental</option>
-							<option>Internal</option>
-						</select>
-					</div>
-=======
                         <label for="exampleFormControlSelect1">Status Kendaraan</label>
                         {{ Form::select('status_vehicle', ['Rental' => 'Rental', 'Internal' => 'Internal'], $equipment->status_vehicle, ['placeholder' => 'Pilih status...', 'required', 'class' => 'form-control']) }}
                     </div>
->>>>>>> 67ffbf13e53bc6e5607915c834773bb4369d6c69
 
                     <div class="form-group">
                         <label>Location</label>
@@ -88,7 +78,7 @@
 
                     <div class="form-group">
                         <label for="">Owner</label>
-                        {{ Form::select('pic', $owners, $equipment->pic, ['placeholder' => 'Pilih owner...', 'required', 'class' => 'form-control']) }}
+                        {{ Form::select('owner_id', $owners, $equipment->owner_id, ['placeholder' => 'Pilih owner...', 'required', 'class' => 'form-control']) }}
                     </div>
 
                     <div class="form-group">

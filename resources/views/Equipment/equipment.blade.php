@@ -75,10 +75,23 @@
                         <div class="btn-group">
 
                             <!-- URL::to('/admin/category/detail.id='.$cate-id -->
-                            <a href="#" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom"
+                            {{-- <a href="#" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom"
                                 title="Info">
                                 <i class="fa fa-info-circle nav-icon"></i>
-                            </a>
+                            </a> --}}
+                            @if ($s->cards->count() < 2)
+                                <a 
+                                    onClick="return confirm('Yakin ingin membuat ulang kartu equipment?')"
+                                    href="/equipment/generate-card/{{ $s->id }}" 
+                                    class="btn btn-info btn-sm" 
+                                    data-toggle="tooltip" 
+                                    data-placement="bottom"
+                                    title="Info">
+                                    <i class="fa fa-sync nav-icon"></i>
+                                </a>
+                            @else
+                                <button disabled class="btn btn-secondary btn-sm btn-disabled"><i class="fa fa-sync nav-icon"></i></button>
+                            @endif
 
                             <a href="/equipment/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip"
                                 data-placement="bottom" title="Edit">
