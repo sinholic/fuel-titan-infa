@@ -52,6 +52,19 @@ Route::group(['middleware' => 'auth'], function () {
     // Route::get('/station/export_excel', 'StationController@export_excel');
     // Route::post('/station/import_excel', 'StationController@import_excel');
 
+
+    // Purhcase Order
+    Route::get('/purchaseorder', 'PurchaseorderController@index');
+    // Route::get('/station/json', 'StationController@json');
+    // Route::post('/station/create', 'StationController@create');
+    Route::get('/tampiladdpurchaseorder', 'StationController@tampiladd');
+    // Route::get('/station/{id}/delete', 'StationController@delete');
+    // Route::get('/station/edit/{id}', 'StationController@edit');
+    // Route::post('/station/update/{id}', 'StationController@update');
+    // Route::get('/station1', 'StationController@station');
+    // Route::get('/station/export_excel', 'StationController@export_excel');
+    Route::post('/purchaseorder/import', 'PurchaseorderController@import_excel');
+
     //Mobile Station
     Route::get('/mobile', 'MobileController@mobile');
     Route::get('/tampiladdmobile', 'MobileController@tambah');
