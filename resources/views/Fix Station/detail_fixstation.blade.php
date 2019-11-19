@@ -23,7 +23,7 @@
 
                     <div class="form-group">
 						<label>Nama Company</label>
-						{{ Form::select('companycode_id', $companycodes, $fix->companycode_id, ['placeholder' => 'Pilih company...', 'required', 'class' => 'form-control']) }}
+						{{ Form::select('companycode_id', $companycodes, $fix->companycode_id, ['readonly', 'placeholder' => 'Pilih company...', 'required', 'class' => 'form-control']) }}
                     </div>
 
                     <div class="form-group">

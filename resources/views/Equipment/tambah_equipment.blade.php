@@ -10,7 +10,7 @@
 
             <div class="card" style="border-top: 3px solid #9C5C22">
                 <div class="card-header">
-                    <h3 class="card-title">Tambah Equipment & Unit Data</h3>
+                    <h3 class="card-title">Tambah Equipment</h3>
                 </div>
 
                 <div class="card-body">

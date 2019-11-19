@@ -17,10 +17,10 @@ class UserheController extends Controller
 
     public function tambah()
     {
-        $categories = Timesheetstatus::select('id','category')->distinct()->get();
+        $categories = Timesheetstatus::select('id', 'category')->distinct()->get();
         $statuses = [];
         foreach ($categories as $key => $category) {
-            $statuses[$category->category] = Timesheetstatus::where('category', $category->category)->pluck('status', 'id'); 
+            $statuses[$category->category] = Timesheetstatus::where('category', $category->category)->pluck('status', 'id');
         }
         $equipments = EquipmentModel::pluck('equipment_number', 'id');
         return view('User HE.tambah_userhe', ['statuses' => $statuses, 'equipments' => $equipments]);
@@ -58,5 +58,11 @@ class UserheController extends Controller
         $userhe = UserheModel::find($id);
         $userhe->delete($userhe);
         return redirect('/userhe')->with('sukses', 'Data berhasil dihapus');
+    }
+
+    public function detail($id)
+    {
+        $userhe = UserheModel::find($id);
+        return view('User HE.detail_userhe', ['userhe' => $userhe]);
     }
 }

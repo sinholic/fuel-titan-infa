@@ -32,7 +32,7 @@
 <div class="card" style="border-top: 3px solid #9C5C22">
 
         <div class="card-header">
-            <h4>Master Equipment</h4>
+            <h4>Category Equipment</h4>
         </div>
 
     <div class="card-body">

@@ -48,4 +48,10 @@ class MerkController extends Controller
         $merk->delete($merk);
         return redirect('/merk')->with('sukses', 'Data berhasil dihapus!');
     }
+
+    public function detail($id)
+    {
+        $merk = MerkModel::find($id);
+        return view('Merk.detail_merk', ['merk' => $merk]);
+    }
 }

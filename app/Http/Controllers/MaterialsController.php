@@ -50,4 +50,10 @@ class MaterialsController extends Controller
         $materials->delete($materials);
         return redirect('/materials')->with('sukses', 'Data berhasil dihapus!');
     }
+
+    public function detail($id)
+    {
+        $materials = MaterialsModel::find($id);
+        return view('Materials.detail_material', ['materials' => $materials]);
+    }
 }

@@ -10,7 +10,7 @@
            
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Detail Merk</h3>
+                    <h3 class="card-title">Detail Varian Qty Solar</h3>
                 </div>
 
                 <div class="card-body">
@@ -22,22 +22,16 @@
                     @endif
 
                     <div class="form-group">
-                        <label for="">Merk</label>
-                        <input type="text" name="merk" value="{{$merk->merk}}" class="form-control" required readonly>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Inisial</label>
-                        <input type="text" name="inisial" value="{{$merk->inisial}}" class="form-control" required autofocus readonly>
+                        <label>Varian Qty Solar</label>
+                        <input type="number" name="qty_solar" value="{{$qty_solar->qty_solar}}" class="form-control" required autofocus readonly>
                     </div>
 
                 </div>
 
                 <div class="card-footer">
 
-                    <a href="/merk" class="btn btn-default">Back</a>
-                    <input type="submit" value="Update Data" class="pull-right btn btn-warning">
-
+                    <a href="/qty_solar" class="btn btn-default">Back</a>
+                  
                 </div>
 
             </div>
