@@ -43,4 +43,10 @@ class PengembalianController extends Controller
         $pengembalian->delete($pengembalian);
         return redirect('/pengembalian')->with('sukses', 'Data berhasil dihapus!');
     }
+
+    public function detail($id)
+    {
+        $pengembalian = PengembalianModel::find($id);
+        return view('Pengembalian.detail_pengembalian', ['pengembalian' => $pengembalian]);
+    }
 }

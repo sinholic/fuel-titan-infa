@@ -59,4 +59,10 @@ class OwnerController extends Controller
         // dd($Equipment->Equipmentowner);
         return view('Owner.print_qr', ['owners' => $owners]);
     }
+
+    public function detail($id)
+    {
+        $owner = OwnerModel::find($id);
+        return view('Owner.detail_owner', ['owner' => $owner]);
+    }
 }

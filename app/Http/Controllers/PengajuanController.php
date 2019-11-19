@@ -43,4 +43,10 @@ class PengajuanController extends Controller
         $pengajuan->delete($pengajuan);
         return redirect('/pengajuan')->with('sukses', 'Data berhasil dihapus!');
     }
+
+    public function detail($id)
+    {
+        $pengajuan = PengajuanModel::find($id);
+        return view('Pengajuan.detail_pengajuan', ['pengajuan' => $pengajuan]);
+    }
 }

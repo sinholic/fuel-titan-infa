@@ -45,4 +45,10 @@ class TipeController extends Controller
         $tipe_equipment->delete($tipe_equipment);
         return redirect('/tipe_equipment')->with('sukses', 'Data berhasil dihapus!');
     }
+
+    public function detail($id)
+    {
+        $tipe_equipment = TipeModel::find($id);
+        return view('Tipe Equipment.detail_tipe_equipment', ['tipe_equipment' => $tipe_equipment]);
+    }
 }
