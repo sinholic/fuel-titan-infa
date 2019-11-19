@@ -43,21 +43,21 @@
                     <th class="text-center">No</th>
                     <th class="text-center">No Alat</th>
                     <th class="text-center">Tipe Alat</th>
-                    <th class="text-center">Tanggal Operasi</th>
-                    <th class="text-center">Area Kerja</th>
                     <th class="text-center">Owner</th>
+                    <th class="text-center">Area Kerja</th>
+                    <th class="text-center">Tanggal Operasi</th>
                     <th class="text-center">HM Awal</th>
                     <th class="text-center">HM Akhir</th>
                     <th class="text-center">Total Jam</th>
-                    <th class="text-center">Status</th>
-                    <th class="text-center">Job Order</th>
-                    <th class="text-center">BBM</th>
-                    <th class="text-center">Operator</th>
-                    <th class="text-center">Helper</th>
-                    <th class="text-center">Pengawas</th>
                     <th class="text-center">KM Awal</th>
                     <th class="text-center">KM Akhir</th>
                     <th class="text-center">KM Total</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Job Order</th>
+                    <th class="text-center">BBM</th>
+                    <th class="text-center">Helper</th>
+                    <th class="text-center">Operator</th>
+                    <th class="text-center">Pengawas</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
@@ -69,21 +69,22 @@
                     <td>{{$i++}}</td>
                     <td>{{$s->no_alat}}</td>
                     <td>{{$s->tipe_alat}}</td>
-                    <td>{{date('d-M-Y', strtotime($s->tanggal_operasi))}}</td>
-                    <td>{{$s->nama_unit}}</td>
                     <td>{{$s->penyewa}}</td>
+                    <td>{{$s->nama_unit}}</td>
+                    <td>{{date('d-M-Y', strtotime($s->tanggal_operasi))}}</td>
                     <td>{{$s->hm_awal}}</td>
                     <td>{{$s->hm_akhir}}</td>
                     <td>{{$s->total_jam}}</td>
-                    <td></td>
-                    <td>{{$s->job_order}}</td>
-                    <td>{{$s->bbm}}</td>
-                    <td>{{$s->operator}}</td>
-                    <td>{{$s->helper}}</td>
-                    <td>{{$s->pengawas}}</td>
                     <td>{{$s->km_awal}}</td>
                     <td>{{$s->km_akhir}}</td>
                     <td>{{$s->km_total}}</td>
+                    <td></td>
+                    <td>{{$s->job_order}}</td>
+                    <td>{{$s->bbm}}</td>
+                    <td>{{$s->helper}}</td>
+                    <td>{{$s->operator}}</td>
+                    <td>{{$s->pengawas}}</td>
+                    
                     <td>
                          <div class="btn-group">
 

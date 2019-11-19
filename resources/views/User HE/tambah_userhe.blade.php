@@ -35,16 +35,20 @@
 						<label>Owner</label>
 						<input type="text" name="penyewa" placeholder="" class="form-control" required autofocus>
 					</div>
-					
-                    <div class="form-group">
-						<label>Tanggal Operasi</label>
-						<input type="date" name="tanggal_operasi" placeholder="" class="form-control" required autofocus>
-					</div>
-					
+
 					<div class="form-group">
 						<label>Area Kerja</label>
 						<input type="text" name="nama_unit" placeholder="" class="form-control" required autofocus>
 					</div>
+					
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Tanggal Operasi</label>
+								<input type="date" name="tanggal_operasi" placeholder="" class="form-control" required autofocus>
+							</div>
+						</div>
+					</div>	
 					
 					<div class="row">
 						<div class="col-md-6">
