@@ -50,6 +50,15 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
+								<label>Tanggal Operasi</label>
+								<input type="date" name="tanggal_operasi" placeholder="" class="form-control" required autofocus>
+							</div>
+						</div>
+					</div>	
+					
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
 								<label>HM Awal</label>
 								<input type="number" id="hmawal" onkeyup="sumHM()" ; name="hm_awal" placeholder=""
 									class="form-control">

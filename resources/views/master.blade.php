@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="/adminlte/dist/css/adminlte.min.css">
   <!-- Sweet Alert -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- DataTables -->
@@ -222,6 +224,30 @@ to get the desired effect
       $('.set-to-select2').select2();
     });
   </script>
+  <script>
+     function update()
+     {
+         Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Data berhasil di update',
+            showConfirmButton: false,
+            timer: 1300
+            })
+     }
+</script>
+<script>
+     function simpan()
+     {
+         Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Data berhasil di simpan',
+            showConfirmButton: false,
+            timer: 1300
+            })
+     }
+</script>
 </body>
 
 </html>
