@@ -65,6 +65,12 @@
             </a>
             <ul class="nav nav-treeview offset-md-2">
                 <li class="nav-item">
+                    <a href="/purchaseorder" class="nav-link">
+                        <p>Purchase Orders</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="/equipment_category" class="nav-link">
                         <p>Category Equipment</p>
                     </a>

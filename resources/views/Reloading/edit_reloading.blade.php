@@ -52,7 +52,7 @@
                 <div class="card-footer">
 
                     <a href="/reloading" class="btn btn-default">Back</a>
-                    <input type="submit" value="Update Data" class="pull-right btn btn-warning">
+                    <input type="submit" value="Save" class="pull-right btn btn-warning">
 
                 </div>
 

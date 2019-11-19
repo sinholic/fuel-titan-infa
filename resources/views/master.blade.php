@@ -210,6 +210,7 @@ to get the desired effect
   <script>
     $(document).ready(function () {
       $('#myTable').DataTable();
+      $('.set-to-select2').select2();
     });
   </script>
 </body>

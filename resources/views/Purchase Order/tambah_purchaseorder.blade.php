@@ -4,13 +4,13 @@
 
 <div class="row">
     <div class="col-md-12">
-        <form action="/companycode/update/{{$companycode->id}}" method="POST">
+        <form action="/purchase-order/import" method="POST">
 
             @csrf
            
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Edit Company Code</h3>
+                    <h3 class="card-title">Tambah Purchase Order</h3>
                 </div>
 
                 <div class="card-body">
@@ -22,21 +22,14 @@
                     @endif
 
                     <div class="form-group">
-                        <label>Name Company Code</label>
-                        <input type="text" name="company_name" value="{{$companycode->company_name}}" class="form-control" required autofocus>
+                        <label>Excel File</label>
+                        <input type="file" name="" value="" class="form-control" required autofocus>
                     </div>
-
-                    <div class="form-group">
-                        <label for="">Inisial Company Code</label>
-                        <input type="text" name="company_inisial" value="{{$companycode->company_inisial}}" class="form-control" required autofocus>
-                    </div>
-
-
                 </div>
 
                 <div class="card-footer">
 
-                    <a href="/companycode" class="btn btn-default">Back</a>
+                    <a href="/purchase-order" class="btn btn-default">Back</a>
                     <input type="submit" value="Save" class="pull-right btn btn-warning">
 
                 </div>

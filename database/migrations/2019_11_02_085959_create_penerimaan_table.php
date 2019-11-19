@@ -17,7 +17,7 @@ class CreatePenerimaanTable extends Migration
             $table->bigIncrements('id');
             $table->string('remark');
             $table->string('supplier');
-            $table->string('no_po');
+            $table->bigInteger('no_po');
             $table->string('qty');
             $table->string('no_tangki');
             $table->timestamps();
