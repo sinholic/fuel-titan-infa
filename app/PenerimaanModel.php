@@ -9,10 +9,15 @@ class PenerimaanModel extends Model
 {
     use SoftDeletes;
     protected $table = "penerimaan";
-    protected $fillable = ['remark', 'supplier', 'no_po', 'qty', 'no_tangki'];
+    protected $fillable = ['remark', 'supplier', 'purchaseorder_id', 'qty', 'fixstation_id'];
     
     public function purchaseorder()
     {
-        return $this->belongsTo('App\Purchaseorder', 'no_po', 'id');
+        return $this->belongsTo('App\Purchaseorder', 'purchaseorder_id', 'id');
+    }
+
+    public function fixstation()
+    {
+        return $this->belongsTo('App\FixStationModel', 'fixstation_id', 'id');
     }
 }

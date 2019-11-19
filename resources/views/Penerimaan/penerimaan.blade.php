@@ -40,12 +40,12 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Remark</th>
-                    <th class="text-center">Supplier</th>
                     <th class="text-center">No PO</th>
+                    <th class="text-center">Supplier</th>
                     <th class="text-center">Qty</th>
                     <th class="text-center">Received Qty</th>                    
                     <th class="text-center">No Tangki</th>
+                    <th class="text-center">Remark</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
@@ -55,12 +55,12 @@
                  @foreach($penerimaan ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->remark}}</td>
-                    <td>{{$s->supplier}}</td>
-                    <td>{{$s->no_po}}</td>
+                    <td>{{$s->purchaseorder->purchaseorder_number}}</td>
+                    <td>{{$s->purchaseorder->supplier}}</td>
+                    <td>{{$s->purchaseorder->amount }}</td>
                     <td>{{$s->qty}}</td>
-                    <td>{{$s->received_qty}}</td>
-                    <td>{{$s->no_tangki}}</td>
+                    <td>{{$s->fixstation->name_station. " - (Tangki nomor : ". $s->fixstation->tank_number . ")"}}</td>
+                    <td>{{$s->remark}}</td>
                     <td>
                          <div class="btn-group">
 

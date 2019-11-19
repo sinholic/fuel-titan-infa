@@ -25,4 +25,9 @@ class FixStationModel extends Model
     {
         return $this->belongsToMany('App\User', 'userassignments', 'user_id', 'station_id')->withPivot('start_date', 'end_date', 'mobile')->withTimestamps();
     }
+
+    public function receives()
+    {
+        return $this->hasMany('App\PenerimaanModel', 'fixstation_id', 'id');
+    }
 }

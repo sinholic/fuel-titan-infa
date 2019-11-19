@@ -15,11 +15,10 @@ class CreatePenerimaanTable extends Migration
     {
         Schema::create('penerimaan', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('purchaseorder_id');
             $table->string('remark');
-            $table->string('supplier');
-            $table->bigInteger('no_po');
             $table->string('qty');
-            $table->string('no_tangki');
+            $table->string('fixstation_id');
             $table->timestamps();
             $table->softDeletes();
         });
