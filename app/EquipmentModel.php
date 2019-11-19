@@ -21,6 +21,10 @@ class EquipmentModel extends Model
         return $this->belongsTo('App\Equipmentcategory', 'equipment_category', 'id');
     }
 
+    public function mobile()
+    {
+        return $this->hasOne('App\MobileModel', 'equipment_id', 'id');
+    }
 
     public function reloadingunits()
     {

@@ -17,8 +17,9 @@
 
         serial-number {
             font-size: 10px;
-            position: relative;
-            bottom: 5mm;
+            margin-left: 2mm;
+            margin-top: 12mm;
+            display: block;
         }
 
         table tr {
@@ -51,19 +52,28 @@
             width: 50%;
             text-align: center;
         }
+
         .table-cont {
-            margin-left:20px;margin-bottom:5mm;
+            margin-left: 20px;
+            margin-bottom: 5mm;
         }
 
-        .float-left{
-            float:left;
+        .float-left {
+            float: left;
         }
+
         @media print {
+
             .unit-identity-card-container,
             .table-cont,
-            .float-left {
+            .float-left,
+            .print {
                 display: none;
                 visibility: hidden;
+            }
+
+            .unit-identity-card-container {
+                page-break-after: always;
             }
 
             .selected {
@@ -71,11 +81,18 @@
                 visibility: visible;
             }
         }
+
+        @page {
+            size: auto;
+            /* auto is the initial value */
+            margin: 0;
+            /* this affects the margin in the printer settings */
+        }
     </style>
 </head>
 
 <body>
-    <a href="#" class="btn btn-primary" style="float: right" ; onclick="window.print();">Print</a>
+    <a href="#" class="btn btn-primary print" style="float: right" ; onclick="window.print();">Print</a>
     <table class="table-cont">
         <tr>
             <td>
@@ -84,63 +101,52 @@
             <td></td>
         </tr>
     </table>
-        @foreach($equipments as $equipment)
-        @php
-        $category = $equipment->equipmentcategory->nama;
-        $owner = $equipment->equipmentowner->vendor_name;
-        @endphp
-        @php $string =
-        "Equipment Number: $equipment->equipment_number,
-        Equipment Name: $equipment->equipment_name,
-        Category: $category,
-        Owner: $owner
-        "
-        @endphp
-            <div>
-                <div class="float-left">
-                    <input type="checkbox" class="checkbox" checked name="" id="">
-                </div>
-                <div class="unit-identity-card-container selected">
-                    <div class="title">unit identity card</div>
-                    <div class="left-container">
-                        <table style="margin-left:2mm;margin-top:3mm">
-                            <tr>
-                                <td>Owner</td>
-                                <td>:</td>
-                                <td>{{ $equipment->equipmentowner->vendor_inisial }}</td>
-                            </tr>
-                            <tr>
-                                <td>Type Eq.</td>
-                                <td>:</td>
-                                <td>{{ $equipment->equipmentcategory->nama }}</td>
-                            </tr>
-                            <tr>
-                                <td>Tank Cap.</td>
-                                <td>:</td>
-                                <td>{{ $equipment->fuel_capacity }}</td>
-                            </tr>
-                            <tr>
-                                <td>No. Eq</td>
-                                <td>:</td>
-                                <td>{{ $equipment->equipment_number }}</td>
-                            </tr>
-                            <tr></tr>
-                            <tr></tr>
-                            <tr>
-                                <td colspan="3">
-
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="right-container">
-                        {!! QrCode::size(160)->margin(0)->generate($string); !!}
-                        <serial-number>{{ $equipment->cards->count() > 0 ? $equipment->cards->last()->cardnumber : "" }}
-                        </serial-number>
-                    </div>
-                </div>
+    @foreach($equipments as $equipment)
+    @php
+    $category = $equipment->equipmentcategory->nama;
+    $owner = $equipment->equipmentowner->vendor_name;
+    @endphp
+    @php $string =
+    "Equipment Number: $equipment->equipment_number,
+    Equipment Name: $equipment->equipment_name,
+    Category: $category,
+    Owner: $owner
+    "
+    @endphp
+    <div>
+        <div class="float-left">
+            <input type="checkbox" class="checkbox" checked name="" id="">
+        </div>
+        <div class="unit-identity-card-container selected">
+            <div class="title">unit identity card</div>
+            <div style="font-size:14px;text-align:center;">Eq. No : {{ $equipment->equipment_number }}</div>
+            <div class="left-container">
+                <table style="margin-left:2mm;margin-top:3mm">
+                    <tr>
+                        <td>Owner</td>
+                        <td>:</td>
+                        <td>{{ $equipment->equipmentowner->vendor_inisial }}</td>
+                    </tr>
+                    <tr>
+                        <td>Type Eq.</td>
+                        <td>:</td>
+                        <td>{{ $equipment->equipmentcategory->nama }}</td>
+                    </tr>
+                    <tr>
+                        <td>Tank Cap.</td>
+                        <td>:</td>
+                        <td>{{ $equipment->fuel_capacity }}</td>
+                    </tr>
+                </table>
+                <serial-number>SN: {{ $equipment->cards->count() > 0 ? $equipment->cards->last()->cardnumber : "" }}
+                </serial-number>
             </div>
-        @endforeach
+            <div class="right-container">
+                {!! QrCode::size(160)->margin(0)->generate($string); !!}
+            </div>
+        </div>
+    </div>
+    @endforeach
     <script src="/adminlte/plugins/jquery/jquery.min.js"></script>
 
     <script>
@@ -155,19 +161,19 @@
         function addClassWhenReload() {
             if ($('#check-all').is(':checked')) {
                 console.log("HAI");
-                $(this).parent().parent().find('.unit-identity-card-container').addClass('selected')
+                $('.checkbox').parent().parent().find('.unit-identity-card-container').addClass('selected')
                 $('.checkbox').prop('checked', true)
             } else {
                 console.log("TEST");
-                $(this).parent().parent().find('.unit-identity-card-container').removeClass('selected')
+                $('.checkbox').parent().parent().find('.unit-identity-card-container').removeClass('selected')
                 $('.checkbox').prop('checked', false)
             }
         }
 
-        $('.checkbox').change(function(){
+        $('.checkbox').change(function () {
             if ($(this).is(':checked')) {
                 $(this).parent().parent().find('.unit-identity-card-container').addClass('selected')
-            }else{
+            } else {
                 $(this).parent().parent().find('.unit-identity-card-container').removeClass('selected')
             }
             // console.log();        

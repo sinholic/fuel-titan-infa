@@ -8,13 +8,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class MobileModel extends Model
 {
     use SoftDeletes;
-    // protected $table = "mobile_station";
-    protected $table = "equipment_unitdata";
+    protected $table = "mobile_station";
+    // protected $table = "equipment_unitdata";
     protected $guarded = [];
 
     public function fixstation()
     {
         return $this->belongsTo('App\FixStationModel', 'fixstation_id', 'id');
+    }
+
+    public function equipment()
+    {
+        return $this->hasOne('App\EquipmentModel', 'id', 'equipment_id');
     }
 
     public function users()

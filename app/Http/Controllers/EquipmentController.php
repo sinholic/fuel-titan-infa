@@ -16,14 +16,14 @@ class EquipmentController extends Controller
 {
     public function equipment()
     {
-        $equipment = EquipmentModel::with('cards')->where('companycode_id', \Auth::user()->companycode_id)->get();
+        $equipment = EquipmentModel::with('cards')->get();
         return view('Equipment.equipment', ['equipment' => $equipment]);
     }
 
     public function print(Request $request)
     {
-        $equipments = EquipmentModel::where('companycode_id', \Auth::user()->companycode_id)
-            ->with(
+        $equipments = EquipmentModel::
+            with(
                 'equipmentowner',
                 'equipmentcategory',
                 'reloadingunits'
@@ -32,12 +32,38 @@ class EquipmentController extends Controller
         return view('Equipment.print_qr', ['equipments' => $equipments]);
     }
 
+    public function generateCard($id)
+    {
+        $equipment = EquipmentModel::find($id);
+        $equipment->cards->last()->update([
+            'active' => 0
+        ]);
+        $owner = OwnerModel::find($equipment->owner_id);
+        $inisial = substr($owner->vendor_inisial, 0, 3);
+        $inisial_number = null;
+        for ($i = 0; $i < strlen($inisial); $i++) {
+            $inisial_number .= ord(substr($inisial, $i));
+        }
+
+        $card_number = \Carbon\Carbon::now()->format('yndm');
+        // dd($inisial_number.$card_number.mt_rand(10,99));   
+
+        $cards = array(
+            'equipment_id' => $equipment->id,
+            'cardnumber' => $inisial_number . $card_number . mt_rand(10, 99),
+        );
+        // Equipmentcard::create($cards);
+        $equipment->cards()->create($cards);
+
+        return redirect('/equipment')->with('sukses', 'Kartu berhasil digenerate ulang!');
+    }
+
     public function tambah()
     {
         $tipe = TipeModel::pluck('tipe', 'id');
         $owners = OwnerModel::pluck('vendor_name', 'id');
         $equipment_categories = Equipmentcategory::pluck('nama', 'id');
-        $last_id = EquipmentModel::all()->last() == NULL ? 1 : EquipmentModel::all()->last()->id;
+        $last_id = EquipmentModel::all()->last() == NULL ? 1 : EquipmentModel::all()->last()->id + 1;
         $companycodes = Companycode::pluck('company_name', 'id');
         $manufactures = MerkModel::pluck('merk', 'id');
         return view('Equipment.tambah_equipment', [

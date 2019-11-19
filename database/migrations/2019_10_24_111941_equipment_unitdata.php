@@ -15,7 +15,6 @@ class EquipmentUnitdata extends Migration
     {
         Schema::create('equipment_unitdata', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('fixstation_id')->default(0);
             $table->bigInteger('companycode_id');
             $table->string('equipment_info');
             $table->enum('status_vehicle', ['Rental', 'Internal']);
@@ -29,8 +28,6 @@ class EquipmentUnitdata extends Migration
             $table->string('nomor_mesin')->nullable();
             $table->string('location');
             $table->string('fuel_capacity');
-            $table->boolean('impress_status')->nullable()->default(false);
-            $table->string('fuel_max_reload')->nullable();
             $table->unique(['equipment_number', 'companycode_id']);
             $table->timestamps();
             $table->softDeletes();

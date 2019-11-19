@@ -27,25 +27,8 @@
 					</div>
 
 					<div class="form-group">
-						<label>Nomor Vehicle</label>
-						<input type="text " name="number_vehicle" placeholder="" class="form-control" required
-							autofocus>
-					</div>
-
-					<div class="form-group">
-						<label for="">Nama Vehicle</label>
-						<input type="text" name="name_vehicle" placeholder="" class="form-control" required autofocus>
-					</div>
-
-					<div class="form-group">
-						<label for="exampleFormControlSelect1">Status Kendaraan</label>
-						{{ Form::select('status_vehicle', ['Rental' => 'Rental', 'Internal' => 'Internal'], old('status_vehicle'), ['placeholder' => 'Pilih status...', 'required', 'class' => 'form-control']) }}
-					</div>
-
-					<div class="form-group">
-						<label>Kapasitas Tangki</label>
-						<input type="number" name="fuel_capacity" placeholder="" class="form-control" required
-							autofocus>
+						<label>Equipment Number</label>
+						{{ Form::select('equipment_id', $equipments, null, ['placeholder' => 'Pilih equipment...', 'required', 'class' => 'form-control']) }}
 					</div>
 
 					<div class="form-check">
@@ -55,8 +38,7 @@
 
 					<div class="form-group max-reload">
 						<label>Maksimal Pengisian Ulang</label>
-						<input type="text" name="fuel_max_reload" placeholder="" class="form-control" required
-							autocomplete="">
+						<input type="text" name="fuel_max_reload" placeholder="" class="form-control">
 					</div>
 
 				</div>
@@ -78,13 +60,13 @@
 @endsection
 
 @push('scripts')
-
-	<script>
+    <script>
 		$('.max-reload').hide();
+		if ($('.enable-impress').is(':checked')) {
+			$('.max-reload').show();
+		}
 		$('.enable-impress').click(function(){
 			$('.max-reload').toggle();
 		})
-	</script>
-
-
+    </script>
 @endpush
