@@ -28,14 +28,14 @@
 
                     <div class="form-group">
                         <label>Nomor Vehicle</label>
-                        <input type="text" name="number_vehicle" value="{{$mobile->number_vehicle}}"
-                            class="form-control" required autofocus>
+                        <input type="text" name="number_vehicle" value="{{$mobile->equipment->equipment_number ?? ''}}"
+                            class="form-control" required autofocus readonly>
                     </div>
 
                     <div class="form-group">
                         <label for="">Nama Vehicle</label>
-                        <input type="text" name="name_vehicle" value="{{$mobile->name_vehicle}}" class="form-control"
-                            required autofocus>
+                        <input type="text" name="name_vehicle" value="{{$mobile->equipment->equipment_name ?? ''}}" class="form-control"
+                            required autofocus readonly>
                     </div>
 
                     <div class="form-group">
@@ -45,8 +45,8 @@
 
                     <div class="form-group">
                         <label>Kapasitas Tangki</label>
-                        <input type="number" name="fuel_capacity" value="{{$mobile->fuel_capacity}}"
-                            class="form-control" required autofocus>
+                        <input type="number" name="fuel_capacity" value="{{$mobile->equipment->fuel_capacity  ?? ''}}"
+                            class="form-control" required autofocus readonly>
                     </div>
 
                     <div class="form-check">
