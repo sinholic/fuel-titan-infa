@@ -11,6 +11,11 @@ class UserheModel extends Model
     protected $table = "userhe";
     protected $guarded = [];
 
+    public function equipment()
+    {
+        return $this->belongsTo('App\EquipmentModel', 'equipment_id', 'id');
+    }
+
     public function status()
     {
         return $this->belongsTo('App\Timesheetstatus', 'timesheetstatus_id', 'id');

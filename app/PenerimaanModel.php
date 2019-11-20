@@ -9,7 +9,7 @@ class PenerimaanModel extends Model
 {
     use SoftDeletes;
     protected $table = "penerimaan";
-    protected $fillable = ['remark', 'supplier', 'purchaseorder_id', 'qty', 'fixstation_id'];
+    protected $fillable = ['remark', 'purchaseorder_id', 'qty', 'fixstation_id'];
     
     public function purchaseorder()
     {

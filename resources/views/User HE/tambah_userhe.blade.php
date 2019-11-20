@@ -22,8 +22,12 @@
 					@endif
 
 					<div class="form-group">
-						<label>No Alat</label>
-						<input type="number " name="no_alat" placeholder="" class="form-control" required autofocus>
+						<label>Equipment Number</label>
+						<input id="equipment-number" class="form-control"
+							required />
+						<input type="hidden" id="equipment-number-value" name="purchaseorder_d"
+							class="form-control" required />
+						{{ Form::select('equipment_id', $equipments, null, ['placeholder' => 'Pilih equipment...', 'required', 'class' => 'form-control set-to-select2']) }}
 					</div>
 
 					<div class="form-group">

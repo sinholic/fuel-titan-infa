@@ -15,11 +15,10 @@ class CreateUserheTable extends Migration
     {
         Schema::create('userhe', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('tipe_alat');
-            $table->string('no_alat');
+            $table->bigInteger('equipment_id');
             $table->date('tanggal_operasi');
-            $table->string('nama_unit');
-            $table->string('penyewa');
+            // $table->string('nama_unit');
+            // $table->string('penyewa');
             $table->integer('hm_awal')->nullable();
             $table->integer('hm_akhir')->nullable();
             $table->integer('total_jam')->nullable();

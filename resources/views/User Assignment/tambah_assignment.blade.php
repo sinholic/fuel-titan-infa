@@ -24,34 +24,49 @@
 					<div class="form-group">
 						<label>Nama</label>
 						{{ Form::select('user_id', $users, null, ['placeholder' => 'Pilih nama...', 'required', 'class' => 'form-control']) }}
-                    </div>
+					</div>
 
-                    <div class="form-group">
-						<label>ID Station</label>
-						<input type="number" name="station_id" placeholder="" class="form-control" required autofocus>
-                    </div>
+					<div class="form-group">
+						<label>Choose Station</label>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="mobile" id="mobile1"
+								value="1">
+							<label class="form-check-label" for="mobile1">
+								Mobile Station
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="mobile" id="mobile2"
+								value="0">
+							<label class="form-check-label" for="mobile2">
+								Fix Station
+							</label>
+						</div>
+					</div>
 
-                    <div class="form-group">
-						<label>Mobile</label>
-						<input type="number" name="mobile" placeholder="" class="form-control" required autofocus>
-                    </div>
+					<div class="form-group station-container">
+						<label id="label-station">Station</label>
+						{{ Form::select('', $mobilestations, null, ['placeholder' => 'Pilih nama mobile station...','id' => 'mobile-station', 'class' => 'form-control']) }}
+						{{ Form::select('', $fixstations, null, ['placeholder' => 'Pilih nama fix station...', 'id' => 'fix-station', 'class' => 'form-control']) }}
+						{!! Form::hidden('station_id', NULL, ['id' => 'station_id']) !!}
+					</div>
 
 					<div class="form-group">
 						<label>Start Date</label>
 						<input type="date" name="start_date" placeholder="" class="form-control" required autofocus>
 					</div>
-					
+
 					<div class="form-group">
 						<label>End Date</label>
 						<input type="date" name="end_date" placeholder="" class="form-control" required autofocus>
-                    </div>
+					</div>
 
 				</div>
 
 				<div class="card-footer">
 
 					<a href="/user_assign" class="btn btn-default">Back</a>
-                    &nbsp;&nbsp;
+					&nbsp;&nbsp;
 					<input type="submit" value="Save" class="pull-right btn btn-primary">
 
 				</div>
@@ -63,6 +78,12 @@
 	</div>
 </div>
 
-
-
 @endsection
+
+@push('scripts')
+	
+	<script>
+		
+	</script>
+
+@endpush

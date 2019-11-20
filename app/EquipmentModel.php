@@ -40,4 +40,9 @@ class EquipmentModel extends Model
     {
         return $this->belongsTo('App\TipeModel', 'equipment_type', 'id');
     }
+
+    public function timesheets()
+    {
+        return $this->hasMany('App\UserheModel', 'equipment_id', 'id');
+    }
 }

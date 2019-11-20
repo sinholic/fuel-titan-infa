@@ -30,7 +30,7 @@ class PenerimaanController extends Controller
             ->from('purchaseorders')
             ->leftJoin('penerimaan', 'purchaseorders.id', '=', 'penerimaan.purchaseorder_id')
             ->groupBy(\DB::raw('purchaseorders.id'))
-            ->having(\DB::raw('SUM(penerimaan.qty)'), '=', \DB::raw('purchaseorders.amount'));
+            ->having(\DB::raw('SUM(penerimaan.qty)'), '>=', \DB::raw('purchaseorders.amount'));
         })
         ->get();
         return view('Penerimaan.tambah_penerimaan', ['fixstations' => $fixstations, 'purchaseorders' => $purchaseorders]);
@@ -38,11 +38,31 @@ class PenerimaanController extends Controller
 
     public function create(Request $request)
     {
-        $purchaseorder = Purchaseorder::find($request->no_po);
-        $request->validate([
-            'qty' => 'required|numeric|max:'.$purchaseorder->amount,
-            'no_tangki' => 'required',
-        ]);
+        $purchaseorder = Purchaseorder::with('receives')->find($request->purchaseorder_id);
+        // dd($purchaseorder->receives->count());
+        if ($purchaseorder->receives->count() > 0) {
+            $totalReceive = $purchaseorder->receives->count() + 1;
+            // dd($purchaseorder->receives->sum('qty'));
+            $sum = $purchaseorder->receives->sum('qty');
+            $total = intval($purchaseorder->amount) - $sum;
+            // dd($total);
+            $request->validate([
+                'qty' => 'required|numeric|max:'.$total,
+                'fixstation_id' => 'required',
+                'remark' => 'required'
+            ],
+            [
+                // This PO has already received 20,000 so you can only receive 10,000 on maximum 
+                'qty.max' => 'This PO has already received '.$sum.' so you can only receive '.$total. ' on maximum'
+            ]);
+
+        }else {
+            $request->validate([
+                'qty' => 'required|numeric|max:'.$purchaseorder->amount,
+                'fixstation_id' => 'required',
+                'remark' => 'required'
+            ]);
+        }
         PenerimaanModel::create($request->all());
         return redirect('/penerimaan')->with('sukses', 'Data Berhasil Di Input!');
     }
