@@ -37,7 +37,7 @@
 
 					<a href="/merk" class="btn btn-default">Back</a>
                     &nbsp;&nbsp;
-					<input onclick="simpan()" type="submit" value="Save" class="pull-right btn btn-primary">
+					<input type="submit" value="Save" class="pull-right btn btn-primary">
 
 				</div>
 

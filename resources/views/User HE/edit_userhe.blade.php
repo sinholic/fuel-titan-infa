@@ -117,7 +117,7 @@
                         <div class="col-md-6">
                              <div class="form-group">
                                 <label>BBM</label>
-                                <input type="text" name="bbm" value="{{$userhe->bbm}}" class="form-control" required autofocus>
+                                <input type="number" name="bbm" value="{{$userhe->bbm}}" class="form-control" required autofocus>
                             </div>
                         </div>
 
