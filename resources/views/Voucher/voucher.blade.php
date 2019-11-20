@@ -28,14 +28,6 @@
 </div>
 @endif
 
-<button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
-    <i class="fas fa-file-excel"></i> Import Excel
-</button>
-
-<a href="/voucher/export_excel" class="btn btn-success my-1" target="_blank">
-    <i class="fas fa-file-excel"></i> Export Excel
-</a>
-
 <a href="/tampiladdvoucher" class="btn btn-primary">
     <i class="fa fa-plus nav-icon"></i>
 </a>
@@ -102,30 +94,4 @@
     </div>
 </div>
 
-<!-- Import Excel -->
-<div class="modal fade" id="importExcel" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <form method="post" action="/equipment/import_excel" enctype="multipart/form-data">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
-                </div>
-                <div class="modal-body">
-
-                    {{ csrf_field() }}
-
-                    <label>Pilih file excel</label>
-                    <div class="form-group">
-                        <input type="file" name="file" required="required">
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Import</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
 @endsection

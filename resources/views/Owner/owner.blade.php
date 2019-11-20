@@ -45,9 +45,9 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Nama Owner</th>
+                    <th class="text-center">Nama Perusahaan</th>
                     <th class="text-center">Alamat</th>
-                    <th class="text-center">Kategori Owner</th>
+                    <th class="text-center">Kategori</th>
                     <th class="text-center">PIC</th>
                     <th class="text-center">Phone</th>
                     <th class="text-center">Email</th>

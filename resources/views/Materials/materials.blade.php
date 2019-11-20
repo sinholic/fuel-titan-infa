@@ -16,18 +16,10 @@
 			<strong>{{ $sukses }}</strong>
 		</div>
     @endif
-    
-    <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
-		 <i class="fas fa-file-excel"></i> Import Excel
-    </button>
 
-    <a href="/materials/export_excel" class="btn btn-success my-1" target="_blank">
-        <i class="fas fa-file-excel"></i> Export Excel
+    <a href="/tambah_materials" class="btn btn-primary">
+        <i class="fa fa-plus nav-icon"></i>
     </a>
-    
-        <a href="/tambah_materials" class="btn btn-primary">
-            <i class="fa fa-plus nav-icon"></i>
-        </a>
 
 <div class="card" style="border-top: 3px solid #9C5C22">
         
