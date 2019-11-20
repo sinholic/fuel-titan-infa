@@ -23,32 +23,26 @@
 
 					<div class="form-group">
 						<label>No PO</label>
-						<input list="purchase-order-lists" id="purchase-order-choice" name="no_po"  class="form-control" required />
+						<input id="purchase-order-choice" class="form-control"
+							required />
+						<input type="hidden" id="purchase-order-choice-value" name="purchaseorder_d"
+							class="form-control" required />
 
-						<datalist id="purchase-order-lists">
-							@foreach ($purchaseorders as $purchaseorder)
-							<option data-qty="{{ $purchaseorder->amount }}"
-								data-supplier="{{ $purchaseorder->supplier }}"
-								data-id="{{ $purchaseorder->id }}"
-								value="{{ $purchaseorder->purchaseorder_number }}">
-								{{ $purchaseorder->purchaseorder_number }}</option>
-							@endforeach
-						</datalist>
 					</div>
 
 					<div class="form-group">
 						<label for="">Supplier</label>
-						<input type="text" name="supplier" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="" placeholder="" class="supplier form-control" readonly autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Qty</label>
-						<input type="text" name="qty" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="" placeholder="" class="qty form-control" readonly autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Received Qty</label>
-						<input type="text" name="received_qty" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="qty" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group">
@@ -58,7 +52,7 @@
 
 					<div class="form-group">
 						<label>No Tangki</label>
-						{{ Form::select('no_tangki', $fixstations, null, ['placeholder' => 'Pilih nomor tangki...', 'required', 'class' => 'form-control']) }}
+						{{ Form::select('fixstation_id', $fixstations, null, ['placeholder' => 'Pilih nomor tangki...', 'required', 'class' => 'form-control']) }}
 					</div>
 
 				</div>
@@ -83,8 +77,34 @@
 @push('scripts')
 
 <script>
-	$("#purchase-order-choice").focusout(function () {
-		alert($(this).val());
+	var local_source = {!! $purchaseorders-> toJson() !!};
+
+	console.log(local_source);
+
+	$('#purchase-order-choice').autocomplete({
+		source: function (request, response) {
+			response($.map(local_source, function (item, key) {
+				return {
+					id: item.id,
+					value: item.purchaseorder_number,
+					supplier: item.supplier,
+					qty: item.amount
+				}
+			}))
+		},
+		select: function (event, ui) {
+			// console.log(ui);
+			$('#purchase-order-choice-value').val(ui.item.id);
+			$('.supplier').val(ui.item.supplier);
+			$('.qty').val(ui.item.qty);	
+			// $('#purchase-order-choice').val(ui.item.label); // display the selected text
+			// $('#purchase-order-choice_id').val(ui.item.value); // save selected id to hidden input
+			return false;
+		},
+		change: function (event, ui) {
+			console.log(ui);
+			$("#purchase-order-choice-value").val(ui.item ? ui.item.id : 0);
+		}
 	});
 </script>
 

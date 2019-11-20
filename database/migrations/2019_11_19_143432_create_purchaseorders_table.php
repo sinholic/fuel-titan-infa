@@ -17,7 +17,7 @@ class CreatePurchaseordersTable extends Migration
             $table->bigIncrements('id');
             $table->string('purchaseorder_number')->nullable()->default('text');
             $table->date('tanggal_purchaseorder')->nullable();
-            $table->string('suplier')->nullable()->default('text');
+            $table->string('supplier')->nullable()->default('text');
             $table->float('amount')->nullable()->default(123.45);
             $table->timestamps();
             $table->softDeletes();

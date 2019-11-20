@@ -13,6 +13,6 @@ class Purchaseorder extends Model
 
     public function receives()
     {
-        return $this->hasMany('App\PenerimaanModel', 'no_po', 'id');
+        return $this->hasMany('App\PenerimaanModel', 'purchaseorder_id', 'id');
     }
 }
