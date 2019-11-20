@@ -37,12 +37,12 @@
 
 					<div class="form-group">
 						<label>Qty</label>
-						<input type="text" name="po_qty" value="{{old('po_qty')}}" placeholder="" class="qty form-control" readonly autofocus>
+						<input type="number" name="po_qty" value="{{old('po_qty')}}" placeholder="" class="qty form-control" readonly autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Received Qty</label>
-						<input type="text" value="{{old('qty')}}" name="qty" placeholder="" class="form-control" required autofocus>
+						<input type="number" value="{{old('qty')}}" name="qty" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group">

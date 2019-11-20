@@ -20,10 +20,6 @@
     <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
 		 <i class="fas fa-file-excel"></i> Import Excel
     </button>
-
-    <a href="/companycode/export_excel" class="btn btn-success my-1" target="_blank">
-        <i class="fas fa-file-excel"></i> Export Excel
-    </a>
     
         <a href="/addcompany" class="btn btn-primary">
             <i class="fa fa-plus nav-icon"></i>
@@ -79,7 +75,7 @@
  <!-- Import Excel -->
 		<div class="modal fade" id="importExcel" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
-				<form method="post" action="/equipment/import_excel" enctype="multipart/form-data">
+				<form method="post" action="/companycode/import_excel" enctype="multipart/form-data">
 					<div class="modal-content">
 						<div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
