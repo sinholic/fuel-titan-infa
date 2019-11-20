@@ -19,6 +19,7 @@ class CreateTipeEquipmentTable extends Migration
             $table->string('tipe');
             $table->string('kelas');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
