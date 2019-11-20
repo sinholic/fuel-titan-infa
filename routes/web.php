@@ -91,6 +91,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/equipment/edit/{id}', 'EquipmentController@edit');
     Route::post('/equipment/update/{id}', 'EquipmentController@update');
     Route::get('/equipment/{id}/delete', 'EquipmentController@delete');
+    Route::get('/equipment/detail/{id}', 'EquipmentController@detail');
     Route::get('/equipment/print_qr', 'EquipmentController@print');
     Route::get('/equipment/generate-card/{id}', 'EquipmentController@generateCard');
 

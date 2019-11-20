@@ -22,8 +22,7 @@ class EquipmentController extends Controller
 
     public function print(Request $request)
     {
-        $equipments = EquipmentModel::
-            with(
+        $equipments = EquipmentModel::with(
                 'equipmentowner',
                 'equipmentcategory',
                 'reloadingunits'
@@ -67,9 +66,9 @@ class EquipmentController extends Controller
         $companycodes = Companycode::pluck('company_name', 'id');
         $manufactures = MerkModel::pluck('merk', 'id');
         return view('Equipment.tambah_equipment', [
-            'owners' => $owners, 
-            'equipment_categories' => $equipment_categories, 
-            'tipe' => $tipe, 
+            'owners' => $owners,
+            'equipment_categories' => $equipment_categories,
+            'tipe' => $tipe,
             'last_id' => $last_id,
             'companycodes' => $companycodes,
             'manufactures' => $manufactures
@@ -152,5 +151,14 @@ class EquipmentController extends Controller
         $equipment = EquipmentModel::find($id);
         $equipment->delete($equipment);
         return redirect('/equipment')->with('sukses', 'Data berhasil dihapus!');
+    }
+
+    public function detail($id)
+    {
+        $equipment = EquipmentModel::with('reloadingunits')->find($id);
+        // dd($equipment);
+        $owners = OwnerModel::pluck('vendor_name', 'id');
+        $equipment_categories = Equipmentcategory::pluck('nama', 'id');
+        return view('Equipment.detail_equipment', ['equipment' => $equipment, 'owners' => $owners, 'equipment_categories' => $equipment_categories]);
     }
 }
