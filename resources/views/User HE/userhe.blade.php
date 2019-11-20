@@ -42,8 +42,6 @@
                 <tr>
                     <th class="text-center">No</th>
                     <th class="text-center">No Alat</th>
-                    <th class="text-center">Tipe Alat</th>
-                    <th class="text-center">Owner</th>
                     <th class="text-center">Area Kerja</th>
                     <th class="text-center">Tanggal Operasi</th>
                     <th class="text-center">HM Awal</th>
@@ -67,10 +65,8 @@
                  @foreach($userhe ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->no_alat}}</td>
-                    <td>{{$s->tipe_alat}}</td>
-                    <td>{{$s->penyewa}}</td>
-                    <td>{{$s->nama_unit}}</td>
+                    <td>{{$s->equipment->equipment_number}}</td>
+                    <td>{{ $s->areakerja }}</td>
                     <td>{{date('d-M-Y', strtotime($s->tanggal_operasi))}}</td>
                     <td>{{$s->hm_awal}}</td>
                     <td>{{$s->hm_akhir}}</td>
@@ -78,7 +74,7 @@
                     <td>{{$s->km_awal}}</td>
                     <td>{{$s->km_akhir}}</td>
                     <td>{{$s->km_total}}</td>
-                    <td></td>
+                    <td>{{ $s->status->category .' - '.$s->status->status  }}</td>
                     <td>{{$s->job_order}}</td>
                     <td>{{$s->bbm}}</td>
                     <td>{{$s->helper}}</td>

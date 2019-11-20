@@ -27,7 +27,6 @@
 							required />
 						<input type="hidden" id="purchase-order-choice-value" value="{{old('purchaseorder_id')}}" name="purchaseorder_id"
 							class="form-control" required />
-
 					</div>
 
 					<div class="form-group">
@@ -77,18 +76,25 @@
 @push('scripts')
 
 <script>
-	var local_source = {!! $purchaseorders-> toJson() !!};
+	var local_source = {!! $purchaseorders->toJson() !!};
 
 	console.log(local_source);
 
 	$('#purchase-order-choice').autocomplete({
 		source: function (request, response) {
 			response($.map(local_source, function (item, key) {
-				return {
-					id: item.id,
-					value: item.purchaseorder_number,
-					supplier: item.supplier,
-					qty: item.amount
+				
+				var purchaseorder_number = item.purchaseorder_number.toUpperCase();
+				
+				if (purchaseorder_number.indexOf(request.term.toUpperCase()) != -1) {	
+					return {
+						id: item.id,
+						value: item.purchaseorder_number,
+						supplier: item.supplier,
+						qty: item.amount
+					}
+				}else{
+					return null;
 				}
 			}))
 		},

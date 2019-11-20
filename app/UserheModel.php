@@ -9,7 +9,7 @@ class UserheModel extends Model
 {
     use SoftDeletes;
     protected $table = "userhe";
-    protected $guarded = [];
+    protected $guarded = ['eq_label', 'eq_category', 'eq_owner'];
 
     public function equipment()
     {
