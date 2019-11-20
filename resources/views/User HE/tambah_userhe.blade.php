@@ -37,12 +37,6 @@
 					</div>
 
 					<div class="form-group">
-						<label>Tanggal Operasi</label>
-						<input type="date" name="tanggal_operasi" placeholder="" class="form-control" required
-							autofocus>
-					</div>
-
-					<div class="form-group">
 						<label>Area Kerja</label>
 						<input type="text" name="nama_unit" placeholder="" class="form-control" required autofocus>
 					</div>
@@ -51,7 +45,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Tanggal Operasi</label>
-								<input type="date" name="tanggal_operasi" placeholder="" class="form-control" required autofocus>
+								<input type="date" onchange="validateDate(this.value)" name="tanggal_operasi" placeholder="" class="form-control" required autofocus>
 							</div>
 						</div>
 					</div>	
@@ -260,5 +254,58 @@
 			document.getElementById('totalkm').value = result;
 		}
 	}
+</script>
+<script>
+
+var dates = {
+    convert:function(d) {
+        return (
+            d.constructor === Date ? d :
+            d.constructor === Array ? new Date(d[0],d[1],d[2]) :
+            d.constructor === Number ? new Date(d) :
+            d.constructor === String ? new Date(d) :
+            typeof d === "object" ? new Date(d.year,d.month,d.date) :
+            NaN
+        );
+    },
+    compare:function(a,b) {
+        return (
+            isFinite(a=this.convert(a).valueOf()) &&
+            isFinite(b=this.convert(b).valueOf()) ?
+            (a>b)-(a<b) :
+            NaN
+        );
+    },
+    inRange:function(d,start,end) {
+       return (
+            isFinite(d=this.convert(d).valueOf()) &&
+            isFinite(start=this.convert(start).valueOf()) &&
+            isFinite(end=this.convert(end).valueOf()) ?
+            start <= d && d <= end :
+            NaN
+        );
+    }
+}
+
+function validateDate(data) {
+var chooseDate = new Date(data);
+var currentDate = new Date();
+
+if(dates.compare(currentDate,chooseDate) < 0) {
+ 
+Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Tidak boleh mengisi tanggal besok!',
+  footer: ''
+})
+// alert("Tidak boleh mengisi tanggal kemarin");
+document.getElementById('adddata').disabled = true;
+} else {
+	document.getElementById('adddata').disabled = false;
+}
+
+}
+
 </script>
 @endpush

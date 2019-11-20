@@ -55,11 +55,11 @@
                  @foreach($penerimaan ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->purchaseorder->purchaseorder_number}}</td>
-                    <td>{{$s->purchaseorder->supplier}}</td>
-                    <td>{{$s->purchaseorder->amount }}</td>
+                    <td>{{$s->purchaseorder->purchaseorder_number ?? ''}}</td>
+                    <td>{{$s->purchaseorder->supplier ?? ''}}</td>
+                    <td>{{$s->purchaseorder->amount ?? '' }}</td>
                     <td>{{$s->qty}}</td>
-                    <td>{{$s->fixstation->name_station. " - (Tangki nomor : ". $s->fixstation->tank_number . ")"}}</td>
+                    <td>{{$s->fixstation->name_station. " - (Tangki nomor : ". $s->fixstation->tank_number . ")" ?? ''}}</td>
                     <td>{{$s->remark}}</td>
                     <td>
                          <div class="btn-group">
