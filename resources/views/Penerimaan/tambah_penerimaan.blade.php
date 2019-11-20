@@ -23,36 +23,36 @@
 
 					<div class="form-group">
 						<label>No PO</label>
-						<input id="purchase-order-choice" class="form-control"
+						<input id="purchase-order-choice" name="po_label" value="{{old('po_label')}}" class="form-control"
 							required />
-						<input type="hidden" id="purchase-order-choice-value" name="purchaseorder_d"
+						<input type="hidden" id="purchase-order-choice-value" value="{{old('purchaseorder_id')}}" name="purchaseorder_id"
 							class="form-control" required />
 
 					</div>
 
 					<div class="form-group">
 						<label for="">Supplier</label>
-						<input type="text" name="" placeholder="" class="supplier form-control" readonly autofocus>
+						<input type="text" name="po_supplier" value="{{old('po_supplier')}}" placeholder="" class="supplier form-control" readonly autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Qty</label>
-						<input type="text" name="" placeholder="" class="qty form-control" readonly autofocus>
+						<input type="text" name="po_qty" value="{{old('po_qty')}}" placeholder="" class="qty form-control" readonly autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Received Qty</label>
-						<input type="text" name="qty" placeholder="" class="form-control" required autofocus>
+						<input type="text" value="{{old('qty')}}" name="qty" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Remark</label>
-						<textarea name="remark" id="" cols="30" rows="10" class="form-control"></textarea>
+						<textarea name="remark" id="" cols="30" rows="5" class="form-control">{{old('remark')}}</textarea>
 					</div>
 
 					<div class="form-group">
 						<label>No Tangki</label>
-						{{ Form::select('fixstation_id', $fixstations, null, ['placeholder' => 'Pilih nomor tangki...', 'required', 'class' => 'form-control']) }}
+						{{ Form::select('fixstation_id', $fixstations, old('fixstation_id'), ['placeholder' => 'Pilih nomor tangki...', 'required', 'class' => 'form-control']) }}
 					</div>
 
 				</div>
