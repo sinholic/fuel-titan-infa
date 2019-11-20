@@ -20,24 +20,23 @@
 						{{implode('', $errors->all(':message'))}}
 					</div>
 					@endif
-
+					{!! Form::hidden('penyewa', 'Titan') !!}
 					<div class="form-group">
 						<label>Equipment Number</label>
-						<input id="equipment-number" class="form-control"
+						<input id="equipment-number" name="eq_label" class="form-control"
 							required />
-						<input type="hidden" id="equipment-number-value" name="purchaseorder_d"
+						<input type="hidden" id="equipment-number-value" name="equipment_id"
 							class="form-control" required />
-						{{ Form::select('equipment_id', $equipments, null, ['placeholder' => 'Pilih equipment...', 'required', 'class' => 'form-control set-to-select2']) }}
 					</div>
 
 					<div class="form-group">
-						<label for="">Tipe Alat</label>
-						<input type="text" name="tipe_alat" placeholder="" class="form-control" required autofocus>
+						<label for="">Equipment Category</label>
+						<input type="text" name="eq_category" placeholder="" class="equipment-category form-control" disabled autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Owner</label>
-						<input type="text" name="penyewa" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="eq_owner" placeholder="" class="equipment-owner form-control" disabled autofocus>
 					</div>
 
 					<div class="form-group">
@@ -48,17 +47,8 @@
 
 					<div class="form-group">
 						<label>Area Kerja</label>
-						<input type="text" name="nama_unit" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="areakerja" placeholder="" class="form-control" required autofocus>
 					</div>
-
-					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<label>Tanggal Operasi</label>
-								<input type="date" name="tanggal_operasi" placeholder="" class="form-control" required autofocus>
-							</div>
-						</div>
-					</div>	
 					
 					<div class="row">
 						<div class="col-md-6">
@@ -124,14 +114,14 @@
 					</div>
 
 					<div class="form-group">
-						<label>Job Order</label>
+						<label>Description</label>
 						<textarea name="job_order" class="form-control" rows="3" required autocomplete=""></textarea>
 					</div>
 
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<label>BBM</label>
+								<label>BBM (Liter)</label>
 								<input type="number" name="bbm" placeholder="" class="form-control" required
 									autocomplete="">
 							</div>
@@ -158,7 +148,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Pengawas</label>
-								<input type="text" name="pengawas" placeholder="" class="form-control" required
+								<input type="text" value="{{\Auth::user()->name}}" name="pengawas" placeholder="" class="form-control" readonly
 									autocomplete="">
 							</div>
 						</div>
@@ -185,6 +175,40 @@
 @push('scripts')
 
 <script>
+
+	var local_source = {!! $equipments->toJson() !!};
+
+	console.log(local_source);
+
+	$('#equipment-number').autocomplete({
+		source: function (request, response) {
+			response($.map(local_source, function (item, key) {
+				console.log(item);
+				
+				return {
+					id: item.id,
+					value: item.equipment_number,
+					owner: item.equipmentowner.vendor_name,
+					category: item.equipmentcategory.nama
+				}
+			}))
+		},
+		select: function (event, ui) {
+			// console.log(ui);
+			$('#equipment-number-value').val(ui.item.id);
+			$('.equipment-owner').val(ui.item.owner);
+			$('.equipment-category').val(ui.item.category);	
+			// $('#equipment-number').val(ui.item.label); // display the selected text
+			// $('#equipment-number_id').val(ui.item.value); // save selected id to hidden input
+			return false;
+		},
+		change: function (event, ui) {
+			console.log(ui);
+			$("#equipment-number-value").val(ui.item ? ui.item.id : 0);
+		}
+	});
+
+
 	function formatState(state) {
 		
 		if (!state.id) {

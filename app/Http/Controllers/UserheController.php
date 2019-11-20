@@ -22,7 +22,7 @@ class UserheController extends Controller
         foreach ($categories as $key => $category) {
             $statuses[$category->category] = Timesheetstatus::where('category', $category->category)->pluck('status', 'id');
         }
-        $equipments = EquipmentModel::pluck('equipment_number', 'id');
+        $equipments = EquipmentModel::with('equipmentcategory','equipmentowner')->get();
         return view('User HE.tambah_userhe', ['statuses' => $statuses, 'equipments' => $equipments]);
     }
 
