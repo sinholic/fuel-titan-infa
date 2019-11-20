@@ -29,7 +29,7 @@
     </div>
 
     <div class="card-body">
-        <table class="table table-striped table-responsive table table-bordered" id="myTable">
+        <table class="table table-striped table table-bordered" id="myTable">
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
@@ -48,12 +48,6 @@
                     <td>{{$s->inisial}}</td>
                     <td>
                         <div class="btn-group">
-
-                            <!-- URL::to('/admin/category/detail.id='.$cate-id -->
-                            <a href="/merk/detail/{{$s->id}}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom"
-                                title="Info">
-                                <i class="fa fa-info-circle nav-icon"></i>
-                            </a>
 
                             <a href="/merk/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip"
                                 data-placement="bottom" title="Edit">

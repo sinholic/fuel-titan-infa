@@ -34,8 +34,16 @@ class StatusController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function create(Request $request)
     {
+        $messages = [
+            'unique' => 'Nama User Level sudah ada'
+        ];
+        $this->validate($request, [
+            'nama' => 'unique:statuses,nama'
+        ], $messages);
+
         Status::create($request->all());
         return redirect('/status')->with('sukses', 'Data Berhasil Di Input!');
     }

@@ -28,7 +28,7 @@
 
                     <div class="form-group">
                         <label for="">Qty</label>
-                        <input type="text" name="qty" placeholder="" class="form-control" required autofocus>
+                        <input type="number" name="qty" placeholder="" class="form-control" required autofocus>
                     </div>
                     
                     <div class="form-group">
@@ -48,7 +48,7 @@
 
                     <div class="form-group">
 						<label>Stock Opname</label>
-						<input type="stockopname" name="stockopname" placeholder="" class="form-control" required autocomplete="">
+						<input type="number" name="stockopname" placeholder="" class="form-control" required autocomplete="">
                     </div>
 
 				</div>

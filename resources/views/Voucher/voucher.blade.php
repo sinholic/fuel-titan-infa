@@ -74,7 +74,7 @@
                                 <i class="fas fa-print"></i>
                             </a>
 
-                            <a href="/voucher/edit/{{$s->id_voucher}}" class="btn btn-warning  btn-sm"
+                            <a href="/voucher/edit/{{$s->id}}" class="btn btn-warning  btn-sm"
                                 data-toggle="tooltip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>

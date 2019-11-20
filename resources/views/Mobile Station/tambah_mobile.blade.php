@@ -38,7 +38,7 @@
 
 					<div class="form-group max-reload">
 						<label>Maksimal Pengisian Ulang</label>
-						<input type="text" name="fuel_max_reload" placeholder="" class="form-control">
+						<input type="number" name="fuel_max_reload" placeholder="" class="form-control">
 					</div>
 
 				</div>

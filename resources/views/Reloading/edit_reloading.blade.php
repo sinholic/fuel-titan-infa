@@ -38,12 +38,12 @@
 
                     <div class="form-group">
                         <label>Qty Solar</label>
-                        <input type="text" name="qty_solar" value="{{$reloading->qty_solar}}" class="form-control" required autofocus>
+                        <input type="number" name="qty_solar" value="{{$reloading->qty_solar}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
                         <label>Odometer (Km)</label>
-                        <input type="text" name="odometer" value="{{$reloading->odometer}}" class="form-control" required autofocus>
+                        <input type="number" name="odometer" value="{{$reloading->odometer}}" class="form-control" required autofocus>
                     </div>
 
 

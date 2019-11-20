@@ -28,7 +28,7 @@
 
                     <div class="form-group">
                         <label for="">Qty</label>
-                        <input type="text" name="qty" value="{{$pengajuan->qty}}" class="form-control" required autofocus>
+                        <input type="number" name="qty" value="{{$pengajuan->qty}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">

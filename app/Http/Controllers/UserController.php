@@ -27,13 +27,17 @@ class UserController extends Controller
     public function print()
     {
         $users = User::with('status')
-        ->get();
+            ->get();
         // dd($Equipment->Equipmentowner);
         return view('User.print_qr', ['users' => $users]);
     }
 
     public function create(Request $request)
     {
+        $this->validate($request, [
+            'email' => 'unique:users,email'
+        ]);
+
         $datas = $request->all();
         User::create($datas);
         return redirect('/user')->with('sukses', 'Data Berhasil Di Input!');

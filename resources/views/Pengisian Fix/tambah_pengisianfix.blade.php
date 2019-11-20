@@ -28,17 +28,17 @@
 
 					<div class="form-group">
 						<label>Id Driver</label>
-						<input type="text" name="id_driver" placeholder="" class="form-control" required autofocus>
+						<input type="number" name="id_driver" placeholder="" class="form-control" required autofocus>
                     </div>
                     
                     <div class="form-group">
 						<label>Qty Solar</label>
-						<input type="text" name="qty_solar" placeholder="" class="form-control" required autofocus>
+						<input type="number" name="qty_solar" placeholder="" class="form-control" required autofocus>
                     </div>
                     
                     <div class="form-group">
 						<label>Odometer</label>
-						<input type="text" name="odometer" placeholder="" class="form-control" required autofocus>
+						<input type="number" name="odometer" placeholder="" class="form-control" required autofocus>
                     </div>
                     
                     <div class="form-group">

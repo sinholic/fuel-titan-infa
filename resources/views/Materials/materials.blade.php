@@ -46,11 +46,6 @@
                     <td>
                          <div class="btn-group">
 
-                            <!-- URL::to('/admin/category/detail.id='.$cate-id -->
-                             <a href="/materials/detail/{{$s->id}}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Info">
-                                <i class="fa fa-info-circle nav-icon"></i>
-                            </a>
-
                             <a href="/materials/edit/{{$s->id}}"  class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
