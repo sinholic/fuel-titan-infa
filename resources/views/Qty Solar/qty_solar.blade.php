@@ -17,17 +17,9 @@
 		</div>
     @endif
     
-    <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
-		 <i class="fas fa-file-excel"></i> Import Excel
-    </button>
-
-    <a href="/qty_solar/export_excel" class="btn btn-success my-1" target="_blank">
-        <i class="fas fa-file-excel"></i> Export Excel
+    <a href="/tambah_qtysolar" class="btn btn-primary">
+        <i class="fa fa-plus nav-icon"></i>
     </a>
-    
-        <a href="/tambah_qtysolar" class="btn btn-primary">
-            <i class="fa fa-plus nav-icon"></i>
-        </a>
 
 <div class="card" style="border-top: 3px solid #9C5C22">
         
@@ -55,11 +47,6 @@
                     <td>
                          <div class="btn-group">
 
-                            <!-- URL::to('/admin/category/detail.id='.$cate-id -->
-                             <a href="/qty_solar/detail/{{$s->id}}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Info">
-                                <i class="fa fa-info-circle nav-icon"></i>
-                            </a>
-
                             <a href="/qty_solar/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
@@ -78,30 +65,4 @@
     </div>
 </div>
 
- <!-- Import Excel -->
-		<div class="modal fade" id="importExcel" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<form method="post" action="/qty_solar/import_excel" enctype="multipart/form-data">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
-						</div>
-						<div class="modal-body">
- 
-							{{ csrf_field() }}
- 
-							<label>Pilih file excel</label>
-							<div class="form-group">
-								<input type="file" name="file" required="required">
-							</div>
- 
-						</div>
-						<div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-primary">Import</button>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
 @endsection

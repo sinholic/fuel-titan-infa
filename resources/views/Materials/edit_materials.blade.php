@@ -31,7 +31,7 @@
                 <div class="card-footer">
 
                     <a href="/materials" class="btn btn-default">Back</a>
-                    <input type="submit" value="Save" class="pull-right btn btn-warning">
+                    <input type="submit" value="Save" class="pull-right btn btn-primary">
 
                 </div>
 

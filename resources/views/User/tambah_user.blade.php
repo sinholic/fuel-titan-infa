@@ -39,12 +39,12 @@
 
                     <div class="form-group">
 						<label>IMEI</label>
-						<input type="text" name="imei" placeholder="" class="form-control" required autofocus>
+						<input type="number" name="imei" placeholder="" class="form-control" required autofocus>
 					</div>
 					
 					<div class="form-group">
 						<label>IMEI 2</label>
-						<input type="text" name="imei2" placeholder="" class="form-control">
+						<input type="number" name="imei2" placeholder="" class="form-control">
                     </div>
 
 					<div class="form-group">

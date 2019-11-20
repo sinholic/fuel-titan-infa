@@ -46,13 +46,13 @@
                     <th class="text-center">No</th>
                     <th class="text-center">Nomor Equipment</th>
                     <th class="text-center">Nama Equipment</th>
-                    <th class="text-center">Tipe Equipment</th>
+                    {{-- <th class="text-center">Tipe Equipment</th> --}}
                     <th class="text-center">Equipment Category</th>
                     <th class="text-center">Status Kendaraan</th>
-                    <th class="text-center">Location</th>
+                    {{-- <th class="text-center">Location</th> --}}
                     <th class="text-center">Fuel Capacity</th>
                     <th class="text-center">PIC</th>
-                    <th class="text-center">Card Number</th>
+                    {{-- <th class="text-center">Card Number</th> --}}
                     <th class="text-center">Action</th>
                 </tr>
             </thead>
@@ -64,13 +64,13 @@
                     <td>{{$i++}}</td>
                     <td>{{$s->equipment_number}}</td>
                     <td>{{$s->equipment_name}}</td>
-                    <td>{{$s->equipmenttipe->tipe ?? ''}}</td>
+                    {{-- <td>{{$s->equipmenttipe->tipe ?? ''}}</td> --}}
                     <td>{{$s->equipmentcategory->nama ?? ''}}</td>
                     <td>{{$s->status_vehicle}}</td>
-                    <td>{{$s->location}}</td>
+                    {{-- <td>{{$s->location}}</td> --}}
                     <td>{{$s->fuel_capacity}}</td>
                     <td>{{$s->equipmentowner->vendor_name ?? ''}}</td>
-                    <td>{{$s->cards->last()->cardnumber ?? ''}}</td>
+                    {{-- <td>{{$s->cards->last()->cardnumber ?? ''}}</td> --}}
                     <td>
                         <div class="btn-group">
 
@@ -92,6 +92,11 @@
                             @else
                                 <button disabled class="btn btn-secondary btn-sm btn-disabled"><i class="fa fa-sync nav-icon"></i></button>
                             @endif
+
+                             <a href="/equipment/detail/{{$s->id}}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom"
+                                title="Info">
+                                <i class="fa fa-info-circle nav-icon"></i>
+                            </a>
 
                             <a href="/equipment/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip"
                                 data-placement="bottom" title="Edit">

@@ -50,10 +50,4 @@ class QtySolarController extends Controller
         $qty_solar->delete($qty_solar);
         return redirect('/qty_solar')->with('sukses', 'Data berhasil dihapus!');
     }
-
-    public function detail($id)
-    {
-        $qty_solar = QtySolarModel::find($id);
-        return view('Qty Solar.detail_qtysolar', ['qty_solar' => $qty_solar]);
-    }
 }

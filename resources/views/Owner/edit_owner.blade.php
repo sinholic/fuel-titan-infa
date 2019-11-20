@@ -48,7 +48,7 @@
 
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" name="phone" value="{{$owner->phone}}" class="form-control" required autofocus>
+                        <input type="number" name="phone" value="{{$owner->phone}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">

@@ -91,6 +91,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/equipment/edit/{id}', 'EquipmentController@edit');
     Route::post('/equipment/update/{id}', 'EquipmentController@update');
     Route::get('/equipment/{id}/delete', 'EquipmentController@delete');
+    Route::get('/equipment/detail/{id}', 'EquipmentController@detail');
     Route::get('/equipment/print_qr', 'EquipmentController@print');
     Route::get('/equipment/generate-card/{id}', 'EquipmentController@generateCard');
 
@@ -261,7 +262,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/qty_solar/edit/{id}', 'QtySolarController@edit');
     Route::post('/qty_solar/update/{id}', 'QtySolarController@update');
     Route::get('/qty_solar/{id}/delete', 'QtySolarController@delete');
-    Route::get('/qty_solar/detail/{id}', 'QtySolarController@detail');
 
     //Materials
     Route::get('/materials', 'MaterialsController@materials');
@@ -270,7 +270,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/materials/edit/{id}', 'MaterialsController@edit');
     Route::post('/materials/update/{id}', 'MaterialsController@update');
     Route::get('/materials/{id}/delete', 'MaterialsController@delete');
-    Route::get('/materials/detail/{id}', 'MaterialsController@detail');
 
     //Merk
     Route::get('/merk', 'MerkController@merk');
@@ -279,7 +278,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/merk/edit/{id}', 'MerkController@edit');
     Route::post('/merk/update/{id}', 'MerkController@update');
     Route::get('/merk/{id}/delete', 'MerkController@delete');
-    Route::get('/merk/detail/{id}', 'MerkController@detail');
 
     //Tipe Equipment
     Route::get('/tipe_equipment', 'TipeController@tipe_equipment');

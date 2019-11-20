@@ -38,7 +38,7 @@
                     
                     <div class="form-group">
 						<label>Expired Date</label>
-						<input type="date" name="expired_date" placeholder="" class="form-control" required autofocus>
+						<input type="date" onchange="validateDate(this.value)" name="expired_date" placeholder="" class="form-control" required autofocus>
                     </div>
 
 				</div>
@@ -47,7 +47,7 @@
 
 					<a href="/voucher" class="btn btn-default">Back</a>
                     &nbsp;&nbsp;
-					<input type="submit" value="Save" class="pull-right btn btn-primary">
+					<input type="submit" id="btnSave" value="Save" class="pull-right btn btn-primary">
 
 				</div>
 
@@ -58,6 +58,58 @@
 	</div>
 </div>
 
+<script>
 
+var dates = {
+    convert:function(d) {
+        return (
+            d.constructor === Date ? d :
+            d.constructor === Array ? new Date(d[0],d[1],d[2]) :
+            d.constructor === Number ? new Date(d) :
+            d.constructor === String ? new Date(d) :
+            typeof d === "object" ? new Date(d.year,d.month,d.date) :
+            NaN
+        );
+    },
+    compare:function(a,b) {
+        return (
+            isFinite(a=this.convert(a).valueOf()) &&
+            isFinite(b=this.convert(b).valueOf()) ?
+            (a>b)-(a<b) :
+            NaN
+        );
+    },
+    inRange:function(d,start,end) {
+       return (
+            isFinite(d=this.convert(d).valueOf()) &&
+            isFinite(start=this.convert(start).valueOf()) &&
+            isFinite(end=this.convert(end).valueOf()) ?
+            start <= d && d <= end :
+            NaN
+        );
+    }
+}
+
+function validateDate(data) {
+var chooseDate = new Date(data);
+var currentDate = new Date();
+
+if(dates.compare(currentDate,chooseDate) > -1) {
+ 
+Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Tidak boleh mengisi tanggal kemarin!',
+  footer: ''
+})
+// alert("Tidak boleh mengisi tanggal kemarin");
+document.getElementById('btnSave').disabled = true;
+} else {
+	document.getElementById('btnSave').disabled = false;
+}
+
+}
+
+</script>
 
 @endsection

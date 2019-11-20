@@ -56,7 +56,7 @@
             </ul>
         </li>
 
-        <li class="nav-item has-treeview">
+        <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
                 <p>
                     Tools

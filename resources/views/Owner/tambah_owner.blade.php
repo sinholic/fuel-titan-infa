@@ -22,12 +22,12 @@
 					@endif
 
 					<div class="form-group">
-						<label>Nama Vendor</label>
+						<label>Nama Perusahaan</label>
 						<input type="text " name="vendor_name" placeholder="" class="form-control" required autofocus>
 					</div>
 					
 					<div class="form-group">
-						<label>Inisial Vendor</label>
+						<label>Inisial Perusahaan</label>
 						<input type="text " name="vendor_inisial" placeholder="" class="form-control" required autofocus>
                     </div>
 
@@ -37,7 +37,7 @@
                     </div>
                     
                     <div class="form-group">
-						<label>Kategori Owner</label>
+						<label>Kategori</label>
 						{{ Form::select('owner_category', ['Internal' => 'Internal', 'External' => 'External'], null, ['placeholder' => 'Pilih kategori...', 'required', 'class' => 'form-control']) }}
                     </div>
                     
@@ -48,7 +48,7 @@
                     
                     <div class="form-group">
 						<label>Phone</label>
-						<input type="text" name="phone" placeholder="" class="form-control" required autocomplete="">
+						<input type="number" name="phone" placeholder="" class="form-control" required autocomplete="">
 					</div>
 					
 					<div class="form-group">

@@ -16,18 +16,10 @@
 			<strong>{{ $sukses }}</strong>
 		</div>
     @endif
-    
-    <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
-		 <i class="fas fa-file-excel"></i> Import Excel
-    </button>
 
-    <a href="/materials/export_excel" class="btn btn-success my-1" target="_blank">
-        <i class="fas fa-file-excel"></i> Export Excel
+    <a href="/tambah_materials" class="btn btn-primary">
+        <i class="fa fa-plus nav-icon"></i>
     </a>
-    
-        <a href="/tambah_materials" class="btn btn-primary">
-            <i class="fa fa-plus nav-icon"></i>
-        </a>
 
 <div class="card" style="border-top: 3px solid #9C5C22">
         
@@ -36,7 +28,7 @@
         </div>
 
     <div class="card-body">
-        <table class="table table-striped table-responsive table table-bordered" id="myTable">
+        <table class="table table-striped table-bordered" id="myTable">
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
@@ -53,11 +45,6 @@
                     <td>{{$s->materials}}</td>
                     <td>
                          <div class="btn-group">
-
-                            <!-- URL::to('/admin/category/detail.id='.$cate-id -->
-                             <a href="/materials/detail/{{$s->id}}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Info">
-                                <i class="fa fa-info-circle nav-icon"></i>
-                            </a>
 
                             <a href="/materials/edit/{{$s->id}}"  class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>

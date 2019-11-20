@@ -4,13 +4,13 @@
 
 <div class="row">
     <div class="col-md-12">
-        <form action="/equipment/update/{{$equipment->id}}" method="POST">
+        <form action="#" method="POST">
 
             @csrf
            
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Edit Equipment & Unit Data</h3>
+                    <h3 class="card-title">Detail Equipment & Unit Data</h3>
                 </div>
 
                 <div class="card-body">
@@ -23,17 +23,17 @@
 
                     <div class="form-group">
                         <label>Equipment Info</label>
-                        <input type="text " name="equipment_info" value="{{ $equipment->equipment_info }}" class="form-control" required autofocus>
+                        <input type="text " name="equipment_info" value="{{ $equipment->equipment_info }}" class="form-control" readonly required autofocus>
                     </div>
 
                     <div class="form-group">
                         <label>Equipment Type</label>
-                        <input type="text " name="equipment_type" value="{{ $equipment->equipment_type }}" class="form-control" required autofocus>
+                        <input type="text " name="equipment_type" value="{{ $equipment->equipment_type }}" class="form-control" readonly required autofocus>
                     </div>
 
                     <div class="form-group">
                         <label>Manufacture</label>
-                        <input type="text " name="manufacture_id" value="{{ $equipment->manufacture_id }}" class="form-control" required autofocus>
+                        <input type="text " name="manufacture_id" value="{{ $equipment->manufacture_id }}" class="form-control" readonly required autofocus>
                     </div>
 
                     <div class="form-group">
@@ -53,32 +53,32 @@
 
                     <div class="form-group">
                         <label>Equipment Name</label>
-                        <input type="text" name="equipment_name" value="{{$equipment->equipment_name}}" class="form-control" required autofocus>
+                        <input type="text" name="equipment_name" value="{{$equipment->equipment_name}}" class="form-control" readonly required autofocus>
                     </div>
 
                     <div class="form-group">
                         <label for="">Equipment Category</label>
-                        {{ Form::select('equipment_category', $equipment_categories, $equipment->equipment_category, ['placeholder' => 'Pilih kategori...', 'required', 'class' => 'form-control']) }}
+                        {{ Form::select('equipment_category', $equipment_categories, $equipment->equipment_category, ['placeholder' => 'Pilih kategori...', 'required', 'class' => 'form-control', 'readonly']) }}
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Status Kendaraan</label>
-                        {{ Form::select('status_vehicle', ['Rental' => 'Rental', 'Internal' => 'Internal'], $equipment->status_vehicle, ['placeholder' => 'Pilih status...', 'required', 'class' => 'form-control']) }}
+                        {{ Form::select('status_vehicle', ['Rental' => 'Rental', 'Internal' => 'Internal'], $equipment->status_vehicle, ['placeholder' => 'Pilih status...', 'required', 'class' => 'form-control', 'readonly']) }}
                     </div>
 
                     <div class="form-group">
                         <label>Location</label>
-                        <input type="text" name="location" value="{{$equipment->location}}" class="form-control" required autofocus>
+                        <input type="text" name="location" value="{{$equipment->location}}" class="form-control" readonly required autofocus>
                     </div>
 
                     <div class="form-group">
                         <label>Fuel Capacity</label>
-                        <input type="text" name="fuel_capacity" value="{{$equipment->fuel_capacity}}" class="form-control" required autofocus>
+                        <input type="text" name="fuel_capacity" value="{{$equipment->fuel_capacity}}" class="form-control" readonly required autofocus>
                     </div>
 
                     <div class="form-group">
                         <label for="">Owner</label>
-                        {{ Form::select('owner_id', $owners, $equipment->owner_id, ['placeholder' => 'Pilih owner...', 'required', 'class' => 'form-control']) }}
+                        {{ Form::select('owner_id', $owners, $equipment->owner_id, ['placeholder' => 'Pilih owner...', 'required', 'class' => 'form-control', 'readonly']) }}
                     </div>
 
                     <div class="form-group">
@@ -96,8 +96,7 @@
                 <div class="card-footer">
 
                     <a href="/equipment" class="btn btn-default">Back</a>
-                    <input type="submit" value="Save" class="pull-right btn btn-warning">
-
+                 
                 </div>
 
             </div>

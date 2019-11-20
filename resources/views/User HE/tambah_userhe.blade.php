@@ -132,7 +132,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>BBM</label>
-								<input type="text" name="bbm" placeholder="" class="form-control" required
+								<input type="number" name="bbm" placeholder="" class="form-control" required
 									autocomplete="">
 							</div>
 						</div>

@@ -57,13 +57,13 @@
                  @foreach($mobile ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->equipment->equipment_number}}</td>
-                    <td>{{$s->equipment->equipment_name}}</td>
-                    <td>{{$s->equipment->status_vehicle}}</td>
-                    <td>{{$s->fixstation->name_station}}</td>
-                    <td>{{$s->equipment->fuel_capacity}}</td>
+                    <td>{{$s->equipment->equipment_number ?? ''}}</td>
+                    <td>{{$s->equipment->equipment_name ?? ''}}</td>
+                    <td>{{$s->equipment->status_vehicle  ?? ''}}</td>
+                    <td>{{$s->fixstation->name_station  ?? ''}}</td>
+                    <td>{{$s->equipment->fuel_capacity  ?? ''}}</td>
                     <td>{{$s->impress_status ? "Enabled" : "Disabled"}}</td>
-                    <td>{{$s->fuel_max_reload}}</td>
+                    <td>{{$s->fuel_max_reload  ?? ''}}</td>
                     <td>
                          <div class="btn-group">
 
