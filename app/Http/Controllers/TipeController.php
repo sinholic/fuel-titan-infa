@@ -22,6 +22,11 @@ class TipeController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request, [
+            'tipe' => 'unique:tipe_equipment',
+            'kelas' => 'unique:tipe_equipment'
+        ]);
+
         TipeModel::create($request->all());
         return redirect('/tipe_equipment')->with('sukses', 'Data Berhasil Di Input!');
     }

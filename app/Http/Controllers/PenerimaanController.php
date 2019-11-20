@@ -25,14 +25,14 @@ class PenerimaanController extends Controller
         // }])
         // ->get();
         // dd($purchaseorders);
-        $purchaseorders = Purchaseorder::whereNotIn('id', function($q){
+        $purchaseorders = Purchaseorder::whereNotIn('id', function ($q) {
             $q->select(\DB::raw('purchaseorders.id'))
-            ->from('purchaseorders')
-            ->leftJoin('penerimaan', 'purchaseorders.id', '=', 'penerimaan.purchaseorder_id')
-            ->groupBy(\DB::raw('purchaseorders.id'))
-            ->having(\DB::raw('SUM(penerimaan.qty)'), '>=', \DB::raw('purchaseorders.amount'));
+                ->from('purchaseorders')
+                ->leftJoin('penerimaan', 'purchaseorders.id', '=', 'penerimaan.purchaseorder_id')
+                ->groupBy(\DB::raw('purchaseorders.id'))
+                ->having(\DB::raw('SUM(penerimaan.qty)'), '>=', \DB::raw('purchaseorders.amount'));
         })
-        ->get();
+            ->get();
         return view('Penerimaan.tambah_penerimaan', ['fixstations' => $fixstations, 'purchaseorders' => $purchaseorders]);
     }
 
@@ -46,19 +46,20 @@ class PenerimaanController extends Controller
             $sum = $purchaseorder->receives->sum('qty');
             $total = intval($purchaseorder->amount) - $sum;
             // dd($total);
+            $request->validate(
+                [
+                    'qty' => 'required|numeric|max:' . $total,
+                    'fixstation_id' => 'required',
+                    'remark' => 'required'
+                ],
+                [
+                    // This PO has already received 20,000 so you can only receive 10,000 on maximum 
+                    'qty.max' => 'This PO has already received ' . $sum . ' so you can only receive ' . $total . ' on maximum'
+                ]
+            );
+        } else {
             $request->validate([
-                'qty' => 'required|numeric|max:'.$total,
-                'fixstation_id' => 'required',
-                'remark' => 'required'
-            ],
-            [
-                // This PO has already received 20,000 so you can only receive 10,000 on maximum 
-                'qty.max' => 'This PO has already received '.$sum.' so you can only receive '.$total. ' on maximum'
-            ]);
-
-        }else {
-            $request->validate([
-                'qty' => 'required|numeric|max:'.$purchaseorder->amount,
+                'qty' => 'required|numeric|max:' . $purchaseorder->amount,
                 'fixstation_id' => 'required',
                 'remark' => 'required'
             ]);

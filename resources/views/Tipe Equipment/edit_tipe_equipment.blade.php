@@ -23,7 +23,7 @@
 
                     <div class="form-group">
                         <label>Merk</label>
-                    <input type="text" name="merk" value="{{$tipe_equipment->merk}}" class="form-control" required autofocus>
+                    <input type="text" name="merk" value="{{$tipe_equipment->merk}}" class="form-control" required autofocus readonly>
                     </div>
 
                     <div class="form-group">

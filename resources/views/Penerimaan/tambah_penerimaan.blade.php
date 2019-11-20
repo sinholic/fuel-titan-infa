@@ -83,11 +83,18 @@
 	$('#purchase-order-choice').autocomplete({
 		source: function (request, response) {
 			response($.map(local_source, function (item, key) {
-				return {
-					id: item.id,
-					value: item.purchaseorder_number,
-					supplier: item.supplier,
-					qty: item.amount
+				
+				var purchaseorder_number = item.purchaseorder_number.toUpperCase();
+				
+				if (purchaseorder_number.indexOf(request.term.toUpperCase()) != -1) {	
+					return {
+						id: item.id,
+						value: item.purchaseorder_number,
+						supplier: item.supplier,
+						qty: item.amount
+					}
+				}else{
+					return null;
 				}
 			}))
 		},
