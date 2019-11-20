@@ -29,15 +29,13 @@
 					<div class="form-group">
 						<label>Choose Station</label>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="mobile" id="mobile1"
-								value="1">
+							<input class="form-check-input mobile1" type="radio" name="mobile" id="mobile1" value="1">
 							<label class="form-check-label" for="mobile1">
 								Mobile Station
 							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="mobile" id="mobile2"
-								value="0">
+							<input class="form-check-input mobile2" type="radio" name="mobile" id="mobile2" value="0">
 							<label class="form-check-label" for="mobile2">
 								Fix Station
 							</label>
@@ -65,7 +63,7 @@
 
 				<div class="card-footer">
 
-					<a href="/user_assign" class="btn btn-default">Back</a>
+					<a href="/userassign" class="btn btn-default">Back</a>
 					&nbsp;&nbsp;
 					<input type="submit" value="Save" class="pull-right btn btn-primary">
 
@@ -81,9 +79,24 @@
 @endsection
 
 @push('scripts')
-	
-	<script>
-		
-	</script>
+
+<script>
+	$('.station-container').hide();
+	$('input[type=radio][name=mobile]').change(function () {
+		if (this.value == 1) {
+			$('.station-container').show();
+			$('#mobile-station').show();
+			$('#fix-station').hide();
+		} else if (this.value == 0) {
+			$('.station-container').show();
+			$('#mobile-station').hide();
+			$('#fix-station').show();
+		}
+	});
+
+	$('select').change(function(){
+		$('#station_id').val($(this).val());
+	});
+</script>
 
 @endpush

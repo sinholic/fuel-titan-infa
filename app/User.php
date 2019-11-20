@@ -56,8 +56,13 @@ class User extends Authenticatable
         return $this->belongsTo('App\Companycode', 'companycode_id', 'id');
     }
 
-    public function assignments()
+    public function fixassignments()
     {
-        return $this->belongsToMany('App\FixStationModel', 'userassignments', 'user_id', 'station_id')->withPivot('start_date', 'end_date', 'mobile')->withTimestamps();
+        return $this->belongsToMany('App\FixStationModel', 'userassignments', 'user_id', 'station_id')->wherePivot('mobile', 0)->withPivot('start_date', 'end_date', 'mobile')->withTimestamps();
+    }
+
+    public function mobileassignments()
+    {
+        return $this->belongsToMany('App\MobileModel', 'userassignments', 'user_id', 'station_id')->wherePivot('mobile', 1)->withPivot('start_date', 'end_date', 'mobile')->withTimestamps();
     }
 }

@@ -13,33 +13,64 @@ class UserassignmentController extends Controller
     public function tambah()
     {
         $users = User::pluck('name', 'id');
-        $fixstations = FixStationModel::pluck('name_station', 'id');
-        $mobilestation = MobileModel::select(\DB::raw('CONCAT(equipment_number, " - ", equipment_name) as name'),'mobile_station.id')
+        $fixstations = FixStationModel::groupBy('name_station')->pluck('name_station', 'id');
+        $mobilestations = MobileModel::select(\DB::raw('CONCAT(equipment_number, " - ", equipment_name) as name'),'mobile_station.id')
         ->join('equipment_unitdata', 'equipment_id', '=', 'equipment_unitdata.id')
         ->pluck('name', 'id');
 
         return view('User Assignment.tambah_assignment', [
             'users' => $users,
             'fixstations' => $fixstations,
+            'mobilestations' => $mobilestations,
         ]);
     }
 
     public function index()
     {
         // \DB::enableQueryLog();
-        $user = User::where('companycode_id', \Auth::user()->companycode_id)
-            ->with('assignments')
-            ->whereHas('assignments', function ($q) {
+        $user = User::with('fixassignments','mobileassignments')
+            ->whereHas('fixassignments', function ($q) {
+                $q->where('start_date', '<=', \Carbon\Carbon::now()->toDateString())
+                    ->whereDate('end_date', '>=', \Carbon\Carbon::now()->toDateString());
+            })
+            ->orWhereHas('mobileassignments', function ($q) {
                 $q->where('start_date', '<=', \Carbon\Carbon::now()->toDateString())
                     ->whereDate('end_date', '>=', \Carbon\Carbon::now()->toDateString());
             })
             ->get();
+        // foreach ($user as $key => $value) {
+        //     if ($value->mobileassignments->last() != NULL) {
+        //         echo "HAI";
+        //     }else{
+        //         print_r($value->fixassignments->first()->name_station);
+        //         echo "HELLO";
+        //     }
+        // }
+        // dd($user);
         // dd(\DB::getQueryLog());
         return view('User Assignment.assignment', ['user' => $user]);
     }
 
     public function create(Request $request)
     {
+        // dd($request);
+        if ($request->mobile == 1) {
+            User::find($request->user_id)->mobileassignments()->attach([
+                $request->station_id => [
+                    'mobile' => $request->mobile,
+                    'start_date' => $request->start_date,
+                    'end_date' => $request->end_date
+                ]
+            ]);
+        }else {
+            User::find($request->user_id)->fixassignments()->attach([
+                $request->station_id => [
+                    'mobile' => $request->mobile,
+                    'start_date' => $request->start_date,
+                    'end_date' => $request->end_date
+                ]
+            ]);
+        }
 
         return redirect('/userassign')->with('sukses', 'Data Berhasil Di Input!');
     }

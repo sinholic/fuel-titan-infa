@@ -38,19 +38,21 @@
                     <th class="text-center">No</th>
                     <th class="text-center">Nama</th>
                     <th class="text-center">Station Name</th>
-                    <th class="text-center">Mobile</th>
                     <th class="text-center">Start Date</th>
                     <th class="text-center">End Date</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
             <tbody>
-                 @foreach($user ?? '' as $s)
+                @foreach($user ?? '' as $s)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{$s->user_id}}</td>
-                    <td>{{$s->station_id}}</td>
-                    <td>{{$s->mobile}}</td>
+                    <td>{{ $s->name }}</td>
+                    @if ($s->mobileassignments->last() != NULL)
+                    <td>{{ isset($s->mobileassignments) ? 'Mobile: '.$s->mobileassignments->last()->with('equipment')->first()->equipment->equipment_number : '' }}</td>
+                    @else
+                    <td>{{ isset($s->fixassignments) ?$s->fixassignments->first()->name_station : ''}}</td>
+                    @endif
                     <td>{{$s->start_date}}</td>
                     <td>{{$s->end_date}}</td>
                     <td>
