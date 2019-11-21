@@ -16,6 +16,17 @@ class PurchaseorderController extends Controller
         return view('Purchase Order.purchaseorder', ['purchaseorders' => $purchaseorders]);
     }
 
+    public function tambah()
+    {
+        return view('Purchase Order.add_purchase');
+    }
+
+    public function create(Request $request)
+    {
+        Purchaseorder::create($request->all());
+        return redirect('/purchaseorder')->with('sukses', 'Data Berhasil Di Input!');
+    }
+
     public function import_excel(Request $request)
     {
         //validasi

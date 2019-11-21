@@ -55,6 +55,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Purhcase Order
     Route::get('/purchaseorder', 'PurchaseorderController@index');
+    Route::get('/add_purchase', 'PurchaseorderController@tambah');
+    Route::post('/purchase/create', 'PurchaseorderController@create');
     // Route::get('/station/json', 'StationController@json');
     // Route::post('/station/create', 'StationController@create');
     Route::get('/tampiladdpurchaseorder', 'StationController@tampiladd');

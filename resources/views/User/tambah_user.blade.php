@@ -23,7 +23,7 @@
 
 					
 					<div class="form-group">
-						<label>User level</label>
+						<label>Company Name</label>
 						{{ Form::select('companycode_id', $companycodes, null, ['placeholder' => 'Pilih company...', 'required', 'class' => 'form-control']) }}
                     </div>
 
