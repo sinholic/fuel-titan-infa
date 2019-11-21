@@ -13,7 +13,7 @@
 	@if ($sukses = Session::get('sukses'))
 		<div class="alert alert-success alert-block">
 			<button type="button" class="close" data-dismiss="alert">×</button> 
-			<strong>{{ $sukses }}</strong>
+			<i class="icon fas fa-check">&nbsp; &nbsp; <strong>{{ $sukses }}</strong></i>
 		</div>
     @endif
     
@@ -21,13 +21,9 @@
 		 <i class="fas fa-file-excel"></i> Import Excel
     </button>
 
-    <a href="/equipment_category/export_excel" class="btn btn-success my-1" target="_blank">
-        <i class="fas fa-file-excel"></i> Export Excel
+    <a href="/addequipment_category" class="btn btn-primary">
+        <i class="fa fa-plus nav-icon"></i>
     </a>
-    
-        <a href="/addequipment_category" class="btn btn-primary">
-            <i class="fa fa-plus nav-icon"></i>
-        </a>
 
 <div class="card" style="border-top: 3px solid #9C5C22">
         
@@ -56,11 +52,6 @@
                     <td>
                          <div class="btn-group">
 
-                            <!-- URL::to('/admin/category/detail.id='.$cate-id -->
-                             <a href="#" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Info">
-                                <i class="fa fa-info-circle nav-icon"></i>
-                            </a>
-
                             <a href="/equipment_category/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
@@ -82,7 +73,7 @@
  <!-- Import Excel -->
 		<div class="modal fade" id="importExcel" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
-				<form method="post" action="/equipment/import_excel" enctype="multipart/form-data">
+				<form method="post" action="/equipment_category/import_excel" enctype="multipart/form-data">
 					<div class="modal-content">
 						<div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>

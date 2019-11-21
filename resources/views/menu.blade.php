@@ -66,7 +66,7 @@
             <ul class="nav nav-treeview offset-md-2">
                 <li class="nav-item">
                     <a href="/purchaseorder" class="nav-link">
-                        <p>Purchase Orders</p>
+                        <p>Purchase Orders Fuel</p>
                     </a>
                 </li>
 

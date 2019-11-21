@@ -14,7 +14,15 @@
 		<div class="alert alert-success alert-block">
 			<button type="button" class="close" data-dismiss="alert">×</button> 
 			<strong>{{ $sukses }}</strong>
-		</div>
+        </div>
+        <script>Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Sukses!',
+            showConfirmButton: false,
+            timer: 1500
+            })
+        </script>
     @endif
 
     <a href="/tambah_materials" class="btn btn-primary">
@@ -28,7 +36,7 @@
         </div>
 
     <div class="card-body">
-        <table class="table table-striped table-bordered" id="myTable">
+        <table class="table table-striped table-bordered" id="myTable"> 
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>

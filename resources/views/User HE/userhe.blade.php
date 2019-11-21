@@ -13,7 +13,7 @@
 	@if ($sukses = Session::get('sukses'))
 		<div class="alert alert-success alert-block">
 			<button type="button" class="close" data-dismiss="alert">×</button> 
-			<strong>{{ $sukses }}</strong>
+			<i class="icon fas fa-check">&nbsp; &nbsp; <strong>{{ $sukses }}</strong></i>
 		</div>
     @endif
     
@@ -65,7 +65,7 @@
                  @foreach($userhe ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->equipment->equipment_number}}</td>
+                    <td>{{$s->equipment->equipment_number ?? ''}}</td>
                     <td>{{ $s->areakerja }}</td>
                     <td>{{date('d-M-Y', strtotime($s->tanggal_operasi))}}</td>
                     <td>{{$s->hm_awal}}</td>

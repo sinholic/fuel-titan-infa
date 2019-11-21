@@ -188,6 +188,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/equipment_category/edit/{id}', 'EquipmentCategoryController@edit');
     Route::post('/equipment_category/update/{id}', 'EquipmentCategoryController@update');
     Route::get('/equipment_category/{id}/delete', 'EquipmentCategoryController@delete');
+    Route::post('/equipment_category/import_excel', 'EquipmentCategoryController@import_excel');
 
     //Pengisian Solar On Mobile
     Route::get('/pengisian_mobile', 'PengisianMobileController@pengisian_mobile');

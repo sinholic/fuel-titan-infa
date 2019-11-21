@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Equipmentcategory;
+use App\Uploadedfile;
 use Illuminate\Http\Request;
+use App\Imports\EquipmentCategoryImport;
 
 class EquipmentcategoryController extends Controller
 {
@@ -76,5 +78,38 @@ class EquipmentcategoryController extends Controller
         $equipment_category = Equipmentcategory::find($id);
         $equipment_category->delete($equipment_category);
         return redirect('/equipment_category')->with('sukses', 'Data berhasil dihapus!');
+    }
+
+    public function import_excel(Request $request)
+    {
+        //validasi
+        $this->validate($request, [
+            'file' => 'required|mimes:csv,xls,xlsx'
+        ]);
+
+        $fileExtension = $request->file('file');
+
+        $file = $request->file('file')->storeAs(
+            'equipmentcategories',
+            \Auth::user()->id . "-" . \Carbon\Carbon::now()->timestamp . "." . $fileExtension->clientExtension()
+        );
+
+        $upload_file = Uploadedfile::create([
+            'uplodedpath' => $file,
+            'uploaded' => 1
+        ])->id;
+
+        //import data
+        \Excel::import(new EquipmentCategoryImport, storage_path('app/') . $file);
+
+        Uploadedfile::find($upload_file)->update([
+            'processed' => 1
+        ]);
+
+        //notifikasi dengan session
+        \Session::flash('sukses', 'Data Equipment Category Berhasil Di Import!');
+
+        //alihkan kembali
+        return redirect('/equipment_category');
     }
 }

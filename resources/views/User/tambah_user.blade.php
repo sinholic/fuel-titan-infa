@@ -44,7 +44,7 @@
 					
 					<div class="form-group">
 						<label>IMEI 2</label>
-						<input type="number" name="imei2" placeholder="" class="form-control">
+						<input type="number" name="imei2" placeholder="" class="form-control" required autofocus>
                     </div>
 
 					<div class="form-group">

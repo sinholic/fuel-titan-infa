@@ -59,7 +59,7 @@
                     <table>
                     @php 
                         $qty = $voucher->qty;
-                        $vendorName = $voucher->voucherowner->vendor_name;
+                        $vendorName = isset($voucher->voucherowner) ? $voucher->voucherowner->vendor_name:"null";
                         $expired_date = $voucher->expired_date;
                     @endphp
                     @foreach($voucher->vouchercodes as $s)
@@ -82,7 +82,7 @@ Expired: $expired_date"
                         </tr>
                         <tr>
                             <td style="margin-top: 30px" colspan=2>
-                                <p>Owner: {{$voucher->voucherowner->vendor_name}} </p>
+                                <p>Owner: {{isset($voucher->voucherowner)?$voucher->voucherowner->vendor_name:"null"}} </p>
                                 <p>SN: {{$s->serial_number}} </p>
                                 <p>Exp. Date: {{date('d M Y', strtotime($voucher->expired_date))}}</p>
                                 <hr >

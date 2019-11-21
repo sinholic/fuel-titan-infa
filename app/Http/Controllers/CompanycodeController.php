@@ -89,7 +89,9 @@ class CompanycodeController extends Controller
     {
         //validasi
         $this->validate($request, [
-            'file' => 'required|mimes:csv,xls,xlsx'
+            'file' => 'required|mimes:csv,xls,xlsx',
+            'company_name' => 'unique:companycodes,company_name',
+            'company_inisial' => 'unique:companycodes,company_inisial'
         ]);
 
         $fileExtension = $request->file('file');
@@ -103,15 +105,6 @@ class CompanycodeController extends Controller
             'uplodedpath' => $file,
             'uploaded' => 1
         ])->id;
-
-        //menangkap file excel
-        // $file = $request->file('file');
-
-        //membuat nama file unik
-        // $nama_file = rand() . $file->getClientOriginalName();
-
-        //upload ke folder file_station di dalam folder public
-        // $file->move('file_station', $nama_file);
 
         //import data
         \Excel::import(new CompanyCodesImport, storage_path('app/') . $file);

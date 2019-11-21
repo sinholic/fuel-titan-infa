@@ -13,7 +13,7 @@
 	@if ($sukses = Session::get('sukses'))
 		<div class="alert alert-success alert-block">
 			<button type="button" class="close" data-dismiss="alert">×</button> 
-			<strong>{{ $sukses }}</strong>
+			<i class="icon fas fa-check">&nbsp; &nbsp; <strong>{{ $sukses }}</strong></i>
 		</div>
     @endif
     
@@ -84,10 +84,11 @@
  
 							{{ csrf_field() }}
  
-							<label>Pilih file excel</label>
-							<div class="form-group">
-								<input type="file" name="file" required="required">
-							</div>
+							<h6>Pilih File Excel</h6>
+                            <div class="custom-file">
+                                <input type="file" name="file" class="custom-file-input" id="exampleInputFile">
+                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            </div>
  
 						</div>
 						<div class="modal-footer">

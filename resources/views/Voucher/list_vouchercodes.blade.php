@@ -31,14 +31,8 @@
                     </thead>
                     <tbody>
                         @foreach($voucher->vouchercodes as $vouchercode)
-                        @php $string =
-                        "Voucher: $vouchercode->code_number,
-                        Qty : $voucher->qty,
-                        Owner: $voucher->voucherowner->vendor,
-                        Expired: $voucher->expired_date"
-                        @endphp
                         <tr>
-                            <td>{{ $voucher->voucherowner->vendor_name }}</td>
+                            <td>{{ $voucher->voucherowner->vendor_name ?? '' }}</td>
                             <td>{{ $vouchercode->serial_number }}</td>
                             <td>{{ $vouchercode->used ? "Used" : $vouchercode->rejected ? "Rejected" : "Not Used / Rejected" }}
                             </td>

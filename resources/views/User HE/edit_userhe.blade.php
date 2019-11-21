@@ -149,7 +149,7 @@
                 <div class="card-footer">
 
                     <a href="/userhe" class="btn btn-default">Back</a>
-                    <input type="submit" value="Save" class="pull-right btn btn-warning">
+                    {{-- <input type="submit" value="Save" class="pull-right btn btn-warning"> --}}
 
                 </div>
 

@@ -35,7 +35,9 @@ class UserController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, [
-            'email' => 'unique:users,email'
+            'email' => 'unique:users,email',
+            'imei' => 'unique:users',
+            'imei2' => 'unique:users'
         ]);
 
         $datas = $request->all();
