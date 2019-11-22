@@ -51,7 +51,7 @@
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/qty_solar/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
+                            <a href="#" class="btn btn btn-danger btn-sm delete" qty-nama="{{$s->qty_solar}}" qty-id="{{$s->id}}">
                                 <i class="fa fa-trash nav-icon"></i>
                             </a>
 
@@ -64,5 +64,25 @@
         </table>
     </div>
 </div>
+
+<script>
+    $('.delete').click(function(){
+        var qty_id = $(this).attr('qty-id');
+        var qty_nama = $(this).attr('qty-nama');
+        swal({
+        title: "Are you sure?",
+        text: "Anda yakin akan menghapus varian solar "+qty_nama+ " liter?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true, 
+        })
+        .then((willDelete) => { 
+            console.log(willDelete);
+        if (willDelete) {
+           window.location = "/qty_solar/"+qty_id+"/delete"
+        }
+        });
+    });
+</script>
 
 @endsection

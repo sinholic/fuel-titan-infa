@@ -55,8 +55,8 @@
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/merk/{{$s->id}}/delete"
-                                class="btn btn btn-danger btn-sm">
+                           
+                            <a href="#" class="btn btn btn-danger btn-sm delete" merk-nama="{{$s->merk}}" merk-id="{{$s->id}}">
                                 <i class="fa fa-trash nav-icon"></i>
                             </a>
 
@@ -69,4 +69,24 @@
         </table>
     </div>
 </div>
+
+<script>
+    $('.delete').click(function(){
+        var merk_id = $(this).attr('merk-id');
+        var merk_nama = $(this).attr('merk-nama');
+        swal({
+        title: "Are you sure?",
+        text: "Anda yakin akan menghapus merk "+merk_nama+ "?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true, 
+        })
+        .then((willDelete) => { 
+            console.log(willDelete);
+        if (willDelete) {
+           window.location = "/merk/"+merk_id+"/delete"
+        }
+        });
+    });
+</script>
 @endsection

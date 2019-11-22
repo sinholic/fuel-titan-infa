@@ -28,7 +28,7 @@
 
                     <div class="form-group">
                         <label>Equipment info</label>
-                        <input type="text " name="equipment_info" placeholder="" class="form-control" required autofocus>
+                        <input type="text" name="equipment_info" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">

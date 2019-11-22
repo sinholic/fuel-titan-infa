@@ -79,8 +79,7 @@
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" data-toggle="tooltip"
-                                href="/voucher/{{$s->id}}/delete" title="Hapus" class="btn btn btn-danger btn-sm">
+                            <a href="#" class="btn btn btn-danger btn-sm delete" voucher-id="{{$s->id}}">
                                 <i class="fa fa-trash nav-icon"></i>
                             </a>
 
@@ -93,5 +92,24 @@
         </table>
     </div>
 </div>
+
+<script>
+    $('.delete').click(function(){
+        var voucher_id = $(this).attr('voucher-id');
+        swal({
+        title: "Are you sure?",
+        text: "Anda yakin akan menghapus voucher ini?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true, 
+        })
+        .then((willDelete) => { 
+            console.log(willDelete);
+        if (willDelete) {
+           window.location = "/voucher/"+voucher_id+"/delete"
+        }
+        });
+    });
+</script>
 
 @endsection
