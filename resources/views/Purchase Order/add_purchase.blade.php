@@ -33,7 +33,7 @@
                     
                     <div class="form-group">
 						<label>Supplier</label>
-						<input type="text" name="suplier" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="supplier" placeholder="" class="form-control" required autofocus>
                     </div>
                     
                     <div class="form-group">
