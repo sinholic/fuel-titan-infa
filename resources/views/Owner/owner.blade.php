@@ -80,8 +80,7 @@
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/owner/{{$s->id}}/delete"
-                                class="btn btn btn-danger btn-sm">
+                            <a href="#" class="btn btn btn-danger btn-sm delete" owner-id="{{$s->id}}">
                                 <i class="fa fa-trash nav-icon"></i>
                             </a>
 
@@ -98,7 +97,7 @@
 <!-- Import Excel -->
 <div class="modal fade" id="importExcel" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form method="post" action="/equipment/import_excel" enctype="multipart/form-data">
+        <form method="post" action="/owner/import_excel" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
@@ -121,4 +120,23 @@
         </form>
     </div>
 </div>
+
+<script>
+        $('.delete').click(function(){
+            var owner_id = $(this).attr('owner-id');
+            swal({
+            title: "Are you sure?",
+            text: "Anda yakin akan menghapus data dengan id "+owner_id+ "?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true, 
+            })
+            .then((willDelete) => {
+                console.log(willDelete);
+            if (willDelete) {
+            window.location = "/owner/"+owner_id+"/delete"
+            }
+            });
+        });
+</script>
 @endsection

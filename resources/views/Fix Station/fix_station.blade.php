@@ -75,7 +75,7 @@
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/fix/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
+                            <a href="#" class="btn btn btn-danger btn-sm delete" fix-station-id="{{$s->id}}">
                                 <i class="fa fa-trash nav-icon"></i>
                             </a>
 
@@ -114,5 +114,24 @@
 					</div>
 				</form>
 			</div>
-		</div>
+        </div>
+        
+    <script>
+        $('.delete').click(function(){
+            var fix_station_id = $(this).attr('fix-station-id');
+            swal({
+            title: "Are you sure?",
+            text: "Anda yakin akan menghapus data dengan id "+fix_station_id+ "?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true, 
+            })
+            .then((willDelete) => {
+                console.log(willDelete);
+            if (willDelete) {
+            window.location = "/fix/"+fix_station_id+"/delete"
+            }
+            });
+        });
+    </script>
 @endsection

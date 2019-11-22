@@ -52,7 +52,7 @@
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{ $s->purchaseorder_number }}</td>
-                    <td>{{ $s->tanggal_purchaseorder }}</td>
+                    <td>{{date('l, d-M-Y', strtotime($s->tanggal_purchaseorder))}}</td>
                     <td>{{ $s->suplier }}</td>
                     <td>{{ $s->amount }}</td>
                     {{-- <td>

@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="/adminlte/dist/css/adminlte.min.css">
   <!-- Sweet Alert -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <!-- Sweet Alert 1 -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!-- Google Font: Source Sans Pro -->

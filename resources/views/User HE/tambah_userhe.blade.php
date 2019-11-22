@@ -31,12 +31,12 @@
 					<div class="form-group">
 						<label for="">Equipment Category</label>
 						<input type="text" name="eq_category" placeholder="" class="equipment-category form-control"
-							disabled autofocus>
+						  autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Owner</label>
-						<input type="text" name="eq_owner" placeholder="" class="equipment-owner form-control" disabled
+						<input type="text" name="eq_owner" placeholder="" class="equipment-owner form-control" 
 							autofocus>
 					</div>
 

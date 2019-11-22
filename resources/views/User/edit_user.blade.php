@@ -37,9 +37,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label>User level</label>
-                        <input type="text" name="status_id" value="{{$user->status_id}}" class="form-control" required autofocus>
-                    </div>
+						<label>User level</label>
+						{{ Form::select('status_id', $statuses, null, ['placeholder' => 'Pilih user level...', 'required', 'class' => 'form-control']) }}
+					</div>
 
                 </div>
 

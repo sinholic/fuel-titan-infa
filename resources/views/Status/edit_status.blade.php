@@ -23,7 +23,7 @@
 
                     <div class="form-group">
                         <label>Nama</label>
-                        <input type="text" name="nama" value="{{$status->name}}" class="form-control" required autofocus>
+                        <input type="text" name="nama" value="{{$status->nama}}" class="form-control" required autofocus>
                     </div>
 
                 </div>

@@ -13,7 +13,7 @@
 	@if ($sukses = Session::get('sukses'))
 		<div class="alert alert-success alert-block">
 			<button type="button" class="close" data-dismiss="alert">×</button> 
-			<strong>{{ $sukses }}</strong>
+			<i class="icon fas fa-check">&nbsp; &nbsp; <strong>{{ $sukses }}</strong></i>
         </div>
         <script>Swal.fire({
             position: 'top-end',
@@ -58,7 +58,7 @@
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
 
-                            <a onClick="sweet()" href="/materials/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
+                            <a href="#" class="btn btn btn-danger btn-sm delete" materials-nama="{{$s->materials}}" materials-id="{{$s->id}}">
                                 <i class="fa fa-trash nav-icon"></i>
                             </a>
 
@@ -71,28 +71,26 @@
         </table>
     </div>
 </div>
+
 <script>
-    function sweet(){
-        event.preventDefault();
-          Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, hapus!'
-        }).then((result) => {
-        if (result.value) {
-            Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-            )
-        }
+    $('.delete').click(function(){
+        var materials_id = $(this).attr('materials-id');
+        var materials_nama = $(this).attr('materials-nama');
+        swal({
+        title: "Are you sure?",
+        text: "Anda yakin akan menghapus material "+materials_nama+ "?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true, 
         })
-    }
-  
+        .then((willDelete) => {
+            console.log(willDelete);
+        if (willDelete) {
+           window.location = "/materials/"+materials_id+"/delete"
+        }
+        });
+    });
 </script>
+
 
 @endsection
