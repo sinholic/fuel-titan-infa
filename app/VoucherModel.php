@@ -21,4 +21,15 @@ class VoucherModel extends Model
     {
         return $this->belongsTo('App\OwnerModel', 'owner', 'id');
     }
+
+    // this is a recommended way to declare event handlers
+    public static function boot() {
+        parent::boot();
+        self::deleting(function($voucher) { // before delete() method call this
+             $voucher->vouchercodes()->each(function($vouchercode) {
+                $vouchercode->delete();
+            });
+             // do the rest of the cleanup...
+        });
+    }
 }

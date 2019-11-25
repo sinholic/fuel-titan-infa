@@ -48,7 +48,7 @@ class VoucherController extends Controller
             $runningNumber = $last_data->vouchercodes->last()->serial_number;
             $runningNumber = preg_replace('/[^0-9 ]/i', '', $runningNumber);
         } else {
-            $runningNumber = \Carbon\Carbon::now()->format('ynd') . "0000000";
+            $runningNumber = \Carbon\Carbon::now()->format('yndis') . "00000";
         }
 
         $runningNumber = (int) $runningNumber;

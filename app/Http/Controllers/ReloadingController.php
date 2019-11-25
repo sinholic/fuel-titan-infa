@@ -4,22 +4,37 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ReloadingModel;
+use App\EquipmentModel;
+use App\MobileModel;
+use App\VoucherModel;
 
 class ReloadingController extends Controller
 {
     public function reloading()
     {
         $reloading = ReloadingModel::all();
-        return view('Reloading.reloading', ['reloading' => $reloading]);
+        return view('Reloading.reloading', [
+            'reloading' => $reloading,
+        ]);
     }
 
     public function tambah()
     {
-        return view('Reloading.tambah_reloading');
+        
+        $equipments = MobileModel::with('equipment','equipment.equipmentcategory', 'equipment.equipmentowner')
+        ->get();
+        return view('Reloading.tambah_reloading',[
+            'equipments' => $equipments,
+        ]);
     }
 
     public function create(Request $request)
     {
+        $max_reload = EquipmentModel::find($request->equipment_id);
+        $this->validate($request, [
+            'company_name' => 'unique:companycodes',
+            'company_inisial' => 'unique:companycodes',
+        ]);
         ReloadingModel::create($request->all());
         return redirect('/reloading')->with('sukses', 'Data Berhasil Di Input!');
     }

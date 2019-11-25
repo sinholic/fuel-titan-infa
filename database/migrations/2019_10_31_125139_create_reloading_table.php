@@ -15,10 +15,10 @@ class CreateReloadingTable extends Migration
     {
         Schema::create('reloading', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('no_po');
+            // $table->integer('no_po');
             $table->bigInteger('fixstation_id');
             // Get from MAster station
-            $table->string('unit_mobile_station'); 
+            $table->bigInteger('equipment_id'); 
             $table->string('driver_mobile_statis');
             $table->integer('qty_solar');
             $table->integer('odometer');

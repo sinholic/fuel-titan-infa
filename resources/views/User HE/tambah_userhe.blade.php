@@ -30,13 +30,13 @@
 
 					<div class="form-group">
 						<label for="">Equipment Category</label>
-						<input type="text" name="eq_category" placeholder="" class="equipment-category form-control"
+						<input type="text" name="eq_category" placeholder="" readonly class="equipment-category form-control"
 						  autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Owner</label>
-						<input type="text" name="eq_owner" placeholder="" class="equipment-owner form-control" 
+						<input type="text" name="eq_owner" placeholder="" readonly class="equipment-owner form-control" 
 							autofocus>
 					</div>
 
@@ -206,17 +206,19 @@
 			event.preventDefault();
 		},
 		select: function (event, ui) {
-			// console.log(ui);
+			console.log(ui);
 			$('#equipment-number-value').val(ui.item.id);
 			$('.equipment-owner').val(ui.item.owner);
 			$('.equipment-category').val(ui.item.category);
-			// $('#equipment-number').val(ui.item.label); // display the selected text
+			$('#equipment-number').val(ui.item.label); // display the selected text
 			// $('#equipment-number_id').val(ui.item.value); // save selected id to hidden input
 			return false;
 		},
 		change: function (event, ui) {
 			console.log(ui);
 			$("#equipment-number-value").val(ui.item ? ui.item.id : 0);
+			$('.equipment-owner').val(ui.item.owner ? ui.item.owner : 0);
+			$('.equipment-category').val(ui.item.category ? ui.item.category : 0);
 		}
 	});
 
