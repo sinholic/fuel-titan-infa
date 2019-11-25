@@ -17,9 +17,16 @@
 </div>
 @endif
 
-  <a href="/add_purchase" class="btn btn-primary">
-        <i class="fa fa-plus nav-icon"></i>
-    </a>
+@if($errors->any())
+<div class="alert alert-danger alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    {{implode('', $errors->all(':message'))}}
+</div>
+@endif
+
+<a href="/add_purchase" class="btn btn-primary">
+    <i class="fa fa-plus nav-icon"></i>
+</a>
 
 <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
     <i class="fas fa-file-excel"></i> Import Excel
@@ -63,24 +70,24 @@
                                 <i class="fa fa-info-circle nav-icon"></i>
                             </a>
 
-                            <a href="/upload/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip"
-                                data-placement="bottom" title="Edit">
-                                <i class="fa fa-edit nav-icon"></i>
-                            </a>
+                            <a href="/upload/edit/{{$s->id}}" class="btn btn-warning btn-sm" data-toggle="tootip"
+                    data-placement="bottom" title="Edit">
+                    <i class="fa fa-edit nav-icon"></i>
+                    </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/upload/{{$s->id}}/delete"
-                                class="btn btn btn-danger btn-sm">
-                                <i class="fa fa-trash nav-icon"></i>
-                            </a>
+                    <a onClick="return confirm('Yakin ingin menghapus data?')" href="/upload/{{$s->id}}/delete"
+                        class="btn btn btn-danger btn-sm">
+                        <i class="fa fa-trash nav-icon"></i>
+                    </a>
 
-                        </div>
-                    </td> --}}
-
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
     </div>
+    </td> --}}
+
+    </tr>
+    @endforeach
+    </tbody>
+    </table>
+</div>
 </div>
 
 <!-- Import Excel -->
