@@ -39,8 +39,8 @@ class CompanycodeController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, [
-            'company_name' => 'unique:companycodes',
-            'company_inisial' => 'unique:companycodes',
+            'name_company_code' => 'unique:companycodes,company_name',
+            'inisial_company_code' => 'unique:companycodes,company_inisial',
         ]);
         Companycode::create($request->all());
         return redirect('/companycode')->with('sukses', 'Data Berhasil Di Input!');
@@ -109,9 +109,9 @@ class CompanycodeController extends Controller
         //import data
         \Excel::import(new CompanyCodesImport, storage_path('app/') . $file);
 
-        Uploadedfile::find($upload_file)->update([
-            'processed' => 1
-        ]);
+        // Uploadedfile::find($upload_file)->update([
+        //     'processed' => 1
+        // ]);
 
         //notifikasi dengan session
         \Session::flash('sukses', 'Data Company Codes Berhasil Di Import!');

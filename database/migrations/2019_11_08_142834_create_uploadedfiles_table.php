@@ -19,6 +19,7 @@ class CreateUploadedfilesTable extends Migration
             $table->boolean('uploaded')->nullable();
             $table->boolean('processed')->default(false);
             $table->timestamps();
+            $table->softdeletes();
         });
     }
 

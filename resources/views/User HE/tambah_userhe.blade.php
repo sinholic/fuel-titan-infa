@@ -30,13 +30,13 @@
 
 					<div class="form-group">
 						<label for="">Equipment Category</label>
-						<input type="text" name="eq_category" placeholder="" class="equipment-category form-control"
+						<input type="text" name="eq_category" placeholder="" class="equipment-category form-control" readonly
 						  autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Owner</label>
-						<input type="text" name="eq_owner" placeholder="" class="equipment-owner form-control" 
+						<input type="text" name="eq_owner" placeholder="" class="equipment-owner form-control" readonly
 							autofocus>
 					</div>
 

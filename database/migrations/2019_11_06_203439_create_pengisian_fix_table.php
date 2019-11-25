@@ -13,7 +13,7 @@ class CreatePengisianFixTable extends Migration
      */
     public function up()
     {
-        Schema::create('pengisian_fix', function (Blueprint $table) {
+        Schema::create('onfixstation', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('id_driver');
             $table->string('unit_equipment');

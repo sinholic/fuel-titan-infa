@@ -16,6 +16,13 @@
 			<i class="icon fas fa-check">&nbsp; &nbsp; <strong>{{ $sukses }}</strong></i>
 		</div>
     @endif
+
+    @if($errors->any())
+        <div class="alert alert-danger alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            {{implode('', $errors->all(':message'))}}
+        </div>
+    @endif
     
     <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
 		 <i class="fas fa-file-excel"></i> Import Excel
@@ -58,7 +65,7 @@
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/companycode/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
+                             <a href="#" class="btn btn btn-danger btn-sm delete" companycode-nama="{{$s->companycode}}" companycode-id="{{$s->id}}">
                                 <i class="fa fa-trash nav-icon"></i>
                             </a>
 
@@ -85,10 +92,10 @@
 							{{ csrf_field() }}
  
 							<h6>Pilih File Excel</h6>
-                            <div class="custom-file">
-                                <input type="file" name="file" class="custom-file-input" id="exampleInputFile">
-                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                            </div>
+                           
+                                <input type="file" name="file">
+                                <label>Choose file</label>
+                            
  
 						</div>
 						<div class="modal-footer">
@@ -98,5 +105,26 @@
 					</div>
 				</form>
 			</div>
-		</div>
+        </div>
+    
+
+<script>
+    $('.delete').click(function(){
+        var companycode_id = $(this).attr('companycode-id');
+        var companycode_nama = $(this).attr('companycode-nama');
+        swal({
+        title: "Are you sure?",
+        text: "Anda yakin akan menghapus Company Code "+companycode_nama+ "?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true, 
+        })
+        .then((willDelete) => { 
+            console.log(willDelete);
+        if (willDelete) {
+           window.location = "/companycode/"+companycode_id+"/delete"
+        }
+        });
+    });
+</script>
 @endsection

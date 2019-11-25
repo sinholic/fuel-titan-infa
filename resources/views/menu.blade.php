@@ -181,7 +181,7 @@
             <a href="/reloading" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    Pengisian Ulang Mobil Station
+                    Pengisian Ulang Mobile Station
                 </p>
             </a>
         </li>
@@ -196,7 +196,7 @@
         </li>
 
         <li class="nav-item has-treeview">
-            <a href="/upload" class="nav-link">
+            <a href="#" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
                     Uploaded File

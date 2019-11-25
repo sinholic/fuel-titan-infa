@@ -23,7 +23,7 @@ class PurchaseorderImport implements ToModel, WithValidation, WithHeadingRow, Sk
     {
         return new Purchaseorder([
             'purchaseorder_number' => $row['po_number'],
-            'tanggal_purchaseorder' => date('Y-m-d',strtotime($row['po_date'])),
+            'tanggal_purchaseorder' => date('Y-m-d', strtotime($row['po_date'])),
             'supplier' => $row['supplier'],
             'amount' => $row['qty']
         ]);
@@ -34,7 +34,7 @@ class PurchaseorderImport implements ToModel, WithValidation, WithHeadingRow, Sk
         return [
             // 'purchaseorder_number' => Rule::in(['patrick@maatwebsite.nl']),
             'po_number' => 'unique:purchaseorders,purchaseorder_number',
-             // Above is alias for as it always validates in batches
+            // Above is alias for as it always validates in batches
             //  '*.purchaseorder_number' => Rule::in(['patrick@maatwebsite.nl']),
         ];
     }
