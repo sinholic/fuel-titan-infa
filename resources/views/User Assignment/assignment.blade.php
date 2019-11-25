@@ -49,12 +49,14 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $s->name }}</td>
                     @if ($s->mobileassignments->last() != NULL)
-                    <td>{{ isset($s->mobileassignments) ? 'Mobile: '.$s->mobileassignments->last()->with('equipment')->first()->equipment->equipment_number : '' }}</td>
+                    <td>{{ 'Mobile: '.$s->mobileassignments->last()->with('equipment')->first()->equipment->equipment_number }}</td>
+                    <td>{{$s->mobileassignments->last()->pivot->start_date}}</td>
+                    <td>{{$s->mobileassignments->last()->pivot->end_date}}</td>
                     @else
-                    <td>{{ isset($s->fixassignments) ?$s->fixassignments->first()->name_station : ''}}</td>
+                    <td>{{ $s->fixassignments->first()->name_station }}</td>
+                    <td>{{ $s->fixassignments->first()->pivot->start_date}}</td>
+                    <td>{{ $s->fixassignments->first()->pivot->end_date}}</td>
                     @endif
-                    <td>{{$s->start_date}}</td>
-                    <td>{{$s->end_date}}</td>
                     <td>
                          <div class="btn-group">
 

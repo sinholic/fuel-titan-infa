@@ -40,10 +40,13 @@ class UserassignmentController extends Controller
             ->get();
         // foreach ($user as $key => $value) {
         //     if ($value->mobileassignments->last() != NULL) {
-        //         echo "HAI";
+        //         foreach ($value->mobileassignments as $value2) {
+        //             print_r($value2->pivot->start_date);
+        //             $value2->pivot->mobile;
+        //         }
+        //         print_r($value->mobileassignments->last()->pivot->start_date);
         //     }else{
         //         print_r($value->fixassignments->first()->name_station);
-        //         echo "HELLO";
         //     }
         // }
         // dd($user);
