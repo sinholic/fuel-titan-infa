@@ -31,7 +31,7 @@ class CompanyCodesImport implements ToModel, WithValidation, WithHeadingRow, Ski
         return [
             // 'purchaseorder_number' => Rule::in(['patrick@maatwebsite.nl']),
             'name_company_code' => 'unique:companycodes,company_name',
-            // 'inisial_company_code' => 'unique:companycodes,company_inisial'
+            'inisial_company_code' => 'unique:companycodes,company_inisial'
             // Above is alias for as it always validates in batches
             //  '*.purchaseorder_number' => Rule::in(['patrick@maatwebsite.nl']),
         ];

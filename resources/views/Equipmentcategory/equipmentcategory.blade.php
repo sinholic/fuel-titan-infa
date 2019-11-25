@@ -16,6 +16,13 @@
 			<strong>{{ $sukses }}</strong>
 		</div>
     @endif
+
+    @if($errors->any())
+        <div class="alert alert-danger alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            {{implode('', $errors->all(':message'))}}
+        </div>
+    @endif
     
     <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
 		 <i class="fas fa-file-excel"></i> Import Excel

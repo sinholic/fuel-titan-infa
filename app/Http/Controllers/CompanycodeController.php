@@ -109,9 +109,9 @@ class CompanycodeController extends Controller
         //import data
         \Excel::import(new CompanyCodesImport, storage_path('app/') . $file);
 
-        // Uploadedfile::find($upload_file)->update([
-        //     'processed' => 1
-        // ]);
+        Uploadedfile::find($upload_file)->update([
+            'processed' => 1
+        ]);
 
         //notifikasi dengan session
         \Session::flash('sukses', 'Data Company Codes Berhasil Di Import!');
