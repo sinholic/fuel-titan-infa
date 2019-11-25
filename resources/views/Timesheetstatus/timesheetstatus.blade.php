@@ -51,7 +51,7 @@
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/timesheetstatus/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
+                            <a href="#" class="btn btn btn-danger btn-sm delete" timesheetstatus-id="{{$s->id}}">
                                 <i class="fa fa-trash nav-icon"></i>
                             </a>
 
@@ -90,5 +90,24 @@
 					</div>
 				</form>
 			</div>
-		</div>
+        </div>
+<script>
+    $('.delete').click(function(){
+        var timesheetstatus_id = $(this).attr('timesheetstatus-id');
+        swal({
+        title: "Are you sure?",
+        text: "Anda yakin akan menghapus data ini?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true, 
+        })
+        .then((willDelete) => { 
+            console.log(willDelete);
+        if (willDelete) {
+        window.location = "/timesheetstatus/"+timesheetstatus_id+"/delete"
+        '/timesheetstatus/{id}/delete'
+        }
+        });
+    });
+</script>
 @endsection

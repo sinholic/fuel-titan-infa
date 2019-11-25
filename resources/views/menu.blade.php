@@ -181,7 +181,7 @@
             <a href="/reloading" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    Pengisian Ulang Mobil Station
+                    Pengisian Ulang Mobile Station
                 </p>
             </a>
         </li>
@@ -191,15 +191,6 @@
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
                     Penerimaan Solar
-                </p>
-            </a>
-        </li>
-
-        <li class="nav-item has-treeview">
-            <a href="/upload" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-                <p>
-                    Uploaded File
                 </p>
             </a>
         </li>
@@ -253,12 +244,11 @@
             </ul>
         </li>
 
-        <li class="nav-item has-treeview">
+         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
                     Consignment
-                    <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
         </li>

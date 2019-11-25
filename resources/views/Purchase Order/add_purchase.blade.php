@@ -45,7 +45,7 @@
 
 				<div class="card-footer">
 
-					<a href="/add_purchase" class="btn btn-default">Back</a>
+					<a href="/purchaseorder" class="btn btn-default">Back</a>
                     &nbsp;&nbsp;
 					<input type="submit" value="Save" class="pull-right btn btn-primary">
 
