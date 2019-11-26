@@ -13,6 +13,7 @@ use App\MobileModel;
 use App\OwnerModel;
 use App\User;
 use App\QtySolarModel;
+use App\Timesheetstatus;
 
 class SyncronizeController extends Controller
 {
@@ -104,6 +105,13 @@ class SyncronizeController extends Controller
             return join(",'", $item->toArray()) . "'";
         });
         $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO qty_solar ('id, 'qty_solar, 'created_at, 'updated_at') VALUES('" . join("),('", $sql->toArray()) . ");"));
+
+        //Timesheet Status
+        $timesheetstatus = Timesheetstatus::select('id','category','status')->get();
+        $sql = $timesheetstatus->map(function ($item, $key) {
+            return join(",'", $item->toArray()) . "'";
+        });
+        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO timesheetstatuses ('id','category','status') VALUES('" . join("),('", $sql->toArray()) . ");"));
 
         return response()->json([
             'success' => true,
