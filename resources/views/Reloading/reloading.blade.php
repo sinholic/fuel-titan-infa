@@ -40,7 +40,6 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">No.PO/SJ/SPK</th>
                     <th class="text-center">Unit Mobile Station</th>
                     <th class="text-center">Driver Mobile Statis</th>
                     <th class="text-center">Qty Solar</th>
@@ -53,9 +52,8 @@
                 @php $i=1 @endphp
                  @foreach($reloading ?? '' as $s)
                 <tr>
-                    <td>{{$i++}}</td>
-                    <td>{{$s->no_po}}</td>
-                    <td>{{$s->unit_mobile_station}}</td>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$s->equipment->equipment_number}}</td>
                     <td>{{$s->driver_mobile_statis}}</td>
                     <td>{{$s->qty_solar}}</td>
                     <td>{{$s->odometer}}</td>

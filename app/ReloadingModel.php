@@ -10,5 +10,5 @@ class ReloadingModel extends Model
     use SoftDeletes;
 
     protected $table = "reloading";
-    protected $fillable = ['unit_mobile_station', 'driver_mobile_statis', 'qty_solar', 'odometer'];
+    protected $fillable = ['mobilestation_id', 'driver_mobile_statis', 'qty_solar', 'odometer'];
 }

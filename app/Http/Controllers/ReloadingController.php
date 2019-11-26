@@ -19,8 +19,7 @@ class ReloadingController extends Controller
     }
 
     public function tambah()
-    {
-        
+    {   
         $equipments = MobileModel::with('equipment','equipment.equipmentcategory', 'equipment.equipmentowner')
         ->get();
         return view('Reloading.tambah_reloading',[
@@ -30,11 +29,6 @@ class ReloadingController extends Controller
 
     public function create(Request $request)
     {
-        $max_reload = EquipmentModel::find($request->equipment_id);
-        $this->validate($request, [
-            'company_name' => 'unique:companycodes',
-            'company_inisial' => 'unique:companycodes',
-        ]);
         ReloadingModel::create($request->all());
         return redirect('/reloading')->with('sukses', 'Data Berhasil Di Input!');
     }

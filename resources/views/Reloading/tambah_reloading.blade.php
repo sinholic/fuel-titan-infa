@@ -24,7 +24,7 @@
                     <div class="form-group">
 						<label for="">Unit Mobile Station</label>
 						<input id="mobile-station-number" name="ms_label" class="form-control" required />
-						<input type="hidden" id="mobile-station-number-value" name="equipment_id" class="form-control"
+						<input type="hidden" id="mobile-station-number-value" name="mobilestation_id" class="form-control"
 							required />
 					</div>
 					
@@ -41,7 +41,7 @@
                     
                     <div class="form-group">
 						<label>Qty Solar</label>
-						<input type="number" name="qty_solar" placeholder="" class="qty-solar form-control" required autofocus>
+						<input type="number" name="qty_solar" placeholder="" class="qty-solar form-control" readonly autofocus>
                     </div>
                     
                     <div class="form-group">
@@ -78,15 +78,16 @@
 		$('#mobile-station-number').autocomplete({
 			source: function (request, response) {
 				response($.map(local_source, function (item, key) {
-					var equipment_number = item.equipment_number.toUpperCase();
+					var equipment_number = item.equipment.equipment_number.toUpperCase();
 					
 					if (equipment_number.indexOf(request.term.toUpperCase()) != -1) {	
 						return {
 							id: item.id,
-							value: item.equipment_number,
-							label: item.equipment_number,
-							owner: item.equipmentowner.vendor_name,
-							category: item.equipmentcategory.nama,
+							value: item.equipment.equipment_number,
+							label: item.equipment.equipment_number,
+							owner: item.equipment.equipmentowner.vendor_name,
+							category: item.equipment.equipmentcategory.nama,
+							reload: (item.impress_status == 1 ? item.fuel_max_reload : item.equipment.fuel_capacity)
 							// quantity: item.
 						}
 					}else{
@@ -102,12 +103,14 @@
 				$('#mobile-station-number-value').val(ui.item.id);
 				$('.mobile-station-owner').val(ui.item.owner);
 				$('#mobile-station-number').val(ui.item.label); // display the selected text
+				$('.qty-solar').val(ui.item.reload);
 				return false;
 			},
 			change: function (event, ui) {
 				console.log(ui);
 				$("#mobile-station-number-value").val(ui.item ? ui.item.id : 0);
 				$('.mobile-station-owner').val(ui.item.owner ? ui.item.owner : 0);
+				$('.qty-solar').val(ui.item.reload ? ui.item.reload : 0);
 			}
 		});
 	</script>
