@@ -13,7 +13,7 @@
 @if ($sukses = Session::get('sukses'))
 <div class="alert alert-success alert-block">
     <button type="button" class="close" data-dismiss="alert">×</button>
-    <i class="icon fas fa-check">&nbsp; &nbsp; <strong>{{ $sukses }}</strong></i>
+    <i class="icon fas fa-check"></i> {{ $sukses }}
 </div>
 @endif
 

@@ -13,7 +13,7 @@
 	@if ($sukses = Session::get('sukses'))
 		<div class="alert alert-success alert-block">
 			<button type="button" class="close" data-dismiss="alert">×</button> 
-			<i class="icon fas fa-check">&nbsp; &nbsp; <strong>{{ $sukses }}</strong></i>
+			<i class="icon fas fa-check"></i> {{ $sukses }}
 		</div>
     @endif
     
@@ -53,7 +53,7 @@
                  @foreach($reloading ?? '' as $s)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$s->equipment->equipment_number}}</td>
+                    <td>{{$s->mobilestation->equipment->equipment_number}}</td>
                     <td>{{$s->driver_mobile_statis}}</td>
                     <td>{{$s->qty_solar}}</td>
                     <td>{{$s->odometer}}</td>

@@ -11,4 +11,9 @@ class ReloadingModel extends Model
 
     protected $table = "reloading";
     protected $fillable = ['mobilestation_id', 'driver_mobile_statis', 'qty_solar', 'odometer'];
+
+    public function mobilestation()
+    {
+        return $this->belongsTo('App\MobileModel', 'mobilestation_id', 'id');
+    }
 }

@@ -17,9 +17,15 @@
 
 					@if($errors->any())
 					<div class="alert alert-danger">
-						{{implode('', $errors->all(':message'))}}
+						{{implode('<br/>', $errors->all(':message'))}}
 					</div>
 					@endif
+
+					
+                    <div class="form-group">
+						<label>No SPK</label>
+						<input type="text" name="no_spk" placeholder="" class="form-control" readonly >
+					</div>
 
 					<div class="form-group">
 						<label>Supplier</label>
@@ -35,11 +41,6 @@
 						<label>Remark</label>
 						<input type="text" name="remark" placeholder="" class="form-control" required autofocus>
                     </div>
-                    
-                    <div class="form-group">
-						<label>No SPK</label>
-						<input type="text" name="no_spk" placeholder="" class="form-control" required autocomplete="">
-					</div>
 					
 					<div class="form-group">
 						<label>Peminjam</label>

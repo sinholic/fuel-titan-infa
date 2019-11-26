@@ -12,7 +12,7 @@ class ReloadingController extends Controller
 {
     public function reloading()
     {
-        $reloading = ReloadingModel::all();
+        $reloading = ReloadingModel::with('mobilestation', 'mobilestation.equipment')->get();
         return view('Reloading.reloading', [
             'reloading' => $reloading,
         ]);

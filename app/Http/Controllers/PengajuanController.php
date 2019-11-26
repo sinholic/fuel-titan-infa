@@ -15,7 +15,14 @@ class PengajuanController extends Controller
 
     public function tambah()
     {
-        return view('Pengajuan.tambah_pengajuan');
+        $companycode = \Auth::user()->companycode->company_inisial;
+        $totalPengajuan = PengajuanModel::where('no_spk', 'LIKE', '%'.$companycode.'%')->whereMonth('created_at', \Carbon\Carbon::today()->month)->count();
+        echo \NumberConverter::roman(1);
+        dd(\NumberConverter::roman(1));
+        $spkNumber = $companycode."/";
+        return view('Pengajuan.tambah_pengajuan',[
+            'spkNumber' => $spkNumber 
+        ]);
     }
 
     public function create(Request $request)

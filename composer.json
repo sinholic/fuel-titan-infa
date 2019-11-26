@@ -11,6 +11,7 @@
         "php": "^7.2",
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
+        "hnhdigital-os/laravel-number-converter": "^1.2",
         "laravel/framework": "^6.0",
         "laravel/passport": "^7.4",
         "laravel/tinker": "^1.0",
