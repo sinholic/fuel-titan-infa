@@ -10,7 +10,8 @@ class MobileModel extends Model
     use SoftDeletes;
     protected $table = "mobile_station";
     // protected $table = "equipment_unitdata";
-    protected $guarded = [];
+    // protected $guarded = [];
+    protected $fillable = ['fixstation_id', 'equipment_id', 'impress_status', 'fuel_max_reload'];
 
     public function fixstation()
     {

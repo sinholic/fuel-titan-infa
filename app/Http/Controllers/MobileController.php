@@ -53,21 +53,30 @@ class MobileController extends Controller
     {
         $mobile = MobileModel::find($id);
         $fixstations = FixStationModel::groupBy('name_station', 'address')->pluck('name_station', 'id');
-        return view('Mobile Station.edit_mobile', ['mobile' => $mobile, 'fixstations' => $fixstations]);
+        $equipments = EquipmentModel::select(\DB::raw('CONCAT (equipment_number, " - ", equipment_name) as name'), 'id')
+            ->whereHas('equipmentcategory', function($query){
+                $query->where('nama', 'like', '%FUEL%');
+            })
+            ->pluck('name', 'id');
+        return view('Mobile Station.edit_mobile', [
+            'mobile' => $mobile, 
+            'fixstations' => $fixstations,
+            'equipments' => $equipments
+        ]);
     }
 
     public function update(Request $request, $id)
     {
         $mobile = MobileModel::find($id);
         $datas = $request->all();
-        if (!isset($datas['impress_status'])) {
+        $fuel_capacity = EquipmentModel::find($request->equipment_id)->fuel_capacity;
+        if (isset($datas['impress_status'])) {
             $this->validate($request, [
-                'equipment_category' => 'required',
-                'equipment_number' => 'required|unique:equipment_unitdata,equipment_number,' . $request->equipment_number . ',id,companycode_id,' . \Auth::user()->companycode_id,
-                'equipment_name' => 'required',
+                'fuel_max_reload' => 'required|numeric|max:'.$fuel_capacity
+            ]);
+        }else if(!isset($datas['impress_status'])) {
+            $this->validate($request, [
                 'fuel_capacity' => 'required',
-                'location' => 'required',
-                'owner_id' => 'required',
             ]);
             $datas['impress_status'] = 0;
             $datas['fuel_max_reload'] = NULL;

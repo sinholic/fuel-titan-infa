@@ -26,28 +26,11 @@
                         {{ Form::select('fixstation_id', $fixstations, $mobile->fixstation_id, ['placeholder' => 'Pilih fix station...', 'required', 'class' => 'form-control']) }}
                     </div>
 
-                    <div class="form-group">
-                        <label>Nomor Vehicle</label>
-                        <input type="text" name="number_vehicle" value="{{$mobile->equipment->equipment_number ?? ''}}"
-                            class="form-control" required autofocus readonly>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Nama Vehicle</label>
-                        <input type="text" name="name_vehicle" value="{{$mobile->equipment->equipment_name ?? ''}}" class="form-control"
-                            required autofocus readonly>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Status Kendaraan</label>
-                        {{ Form::select('status_vehicle', ['Rental' => 'Rental', 'Internal' => 'Internal'], $mobile->status_vehicle, ['placeholder' => 'Pilih status...', 'required', 'class' => 'form-control']) }}
-                    </div>
-
-                    <div class="form-group">
-                        <label>Kapasitas Tangki</label>
-                        <input type="number" name="fuel_capacity" value="{{$mobile->equipment->fuel_capacity  ?? ''}}"
-                            class="form-control" required autofocus readonly>
-                    </div>
+                    
+					<div class="form-group">
+						<label>Equipment Number</label>
+						{{ Form::select('equipment_id', $equipments, $mobile->equipment_id, ['placeholder' => 'Pilih equipment...', 'readonly', 'class' => 'form-control']) }}
+					</div>
 
                     <div class="form-check">
                         {{ Form::checkbox('impress_status', 1, ($mobile->impress_status ? true : NULL), ['class' => 'form-check-input enable-impress']) }}
