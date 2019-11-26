@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\WithValidation;
 
 
-class EquipmentCategoryImport implements ToModel, WithValidation, WithHeadingRow
+class EquipmentcategoryImport implements ToModel, WithValidation, WithHeadingRow
 {
     use Importable;
     /**

@@ -187,10 +187,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/equipment_category', 'EquipmentcategoryController@index');
     Route::get('/addequipment_category', 'EquipmentcategoryController@tambah');
     Route::post('/equipment_category/create', 'EquipmentcategoryController@store');
-    Route::get('/equipment_category/edit/{id}', 'EquipmentCategoryController@edit');
-    Route::post('/equipment_category/update/{id}', 'EquipmentCategoryController@update');
-    Route::get('/equipment_category/{id}/delete', 'EquipmentCategoryController@delete');
-    Route::post('/equipment_category/import_excel', 'EquipmentCategoryController@import_excel');
+    Route::get('/equipment_category/edit/{id}', 'EquipmentcategoryController@edit');
+    Route::post('/equipment_category/update/{id}', 'EquipmentcategoryController@update');
+    Route::get('/equipment_category/{id}/delete', 'EquipmentcategoryController@delete');
+    Route::post('/equipment_category/import_excel', 'EquipmentcategoryController@import_excel');
 
     //Pengisian Solar On Mobile
     Route::get('/pengisian_mobile', 'PengisianMobileController@pengisian_mobile');
