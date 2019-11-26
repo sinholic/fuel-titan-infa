@@ -70,10 +70,10 @@
                     <td>{{date('d-M-Y', strtotime($s->tanggal_operasi))}}</td>
                     <td>{{$s->hm_awal}}</td>
                     <td>{{$s->hm_akhir}}</td>
-                    <td>{{$s->total_jam}}</td>
+                    <td>{{ $s->hm_akhir - $s->hm_awal }}</td>
                     <td>{{$s->km_awal}}</td>
                     <td>{{$s->km_akhir}}</td>
-                    <td>{{$s->km_total}}</td>
+                    <td>{{ $s->km_akhir - $s->km_awal }}</td>
                     <td>{{ $s->status->category .' - '.$s->status->status  }}</td>
                     <td>{{$s->job_order}}</td>
                     <td>{{$s->bbm}}</td>

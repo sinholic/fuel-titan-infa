@@ -95,7 +95,7 @@
 
                 <li class="nav-item">
                     <a href="/userassign" class="nav-link">
-                        <p>Fix Station Assignment</p>
+                        <p>Fix/Mobile Station Assignment</p>
                     </a>
                 </li>
 

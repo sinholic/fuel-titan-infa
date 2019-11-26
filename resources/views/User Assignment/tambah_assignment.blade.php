@@ -10,7 +10,7 @@
 
 			<div class="card" style="border-top: 3px solid #9C5C22">
 				<div class="card-header">
-					<h3 class="card-title">Tambah User Assignment</h3>
+					<h3 class="card-title">Tambah Fix/Mobile Station Assignment</h3>
 				</div>
 
 				<div class="card-body">

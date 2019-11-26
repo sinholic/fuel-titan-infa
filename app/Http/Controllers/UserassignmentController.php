@@ -27,7 +27,6 @@ class UserassignmentController extends Controller
 
     public function index()
     {
-        // \DB::enableQueryLog();
         $user = User::with('fixassignments','mobileassignments')
             ->whereHas('fixassignments', function ($q) {
                 $q->where('start_date', '<=', \Carbon\Carbon::now()->toDateString())
@@ -38,25 +37,16 @@ class UserassignmentController extends Controller
                     ->whereDate('end_date', '>=', \Carbon\Carbon::now()->toDateString());
             })
             ->get();
-        // foreach ($user as $key => $value) {
-        //     if ($value->mobileassignments->last() != NULL) {
-        //         foreach ($value->mobileassignments as $value2) {
-        //             print_r($value2->pivot->start_date);
-        //             $value2->pivot->mobile;
-        //         }
-        //         print_r($value->mobileassignments->last()->pivot->start_date);
-        //     }else{
-        //         print_r($value->fixassignments->first()->name_station);
-        //     }
-        // }
-        // dd($user);
-        // dd(\DB::getQueryLog());
         return view('User Assignment.assignment', ['user' => $user]);
     }
 
     public function create(Request $request)
     {
-        // dd($request);
+        $request->validate([
+            'start_date' => 'required|date|after_or_equal:today',
+            'end_date' => 'required|date|after:start_date'
+        ]);
+
         if ($request->mobile == 1) {
             User::find($request->user_id)->mobileassignments()->attach([
                 $request->station_id => [
