@@ -4,15 +4,13 @@ namespace App\Imports;
 
 use App\Purchaseorder;
 use Maatwebsite\Excel\Concerns\ToModel;
-use Maatwebsite\Excel\Concerns\SkipsOnFailure;
-use Maatwebsite\Excel\Concerns\SkipsFailures;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class PurchaseorderImport implements ToModel, WithValidation, WithHeadingRow, SkipsOnFailure
+class PurchaseorderImport implements ToModel, WithValidation, WithHeadingRow
 {
-    use Importable, SkipsFailures;
+    use Importable;
 
     /**
      * @param array $row
@@ -32,10 +30,10 @@ class PurchaseorderImport implements ToModel, WithValidation, WithHeadingRow, Sk
     public function rules(): array
     {
         return [
-            // 'purchaseorder_number' => Rule::in(['patrick@maatwebsite.nl']),
-            'po_number' => 'unique:purchaseorders,purchaseorder_number',
-            // Above is alias for as it always validates in batches
-            //  '*.purchaseorder_number' => Rule::in(['patrick@maatwebsite.nl']),
+            'po_number' => 'required|unique:purchaseorders,purchaseorder_number',
+            'po_date' => 'required|date|after_or_equal:today',
+            'supplier' => 'required',
+            'qty' => 'required|numeric'
         ];
     }
 }

@@ -102,9 +102,9 @@ class EquipmentcategoryController extends Controller
         //import data
         \Excel::import(new EquipmentCategoryImport, storage_path('app/') . $file);
 
-        // Uploadedfile::find($upload_file)->update([
-        //     'processed' => 1
-        // ]);
+        Uploadedfile::find($upload_file)->update([
+            'processed' => 1
+        ]);
 
         //notifikasi dengan session
         \Session::flash('sukses', 'Data Equipment Category Berhasil Di Import!');

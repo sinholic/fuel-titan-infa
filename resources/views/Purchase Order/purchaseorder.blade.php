@@ -13,16 +13,17 @@
 @if ($sukses = Session::get('sukses'))
 <div class="alert alert-success alert-block">
     <button type="button" class="close" data-dismiss="alert">×</button>
-    <i class="icon fas fa-check">&nbsp; &nbsp; <strong>{{ $sukses }}</strong></i>
+    <i class="icon fas fa-check"></i> {{ $sukses }}
 </div>
 @endif
 
 @if($errors->any())
 <div class="alert alert-danger alert-block">
     <button type="button" class="close" data-dismiss="alert">×</button>
-    {{implode('', $errors->all(':message'))}}
+    {!! implode('<br/>', $errors->all(':message')) !!}
 </div>
 @endif
+
 
 <a href="/add_purchase" class="btn btn-primary">
     <i class="fa fa-plus nav-icon"></i>

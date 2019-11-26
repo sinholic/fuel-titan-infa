@@ -3,17 +3,15 @@
 namespace App\Imports;
 
 use App\Equipmentcategory;
-use Maatwebsite\Excel\Concerns\SkipsOnFailure;
-use Maatwebsite\Excel\Concerns\SkipsFailures;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\WithValidation;
 
 
-class EquipmentCategoryImport implements ToModel, WithValidation, WithHeadingRow, SkipsOnFailure
+class EquipmentCategoryImport implements ToModel, WithValidation, WithHeadingRow
 {
-    use Importable, SkipsFailures;
+    use Importable;
     /**
      * @param array $row
      *
@@ -31,8 +29,8 @@ class EquipmentCategoryImport implements ToModel, WithValidation, WithHeadingRow
     {
         return [
             // 'purchaseorder_number' => Rule::in(['patrick@maatwebsite.nl']),
-            'nama_kategori' => 'unique:equipmentcategories,nama',
-            'inisial_kategori' => 'unique:equipmentcategories,inisial'
+            'nama_kategori' => 'required|unique:equipmentcategories,nama',
+            'inisial_kategori' => 'required|unique:equipmentcategories,inisial'
             // 'inisial_company_code' => 'unique:companycodes,company_inisial'
             // Above is alias for as it always validates in batches
             //  '*.purchaseorder_number' => Rule::in(['patrick@maatwebsite.nl']),
