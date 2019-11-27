@@ -48,7 +48,8 @@
 								<span class="input-group-text inisial" id="basic-addon3">{{ substr($fix->company->company_inisial,0, 2) }}</span>
 							</div>
 							<input type="text" class="form-control" name="nama_lokasi" id="nama-lokasi"
-								aria-describedby="basic-addon3" value="{{$fix->nama_lokasi}}">
+                                aria-describedby="basic-addon3" value="{{$fix->nama_lokasi}}">
+                            {!! Form::hidden('inisial_lokasi', substr($fix->company->company_inisial,0,2), ['id' => 'inisial-lokasi']) !!}
 						</div>
 					</div>
 

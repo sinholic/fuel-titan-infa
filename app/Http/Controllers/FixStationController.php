@@ -78,7 +78,7 @@ class FixStationController extends Controller
                 FixStationModel::find($tank->id)->update([
                     'name_station' => $request->name_station,
                     'address' => $request->address,
-                    'nama_lokasi' => $request->nama_lokasi,
+                    'nama_lokasi' => $request->inisial_lokasi.$request->nama_lokasi,
                     'koordinat_gps' => $request->koordinat_gps,
                     'tank_number' => $request->tank_number[$key],
                     'fuel_capacity' => $request->fuel_capacity[$key],

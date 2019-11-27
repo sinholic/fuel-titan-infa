@@ -57,7 +57,7 @@
                     <td>{{$s->company->company_name ?? ''}}</td>
                     <td>{{$s->name_station}}</td>
                     <td>{{$s->address}}</td>
-                    <td>{{ substr($s->company->company_inisial,0,2) }}{{$s->nama_lokasi}}</td>
+                    <td>{{$s->nama_lokasi}}</td>
                     <td>{{$s->koordinat_gps}}</td>
                     <td>{{$s->total_tank}}</td>
                     <td>{{$s->total_fuel_capacity}}</td>
