@@ -206,7 +206,7 @@
             <ul class="nav nav-treeview offset-md-2">
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/error" class="nav-link">
                         <p>Penerimaan Piutang Solar</p>
                     </a>
                 </li>
@@ -245,7 +245,7 @@
         </li>
 
          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="/error" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
                     Consignment
@@ -254,7 +254,7 @@
         </li>
 
         <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="/error" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
                     Stock Opname
