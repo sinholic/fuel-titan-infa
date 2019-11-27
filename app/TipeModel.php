@@ -13,7 +13,7 @@ class TipeModel extends Model
 
     public function equipmentmerk()
     {
-        return $this->belongsTo('App\MerkModel', 'merk', 'id');
+        return $this->belongsTo('App\MerkModel', 'merk', 'id')->withTrashed();
     }
 
     public function equipment()

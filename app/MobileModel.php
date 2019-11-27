@@ -15,7 +15,7 @@ class MobileModel extends Model
 
     public function fixstation()
     {
-        return $this->belongsTo('App\FixStationModel', 'fixstation_id', 'id');
+        return $this->belongsTo('App\FixStationModel', 'fixstation_id', 'id')->withTrashed();
     }
 
     public function equipment()

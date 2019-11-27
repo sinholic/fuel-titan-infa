@@ -10,6 +10,6 @@ class Equipmentcard extends Model
 
     public function equipment()
     {
-        return $this->belongsTo('App\EquipmentModel', 'equipment_id', 'id');
+        return $this->belongsTo('App\EquipmentModel', 'equipment_id', 'id')->withTrashed();
     }
 }

@@ -19,7 +19,7 @@ class VoucherModel extends Model
 
     public function voucherowner()
     {
-        return $this->belongsTo('App\OwnerModel', 'owner', 'id');
+        return $this->belongsTo('App\OwnerModel', 'owner', 'id')->withTrashed();
     }
 
     // this is a recommended way to declare event handlers

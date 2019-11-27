@@ -11,6 +11,6 @@ class PengisianMobileModel extends Model
 
     public function qtysolar()
     {
-        return $this->belongsTo('App\QtySolarModel', 'qty_solar', 'id');
+        return $this->belongsTo('App\QtySolarModel', 'qty_solar', 'id')->withTrashed();
     }
 }

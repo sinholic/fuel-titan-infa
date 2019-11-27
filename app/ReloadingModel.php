@@ -14,6 +14,6 @@ class ReloadingModel extends Model
 
     public function mobilestation()
     {
-        return $this->belongsTo('App\MobileModel', 'mobilestation_id', 'id');
+        return $this->belongsTo('App\MobileModel', 'mobilestation_id', 'id')->withTrashed();
     }
 }

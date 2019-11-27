@@ -91,8 +91,15 @@ class SyncronizeController extends Controller
         $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO owner VALUES('" . join("),('", $sql->toArray()) . ");"));
 
         //User HE
-        $userHe = User::all();
-        $sql = $userHe->map(function ($item, $key) {
+        $users = User::all();
+        $sql = $users->map(function ($item, $key) {
+            return join(",'", $item->toArray()) . "'";
+        });
+        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO users VALUES('" . join("),('", $sql->toArray()) . ");"));
+
+        // User Assignment
+        $assignment = DB::select('select user_id, station_id, mobile from userassignment');
+        $sql = $assignment->map(function ($item, $key) {
             return join(",'", $item->toArray()) . "'";
         });
         $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO users VALUES('" . join("),('", $sql->toArray()) . ");"));

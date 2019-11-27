@@ -48,12 +48,12 @@ class User extends Authenticatable
 
     public function status()
     {
-        return $this->belongsTo('App\Status', 'status_id', 'id');
+        return $this->belongsTo('App\Status', 'status_id', 'id')->withTrashed();
     }
 
     public function companycode()
     {
-        return $this->belongsTo('App\Companycode', 'companycode_id', 'id');
+        return $this->belongsTo('App\Companycode', 'companycode_id', 'id')->withTrashed();
     }
 
     public function fixassignments()

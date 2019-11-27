@@ -13,12 +13,12 @@ class EquipmentModel extends Model
 
     public function equipmentowner()
     {
-        return $this->belongsTo('App\OwnerModel', 'owner_id', 'id');
+        return $this->belongsTo('App\OwnerModel', 'owner_id', 'id')->withTrashed();
     }
 
     public function equipmentcategory()
     {
-        return $this->belongsTo('App\Equipmentcategory', 'equipment_category', 'id');
+        return $this->belongsTo('App\Equipmentcategory', 'equipment_category', 'id')->withTrashed();
     }
 
     public function mobile()
@@ -38,7 +38,7 @@ class EquipmentModel extends Model
 
     public function equipmenttipe()
     {
-        return $this->belongsTo('App\TipeModel', 'equipment_type', 'id');
+        return $this->belongsTo('App\TipeModel', 'equipment_type', 'id')->withTrashed();
     }
 
     public function timesheets()

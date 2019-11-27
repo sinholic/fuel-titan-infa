@@ -13,11 +13,11 @@ class PenerimaanModel extends Model
     
     public function purchaseorder()
     {
-        return $this->belongsTo('App\Purchaseorder', 'purchaseorder_id', 'id');
+        return $this->belongsTo('App\Purchaseorder', 'purchaseorder_id', 'id')->withTrashed();
     }
 
     public function fixstation()
     {
-        return $this->belongsTo('App\FixStationModel', 'fixstation_id', 'id');
+        return $this->belongsTo('App\FixStationModel', 'fixstation_id', 'id')->withTrashed();
     }
 }

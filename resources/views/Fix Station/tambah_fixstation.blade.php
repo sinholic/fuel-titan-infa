@@ -47,6 +47,8 @@
 							</div>
 							<input type="text" class="form-control" name="nama_lokasi" id="nama-lokasi"
 								aria-describedby="basic-addon3">
+
+							{!! Form::hidden('inisial_loc', NULL, ['id' => 'inisial-lokasi']) !!}
 						</div>
 					</div>
 
@@ -75,25 +77,17 @@
 									</div>
 								</div>
 							</div>
-
-							<div class="form-"></div>
 						</div>
 					</div>
-
 				</div>
 
 				<div class="card-footer">
-
 					<a href="/fix" class="btn btn-default">Back</a>
 					&nbsp;&nbsp;
 					<input type="submit" value="Save" class="pull-right btn btn-primary">
-
 				</div>
-
 			</div>
-
 		</form>
-
 	</div>
 </div>
 
@@ -135,7 +129,7 @@
 					return {
 						id: item.id,
 						value: item.company_name,
-						inisial: item.company_inisial
+						inisial: item.company_inisial.substr(0, 2)
 					}
 				} else {
 					return null;
@@ -145,12 +139,14 @@
 		select: function (event, ui) {
 			$('.nama-lokasi').show();
 			$('#company-code-value').val(ui.item.id);
-			$('.inisial').html(ui.item.inisial.substr(0, 2));
+			$('#inisial-lokasi').val(ui.item.inisial);
+			$('.inisial').html(ui.item.inisial);
 			return false;
 		},
 		change: function (event, ui) {
 			console.log(ui);
 			$("#company-code-value").val(ui.item ? ui.item.id : 0);
+			$('#inisial-lokasi').val(ui.item ? ui.item.inisial : ui.item.inisial);
 		}
 	});
 </script>

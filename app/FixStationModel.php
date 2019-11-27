@@ -13,7 +13,7 @@ class FixStationModel extends Model
 
     public function company()
     {
-        return $this->belongsTo('App\Companycode', 'companycode_id', 'id');
+        return $this->belongsTo('App\Companycode', 'companycode_id', 'id')->withTrashed();
     }
 
     public function mobiles()
