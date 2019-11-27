@@ -49,8 +49,6 @@ class SyncronizeController extends Controller
             return join(",'", $item->toArray()) . "'";
         });
 
-        // dd($sql);
-
         $data['sql'] = str_replace("')'", "')", str_replace(",", "',", "INSERT INTO equipment_unitdata VALUES('" . join("),('", $sql->toArray()) . ");"));
         //$data['sql'] = str_replace($data['sql'], ",", "',");
 
@@ -111,7 +109,7 @@ class SyncronizeController extends Controller
         $sql = $timesheetstatus->map(function ($item, $key) {
             return join(",'", $item->toArray()) . "'";
         });
-        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO timesheetstatuses ('id','category','status') VALUES('" . join("),('", $sql->toArray()) . ");"));
+        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO timesheetstatuses ('id,'category,'status') VALUES('" . join("),('", $sql->toArray()) . ");"));
 
         return response()->json([
             'success' => true,
