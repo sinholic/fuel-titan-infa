@@ -98,13 +98,13 @@ class SyncronizeController extends Controller
         $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO users VALUES('" . join("),('", $sql->toArray()) . ");"));
 
         // User Assignment
-        $assignment = collect(\DB::select('select user_id, station_id, mobile from userassignments'));
+        $assignment = collect(\DB::select('select user_id, station_id, mobile, start_date, end_date from userassignments'));
         $sql = $assignment->map(function ($item, $key) {
             // dd(json_decode(json_encode($item), true));
             return join(",'", json_decode(json_encode($item), true)) . "'";
             // return $item;
         });
-        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO userassignments ('user_id, 'station_id, 'mobile') VALUES('" . join("),('", $sql->toArray()) . ");"));
+        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO userassignments ('user_id, 'station_id, mobile', start_date' , 'end_date') VALUES('" . join("),('", $sql->toArray()) . ");"));
 
         //Qty Solar
         $qtysolar = QtySolarModel::select('id', 'qty_solar', 'created_at', 'updated_at')->get();
