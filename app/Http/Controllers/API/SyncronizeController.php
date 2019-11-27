@@ -97,8 +97,6 @@ class SyncronizeController extends Controller
         });
         $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO users VALUES('" . join("),('", $sql->toArray()) . ");"));
 
-
-        $data['sql'] .= "CREATE TABLE IF NOT EXISTS userassignments (id bigint(20) unsigned NOT NULL AUTO_INCREMENT,user_id bigint(20) NOT NULL,station_id bigint(20) NOT NULL,mobile tinyint(1) DEFAULT '0',start_date date NOT NULL);";
         // User Assignment
         $assignment = collect(\DB::select('select user_id, station_id, mobile from userassignments'));
         $sql = $assignment->map(function ($item, $key) {
