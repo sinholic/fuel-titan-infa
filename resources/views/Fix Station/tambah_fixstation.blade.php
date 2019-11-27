@@ -25,8 +25,8 @@
 						<label>Nama Company</label>
 						<input id="company-code" name="cc_label" value="{{old('cc_label')}}" class="form-control"
 							required placeholder="Cari company code" />
-						<input type="hidden" id="company-code-value" value="{{old('companycode_id')}}" name="companycode_id"
-							class="form-control" required />
+						<input type="hidden" id="company-code-value" value="{{old('companycode_id')}}"
+							name="companycode_id" class="form-control" required />
 					</div>
 
 					<div class="form-group">
@@ -45,7 +45,8 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text inisial" id="basic-addon3">Company Code</span>
 							</div>
-							<input type="text" class="form-control" name="nama_lokasi" id="nama-lokasi" aria-describedby="basic-addon3">
+							<input type="text" class="form-control" name="nama_lokasi" id="nama-lokasi"
+								aria-describedby="basic-addon3">
 						</div>
 					</div>
 
@@ -109,14 +110,17 @@
 		clone.appendTo("#tanks");
 	})
 
-	var local_source = {!! $companycodes->toJson() !!};
+	var local_source = {!!$companycodes->toJson() !!};
 
 	console.log(local_source);
 	$('.nama-lokasi').hide();
 
-	$('#nama-lokasi').mask('00-A',{
-		translation:{
-			A: {pattern: /[A-Za-z0-9]/, recursive:true},
+	$('#nama-lokasi').mask('00-A', {
+		translation: {
+			A: {
+				pattern: /[A-Za-z0-9]/,
+				recursive: true
+			},
 		},
 		placeholder: "00-____________________________________________________________"
 	});
@@ -124,16 +128,16 @@
 	$('#company-code').autocomplete({
 		source: function (request, response) {
 			response($.map(local_source, function (item, key) {
-				
+
 				var company_name = item.company_name.toUpperCase();
-				
-				if (company_name.indexOf(request.term.toUpperCase()) != -1) {	
+
+				if (company_name.indexOf(request.term.toUpperCase()) != -1) {
 					return {
 						id: item.id,
 						value: item.company_name,
 						inisial: item.company_inisial
 					}
-				}else{
+				} else {
 					return null;
 				}
 			}))
@@ -141,7 +145,7 @@
 		select: function (event, ui) {
 			$('.nama-lokasi').show();
 			$('#company-code-value').val(ui.item.id);
-			$('.inisial').html(ui.item.inisial.substr(0,2));
+			$('.inisial').html(ui.item.inisial.substr(0, 2));
 			return false;
 		},
 		change: function (event, ui) {

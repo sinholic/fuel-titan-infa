@@ -63,9 +63,9 @@ class FixStationController extends Controller
 
     public function edit($id)
     {
-        $fix = FixStationModel::find($id);
+        $fix = FixStationModel::with('company')->find($id);
         $tanks = FixStationModel::where('name_station', $fix->name_station)->get();
-        $companycodes = Companycode::pluck('company_name', 'id');
+        $companycodes = Companycode::all();
         return view('Fix Station.edit_fixstation', ['fix' => $fix, 'tanks' => $tanks, 'companycodes' => $companycodes]);
     }
 
