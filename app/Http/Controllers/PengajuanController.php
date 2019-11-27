@@ -17,12 +17,28 @@ class PengajuanController extends Controller
     {
         $companycode = \Auth::user()->companycode->company_inisial;
         $totalPengajuan = PengajuanModel::where('no_spk', 'LIKE', '%'.$companycode.'%')->whereMonth('created_at', \Carbon\Carbon::today()->month)->count();
-        echo \NumberConverter::roman(1);
-        dd(\NumberConverter::roman(1));
-        $spkNumber = $companycode."/";
+        $spkNumber = $companycode."/".\Carbon\Carbon::today()->format('Ymd')."0000".($totalPengajuan + 1);
         return view('Pengajuan.tambah_pengajuan',[
             'spkNumber' => $spkNumber 
         ]);
+    }
+
+    public function approve($id)
+    {
+        $pengajuan = PengajuanModel::find($id)
+        ->update([
+            'approved' => 1
+        ]);
+        return redirect('/pengajuan')->with('sukses', 'Peminjaman berhasil di approve!');
+    }
+
+    public function reject($id)
+    {
+        $pengajuan = PengajuanModel::find($id)
+        ->update([
+            'approved' => 0
+        ]);
+        return redirect('/pengajuan')->with('sukses', 'Peminjaman berhasil di reject!');
     }
 
     public function create(Request $request)

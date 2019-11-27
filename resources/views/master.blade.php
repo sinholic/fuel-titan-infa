@@ -208,6 +208,9 @@ to get the desired effect
   {{-- <script src="/adminlte/plugins/chart.js/Chart.min.js"></script> --}}
   {{-- <script src="/adminlte/dist/js/demo.js"></script> --}}
   {{-- <script src="/adminlte/dist/js/pages/dashboard3.js"></script> --}}
+
+  {{-- Jquery Mask --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
   <!-- DataTables -->
   <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
   <!-- App scripts -->

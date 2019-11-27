@@ -249,6 +249,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pengajuan/edit/{id}', 'PengajuanController@edit');
     Route::post('/pengajuan/update/{id}', 'PengajuanController@update');
     Route::get('/pengajuan/{id}/delete', 'PengajuanController@delete');
+    Route::get('/pengajuan/{id}/approve', 'PengajuanController@approve');
+    Route::get('/pengajuan/{id}/reject', 'PengajuanController@reject');
     Route::get('/pengajuan/detail/{id}', 'PengajuanController@detail');
 
     //Equipment Card

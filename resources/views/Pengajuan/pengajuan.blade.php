@@ -40,45 +40,58 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
+                    <th class="text-center">No SPK</th>
                     <th class="text-center">Supplier</th>
                     <th class="text-center">Qty</th>
                     <th class="text-center">Remark</th>
-                    <th class="text-center">No SPK</th>
                     <th class="text-center">Peminjam</th>
-                    <th class="text-center">StockOpname</th>
+                    <th class="text-center">Status Peminjaman</th>
+                    {{-- <th class="text-center">StockOpname</th> --}}
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
-            @php $i=1 @endphp
             <tbody>
-                @php $i=1 @endphp
                 @foreach($pengajuan ?? '' as $s)
                 <tr>
-                    <td>{{$i++}}</td>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$s->no_spk}}</td>
                     <td>{{$s->supplier}}</td>
                     <td>{{$s->qty}}</td>
                     <td>{{$s->remark}}</td>
-                    <td>{{$s->no_spk}}</td>
                     <td>{{$s->peminjam}}</td>
-                    <td>{{$s->stockopname}}</td>
+                    <td>{{($s->approved == NULL ? 'Not yet approved' : ($s->approved ? 'Approved' : 'Rejected'))}}</td>
+                    {{-- <td>{{$s->stockopname}}</td> --}}
                     <td>
                         <div class="btn-group">
 
                             <!-- URL::to('/admin/category/detail.id='.$cate-id -->
-                            <a href="/pengajuan/detail/{{$s->id}}" class="btn btn-info btn-sm" data-toggle="tooltip"
+                            {{-- <a href="/pengajuan/detail/{{$s->id}}" class="btn btn-info btn-sm" data-toggle="tooltip"
                                 data-placement="bottom" title="Info">
                                 <i class="fa fa-info-circle nav-icon"></i>
+                            </a> --}}
+
+                            @if ($s->approved == NULL)
+                            <a onClick="return confirm('Yakin ingin menyetujui peminjaman ini?')"
+                                href="/pengajuan/{{$s->id}}/approve" class="btn btn btn-success btn-sm">
+                                <i class="fa fa-check nav-icon"></i>
                             </a>
 
-                            <a href="/pengajuan/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip"
-                                data-placement="bottom" title="Edit">
-                                <i class="fa fa-edit nav-icon"></i>
+                            <a onClick="return confirm('Yakin ingin mereject peminjaman ini?')"
+                                href="/pengajuan/{{$s->id}}/reject" class="btn btn btn-danger btn-sm">
+                                <i class="fa fa-times nav-icon"></i>
                             </a>
+                            @endif
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')"
+                            {{-- <a href="/pengajuan/edit/{{$s->id}}" class="btn btn-warning btn-sm"
+                            data-toggle="tootip"
+                            data-placement="bottom" title="Edit">
+                            <i class="fa fa-edit nav-icon"></i>
+                            </a> --}}
+
+                            {{-- <a onClick="return confirm('Yakin ingin menghapus data?')"
                                 href="/pengajuan/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
-                                <i class="fa fa-trash nav-icon"></i>
-                            </a>
+                            <i class="fa fa-trash nav-icon"></i>
+                            </a> --}}
 
                         </div>
                     </td>

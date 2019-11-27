@@ -24,7 +24,7 @@
 					
                     <div class="form-group">
 						<label>No SPK</label>
-						<input type="text" name="no_spk" placeholder="" class="form-control" readonly >
+						<input type="text" name="no_spk" placeholder="" class="form-control" readonly value="{{$spkNumber}}">
 					</div>
 
 					<div class="form-group">
@@ -44,14 +44,9 @@
 					
 					<div class="form-group">
 						<label>Peminjam</label>
-						<input type="peminjam" name="peminjam" placeholder="" class="form-control" required autocomplete="">
-                    </div>
-
-                    <div class="form-group">
-						<label>Stock Opname</label>
-						<input type="number" name="stockopname" placeholder="" class="form-control" required autocomplete="">
-                    </div>
-
+						<input type="peminjam" name="peminjam" placeholder="" class="form-control" readonly value="{{\Auth::user()->companycode->company_name}}">
+					</div>
+					
 				</div>
 
 				<div class="card-footer">

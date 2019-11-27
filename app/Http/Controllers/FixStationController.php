@@ -32,7 +32,7 @@ class FixStationController extends Controller
 
     public function tambah()
     {
-        $companycodes = Companycode::pluck('company_name', 'id');
+        $companycodes = Companycode::all();
         return view('Fix Station.tambah_fixstation', ['companycodes' => $companycodes]);
     }
 

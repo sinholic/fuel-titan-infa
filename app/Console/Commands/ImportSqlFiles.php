@@ -39,5 +39,6 @@ class ImportSqlFiles extends Command
     {
         \DB::unprepared(file_get_contents($this->argument('sqlfile')));
         // $this->info
+        // echo file_get_contents($this->argument('sqlfile'));
     }
 }
