@@ -48,7 +48,7 @@
 							<input type="text" class="form-control" name="nama_lokasi" id="nama-lokasi"
 								aria-describedby="basic-addon3">
 
-							{!! Form::hidden('inisial_loc', NULL, ['id' => 'inisial-lokasi']) !!}
+							{!! Form::hidden('inisial_lokasi', NULL, ['id' => 'inisial-lokasi']) !!}
 						</div>
 					</div>
 

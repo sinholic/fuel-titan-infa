@@ -51,7 +51,7 @@ class FixStationController extends Controller
                 'companycode_id' => \Auth::user()->companycode_id,
                 'name_station' => $request->name_station,
                 'address' => $request->address,
-                'nama_lokasi' => $request->nama_lokasi,
+                'nama_lokasi' => $request->inisial_lokasi.$request->nama_lokasi,
                 'koordinat_gps' => $request->koordinat_gps,
                 'tank_number' => $tank_number,
                 'fuel_capacity' => $request->fuel_capacity[$key],
