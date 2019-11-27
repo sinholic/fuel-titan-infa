@@ -100,6 +100,7 @@
 		},
 		select: function (event, ui) {
 			// console.log(ui);
+			$('#purchase-order-choice').val(ui.item.value);
 			$('#purchase-order-choice-value').val(ui.item.id);
 			$('.supplier').val(ui.item.supplier);
 			$('.qty').val(ui.item.qty);	

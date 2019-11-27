@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\PengambilanModel;
+use App\PengajuanModel;
 
 class PengambilanController extends Controller
 {

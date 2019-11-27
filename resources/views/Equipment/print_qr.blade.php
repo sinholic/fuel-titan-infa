@@ -17,8 +17,9 @@
 
         serial-number {
             font-size: 10px;
-            margin-left: 2mm;
-            margin-top: 12mm;
+            text-align: center;
+            /* margin-left: 2mm; */
+            /* margin-top: 12mm; */
             display: block;
         }
 
@@ -120,6 +121,7 @@
         <div class="unit-identity-card-container selected">
             <div class="title">unit identity card</div>
             <div style="font-size:14px;text-align:center;">Eq. No : {{ $equipment->equipment_number }}</div>
+            <serial-number>SN: {{ $equipment->cards->count() > 0 ? $equipment->cards->last()->cardnumber : "" }}</serial-number>
             <div class="left-container">
                 <table style="margin-left:2mm;margin-top:3mm">
                     <tr>
@@ -138,11 +140,9 @@
                         <td>{{ $equipment->fuel_capacity }}</td>
                     </tr>
                 </table>
-                <serial-number>SN: {{ $equipment->cards->count() > 0 ? $equipment->cards->last()->cardnumber : "" }}
-                </serial-number>
             </div>
             <div class="right-container">
-                {!! QrCode::size(160)->margin(0)->generate($string); !!}
+                {!! QrCode::size(140)->margin(0)->generate($string); !!}
             </div>
         </div>
     </div>

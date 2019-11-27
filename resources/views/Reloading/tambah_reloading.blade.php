@@ -100,6 +100,7 @@
 			},
 			select: function (event, ui) {
 				console.log(ui);
+				$('#mobile-station-number').val(ui.item.value);
 				$('#mobile-station-number-value').val(ui.item.id);
 				$('.mobile-station-owner').val(ui.item.owner);
 				$('#mobile-station-number').val(ui.item.label); // display the selected text

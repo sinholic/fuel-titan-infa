@@ -94,6 +94,13 @@
 @endsection
 
 @push('scripts')
+
+<style>
+	.ui-autocomplete {
+		z-index: 99999; /* adjust this value */
+	}
+</style>
+
 <script>
 	$('#addtank').click(function () {
 		console.log("HAI");
@@ -138,6 +145,7 @@
 		},
 		select: function (event, ui) {
 			$('.nama-lokasi').show();
+			$('#company-code').val(ui.item.value);
 			$('#company-code-value').val(ui.item.id);
 			$('#inisial-lokasi').val(ui.item.inisial);
 			$('.inisial').html(ui.item.inisial);
@@ -145,9 +153,10 @@
 		},
 		change: function (event, ui) {
 			console.log(ui);
+			$('#company-code').val(ui.item ? ui.item.value : 0);
 			$("#company-code-value").val(ui.item ? ui.item.id : 0);
 			$('#inisial-lokasi').val(ui.item ? ui.item.inisial : ui.item.inisial);
-		}
+		},
 	});
 </script>
 @endpush

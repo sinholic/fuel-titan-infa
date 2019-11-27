@@ -207,6 +207,7 @@
 		},
 		select: function (event, ui) {
 			console.log(ui);
+			$('#equipment-number').val(ui.item.value);
 			$('#equipment-number-value').val(ui.item.id);
 			$('.equipment-owner').val(ui.item.owner);
 			$('.equipment-category').val(ui.item.category);
