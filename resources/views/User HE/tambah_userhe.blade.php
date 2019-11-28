@@ -59,7 +59,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>HM Awal</label>
-								<input type="number" id="hmawal" onkeyup="sumHM()" ; name="hm_awal" placeholder=""
+								<input type="number" id="hmawal" onfocusout="sumHM();" name="hm_awal" placeholder=""
 									class="form-control">
 							</div>
 						</div>
@@ -67,7 +67,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>KM Awal</label>
-								<input type="number" id="kmawal" onkeyup="sumKM();" name="km_awal" placeholder=""
+								<input type="number" id="kmawal" onfocusout="sumKM();" name="km_awal" placeholder=""
 									class="form-control">
 							</div>
 						</div>
@@ -77,7 +77,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>HM Akhir</label>
-								<input type="number" id="hmakhir" onkeyup="sumHM();" name="hm_akhir" placeholder=""
+								<input type="number" id="hmakhir" onfocusout="sumHM();" name="hm_akhir" placeholder=""
 									class="form-control">
 							</div>
 						</div>
@@ -85,7 +85,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>KM Akhir</label>
-								<input type="number" id="kmakhir" onkeyup="sumKM();" name="km_akhir" placeholder=""
+								<input type="number" id="kmakhir" onfocusout="sumKM();" name="km_akhir" placeholder=""
 									class="form-control">
 							</div>
 						</div>
@@ -258,7 +258,7 @@
 
 			document.getElementById("adddata").disabled = false;
 
-			result = parseInt(hm1) + parseInt(hm2);
+			result = parseInt(hm2) - parseInt(hm1);
 
 		} else if (parseInt(hm1) > parseInt(hm2)) {
 
@@ -285,8 +285,7 @@
 
 		if (parseInt(km1) < parseInt(km2)) {
 			document.getElementById("adddata").disabled = false;
-			result = parseInt(km1) +
-				parseInt(km2);
+			result = parseInt(km2) - parseInt(km1);
 		} else if (parseInt(km1) > parseInt(km2)) {
 
 			document.getElementById("adddata").disabled = true;
