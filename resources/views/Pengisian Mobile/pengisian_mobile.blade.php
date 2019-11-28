@@ -40,7 +40,7 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">ID Driver</th>
+                    <th class="text-center">PIC</th>
                     <th class="text-center">Unit Equipment</th>
                     <th class="text-center">Qty Solar</th>
                     <th class="text-center">Odometer</th>
