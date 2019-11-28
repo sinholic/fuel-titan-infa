@@ -13,9 +13,9 @@ class CreateTriggers extends Migration
      */
     public function up()
     {
-        DB::unprepared("CREATE TRIGGER tr_good_issue_on_fix AFTER INSERT ON `users` FOR EACH ROW
+        DB::unprepared("CREATE TRIGGER tr_good_issue_on_fix AFTER INSERT ON reloadingunits FOR EACH ROW
             BEGIN
-                INSERT INTO materialtransactions (`material_id`, `transaction_id`, `transaction_code`, `qty`, `transaction_type`, created_at, updated_at) VALUES (1, NEW.id, '01', NEW.qty, 'In', NOW(),NOW())
+                INSERT INTO materialtransactions (material_id, transaction_id, transaction_code, qty, transaction_type, created_at, updated_at) VALUES (1, NEW.id, '01', NEW.qty, 'Out', NOW(),NOW())
             END
         ");
     }
@@ -27,6 +27,6 @@ class CreateTriggers extends Migration
      */
     public function down()
     {
-        DB::unprepared('DROP TRIGGER IF EXISTS `tr_User_Default_Member_Role`');
+        DB::unprepared('DROP TRIGGER IF EXISTS tr_good_issue_on_fix');
     }
 }
