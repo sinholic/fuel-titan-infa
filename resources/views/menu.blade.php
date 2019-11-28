@@ -119,23 +119,6 @@
             </ul>
         </li>
 
-        {{-- <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-        {{-- <p>
-                    User Assignment
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview offset-md-2">
-                <li class="nav-item">
-                    <a href="/userassign" class="nav-link">
-                        List assignment
-                    </a>
-                </li>
-            </ul> --}}
-        {{--</li> --}}
-
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
@@ -148,14 +131,13 @@
 
                 <li class="nav-item">
                     <a href="/pengisian_mobile" class="nav-link">
-
-                        <p>Good Issue On Mobile Station</p>
+                        <p>(01) Mobile Station</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="/pengisian_fix" class="nav-link">
-                        <p>Good Issue On Fix Station</p>
+                        <p>(02) Fix Station</p>
                     </a>
                 </li>
 
@@ -172,7 +154,7 @@
             <a href="/userhe" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    Timesheet Heavy Equipment
+                    (03) Timesheet Heavy Equipment
                 </p>
             </a>
         </li>
@@ -181,7 +163,7 @@
             <a href="/reloading" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    Pengisian Ulang Mobile Station
+                    (04) Pengisian Ulang Mobile Station
                 </p>
             </a>
         </li>
@@ -190,7 +172,7 @@
             <a href="/penerimaan" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    Penerimaan Solar
+                    (05) Penerimaan Solar
                 </p>
             </a>
         </li>
@@ -207,7 +189,7 @@
 
                 <li class="nav-item">
                     <a href="/error" class="nav-link">
-                        <p>Penerimaan Piutang Solar</p>
+                        <p>(06) Penerimaan Piutang Solar</p>
                     </a>
                 </li>
 
@@ -226,19 +208,19 @@
 
                 <li class="nav-item">
                     <a href="/pengajuan" class="nav-link">
-                        <p>Pengajuan Hutang Solar</p>
+                        <p>(07) Pengajuan</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="/pengambilan" class="nav-link">
-                        <p>Pengambilan Solar</p>
+                        <p>(08) Pengambilan Solar</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="/pengembalian" class="nav-link">
-                        <p>Pengembalian Solar</p>
+                        <p>(09) Pengembalian Solar</p>
                     </a>
                 </li>
             </ul>
@@ -248,7 +230,7 @@
             <a href="/error" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    Consignment
+                    (10) Consignment
                 </p>
             </a>
         </li>
@@ -257,7 +239,7 @@
             <a href="/error" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    Stock Opname
+                    (11) Stock Opname
                 </p>
             </a>
         </li>

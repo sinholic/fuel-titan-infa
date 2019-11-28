@@ -13,6 +13,7 @@ class CreateTriggers extends Migration
      */
     public function up()
     {
+        DB::unprepared('DROP TRIGGER IF EXISTS tr_good_issue_on_fix');
         DB::unprepared("CREATE TRIGGER tr_good_issue_on_fix AFTER INSERT ON reloadingunits FOR EACH ROW
             BEGIN
                 INSERT INTO materialtransactions (material_id, transaction_id, transaction_code, qty, transaction_type, created_at, updated_at) VALUES (1, NEW.id, '01', NEW.qty, 'Out', NOW(),NOW())
