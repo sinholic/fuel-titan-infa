@@ -63,6 +63,39 @@
 	</div>
 </div>
 
-
-
 @endsection
+
+@push('scripts')
+	
+	<script>
+		$('#company-code').autocomplete({
+            source: function (request, response) {
+                response($.map(local_source, function (item, key) {
+
+                    var company_name = item.company_name.toUpperCase();
+
+                    if (company_name.indexOf(request.term.toUpperCase()) != -1) {
+                        return {
+                            id: item.id,
+                            value: item.company_name,
+                            inisial: item.company_inisial
+                        }
+                    } else {
+                        return null;
+                    }
+                }))
+            },
+            select: function (event, ui) {
+                $('.nama-lokasi').show();
+                $('#company-code-value').val(ui.item.id);
+                $('.inisial').html(ui.item.inisial.substr(0, 2));
+                return false;
+            },
+            change: function (event, ui) {
+                console.log(ui);
+                $("#company-code-value").val(ui.item ? ui.item.id : 0);
+            }
+        });
+	</script>
+
+@endpush
