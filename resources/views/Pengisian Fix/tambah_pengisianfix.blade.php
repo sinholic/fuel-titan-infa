@@ -22,18 +22,23 @@
 					@endif
 
 					<div class="form-group">
-                        <label for="">Unit Equipment</label>
-                        <input type="text" name="unit_equipment" placeholder="" class="form-control" required autofocus>
+                        <label>Equipment Number</label>
+                        <input id="equipment-number" name="eq_label" class="form-control" required />
+                        <input type="hidden" id="equipment-number-value" name="equipment_id" class="form-control"
+                            required />
                     </div>
+    
 
 					<div class="form-group">
-						<label>Id Driver</label>
-						<input type="number" name="id_driver" placeholder="" class="form-control" required autofocus>
+                        <label>Driver</label>
+                        <input id="equipmentuser" name="equser_label" class="form-control" required />
+                        <input type="hidden" id="equipmentuser-value" name="equipmentuser_id" class="form-control"
+                            required />
                     </div>
                     
                     <div class="form-group">
-						<label>Qty Solar</label>
-						<input type="number" name="qty_solar" placeholder="" class="form-control" required autofocus>
+                        <label>Qty Solar</label>
+						<input type="number" name="qty" placeholder="" class="form-control" required autofocus>
                     </div>
                     
                     <div class="form-group">
@@ -44,7 +49,11 @@
                     <div class="form-group">
 						<label>Remark</label>
 						<input type="text" name="remark" placeholder="" class="form-control" required autocomplete="">
-					</div>
+                    </div>
+                    
+                    {!! Form::hidden('origin', 'Fix Station') !!}
+                    {!! Form::hidden('station_id', '1') !!}
+                    {!! Form::hidden('loginuser_id', \Auth::user()->id) !!}
 
 				</div>
 
@@ -68,32 +77,85 @@
 @push('scripts')
 	
 	<script>
-		$('#company-code').autocomplete({
+		var local_sourceequipment = {!!$equipments->toJson() !!};
+		var local_sourceequsers = {!!$users->toJson() !!};
+        var local_sourcevouchers = {!!$users->toJson() !!};
+
+        console.log(local_source);
+
+        $('#equipment-number').autocomplete({
             source: function (request, response) {
-                response($.map(local_source, function (item, key) {
-
-                    var company_name = item.company_name.toUpperCase();
-
-                    if (company_name.indexOf(request.term.toUpperCase()) != -1) {
+                response($.map(local_sourceequipment, function (item, key) {
+                    var equipment_number = item.equipment_number.toUpperCase();
+                    
+                    if (equipment_number.indexOf(request.term.toUpperCase()) != -1) {	
                         return {
                             id: item.id,
-                            value: item.company_name,
-                            inisial: item.company_inisial
+                            value: item.equipment_number,
+                            label: item.equipment_number,
+                            owner: item.equipmentowner.vendor_name,
+                            category: item.equipmentcategory.nama
                         }
-                    } else {
+                    }else{
                         return null;
                     }
                 }))
             },
+            focus: function(event, ui) {
+                event.preventDefault();
+            },
             select: function (event, ui) {
-                $('.nama-lokasi').show();
-                $('#company-code-value').val(ui.item.id);
-                $('.inisial').html(ui.item.inisial.substr(0, 2));
+                console.log(ui);
+                $('#equipment-number').val(ui.item.value);
+                $('#equipment-number-value').val(ui.item.id);
+                // $('#equipment-number').val(ui.item.label); // display the selected text
+                // $('#equipment-number_id').val(ui.item.value); // save selected id to hidden input
                 return false;
             },
             change: function (event, ui) {
                 console.log(ui);
-                $("#company-code-value").val(ui.item ? ui.item.id : 0);
+                $("#equipment-number-value").val(ui.item ? ui.item.id : 0);
+                // $('.equipment-owner').val(ui.item.owner ? ui.item.owner : 0);
+                // $('.equipment-category').val(ui.item.category ? ui.item.category : 0);
+            }
+        });
+
+        $('#equipmentuser').autocomplete({
+            source: function (request, response) {
+                response($.map(local_sourceequsers, function (item, key) {
+                    var equipment_number = item.equipment_number.toUpperCase();
+                    
+                    if (equipment_number.indexOf(request.term.toUpperCase()) != -1) {	
+                        return {
+                            id: item.id,
+                            value: item.equipment_number,
+                            label: item.equipment_number,
+                            owner: item.equipmentowner.vendor_name,
+                            category: item.equipmentcategory.nama
+                        }
+                    }else{
+                        return null;
+                    }
+                }))
+            },
+            focus: function(event, ui) {
+                event.preventDefault();
+            },
+            select: function (event, ui) {
+                console.log(ui);
+                $('#equipment-number').val(ui.item.value);
+                $('#equipment-number-value').val(ui.item.id);
+                $('.equipment-owner').val(ui.item.owner);
+                $('.equipment-category').val(ui.item.category);
+                $('#equipment-number').val(ui.item.label); // display the selected text
+                // $('#equipment-number_id').val(ui.item.value); // save selected id to hidden input
+                return false;
+            },
+            change: function (event, ui) {
+                console.log(ui);
+                $("#equipment-number-value").val(ui.item ? ui.item.id : 0);
+                $('.equipment-owner').val(ui.item.owner ? ui.item.owner : 0);
+                $('.equipment-category').val(ui.item.category ? ui.item.category : 0);
             }
         });
 	</script>

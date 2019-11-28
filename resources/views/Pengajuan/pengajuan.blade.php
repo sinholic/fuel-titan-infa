@@ -40,7 +40,7 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">No SPK</th>
+                    <th class="text-center">No Pengajuan Hutang</th>
                     <th class="text-center">Supplier</th>
                     <th class="text-center">Qty</th>
                     <th class="text-center">Remark</th>

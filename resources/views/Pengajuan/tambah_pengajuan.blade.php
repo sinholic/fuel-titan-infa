@@ -23,13 +23,23 @@
 
 					
                     <div class="form-group">
-						<label>No SPK</label>
+						<label>No Pengajuan Hutang</label>
 						<input type="text" name="no_spk" placeholder="" class="form-control" readonly value="{{$spkNumber}}">
 					</div>
 
 					<div class="form-group">
 						<label>Supplier</label>
-						<input type="text " name="supplier" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="supplier" placeholder="" class="form-control" required autofocus>
+					</div>
+					
+					<div class="form-group">
+						<label>Lokasi pengambilan</label>
+						<input type="text" name="fixstation_id" placeholder="" class="form-control" required autofocus>
+					</div>
+					
+					<div class="form-group">
+						<label>Tanggal pengambilan</label>
+						<input type="date" name="taking_date" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
