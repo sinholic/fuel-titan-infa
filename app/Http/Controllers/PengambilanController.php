@@ -16,19 +16,47 @@ class PengambilanController extends Controller
 
     public function tambah()
     {
-        return view('Pengambilan.tambah_pengambilan');
+        $pengajuans = PengajuanModel::where('approved', 1)
+        ->whereNotIn('id', function($query){
+            $query->select(\DB::raw('pengajuan_hutang.id'))
+            ->from('pengajuan_hutang')
+            ->leftJoin('pengambilan', 'pengajuan_hutang.id', '=', 'pengambilan.credit_id')
+            ->groupBy(\DB::raw('pengajuan_hutang.id'))
+            ->having(\DB::raw('SUM(pengambilan.qty)'), '>=', \DB::raw('pengajuan_hutang.qty'));
+        })
+        ->get();
+        return view('Pengambilan.tambah_pengambilan',[
+            'pengajuans' => $pengajuans
+        ]);
     }
 
     public function create(Request $request)
     {
-        $this->validate($request, [
-            'equipment_category' => 'required',
-            'equipment_number' => 'required|unique:equipment_unitdata,equipment_number,'.$request->equipment_number.',id,companycode_id,'.\Auth::user()->companycode_id ,
-            'equipment_name' => 'required',
-            'fuel_capacity' => 'required',
-            'location' => 'required',
-            'pic' => 'required',
-        ]);
+        $pengajuan = PengajuanModel::find($request->credit_id);
+        if ($pengajuan->pengambilan->count() > 0) {
+            $totalReceive = $pengajuan->pengambilan->count() + 1;
+            // dd($pengajuan->pengambilan->sum('qty'));
+            $sum = $pengajuan->pengambilan->sum('qty');
+            $total = intval($pengajuan->amount) - $sum;
+            // dd($total);
+            $request->validate(
+                [
+                    'qty' => 'required|numeric|max:' . $total,
+                    'credit_id' => 'required',
+                    'date' => 'required'
+                ],
+                [
+                    // This PO has already received 20,000 so you can only receive 10,000 on maximum 
+                    'qty.max' => 'This Debt number has already received ' . $sum . ' so you can only receive ' . $total . ' on maximum'
+                ]
+            );
+        } else {
+            $request->validate([
+                'qty' => 'required|numeric|max:' . $pengajuan->qty,
+                'credit_id' => 'required',
+                'date' => 'required'
+            ]);
+        }
         PengambilanModel::create($request->all());
         return redirect('/pengambilan')->with('sukses', 'Data Berhasil Di Input!');
     }

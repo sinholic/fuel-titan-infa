@@ -32,7 +32,7 @@ class PenerimaanController extends Controller
                 ->groupBy(\DB::raw('purchaseorders.id'))
                 ->having(\DB::raw('SUM(penerimaan.qty)'), '>=', \DB::raw('purchaseorders.amount'));
         })
-            ->get();
+        ->get();
         return view('Penerimaan.tambah_penerimaan', ['fixstations' => $fixstations, 'purchaseorders' => $purchaseorders]);
     }
 

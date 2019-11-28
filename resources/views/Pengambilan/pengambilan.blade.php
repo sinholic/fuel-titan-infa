@@ -36,14 +36,14 @@
         </div>
 
     <div class="card-body">
-        <table class="table table-striped table-responsive table table-hover" id="myTable">
+        <table class="table table-striped table-bordered" id="myTable">
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Hutang</th>
+                    <th class="text-center">No Pengajuan</th>
                     <th class="text-center">Qty</th>
                     <th class="text-center">Date</th>
-                    <th class="text-center" width="8%">Action</th>
+                    {{-- <th class="text-center" width="8%">Action</th> --}}
                 </tr>
             </thead>
             @php $i=1 @endphp
@@ -52,10 +52,10 @@
                  @foreach($pengambilan ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td></td>
+                    <td>{{ $s->Pengajuan->no_spk }}</td>
                     <td>{{$s->qty}}</td>
                     <td>{{date('d M Y', strtotime($s->date))}}</td>
-                    <td>
+                    {{-- <td>
                          <div class="btn-group">
 
                             <!-- URL::to('/admin/category/detail.id='.$cate-id -->
@@ -72,7 +72,7 @@
                             </a>
 
                         </div>
-                    </td>
+                    </td> --}}
                     
                 </tr>
                 @endforeach

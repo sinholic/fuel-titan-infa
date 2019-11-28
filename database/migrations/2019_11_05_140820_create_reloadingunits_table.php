@@ -21,6 +21,11 @@ class CreateReloadingunitsTable extends Migration
             $table->integer('machinehours')->nullable();
             $table->float('qty')->default(0);
             $table->float('ending_stock')->default(0);
+            $table->bigInteger('equipmentuser_id')->nullable()->default(1);
+            $table->bigInteger('loginuser_id')->nullable()->default(1);
+            $table->longText('remark')->nullable();
+            $table->longText('remark2')->nullable();
+            $table->longText('remark3')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
