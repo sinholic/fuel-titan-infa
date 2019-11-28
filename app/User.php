@@ -65,4 +65,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\MobileModel', 'userassignments', 'user_id', 'station_id')->wherePivot('mobile', 1)->withPivot('start_date', 'end_date', 'mobile')->withTimestamps();
     }
+
+    public function reloadingunits_user_eq()
+    {
+        return $this->hasMany('App\Reloadingunit', 'equipmentuser_id', 'id');
+    }
+
+    public function reloadingunits_user_login()
+    {
+        return $this->hasMany('App\Reloadingunit', 'loginuser_id', 'id');
+    }
 }

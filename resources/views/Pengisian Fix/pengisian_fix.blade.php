@@ -33,7 +33,7 @@
                 <tr>
                     <th class="text-center">No</th>
                     <th class="text-center">Unit Equipment</th>
-                    <th class="text-center">ID Driver</th>
+                    <th class="text-center">Driver</th>
                     <th class="text-center">Voucher</th>
                     <th class="text-center">Odometer</th>
                     <th class="text-center">Remark</th>
@@ -46,8 +46,8 @@
                  @foreach($pengisian_fix ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->unit_equipment}}</td>
-                    <td>{{$s->id_driver}}</td>
+                    <td>{{$s->equipment->equipment_number}}</td>
+                    <td>{{$s->equipmentuser->name}}</td>
                     <td>{{$s->voucher}}</td>
                     <td>{{$s->odometer}}</td>
                     <td>{{$s->remark}}</td>
