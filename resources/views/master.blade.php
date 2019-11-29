@@ -206,7 +206,7 @@ to get the desired effect
 
   <!-- OPTIONAL SCRIPTS -->
   {{-- <script src="/adminlte/plugins/chart.js/Chart.min.js"></script> --}}
-  {{-- <script src="/adminlte/dist/js/demo.js"></script> --}}
+  <script src="/adminlte/dist/js/demo.js"></script>
   {{-- <script src="/adminlte/dist/js/pages/dashboard3.js"></script> --}}
 
   {{-- Jquery Mask --}}
@@ -230,28 +230,27 @@ to get the desired effect
     });
   </script>
   <script>
-     function update()
-     {
-         Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Data berhasil di update',
-            showConfirmButton: false,
-            timer: 1300
-            })
-     }
-</script>
-<script>
-     function simpan()
-     {
-         Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Data berhasil di simpan',
-            showConfirmButton: false,
-            timer: 1300
-            })
-     }
-</script>
+    function update() {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Data berhasil di update',
+        showConfirmButton: false,
+        timer: 1300
+      })
+    }
+  </script>
+  <script>
+    function simpan() {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Data berhasil di simpan',
+        showConfirmButton: false,
+        timer: 1300
+      })
+    }
+  </script>
 </body>
+
 </html>

@@ -23,28 +23,28 @@
 
                     <div class="form-group">
                         <label>Nama Pengawas</label>
-                        <input type="text" name="id_driver" value="{{$pengisian_mobile->id_driver}}" class="form-control" required autofocus>
+                        <input type="text" name="equipmentuser_id" value="{{$pengisian_mobile->equipmentuser->name}}" class="form-control" disabled autofocus>
                     </div>
 
                     <div class="form-group">
                         <label for="">Unit Equipment</label>
-                        {{ Form::select('qty_solar', $equipments, $pengisian_mobile->unit_equipment, ['placeholder' => 'Pilih jumlah solar...', 'required', 'class' => 'form-control']) }}
+                        {{ Form::select('equipment_id', $equipments, $pengisian_mobile->equipment_id, ['placeholder' => 'Pilih equipment...', 'disabled', 'class' => 'form-control']) }}
                     </div>
 
                     <div class="form-group">
-						<label>Qty Solar</label>
-						{{ Form::select('qty_solar', $qty_solar, $pengisian_mobile->qty_solar, ['placeholder' => 'Pilih jumlah solar...', 'required', 'class' => 'form-control']) }}
+                        <label>Qty Solar</label>
+                        {!! Form::text('qty', $pengisian_mobile->qty, ['class'=>'form-control', 'disabled']) !!}
                     </div>
 
                     <div class="form-group">
                         <label>Odometer</label>
-                        <input type="text" name="odometer" value="{{$pengisian_mobile->odometer}}" class="form-control" required autofocus>
+                        <input type="text" name="odometer" value="{{$pengisian_mobile->odometer}}" class="form-control" disabled autofocus>
                     </div>
 
                     <div class="form-group">
                         <label for="">Remark History</label>
                         <div class="clearfix">
-                            {{ $pengisian_mobile->remark1 }}
+                            {{ $pengisian_mobile->remark }}
                         </div>
                         <div class="clearfix">
                             {{ $pengisian_mobile->remark2 }}
@@ -56,8 +56,8 @@
 
                     <div class="form-group">
                         <label>Add Remark</label>
-                        @if ($pengisian_mobile->remark1 == NULL)
-                            <input type="text" name="remark1" value="" class="form-control" required autofocus>
+                        @if ($pengisian_mobile->remark == NULL)
+                            <input type="text" name="remark" value="" class="form-control" required autofocus>
                         @elseif($pengisian_mobile->remark2 == NULL)
                             <input type="text" name="remark2" value="" class="form-control" required autofocus>
                         @elseif($pengisian_mobile->remark3 == NULL)

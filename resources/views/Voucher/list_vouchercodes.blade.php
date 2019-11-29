@@ -34,7 +34,7 @@
                         <tr>
                             <td>{{ $voucher->voucherowner->vendor_name ?? '' }}</td>
                             <td>{{ $vouchercode->serial_number }}</td>
-                            <td>{{ $vouchercode->used ? "Used" : $vouchercode->rejected ? "Rejected" : "Not Used / Rejected" }}
+                            <td>{{ ($vouchercode->used == 1 ? "Used" : ($vouchercode->rejected == 1 ? "Rejected" : "Not Used / Rejected")) }}
                             </td>
                             <td>
                                 @if (!$vouchercode->rejected && !$vouchercode->used)

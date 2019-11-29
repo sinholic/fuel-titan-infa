@@ -7,6 +7,7 @@ use App\PengisianFixModel;
 use App\Reloadingunit;
 use App\EquipmentModel;
 use App\VoucherModel;
+use App\Vouchercode;
 use App\User;
 
 class PengisianFixController extends Controller
@@ -21,16 +22,25 @@ class PengisianFixController extends Controller
 
     public function tambah()
     {
-        $equipments = EquipmentModel::all();
+        $equipments = EquipmentModel::with('equipmentowner','equipmentcategory')->get();
         $users = User::all();
+        $vouchers = Vouchercode::with('voucher')
+        ->where('used', 0)
+        ->where('rejected', 0)
+        ->whereHas('voucher', function($query){
+            $query->whereDate('expired_date', '<=', \Carbon\Carbon::now()->toDateString());
+        })
+        ->get();
         return view('Pengisian Fix.tambah_pengisianfix',[
             'equipments' => $equipments,
             'users' => $users,
+            'vouchers' => $vouchers
         ]);
     }
 
     public function create(Request $request)
     {
+        Vouchercode::find($request->voucher_id)->update(['used'=>1]);
         Reloadingunit::create($request->all());
         return redirect('/pengisian_fix')->with('sukses', 'Data Berhasil Di Input!');
     }

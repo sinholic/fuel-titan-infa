@@ -95,7 +95,7 @@
 
                 <li class="nav-item">
                     <a href="/userassign" class="nav-link">
-                        <p>Fix/Mobile Station Assignment</p>
+                        <p>Station Assignment</p>
                     </a>
                 </li>
 
@@ -154,7 +154,7 @@
             <a href="/userhe" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    (03) Timesheet Heavy Equipment
+                    (03) Timesheet HE
                 </p>
             </a>
         </li>
@@ -163,7 +163,7 @@
             <a href="/reloading" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    (04) Pengisian Ulang Mobile Station
+                    (04) Pengisian Mobile Station
                 </p>
             </a>
         </li>
