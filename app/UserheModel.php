@@ -20,4 +20,9 @@ class UserheModel extends Model
     {
         return $this->belongsTo('App\Timesheetstatus', 'timesheetstatus_id', 'id')->withTrashed();
     }
+
+    public function userpengawas()
+    {
+        return $this->belongsTo('App\User', 'pengawas', 'id');
+    }
 }
