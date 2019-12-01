@@ -293,4 +293,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/tipe_equipment/update/{id}', 'TipeController@update');
     Route::get('/tipe_equipment/{id}/delete', 'TipeController@delete');
     Route::get('/detail/tipe_equipment/{id}', 'TipeController@detail');
+
+    //Consignment
+    Route::get('/consignment', 'ConsignmentController@consignment');
+    Route::get('/tambah_consignment', 'ConsignmentController@tambah');
+    Route::post('/consignment/create', 'ConsignmentController@create');
+    Route::get('/consignment/edit/{id}', 'ConsignmentController@edit');
+    Route::post('/consignment/update/{id}', 'ConsignmentController@update');
+    Route::get('/consignment/{id}/delete', 'ConsignmentController@delete');
 });

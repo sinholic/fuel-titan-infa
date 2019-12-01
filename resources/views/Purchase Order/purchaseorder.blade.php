@@ -50,7 +50,7 @@
                     <th class="text-center">No</th>
                     <th class="text-center">PO Number</th>
                     <th class="text-center">PO Date</th>
-                    <th class="text-center">Supplier</th>
+                    <th class="text-center">Kode Supplier</th>
                     <th class="text-center">QTY</th>
                     {{-- <th class="text-center" width="8%">Action</th> --}}
                 </tr>

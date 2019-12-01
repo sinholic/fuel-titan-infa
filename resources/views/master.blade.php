@@ -65,7 +65,7 @@ to get the desired effect
 |---------------------------------------------------------|
 -->
 
-<body class="hold-transition sidebar-mini">
+<body class="sidebar-mini layout-fixed" style="height:auto;">
   <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">

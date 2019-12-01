@@ -82,9 +82,11 @@ class EquipmentController extends Controller
             'equipment_number' => 'required|unique:equipment_unitdata,equipment_number,' . $request->equipment_number . ',id,companycode_id,' . \Auth::user()->companycode_id,
             'equipment_name' => 'required',
             'fuel_capacity' => 'required',
+            'nomor_mesin' => 'unique:equipment_unitdata,nomor_mesin',
             'location' => 'required',
             'owner_id' => 'required',
         ]);
+        
         $equipment = new EquipmentModel;
         $equipment->equipment_category = $request->equipment_category;
         $equipment->equipment_number = $request->equipment_number;
