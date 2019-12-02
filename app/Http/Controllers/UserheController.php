@@ -34,6 +34,8 @@ class UserheController extends Controller
 
         $this->validate($request, [
             'tanggal_operasi' => 'required|date|after_or_equal:start_date',
+            'bbm' => 'required_with:bbm|integer|min:1|digit_between: 1,5',
+            'bbm' => 'required_with:bbm|integer|lt:bbm|digits_between:1,5'
         ], $messages);
 
         UserheModel::create($request->all());

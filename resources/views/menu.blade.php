@@ -180,33 +180,28 @@
 
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
                     Piutang Solar
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
             <ul class="nav nav-treeview offset-md-2">
-
                 <li class="nav-item">
                     <a href="/error" class="nav-link">
                         <p>(06) Penerimaan Piutang Solar</p>
                     </a>
                 </li>
-
             </ul>
         </li>
 
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
                     Hutang Solar
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
             <ul class="nav nav-treeview offset-md-2">
-
                 <li class="nav-item">
                     <a href="/pengajuan" class="nav-link">
                         <p>(07) Pengajuan</p>

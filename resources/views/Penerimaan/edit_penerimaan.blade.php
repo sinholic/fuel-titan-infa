@@ -7,7 +7,7 @@
         <form action="/penerimaan/update/{{$penerimaan->id}}" method="POST">
 
             @csrf
-           
+
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Edit Penerimaan Solar</h3>
@@ -28,7 +28,7 @@
 
                     <div class="form-group">
                         <label for="">Supplier</label>
-                        <input type="text" name="supplier" value="{{$penerimaan->supplier}}" class="form-control" required autofocus>
+                        <input type="text" name="supplier" value="{{old('po_supplier')}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
@@ -42,8 +42,8 @@
                     </div>
 
                     <div class="form-group">
-						<label>Received Qty</label>
-						<input type="text" name="received_qty" value="{{$penerimaan->received_qty}}" class="form-control" required autofocus>
+                        <label>Received Qty</label>
+                        <input type="text" name="received_qty" value="{{old('qty')}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">

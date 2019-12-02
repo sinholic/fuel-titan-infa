@@ -43,7 +43,7 @@
 
                     <div class="form-group">
                         <label>Area Kerja</label>
-                        <input type="text" name="nama_unit" value="{{$userhe->nama_unit}}" class="form-control" required autofocus>
+                        <input type="text" name="nama_unit" value="{{$userhe->areakerja}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="row">
@@ -113,7 +113,7 @@
                         <textarea name="job_order" class="form-control" rows="3" required autocomplete=""><?php echo htmlspecialchars($userhe->job_order); ?></textarea>
                     </div>
 
-                    <div class="row"></div>
+                    <div class="row">
                         <div class="col-md-6">
                              <div class="form-group">
                                 <label>BBM</label>
@@ -140,7 +140,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Pengawas</label>
-                                <input type="text" name="pengawas" value="{{$userhe->pengawas}}" class="form-control" required autofocus>
+                                <input type="text" name="pengawas" value="{{$userhe->pengawas}}" class="form-control" readonly required autofocus>
                             </div> 
                         </div>
                     </div>

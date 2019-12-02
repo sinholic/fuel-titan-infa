@@ -31,6 +31,10 @@ class PengisianFixController extends Controller
 
     public function create(Request $request)
     {
+        // $this->validate($request, [
+        //     'odometer' => 'different:odometer'
+        // ]);
+
         Reloadingunit::create($request->all());
         return redirect('/pengisian_fix')->with('sukses', 'Data Berhasil Di Input!');
     }
