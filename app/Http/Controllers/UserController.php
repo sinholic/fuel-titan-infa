@@ -37,7 +37,8 @@ class UserController extends Controller
         $this->validate($request, [
             'email' => 'unique:users,email',
             'imei' => 'unique:users',
-            'imei2' => 'unique:users'
+            'imei2' => 'unique:users',
+            'imei2' => 'different:imei'
         ]);
 
         $datas = $request->all();

@@ -67,7 +67,7 @@
                                 href="/pengajuan/{{$s->id}}/approve" class="btn btn btn-success btn-sm">
                                 <i class="fa fa-check nav-icon"></i>
                             </a>
-
+                            
                             <a onClick="return confirm('Yakin ingin mereject peminjaman ini?')"
                                 href="/pengajuan/{{$s->id}}/reject" class="btn btn btn-danger btn-sm">
                                 <i class="fa fa-times nav-icon"></i>
