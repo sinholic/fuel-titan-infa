@@ -153,7 +153,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Pengawas</label>
-								<input type="text" value="{{\Auth::user()->name}}" name="pengawas" placeholder=""
+								<input type="text" value="{{\Auth::user()->id}}" name="pengawas" placeholder=""
 									class="form-control" readonly autocomplete="">
 							</div>
 						</div>

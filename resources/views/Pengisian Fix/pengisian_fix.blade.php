@@ -34,7 +34,7 @@
                     <th class="text-center">No</th>
                     <th class="text-center">Unit Equipment</th>
                     <th class="text-center">Driver</th>
-                    <th class="text-center">Voucher</th>
+                    <th class="text-center">Qty</th>
                     <th class="text-center">Odometer</th>
                     <th class="text-center">Remark</th>
                     {{-- <th class="text-center" width="8%">Action</th> --}}
@@ -48,7 +48,7 @@
                     <td>{{$i++}}</td>
                     <td>{{$s->equipment->equipment_number}}</td>
                     <td>{{$s->equipmentuser->name}}</td>
-                    <td>{{$s->voucher}}</td>
+                    <td>{{$s->qty}}</td>
                     <td>{{$s->odometer}}</td>
                     <td>{{$s->remark}}</td>
                     {{-- <td>

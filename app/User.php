@@ -75,4 +75,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Reloadingunit', 'loginuser_id', 'id');
     }
+
+    public function timesheets()
+    {
+        return $this->hasMany('App\UserheModel', 'pengawas', 'id');
+    }
 }

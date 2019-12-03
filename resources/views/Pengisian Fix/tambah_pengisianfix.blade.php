@@ -23,7 +23,7 @@
 
 					<div class="form-group">
                         <label>Equipment Number</label>
-                        <input id="equipment-number" name="eq_label" class="form-control" required />
+                        <input id="equipment-number" name="eq_label" class="form-control" placeholder="Scan Equipment Card" required />
                         <input type="hidden" id="equipment-number-value" name="equipment_id" class="form-control"
                             required />
                     </div>
@@ -37,9 +37,17 @@
                     </div>
                     
                     <div class="form-group">
-                        <label>Qty Solar</label>
-						<input type="number" name="qty" placeholder="" class="form-control" required autofocus>
+                        <label>Voucher</label>
+                        <input id="voucher" name="voucher_label" class="form-control" placeholder="Scan voucher" disabled required />
+                        <input type="hidden" id="voucher-value" name="voucher_id" class="form-control"
+                            required />
                     </div>
+
+                    <div class="form-group">
+						<label>Qty</label>
+						<input id="voucher-qty" type="number" name="qty" placeholder="" class="form-control" readonly autofocus>
+                    </div>
+                    
                     
                     <div class="form-group">
 						<label>Odometer</label>
@@ -79,9 +87,11 @@
 	<script>
 		var local_sourceequipment = {!!$equipments->toJson() !!};
 		var local_sourceequsers = {!!$users->toJson() !!};
-        var local_sourcevouchers = {!!$users->toJson() !!};
+        var local_sourcevouchers = {!!$vouchers->toJson() !!};
 
-        console.log(local_source);
+        var owner = 0;
+
+        console.log(local_sourcevouchers);
 
         $('#equipment-number').autocomplete({
             source: function (request, response) {
@@ -93,6 +103,7 @@
                             id: item.id,
                             value: item.equipment_number,
                             label: item.equipment_number,
+                            owner_id: item.owner_id,
                             owner: item.equipmentowner.vendor_name,
                             category: item.equipmentcategory.nama
                         }
@@ -108,6 +119,8 @@
                 console.log(ui);
                 $('#equipment-number').val(ui.item.value);
                 $('#equipment-number-value').val(ui.item.id);
+                $('#voucher').attr('disabled', false);
+                owner = ui.item.owner_id;
                 // $('#equipment-number').val(ui.item.label); // display the selected text
                 // $('#equipment-number_id').val(ui.item.value); // save selected id to hidden input
                 return false;
@@ -123,15 +136,13 @@
         $('#equipmentuser').autocomplete({
             source: function (request, response) {
                 response($.map(local_sourceequsers, function (item, key) {
-                    var equipment_number = item.equipment_number.toUpperCase();
+                    var name = item.name.toUpperCase();
                     
-                    if (equipment_number.indexOf(request.term.toUpperCase()) != -1) {	
+                    if (name.indexOf(request.term.toUpperCase()) != -1) {	
                         return {
                             id: item.id,
-                            value: item.equipment_number,
-                            label: item.equipment_number,
-                            owner: item.equipmentowner.vendor_name,
-                            category: item.equipmentcategory.nama
+                            value: item.name,
+                            label: item.name,
                         }
                     }else{
                         return null;
@@ -143,19 +154,50 @@
             },
             select: function (event, ui) {
                 console.log(ui);
-                $('#equipment-number').val(ui.item.value);
-                $('#equipment-number-value').val(ui.item.id);
-                $('.equipment-owner').val(ui.item.owner);
-                $('.equipment-category').val(ui.item.category);
-                $('#equipment-number').val(ui.item.label); // display the selected text
-                // $('#equipment-number_id').val(ui.item.value); // save selected id to hidden input
+                $('#equipmentuser').val(ui.item.value);
+                $('#equipmentuser-value').val(ui.item.id);
+                // $('#equipmentuser_id').val(ui.item.value); // save selected id to hidden input
                 return false;
             },
             change: function (event, ui) {
                 console.log(ui);
-                $("#equipment-number-value").val(ui.item ? ui.item.id : 0);
-                $('.equipment-owner').val(ui.item.owner ? ui.item.owner : 0);
-                $('.equipment-category').val(ui.item.category ? ui.item.category : 0);
+                $("#equipmentuser-value").val(ui.item ? ui.item.id : 0);
+            }
+        });
+
+
+        $('#voucher').autocomplete({
+            source: function (request, response) {
+                response($.map(local_sourcevouchers, function (item, key) {
+                    var serial_number = item.serial_number.toUpperCase();
+                    console.log(item);
+                    
+                    if (serial_number.indexOf(request.term.toUpperCase()) != -1 && item.voucher.owner == owner) {	
+                        return {
+                            id: item.id,
+                            value: item.serial_number,
+                            serial_number: item.serial_number,
+                            qty: item.voucher.qty,
+                        }
+                    }else{
+                        return null;
+                    }
+                }))
+            },
+            focus: function(event, ui) {
+                event.preventDefault();
+            },
+            select: function (event, ui) {
+                console.log(ui);
+                $('#voucher').val(ui.item.value);
+                $('#voucher-value').val(ui.item.id);
+                $('#voucher-qty').val(ui.item.qty); // display the selected text
+                // $('#voucher_id').val(ui.item.value); // save selected id to hidden input
+                return false;
+            },
+            change: function (event, ui) {
+                console.log(ui);
+                $("#voucher-value").val(ui.item ? ui.item.id : 0);
             }
         });
 	</script>
