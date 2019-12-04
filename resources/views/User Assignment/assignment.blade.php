@@ -53,7 +53,7 @@
                     </td>
                     <td>{{$s->mobileassignments->last()->pivot->start_date}}</td>
                     <td>{{$s->mobileassignments->last()->pivot->end_date}}</td>
-                    @else
+                    @elseif ($s->fixassignments->last() != NULL)
                     <td>{{ $s->fixassignments->first()->name_station }}</td>
                     <td>{{ $s->fixassignments->first()->pivot->start_date}}</td>
                     <td>{{ $s->fixassignments->first()->pivot->end_date}}</td>

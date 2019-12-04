@@ -107,12 +107,8 @@
     $category = $equipment->equipmentcategory->nama;
     $owner = $equipment->equipmentowner->vendor_name;
     @endphp
-    @php $string =
-    "Equipment Number: $equipment->equipment_number,
-    Equipment Name: $equipment->equipment_name,
-    Category: $category,
-    Owner: $owner
-    "
+    @php 
+        $string = "Equipment Number: $equipment->equipment_number, Equipment Name: $equipment->equipment_name, Category: $category, Owner: $owner";
     @endphp
     <div>
         <div class="float-left">

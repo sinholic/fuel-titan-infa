@@ -58,17 +58,22 @@ class User extends Authenticatable
 
     public function fixassignments()
     {
-        return $this->belongsToMany('App\FixStationModel', 'userassignments', 'user_id', 'station_id')->wherePivot('mobile', 0)->withPivot('start_date', 'end_date', 'mobile')->withTimestamps();
+        return $this->belongsToMany('App\FixStationModel', 'userassignments', 'user_id', 'station_id')
+            ->wherePivot('mobile', 0)
+            ->wherePivot('start_date', '<=', \Carbon\Carbon::now()->toDateString())
+            ->wherePivot('end_date', '>=', \Carbon\Carbon::now()->toDateString())
+            ->withPivot('start_date', 'end_date', 'mobile')
+            ->withTimestamps();
     }
 
     public function mobileassignments()
     {
-        return $this->belongsToMany('App\MobileModel', 'userassignments', 'user_id', 'station_id')->wherePivot('mobile', 1)->withPivot('start_date', 'end_date', 'mobile')->withTimestamps();
-    }
-
-    public function reloadingunits_user_eq()
-    {
-        return $this->hasMany('App\Reloadingunit', 'equipmentuser_id', 'id');
+        return $this->belongsToMany('App\MobileModel', 'userassignments', 'user_id', 'station_id')
+            ->wherePivot('mobile', 1)
+            ->wherePivot('start_date', '<=', \Carbon\Carbon::now()->toDateString())
+            ->wherePivot('end_date', '>=', \Carbon\Carbon::now()->toDateString())
+            ->withPivot('start_date', 'end_date', 'mobile')
+            ->withTimestamps();
     }
 
     public function reloadingunits_user_login()

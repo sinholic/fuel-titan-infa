@@ -26,7 +26,7 @@ class CreateUserheTable extends Migration
             $table->string('bbm');
             $table->string('operator');
             $table->string('helper');
-            $table->string('pengawas');
+            $table->bigInteger('pengawas');
             $table->integer('km_awal')->nullable();
             $table->integer('km_akhir')->nullable();
             $table->integer('km_total')->nullable();

@@ -29,11 +29,11 @@ class UserassignmentController extends Controller
     {
         $user = User::with('fixassignments','mobileassignments')
             ->whereHas('fixassignments', function ($q) {
-                $q->where('start_date', '<=', \Carbon\Carbon::now()->toDateString())
+                $q->whereDate('start_date', '<=', \Carbon\Carbon::now()->toDateString())
                     ->whereDate('end_date', '>=', \Carbon\Carbon::now()->toDateString());
             })
             ->orWhereHas('mobileassignments', function ($q) {
-                $q->where('start_date', '<=', \Carbon\Carbon::now()->toDateString())
+                $q->whereDate('start_date', '<=', \Carbon\Carbon::now()->toDateString())
                     ->whereDate('end_date', '>=', \Carbon\Carbon::now()->toDateString());
             })
             ->get();

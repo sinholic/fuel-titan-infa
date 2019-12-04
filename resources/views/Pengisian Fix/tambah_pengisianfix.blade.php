@@ -31,9 +31,7 @@
 
 					<div class="form-group">
                         <label>Driver</label>
-                        <input id="equipmentuser" name="equser_label" class="form-control" required />
-                        <input type="hidden" id="equipmentuser-value" name="equipmentuser_id" class="form-control"
-                            required />
+                        <input id="equipmentuser" name="equipmentuser" class="form-control" required />
                     </div>
                     
                     <div class="form-group">
@@ -60,7 +58,12 @@
                     </div>
                     
                     {!! Form::hidden('origin', 'Fix Station') !!}
-                    {!! Form::hidden('station_id', '1') !!}
+
+                    @if (\Auth::user()->mobileassignments->last() != NULL)
+                    {!! Form::hidden('station_id', \Auth::user()->mobileassignments->last()->id) !!}
+                    @else
+                    {!! Form::hidden('station_id', \Auth::user()->fixassignments->last()->id) !!}
+                    @endif
                     {!! Form::hidden('loginuser_id', \Auth::user()->id) !!}
 
 				</div>
