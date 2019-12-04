@@ -28,7 +28,7 @@ class PengisianFixController extends Controller
         ->where('used', 0)
         ->where('rejected', 0)
         ->whereHas('voucher', function($query){
-            $query->whereDate('expired_date', '<=', \Carbon\Carbon::now()->toDateString());
+            $query->whereDate('expired_date', '>=', \Carbon\Carbon::now()->toDateString());
         })
         ->get();
         return view('Pengisian Fix.tambah_pengisianfix',[
