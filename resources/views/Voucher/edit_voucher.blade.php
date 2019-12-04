@@ -7,7 +7,7 @@
         <form action="/voucher/update/{{$voucher->id}}" method="POST">
 
             @csrf
-           
+
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Edit Voucher</h3>
@@ -24,37 +24,38 @@
                     {{-- <div class="form-group">
                         <label>Code Voucher</label>
                         <input type="text" name="code_number" value="{{$voucher->code_number}}" class="form-control" required autofocus>
-                    </div> --}}
+                </div> --}}
 
-                    <div class="form-group">
-                        <label for="">Qty (ltr)</label>
-                        <input type="number" name="qty" value="{{$voucher->qty}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Owner</label>
-                        <input type="text" name="owner" value="{{$voucher->owner}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Expired Date</label>
-                        <input type="date" name="expired_date" value="{{$voucher->expired_date}}" class="form-control" required autofocus>
-                    </div>
-
+                <div class="form-group">
+                    <label for="">Qty (ltr)</label>
+                    <input type="number" name="qty" value="{{$voucher->qty}}" class="form-control" required autofocus>
                 </div>
 
-                <div class="card-footer">
+                <div class="form-group">
+                    <label>Owner</label>
+                    <!-- <input type="text" name="owner" value="{{$voucher->owner}}" class="form-control" required autofocus> -->
+                    {{ Form::select('owner', $owners, null, ['placeholder' => 'Pilih owner...', 'required', 'class' => 'form-control']) }}
+                </div>
 
-                    <a href="/voucher" class="btn btn-default">Back</a>
-                    <input type="submit" value="Save" class="pull-right btn btn-warning">
-
+                <div class="form-group">
+                    <label>Expired Date</label>
+                    <input type="date" name="expired_date" value="{{$voucher->expired_date}}" class="form-control" required autofocus>
                 </div>
 
             </div>
 
-        </form>
+            <div class="card-footer">
+
+                <a href="/voucher" class="btn btn-default">Back</a>
+                <input type="submit" value="Save" class="pull-right btn btn-warning">
+
+            </div>
 
     </div>
+
+    </form>
+
+</div>
 </div>
 
 

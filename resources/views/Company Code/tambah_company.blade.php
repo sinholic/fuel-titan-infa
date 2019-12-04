@@ -23,12 +23,12 @@
 
 					<div class="form-group">
 						<label>Name Company Code</label>
-						<input type="text " name="company_name" placeholder="" class="form-control" required autofocus>
+						<input type="text " name="company_name" value="{{ old('company_name')}}" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
                         <label for="">Inisial Company Code</label>
-                        <input type="text" name="company_inisial" placeholder="" class="form-control" required autofocus>
+                        <input type="text" name="company_inisial" value="{{ old('company_inisial')}}" placeholder="" class="form-control" required autofocus>
                     </div>
 
 				</div>

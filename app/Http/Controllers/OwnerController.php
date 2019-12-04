@@ -24,6 +24,11 @@ class OwnerController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request, [
+            'vendor_name' => 'unique:owner',
+            'vendor_inisial' => 'unique:owner'
+        ]);
+
         OwnerModel::create($request->all());
         return redirect('/owner')->with('sukses', 'Data Berhasil Di Input!');
     }

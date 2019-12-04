@@ -23,45 +23,45 @@
 
 					<div class="form-group">
 						<label>Nama Perusahaan</label>
-						<input type="text " name="vendor_name" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="vendor_name" value="{{ old('vendor_name')}}" placeholder="" class="form-control" required autofocus>
 					</div>
-					
+
 					<div class="form-group">
 						<label>Inisial Perusahaan</label>
-						<input type="text " name="vendor_inisial" placeholder="" class="form-control" required autofocus>
-                    </div>
+						<input type="text" name="vendor_inisial" value="{{ old('vendor_inisial')}}" placeholder="" class="form-control" required autofocus>
+					</div>
 
-                    <div class="form-group">
-                        <label for="">Alamat</label>
-                        <input type="text" name="address" placeholder="" class="form-control" required autofocus>
-                    </div>
-                    
-                    <div class="form-group">
+					<div class="form-group">
+						<label for="">Alamat</label>
+						<input type="text" name="address" value="{{ old('address')}}" placeholder="" class="form-control" required autofocus>
+					</div>
+
+					<div class="form-group">
 						<label>Kategori</label>
 						{{ Form::select('owner_category', ['Internal' => 'Internal', 'External' => 'External'], null, ['placeholder' => 'Pilih kategori...', 'required', 'class' => 'form-control']) }}
-                    </div>
-                    
-                    <div class="form-group">
-						<label>PIC</label>
-						<input type="text" name="pic" placeholder="" class="form-control" required autofocus>
-                    </div>
-                    
-                    <div class="form-group">
-						<label>Phone</label>
-						<input type="number" name="phone" placeholder="" class="form-control" required autocomplete="">
 					</div>
-					
+
+					<div class="form-group">
+						<label>PIC</label>
+						<input type="text" name="pic" value="{{ old('pic')}}" placeholder="" class="form-control" required autofocus>
+					</div>
+
+					<div class="form-group">
+						<label>Phone</label>
+						<input type="number" name="phone" value="{{ old('phone')}}" placeholder="" class="form-control" required autocomplete="">
+					</div>
+
 					<div class="form-group">
 						<label>Email</label>
-						<input type="email" name="email" placeholder="" class="form-control" required autocomplete="">
-                    </div>
+						<input type="email" name="email" value="{{ old('email')}}" placeholder="" class="form-control" required autocomplete="">
+					</div>
 
 				</div>
 
 				<div class="card-footer">
 
 					<a href="/owner" class="btn btn-default">Back</a>
-                    &nbsp;&nbsp;
+					&nbsp;&nbsp;
 					<input type="submit" value="Save" class="pull-right btn btn-primary">
 
 				</div>

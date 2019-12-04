@@ -20,6 +20,11 @@ class PenerimaanImport implements ToModel, WithValidation, WithHeadingRow
     {
         return new PenerimaanModel([
             'purchaseorder_id' => $row['no_po'],
+            'po_supplier' => $row['supplier'],
+            'po_qty' => $row['qty'],
+            'qty' => $row['received_qty'],
+            'fixstation_id' => $row['No_tangki'],
+            'remark' => $row['remark'],
         ]);
     }
 }

@@ -23,12 +23,12 @@
 
 					<div class="form-group">
 						<label>Merk</label>
-						<input type="text" name="merk" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="merk" value="{{ old('merk')}}" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
                         <label for="">Inisial</label>
-                        <input type="text" name="inisial" placeholder="" class="form-control" required autofocus>
+                        <input type="text" name="inisial" value="{{ old('inisial')}}" placeholder="" class="form-control" required autofocus>
                     </div>
 					
 				</div>

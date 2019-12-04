@@ -180,20 +180,36 @@
         function addClassWhenReload() {
             if ($('#check-all').is(':checked')) {
                 console.log("HAI");
+<<<<<<< HEAD
                 $('.checkbox').parent().parent().find('.voucher-container').addClass('selected')
                 $('.checkbox').prop('checked', true)
             } else {
                 console.log("TEST");
                 $('.checkbox').parent().parent().find('.voucher-container').removeClass('selected')
+=======
+                $('.checkbox').parent().parent().find('.unit-identity-card-container').addClass('selected')
+                $('.checkbox').prop('checked', true)
+            } else {
+                console.log("TEST");
+                $('.checkbox').parent().parent().find('.unit-identity-card-container').removeClass('selected')
+>>>>>>> 2ff941e7aacc56b823455c44ffa232204592604b
                 $('.checkbox').prop('checked', false)
             }
         }
 
+<<<<<<< HEAD
         $('.checkbox').change(function () {
             if ($(this).is(':checked')) {
                 $(this).parent().parent().find('.voucher-container').addClass('selected')
             } else {
                 $(this).parent().parent().find('.voucher-container').removeClass('selected')
+=======
+        $('.checkbox').change(function() {
+            if ($(this).is(':checked')) {
+                $(this).parent().parent().find('.unit-identity-card-container').addClass('selected')
+            } else {
+                $(this).parent().parent().find('.unit-identity-card-container').removeClass('selected')
+>>>>>>> 2ff941e7aacc56b823455c44ffa232204592604b
             }
             // console.log();        
         })

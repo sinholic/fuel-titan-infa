@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\PenerimaanModel;
 use App\FixStationModel;
 use App\Purchaseorder;
+use App\Exports\PenerimaanSolarExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
 
 class PenerimaanController extends Controller
 {
@@ -87,5 +90,10 @@ class PenerimaanController extends Controller
         $penerimaan = PenerimaanModel::find($id);
         $penerimaan->delete($penerimaan);
         return redirect('/penerimaan')->with('sukses', 'Data berhasil dihapus!');
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new PenerimaanSolarExport, 'penerimaan_solar.xlsx');
     }
 }
