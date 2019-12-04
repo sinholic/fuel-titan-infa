@@ -21,17 +21,17 @@
 					</div>
 					@endif
 
-                    <div class="form-group">
+					<div class="form-group">
 						<label>Materials</label>
-						<input type="text" name="materials" placeholder="" class="form-control" required autofocus>
-                    </div>
-					
+						<input type="text" name="materials" value="{{ old('materials')}}" placeholder="" class="form-control" required autofocus>
+					</div>
+
 				</div>
 
 				<div class="card-footer">
 
 					<a href="/materials" class="btn btn-default">Back</a>
-                    &nbsp;&nbsp;
+					&nbsp;&nbsp;
 					<input type="submit" value="Save" class="pull-right btn btn-primary">
 
 				</div>

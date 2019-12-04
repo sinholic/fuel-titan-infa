@@ -23,9 +23,9 @@
 
 					<div class="form-group">
 						<label>Nama Company</label>
-						<input id="company-code" name="cc_label" value="{{old('cc_label')}}" class="form-control"
+						<input id="company-code" name="cc_label" class="form-control"
 							required placeholder="Cari company code" />
-						<input type="hidden" id="company-code-value" value="{{old('companycode_id')}}"
+						<input type="hidden" id="company-code-value"
 							name="companycode_id" class="form-control" required />
 					</div>
 

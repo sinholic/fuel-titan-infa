@@ -148,6 +148,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/penerimaan/edit/{id}', 'PenerimaanController@edit');
     Route::post('/penerimaan/update/{id}', 'PenerimaanController@update');
     Route::get('/penerimaan/{id}/delete', 'PenerimaanController@delete');
+    Route::get('/penerimaan/export_excel', 'PenerimaanController@export_excel');
 
     //User
     Route::get('/user', 'UserController@user');
@@ -301,4 +302,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/consignment/edit/{id}', 'ConsignmentController@edit');
     Route::post('/consignment/update/{id}', 'ConsignmentController@update');
     Route::get('/consignment/{id}/delete', 'ConsignmentController@delete');
+
+    //Piutang Solar
+    Route::get('/piutang', 'PiutangController@piutang');
+    Route::get('/tambah_piutang', 'PiutangController@tambah');
+    Route::post('/piutang/create', 'PiutangController@create');
+    Route::get('/piutang/edit/{id}', 'PiutangController@edit');
+    Route::post('/piutang/update/{id}', 'PiutangController@update');
+    Route::get('/piutang/{id}/delete', 'PiutangController@delete');
 });

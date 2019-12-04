@@ -28,7 +28,7 @@ class PengisianFixController extends Controller
         ->where('used', 0)
         ->where('rejected', 0)
         ->whereHas('voucher', function($query){
-            $query->whereDate('expired_date', '<=', \Carbon\Carbon::now()->toDateString());
+            $query->whereDate('expired_date', '>=', \Carbon\Carbon::now()->toDateString());
         })
         ->get();
         return view('Pengisian Fix.tambah_pengisianfix',[
@@ -40,6 +40,13 @@ class PengisianFixController extends Controller
 
     public function create(Request $request)
     {
+        $lastreload = Reloadingunit::where('equipment_id', $request->equipment_id)
+        ->get()
+        ->last();
+        $this->validate($request, [
+            'odometer' => 'numeric|min:'.($lastreload->odometer + 1)
+        ]);
+
         Vouchercode::find($request->voucher_id)->update(['used'=>1]);
         Reloadingunit::create($request->all());
         return redirect('/pengisian_fix')->with('sukses', 'Data Berhasil Di Input!');

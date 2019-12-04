@@ -54,7 +54,7 @@
 
 					<div class="form-group">
 						<label>Peminjam</label>
-						<input type="peminjam" name="peminjam" placeholder="" class="form-control" readonly value="{{\Auth::user()->companycode->company_name}}">
+						<input type="text" name="peminjam" placeholder="" class="form-control" readonly value="{{\Auth::user()->companycode->company_name}}">
 					</div>
 
 				</div>

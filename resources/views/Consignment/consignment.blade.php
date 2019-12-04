@@ -55,19 +55,19 @@
                 @foreach($consignment ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->}}</td>
-                    <td>{{$s->}}</td>
-                    <td>{{$s->}}</td>
-                    <td>{{$s->}}</td>
-                    <td>{{$s->}}</td>
-                    <td>{{$s->}}</td>
-                    <td>{{$s->}}</td>
-                    <td>{{$s->}}</td>
-                    <td>{{$s->}}</td>
-                    <td>{{$s->}}</td>
-                    <td>{{$s->}}</td>
-                    <td>{{$s->}}</td>
-                    <td>{{$s->}}</td>
+                    <td>{{$s->equipment}}</td>
+                    <td>{{$s->gas_station}}</td>
+                    <td>{{$s->measuring_date}}</td>
+                    <td>{{$s->measuring_time}}</td>
+                    <td>{{$s->measuring_position}}</td>
+                    <td>{{$s->fluid_type}}</td>
+                    <td>{{$s->fluid_consumption}}</td>
+                    <td>{{$s->hourmeter}}</td>
+                    <td>{{$s->odometer}}</td>
+                    <td>{{$s->ss}}</td>
+                    <td>{{$s->vendor}}</td>
+                    <td>{{$s->reported_by}}</td>
+                    <td>{{$s->received_by}}</td>
 
                     <td>
                         <div class="btn-group">

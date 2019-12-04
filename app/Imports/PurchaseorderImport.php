@@ -22,7 +22,7 @@ class PurchaseorderImport implements ToModel, WithValidation, WithHeadingRow
         return new Purchaseorder([
             'purchaseorder_number' => $row['po_number'],
             'tanggal_purchaseorder' => date('Y-m-d', strtotime($row['po_date'])),
-            'supplier' => $row['supplier'],
+            'supplier' => $row['kode_supplier'],
             'amount' => $row['qty']
         ]);
     }
