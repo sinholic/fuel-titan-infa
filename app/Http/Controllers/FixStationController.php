@@ -23,7 +23,6 @@ class FixStationController extends Controller
             \DB::raw('count(*) as total_tank'),
             \DB::raw('sum(fuel_capacity) as total_fuel_capacity')
         )
-            ->where('companycode_id', \Auth::user()->companycode_id)
             ->groupBy('name_station', 'address')
             ->with('company')
             ->get();

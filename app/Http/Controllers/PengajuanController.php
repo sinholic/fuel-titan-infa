@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\PengajuanModel;
+use App\Companycode;
+use App\FixStationModel;
 
 class PengajuanController extends Controller
 {
@@ -16,10 +18,13 @@ class PengajuanController extends Controller
     public function tambah()
     {
         $companycode = \Auth::user()->companycode->company_inisial;
-        $totalPengajuan = PengajuanModel::where('no_spk', 'LIKE', '%'.$companycode.'%')->whereMonth('created_at', \Carbon\Carbon::today()->month)->count();
+        $totalPengajuan = PengajuanModel::where('no_pengajuan', 'LIKE', '%'.$companycode.'%')->whereMonth('created_at', \Carbon\Carbon::today()->month)->count();
         $spkNumber = $companycode."/".\Carbon\Carbon::today()->format('Ymd')."0000".($totalPengajuan + 1);
+        $companycodes = Companycode::pluck('company_name', 'id');
+        $fixstations = FixStationModel::pluck('nama_lokasi','id');
         return view('Pengajuan.tambah_pengajuan',[
-            'spkNumber' => $spkNumber 
+            'spkNumber' => $spkNumber,
+            'companycodes' => $companycodes
         ]);
     }
 
