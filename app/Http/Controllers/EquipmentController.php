@@ -81,6 +81,8 @@ class EquipmentController extends Controller
             'equipment_category' => 'required',
             'equipment_number' => 'required|unique:equipment_unitdata,equipment_number,' . $request->equipment_number . ',id,companycode_id,' . \Auth::user()->companycode_id,
             'equipment_name' => 'required',
+            'nomor_rangka' => 'required|unique:equipment_unitdata,nomor_rangka',
+            'nomor_mesin' => 'required|unique:equipment_unitdata,nomor_mesin',
             'fuel_capacity' => 'required',
             'nomor_mesin' => 'unique:equipment_unitdata,nomor_mesin',
             'location' => 'required',
@@ -136,9 +138,20 @@ class EquipmentController extends Controller
     {
         $equipment = EquipmentModel::with('reloadingunits')->find($id);
         // dd($equipment);
+        $tipe = TipeModel::pluck('tipe', 'id');
+        $manufactures = MerkModel::pluck('merk', 'id');
         $owners = OwnerModel::pluck('vendor_name', 'id');
         $equipment_categories = Equipmentcategory::pluck('nama', 'id');
-        return view('Equipment.edit_equipment', ['equipment' => $equipment, 'owners' => $owners, 'equipment_categories' => $equipment_categories]);
+        $companycodes = Companycode::pluck('company_name', 'id');
+        return view('Equipment.edit_equipment', [
+            'equipment' => $equipment, 
+            'owners' => $owners, 
+            'equipment_categories' => $equipment_categories,
+            'tipe' => $tipe,
+            'manufactures' => $manufactures,
+            'companycodes' => $companycodes,
+
+        ]);
     }
 
     public function update(Request $request, $id)
