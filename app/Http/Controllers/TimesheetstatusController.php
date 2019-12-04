@@ -36,6 +36,9 @@ class TimesheetstatusController extends Controller
      */
     public function create(Request $request)
     {
+        $this->validate($request, [
+            'status' => 'unique:timesheetstatuses'
+        ]);
         Timesheetstatus::create($request->all());
         return redirect('/timesheetstatus')->with('sukses', 'Data Berhasil Di Input!');
     }
