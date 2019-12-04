@@ -44,7 +44,8 @@ class PenerimaanController extends Controller
             $totalReceive = $purchaseorder->receives->count() + 1;
             // dd($purchaseorder->receives->sum('qty'));
             $sum = $purchaseorder->receives->sum('qty');
-            $total = intval($purchaseorder->amount) - $sum;
+            $tolerance = (($sum * 3)/100);
+            $total = intval($purchaseorder->amount) - ($sum - $tolerance);
             // dd($total);
             $request->validate(
                 [
