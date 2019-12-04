@@ -23,7 +23,7 @@
 
 					<div class="form-group">
 						<label>Nama Company</label>
-						<input id="company-code" name="cc_label" class="form-control"
+						<input id="company-code" name="cc_label" value="{{ old('cc_label')}}" class="form-control"
 							required placeholder="Cari company code" />
 						<input type="hidden" id="company-code-value"
 							name="companycode_id" class="form-control" required />
@@ -31,12 +31,12 @@
 
 					<div class="form-group">
 						<label>Nama Station</label>
-						<input type="text " name="name_station" placeholder="" class="form-control" required autofocus>
+						<input type="text " name="name_station" value="{{ old('name_station')}}" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group">
 						<label for="">Alamat</label>
-						<input type="text" name="address" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="address" value="{{ old('address')}}" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group nama-lokasi">
@@ -45,7 +45,7 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text inisial" id="basic-addon3">Company Code</span>
 							</div>
-							<input type="text" class="form-control" name="nama_lokasi" id="nama-lokasi"
+							<input type="text" class="form-control" name="nama_lokasi" value="{{ old('nama_lokasi')}}" id="nama-lokasi"
 								aria-describedby="basic-addon3">
 
 							{!! Form::hidden('inisial_lokasi', NULL, ['id' => 'inisial-lokasi']) !!}
@@ -54,7 +54,7 @@
 
 					<div class="form-group">
 						<label>Koordinat GPS</label>
-						<input type="text" name="koordinat_gps" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="koordinat_gps" value="{{ old('koordinat_gps')}}" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div id="tanks">

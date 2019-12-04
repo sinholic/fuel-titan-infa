@@ -82,7 +82,8 @@ class VoucherController extends Controller
     public function edit($id)
     {
         $voucher = VoucherModel::find($id);
-        return view('Voucher.edit_voucher', ['voucher' => $voucher]);
+        $owners = OwnerModel::pluck('vendor_name', 'id');
+        return view('Voucher.edit_voucher', ['voucher' => $voucher, 'owners' => $owners]);
     }
 
     public function update(Request $request, $id)

@@ -38,7 +38,7 @@
 
                     <div class="form-group">
                         <label>Kategori Owner</label>
-						{{ Form::select('owner_category', ['Internal' => 'Internal', 'External' => 'External'], null, ['placeholder' => 'Pilih kategori...', 'required', 'class' => 'form-control']) }}
+						{{ Form::select('owner_category', ['Internal' => 'Internal', 'External' => 'External'], $owner->owner_category, ['placeholder' => 'Pilih kategori...', 'required', 'class' => 'form-control']) }}
                     </div>
 
                     <div class="form-group">

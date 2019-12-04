@@ -79,7 +79,7 @@
                     <td>{{$s->bbm}}</td>
                     <td>{{$s->helper}}</td>
                     <td>{{$s->operator}}</td>
-                    <td>{{$s->userpengawas->name}}</td>
+                    <td>{{$s->userpengawas->name ?? ''}}</td>
                     
                     <td>
                          <div class="btn-group">

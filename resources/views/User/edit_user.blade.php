@@ -38,7 +38,7 @@
 
                     <div class="form-group">
 						<label>User level</label>
-						{{ Form::select('status_id', $statuses, null, ['placeholder' => 'Pilih user level...', 'required', 'class' => 'form-control']) }}
+						{{ Form::select('status_id', $statuses, $user->status_id, ['placeholder' => 'Pilih user level...', 'required', 'class' => 'form-control']) }}
 					</div>
 
                 </div>

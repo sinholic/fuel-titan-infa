@@ -74,10 +74,10 @@
                                 <i class="fas fa-print"></i>
                             </a>
 
-                            <a href="/voucher/edit/{{$s->id}}" class="btn btn-warning  btn-sm"
+                            <!-- <a href="/voucher/edit/{{$s->id}}" class="btn btn-warning  btn-sm"
                                 data-toggle="tooltip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
-                            </a>
+                            </a> -->
 
                             <a href="#" class="btn btn btn-danger btn-sm delete" voucher-id="{{$s->id}}">
                                 <i class="fa fa-trash nav-icon"></i>
