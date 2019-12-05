@@ -33,19 +33,12 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Equipment</th>
-                    <th class="text-center">Gas Station</th>
-                    <th class="text-center">Measuring Date</th>
-                    <th class="text-center">Measuring Time</th>
-                    <th class="text-center">Measuring Position</th>
-                    <th class="text-center">Fluid Type</th>
-                    <th class="text-center">Fluid Consumption</th>
-                    <th class="text-center">Hourmeter</th>
-                    <th class="text-center">Odometer</th>
-                    <th class="text-center">SS</th>
-                    <th class="text-center">Vendor</th>
-                    <th class="text-center">Reported By</th>
-                    <th class="text-center">Received By</th>
+                    <th class="text-center">No PO</th>
+                    <th class="text-center">Supplier</th>
+                    <th class="text-center">Qty</th>
+                    <th class="text-center">Qty Diterima</th>
+                    <th class="text-center">No Tangki</th>
+                    <th class="text-center">Remark</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
@@ -55,19 +48,12 @@
                 @foreach($consignment ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->equipment}}</td>
-                    <td>{{$s->gas_station}}</td>
-                    <td>{{$s->measuring_date}}</td>
-                    <td>{{$s->measuring_time}}</td>
-                    <td>{{$s->measuring_position}}</td>
-                    <td>{{$s->fluid_type}}</td>
-                    <td>{{$s->fluid_consumption}}</td>
-                    <td>{{$s->hourmeter}}</td>
-                    <td>{{$s->odometer}}</td>
-                    <td>{{$s->ss}}</td>
-                    <td>{{$s->vendor}}</td>
-                    <td>{{$s->reported_by}}</td>
-                    <td>{{$s->received_by}}</td>
+                    <th>{{$s->no_po}}</th>
+                    <th>{{$s->supplier}}</th>
+                    <th>{{$s->qty}}</th>
+                    <th>{{$s->qty_diterima}}</th>
+                    <th>{{$s->no_tangki}}</th>
+                    <th>{{$s->remark}}</th>
 
                     <td>
                         <div class="btn-group">
