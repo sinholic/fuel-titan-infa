@@ -19,4 +19,14 @@ class Reloadingunit extends Model
     {
         return $this->belongsTo('App\User', 'loginuser_id', 'id')->withTrashed();
     }
+
+    public function fixstation()
+    {
+        return $this->belongsTo('App\FixStationModel', 'station_id', 'id')->where('origin', 'Fix Station');
+    }
+
+    public function mobilestation()
+    {
+        return $this->belongsTo('App\MobileModel', 'station_id', 'id')->where('origin', 'Mobile');
+    }
 }
