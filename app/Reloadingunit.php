@@ -14,11 +14,6 @@ class Reloadingunit extends Model
     {
         return $this->belongsTo('App\EquipmentModel', 'equipment_id', 'id')->withTrashed();
     }
-    
-    public function equipmentuser()
-    {
-        return $this->belongsTo('App\User', 'equipmentuser_id', 'id')->withTrashed();
-    }
 
     public function loginuser()
     {

@@ -23,70 +23,35 @@
 
 
                     <div class="form-group">
-                        <label>Equipment</label>
-                        <input type="text" name="equipment" placeholder="" class="form-control" required autofocus>
+                        <label>No PO</label>
+                        <input type="text" name="no_po" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
-                        <label>Gas Station</label>
-                        <input type="text" name="gas_station" placeholder="" class="form-control" required autofocus>
+                        <label>Supplier</label>
+                        <input type="text" name="supplier" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
-                        <label>Measuring Date</label>
-                        <input type="date" name="measuring_date" placeholder="" class="form-control" required autofocus>
+                        <label>Qty</label>
+                        <input type="number" name="qty" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
-                        <label>Measuring Time</label>
-                        <input type="text" name="measuring_time" placeholder="" class="form-control" required autofocus>
+                        <label>Qty Diterima</label>
+                        <input type="number" name="qty_diterima" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
-                        <label for="">Measuring Position</label>
-                        <input type="text" name="measuring_position" placeholder="" class="form-control" required autofocus>
+                        <label for="">No Tangki</label>
+                        <input type="text" name="no_tangki" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
-                        <label>Fluid Type</label>
-                        <input type="text" name="fluid_type" placeholder="" class="form-control" required autofocus>
+                        <label>Remark</label>
+                        <input type="text" name="remark" placeholder="" class="form-control" required autofocus>
                     </div>
-
-                    <div class="form-group">
-                        <label>Fluid Consumption</label>
-                        <input type="text" name="fluid_consumption" placeholder="" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Hourmeter</label>
-                        <input type="text" name="hourmeter" placeholder="" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Odometer</label>
-                        <input type="number" name="odometer" placeholder="" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>SS</label>
-                        <input type="text" name="SS" placeholder="" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Vendor</label>
-                        <input type="text" name="vendor" placeholder="" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Reported By</label>
-                        <input type="text" name="reported_by" placeholder="" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Received By</label>
-                        <input type="text" name="received_by" placeholder="" class="form-control" required autofocus>
-                    </div>
-
+                    
                 </div>
 
                 <div class="card-footer">

@@ -62,20 +62,6 @@
 						{{ Form::select('status_id', $statuses, null, ['placeholder' => 'Pilih user level...', 'required', 'class' => 'form-control']) }}
 					</div>
 
-
-					<div class="form-group">
-						<!-- <label>Password</label>
-						{{ Form::input('password', null, 'required', ['class' => 'form-control']) }}
-					</div>
-
-					<div class="form-group">
-						<label>Sync Password</label>
-						{{ Form::input('syncpassword', null, 'required', ['class' => 'form-control']) }}
-					</div> -->
-
-
-					</div>
-
 					<div class="card-footer">
 
 						<a href="/user" class="btn btn-default">Back</a>
@@ -85,7 +71,7 @@
 					</div>
 
 				</div>
-
+			</div>
 		</form>
 
 	</div>

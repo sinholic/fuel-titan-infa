@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePiutangTable extends Migration
+class CreateConsignmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreatePiutangTable extends Migration
      */
     public function up()
     {
-        Schema::create('piutang', function (Blueprint $table) {
+        Schema::create('consignments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('no_piutang');
-            $table->integer('qty_piutang');
-            $table->string('peminjam');
-            $table->string('status_piutang');
-            $table->date('tgl_pengembalian');
+            $table->string('no_po');
+            $table->string('supplier');
+            $table->integer('qty');
+            $table->integer('qty_diterima');
+            $table->string('no_tangki');
+            $table->string('remark');
             $table->timestamps();
             $table->softdeletes();
         });
@@ -32,6 +33,6 @@ class CreatePiutangTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('piutang');
+        Schema::dropIfExists('consignments');
     }
 }

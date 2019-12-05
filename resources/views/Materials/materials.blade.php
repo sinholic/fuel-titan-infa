@@ -15,14 +15,6 @@
 			<button type="button" class="close" data-dismiss="alert">×</button> 
 			<i class="icon fas fa-check"></i> {{ $sukses }}
         </div>
-        <script>Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Sukses!',
-            showConfirmButton: false,
-            timer: 1500
-            })
-        </script>
     @endif
 
     <a href="/tambah_materials" class="btn btn-primary">
