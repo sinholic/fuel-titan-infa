@@ -46,7 +46,7 @@
                 @foreach($pengajuan ?? '' as $s)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$s->no_spk}}</td>
+                    <td>{{$s->spkNumber}}</td>
                     <td>{{$s->supplier}}</td>
                     <td>{{$s->qty}}</td>
                     <td>{{$s->remark}}</td>
@@ -58,19 +58,22 @@
 
                             <!-- URL::to('/admin/category/detail.id='.$cate-id -->
                             {{-- <a href="/pengajuan/detail/{{$s->id}}" class="btn btn-info btn-sm" data-toggle="tooltip"
-                                data-placement="bottom" title="Info">
-                                <i class="fa fa-info-circle nav-icon"></i>
+                            data-placement="bottom" title="Info">
+                            <i class="fa fa-info-circle nav-icon"></i>
                             </a> --}}
 
                             @if ($s->approved == NULL)
-                            <a onClick="return confirm('Yakin ingin menyetujui peminjaman ini?')"
-                                href="/pengajuan/{{$s->id}}/approve" class="btn btn btn-success btn-sm">
+                            <a onClick="return confirm('Yakin ingin menyetujui peminjaman ini?')" href="/pengajuan/{{$s->id}}/approve" class="btn btn btn-success btn-sm">
                                 <i class="fa fa-check nav-icon"></i>
                             </a>
-                            
-                            <a onClick="return confirm('Yakin ingin mereject peminjaman ini?')"
-                                href="/pengajuan/{{$s->id}}/reject" class="btn btn btn-danger btn-sm">
+
+                            <a onClick="return confirm('Yakin ingin mereject peminjaman ini?')" href="/pengajuan/{{$s->id}}/reject" class="btn btn btn-danger btn-sm">
                                 <i class="fa fa-times nav-icon"></i>
+                            </a>
+
+                            @else
+                            <a href="/bukticetak" class="btn btn-info btn-sm" data-toggle="tooltip" title="Print" onclick="window.open('/bukticetak', 'newwindow', 'width=1000px, height=1000px'); return false;">
+                                Cetak
                             </a>
                             @endif
 
