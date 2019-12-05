@@ -39,7 +39,7 @@
 
 					<div class="form-group">
 						<label>Tanggal pengambilan</label>
-						<input type="date" onchange="validateDate(this.value)" name="taking_date" placeholder="" class="form-control" required autofocus>
+						<input type="date" name="taking_date" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group">

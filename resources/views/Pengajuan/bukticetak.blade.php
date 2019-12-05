@@ -1,1 +1,1 @@
-Halaman untuk mencetak bukti di mobile
+Halaman ini untuk mencetak bukti cetak.

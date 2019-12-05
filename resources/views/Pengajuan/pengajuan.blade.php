@@ -28,7 +28,7 @@
     </div>
 
     <div class="card-body">
-        <table class="table table-striped table-bordered" id="myTable">
+        <table class="table table-responsive table-striped table-bordered" id="myTable">
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
@@ -49,8 +49,8 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$s->no_pengajuan}}</td>
                     <td>{{$s->supplier->company_name}}</td>
-                    <td>{{ $s->fixstation->nama_lokasi }}</td>
-                    <td>{{$s->taking_date}}</td>
+                    <td>{{$s->fixstation->nama_lokasi ?? ''}}</td>
+                    <td>{{ $s->taking_date == NULL ? '' : date('l, d-M-Y', strtotime($s->taking_date))}}</td>
                     <td>{{$s->qty}}</td>
                     <td>{{$s->remark}}</td>
                     <td>{{$s->borrower->company_name}}</td>
