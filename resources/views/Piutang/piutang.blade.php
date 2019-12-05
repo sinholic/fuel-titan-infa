@@ -17,52 +17,48 @@
 </div>
 @endif
 
-
-<a href="/tambah_consignment" class="btn btn-primary">
+<a href="/tambah_piutang" class="btn btn-primary">
     <i class="fa fa-plus nav-icon"></i>
 </a>
 
 <div class="card" style="border-top: 3px solid #9C5C22">
 
     <div class="card-header">
-        <h4>Consignment</h4>
+        <h4>Piutang Solar</h4>
     </div>
 
     <div class="card-body">
-        <table class="table table-striped table-responsive table table-bordered" id="myTable">
+        <table class="table table-striped table-bordered" id="myTable">
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">No PO</th>
-                    <th class="text-center">Supplier</th>
-                    <th class="text-center">Qty</th>
-                    <th class="text-center">Qty Diterima</th>
-                    <th class="text-center">No Tangki</th>
-                    <th class="text-center">Remark</th>
+                    <th class="text-center">No Piutang</th>
+                    <th class="text-center">Qty Piutang</th>
+                    <th class="text-center">Peminjam</th>
+                    <th class="text-center">Status Piutang</th>
+                    <th class="text-center">Tgl Pengembalian</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
             @php $i=1 @endphp
             <tbody>
                 @php $i=1 @endphp
-                @foreach($consignment ?? '' as $s)
+                @foreach($piutang ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <th>{{$s->no_po}}</th>
-                    <th>{{$s->supplier}}</th>
-                    <th>{{$s->qty}}</th>
-                    <th>{{$s->qty_diterima}}</th>
-                    <th>{{$s->no_tangki}}</th>
-                    <th>{{$s->remark}}</th>
-
+                    <td>{{$s->no_piutang}}</td>
+                    <td>{{$s->qty_piutang}}</td>
+                    <td>{{$s->peminjam}}</td>
+                    <td>{{$s->status_piutang}}</td>
+                    <td>{{date('l, d-M-Y', strtotime($s->tgl_pengembalian))}}</td>
                     <td>
                         <div class="btn-group">
 
-                            <a href="/consignment/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
+                            <a href="/piutang/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
 
-                            <a href="#" class="btn btn btn-danger btn-sm delete" consignments-nama="{{$s->consignment}}" consignment-id="{{$s->id}}">
+                            <a href="#" class="btn btn btn-danger btn-sm delete" piutang-id="{{$s->id}}">
                                 <i class="fa fa-trash nav-icon"></i>
                             </a>
 
@@ -75,10 +71,10 @@
         </table>
     </div>
 </div>
+
 <script>
     $('.delete').click(function() {
-        var consignment_id = $(this).attr('consignment-id');
-        var consignment_nama = $(this).attr('consignments-nama');
+        var piutang_id = $(this).attr('piutang-id');
         swal({
                 title: "Are you sure?",
                 text: "Anda yakin akan menghapus data ini?",
@@ -89,9 +85,11 @@
             .then((willDelete) => {
                 console.log(willDelete);
                 if (willDelete) {
-                    window.location = "/consignment/" + consignment_id + "/delete"
+                    window.location = "/piutang/" + piutang_id + "/delete"
                 }
             });
     });
 </script>
+
+
 @endsection

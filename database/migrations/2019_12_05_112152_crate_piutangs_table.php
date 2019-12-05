@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePiutangTable extends Migration
+class CratePiutangsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePiutangTable extends Migration
      */
     public function up()
     {
-        Schema::create('piutang', function (Blueprint $table) {
+        Schema::create('piutangs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('no_piutang');
             $table->integer('qty_piutang');
@@ -32,6 +32,6 @@ class CreatePiutangTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('piutang');
+        //
     }
 }
