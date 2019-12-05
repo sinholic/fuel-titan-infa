@@ -21,13 +21,6 @@ class PenerimaanController extends Controller
     public function tambah()
     {
         $fixstations = FixStationModel::select(\DB::raw('CONCAT(name_station, " (Tangki nomor ", tank_number, ")") as text'), 'id')->pluck('text', 'id');
-        // $purchaseorders = Purchaseorder::leftJoin('penerimaan', 'purchaseorders.id', '=', 'penerimaan.purchaseorder_id')
-        // ->whereRaw('purchaseorders.amount < SUM(penerimaan.qty)')
-        // ->with(['receives' => function($query){
-        //     $query->whereRaw('purchaseorders.amount < SUM(penerimaan.qty)');
-        // }])
-        // ->get();
-        // dd($purchaseorders);
         $purchaseorders = Purchaseorder::whereNotIn('id', function ($q) {
             $q->select(\DB::raw('purchaseorders.id'))
                 ->from('purchaseorders')
@@ -42,14 +35,11 @@ class PenerimaanController extends Controller
     public function create(Request $request)
     {
         $purchaseorder = Purchaseorder::with('receives')->find($request->purchaseorder_id);
-        // dd($purchaseorder->receives->count());
+        $tolerance = $purchaseorder->amount * (3/100);
         if ($purchaseorder->receives->count() > 0) {
             $totalReceive = $purchaseorder->receives->count() + 1;
-            // dd($purchaseorder->receives->sum('qty'));
             $sum = $purchaseorder->receives->sum('qty');
-            $tolerance = (($sum * 3)/100);
-            $total = intval($purchaseorder->amount) - ($sum - $tolerance);
-            // dd($total);
+            $total = (intval($purchaseorder->amount) + $tolerance) - $sum;
             $request->validate(
                 [
                     'qty' => 'required|numeric|max:' . $total,
@@ -63,9 +53,12 @@ class PenerimaanController extends Controller
             );
         } else {
             $request->validate([
-                'qty' => 'required|numeric|max:' . $purchaseorder->amount,
+                'qty' => 'required|numeric|max:' . ($purchaseorder->amount + $tolerance),
                 'fixstation_id' => 'required',
                 'remark' => 'required'
+            ],
+            [
+                'qty.max' => 'The received qty may not be greater than :max'
             ]);
         }
         PenerimaanModel::create($request->all());

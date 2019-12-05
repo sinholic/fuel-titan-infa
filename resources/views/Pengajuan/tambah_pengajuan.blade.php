@@ -24,17 +24,17 @@
 
 					<div class="form-group">
 						<label>No Pengajuan Hutang</label>
-						<input type="text" name="no_spk" placeholder="" class="form-control" readonly value="{{$spkNumber}}">
+						<input type="text" name="no_pengajuan" placeholder="" class="form-control" readonly value="{{$spkNumber}}">
 					</div>
 
 					<div class="form-group">
 						<label>Supplier</label>
-						<input type="text" name="supplier" placeholder="" class="form-control" required autofocus>
+						{!! Form::select('supcompanycode_id', $companycodes, old('supcompanycode_id'), ['placeholder'=>'Choose a company', 'class'=>'form-control set-to-select2']) !!}
 					</div>
 
 					<div class="form-group">
 						<label>Lokasi pengambilan</label>
-						<input type="text" name="fixstation_id" placeholder="" class="form-control" required autofocus>
+						{!! Form::select('fixstation_id', $fixstations, old('fixstation_id'), ['placeholder'=>'Choose a location','class'=>'form-control set-to-select2']) !!}
 					</div>
 
 					<div class="form-group">
@@ -55,6 +55,7 @@
 					<div class="form-group">
 						<label>Peminjam</label>
 						<input type="text" name="peminjam" placeholder="" class="form-control" readonly value="{{\Auth::user()->companycode->company_name}}">
+						{!! Form::hidden('borcompanycode_id', \Auth::user()->companycode->id) !!}
 					</div>
 
 				</div>
@@ -74,6 +75,10 @@
 	</div>
 </div>
 
+@endsection
+
+@push('scripts')
+	
 <script>
 	var dates = {
 		convert: function(d) {
@@ -125,5 +130,4 @@
 
 	}
 </script>
-
-@endsection
+@endpush

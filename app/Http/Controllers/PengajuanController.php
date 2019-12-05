@@ -21,10 +21,12 @@ class PengajuanController extends Controller
         $totalPengajuan = PengajuanModel::where('no_pengajuan', 'LIKE', '%'.$companycode.'%')->whereMonth('created_at', \Carbon\Carbon::today()->month)->count();
         $spkNumber = $companycode."/".\Carbon\Carbon::today()->format('Ymd')."0000".($totalPengajuan + 1);
         $companycodes = Companycode::pluck('company_name', 'id');
-        $fixstations = FixStationModel::pluck('nama_lokasi','id');
+        $fixstations = FixStationModel::groupBy('name_station', 'address')
+        ->pluck('nama_lokasi','id');
         return view('Pengajuan.tambah_pengajuan',[
             'spkNumber' => $spkNumber,
-            'companycodes' => $companycodes
+            'companycodes' => $companycodes,
+            'fixstations' => $fixstations
         ]);
     }
 

@@ -39,7 +39,7 @@ class FixStationController extends Controller
     {
         $this->validate($request, [
             'name_station' => 'required|unique:fix_station,name_station,' . $request->name_station . ',id,companycode_id,' . \Auth::user()->companycode_id,
-            'address' => 'required',
+            'address' => 'required|unique:fix_station,name_station,' . $request->name_station . ',id,companycode_id,' . \Auth::user()->companycode_id,
             'nama_lokasi' => 'required',
             'koordinat_gps' => 'required',
             'tank_number' => 'required',

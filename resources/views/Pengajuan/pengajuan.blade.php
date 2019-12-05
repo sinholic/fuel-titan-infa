@@ -46,9 +46,10 @@
                 @foreach($pengajuan ?? '' as $s)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$s->no_spk}}</td>
+                    <td>{{$s->no_pengajuan}}</td>
                     <td>{{$s->supplier}}</td>
                     <td>{{$s->qty}}</td>
+                    <td></td>
                     <td>{{$s->remark}}</td>
                     <td>{{$s->peminjam}}</td>
                     <td>{{($s->approved == NULL ? 'Not yet approved' : ($s->approved ? 'Approved' : 'Rejected'))}}</td>

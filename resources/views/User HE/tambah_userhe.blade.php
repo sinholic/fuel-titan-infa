@@ -17,39 +17,39 @@
 
 					@if($errors->any())
 					<div class="alert alert-danger">
-						{{implode('', $errors->all(':message'))}}
+						{!! implode('<br/>', $errors->all(':message') )!!}
 					</div>
 					@endif
 					{!! Form::hidden('penyewa', 'Titan') !!}
 					<div class="form-group">
 						<label>Equipment Number</label>
-						<input id="equipment-number" name="eq_label" class="form-control" required />
-						<input type="hidden" id="equipment-number-value" name="equipment_id" class="form-control"
+						<input id="equipment-number" name="eq_label" value="{{ old('eq_label') }}" class="form-control" required />
+						<input type="hidden" id="equipment-number-value" name="equipment_id" value="{{ old('equipment_id') }}" class="form-control"
 							required />
 					</div>
 
 					<div class="form-group">
 						<label for="">Equipment Category</label>
-						<input type="text" name="eq_category" placeholder="" class="equipment-category form-control" readonly
+						<input type="text" name="eq_category" value="{{ old('eq_category') }}" placeholder="" class="equipment-category form-control" readonly
 						  autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Owner</label>
-						<input type="text" name="eq_owner" placeholder="" class="equipment-owner form-control" readonly
+						<input type="text" name="eq_owner" value="{{ old('eq_owner') }}" placeholder="" class="equipment-owner form-control" readonly
 							autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Area Kerja</label>
-						<input type="text" name="areakerja" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="areakerja" value="{{ old('areakerja') }}" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Tanggal Operasi</label>
-								<input type="date" onchange="validateDate(this.value)" name="tanggal_operasi"
+								<input type="date" onchange="validateDate(this.value)" name="tanggal_operasi" value="{{ old('tanggal_operasi') }}"
 									placeholder="" class="form-control" required autofocus>
 							</div>
 						</div>
@@ -59,7 +59,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>HM Awal</label>
-								<input type="number" id="hmawal" onfocusout="sumHM();" name="hm_awal" placeholder=""
+								<input type="number" id="hmawal" onfocusout="sumHM();" name="hm_awal" value="{{ old('hm_awal') }}" placeholder=""
 									class="form-control">
 							</div>
 						</div>
@@ -67,7 +67,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>KM Awal</label>
-								<input type="number" id="kmawal" onfocusout="sumKM();" name="km_awal" placeholder=""
+								<input type="number" id="kmawal" onfocusout="sumKM();" name="km_awal" value="{{ old('km_awal') }}" placeholder=""
 									class="form-control">
 							</div>
 						</div>
@@ -77,7 +77,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>HM Akhir</label>
-								<input type="number" id="hmakhir" onfocusout="sumHM();" name="hm_akhir" placeholder=""
+								<input type="number" id="hmakhir" onfocusout="sumHM();" name="hm_akhir" value="{{ old('hm_akhir') }}" placeholder=""
 									class="form-control">
 							</div>
 						</div>
@@ -85,7 +85,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>KM Akhir</label>
-								<input type="number" id="kmakhir" onfocusout="sumKM();" name="km_akhir" placeholder=""
+								<input type="number" id="kmakhir" onfocusout="sumKM();" name="km_akhir" value="{{ old('km_akhir') }}" placeholder=""
 									class="form-control">
 							</div>
 						</div>
@@ -95,7 +95,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Total Jam</label>
-								<input type="number" id="totaljam" name="total_jam" placeholder="" class="form-control"
+								<input type="number" id="totaljam" name="total_jam" value="{{ old('total_jam') }}" placeholder="" class="form-control"
 									readonly>
 							</div>
 						</div>
@@ -103,7 +103,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Total KM</label>
-								<input type="number" id="totalkm" name="km_total" placeholder="" class="form-control"
+								<input type="number" id="totalkm" name="km_total" value="{{ old('km_total') }}" placeholder="" class="form-control"
 									readonly>
 							</div>
 						</div>
@@ -113,21 +113,21 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="exampleFormControlSelect1">Status</label>
-								{{ Form::select('timesheetstatus_id', $statuses, null, ['placeholder' => 'Pilih status...', 'required', 'class' => 'form-control status-opt-group']) }}
+								{{ Form::select('timesheetstatus_id', $statuses, old('timesheetstatus_id'), ['placeholder' => 'Pilih status...', 'required', 'class' => 'form-control status-opt-group']) }}
 							</div>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label>Description</label>
-						<textarea name="job_order" class="form-control" rows="3" required autocomplete=""></textarea>
+						<textarea name="job_order" class="form-control" rows="3" required autocomplete="">{{ old('job_order') }}</textarea>
 					</div>
 
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>BBM (Liter)</label>
-								<input type="number" name="bbm" placeholder="" class="form-control" required
+								<input type="number" name="bbm" value="{{ old('bbm') }}" placeholder="" class="form-control" required
 									autocomplete="">
 							</div>
 						</div>
@@ -135,7 +135,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Operator</label>
-								<input type="text" name="operator" placeholder="" class="form-control" required
+								<input type="text" name="operator" value="{{ old('operator') }}" placeholder="" class="form-control" required
 									autocomplete="">
 							</div>
 						</div>
@@ -145,7 +145,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Helper</label>
-								<input type="text" name="helper" placeholder="" class="form-control" required
+								<input type="text" name="helper" value="{{ old('helper') }}" placeholder="" class="form-control" required
 									autocomplete="">
 							</div>
 						</div>
