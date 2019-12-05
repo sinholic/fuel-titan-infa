@@ -80,8 +80,9 @@ class PengajuanController extends Controller
         return view('Pengajuan.detail_pengajuan', ['pengajuan' => $pengajuan]);
     }
 
-    public function print()
+    public function bukticetak($id)
     {
-        return view('Pengajuan.bukticetak');
+        $pengajuan = PengajuanModel::find($id);
+        return view('Pengajuan.bukticetak', ['pengajuan' => $pengajuan]);
     }
 }

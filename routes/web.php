@@ -253,7 +253,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pengajuan/{id}/approve', 'PengajuanController@approve');
     Route::get('/pengajuan/{id}/reject', 'PengajuanController@reject');
     Route::get('/pengajuan/detail/{id}', 'PengajuanController@detail');
-    Route::get('/bukticetak', 'PengajuanController@print');
+    Route::get('/bukticetak/{id}', 'PengajuanController@bukticetak');
 
     //Equipment Card
     Route::get('/card', 'EquipmentcardController@card');

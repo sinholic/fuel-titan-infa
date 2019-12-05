@@ -75,16 +75,16 @@
                             </a>
 
                             @else
-                            <a href="/bukticetak" class="btn btn-info btn-sm" data-toggle="tooltip" title="Print" onclick="window.open('/bukticetak', 'newwindow', 'width=1000px, height=1000px'); return false;">
+                            <a href="/bukticetak/{{$s->id}}" class="btn btn-info btn-sm" data-toggle="tooltip" title="Print" onclick="window.open('/bukticetak/{{$s->id}}', 'newwindow', 'width=1000px, height=1000px'); return false;">
                                 Cetak
                             </a>
                             @endif
 
-                            {{-- <a href="/pengajuan/edit/{{$s->id}}" class="btn btn-warning btn-sm"
+                            <!-- <a href="/pengajuan/edit/{{$s->id}}" class="btn btn-warning btn-sm"
                             data-toggle="tootip"
                             data-placement="bottom" title="Edit">
                             <i class="fa fa-edit nav-icon"></i>
-                            </a> --}}
+                            </a> -->
 
                             {{-- <a onClick="return confirm('Yakin ingin menghapus data?')"
                                 href="/pengajuan/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
