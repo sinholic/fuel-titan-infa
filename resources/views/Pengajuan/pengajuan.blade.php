@@ -34,11 +34,12 @@
                     <th class="text-center">No</th>
                     <th class="text-center">No Pengajuan Hutang</th>
                     <th class="text-center">Supplier</th>
+                    <th class="text-center">Lokasi Pengambilan</th>
+                    <th class="text-center">Tanggal Pengambilan</th>
                     <th class="text-center">Qty</th>
                     <th class="text-center">Remark</th>
                     <th class="text-center">Peminjam</th>
                     <th class="text-center">Status Peminjaman</th>
-                    {{-- <th class="text-center">StockOpname</th> --}}
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
@@ -47,11 +48,12 @@
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$s->no_pengajuan}}</td>
-                    <td>{{$s->supplier}}</td>
+                    <td>{{$s->supplier->company_name}}</td>
+                    <td>{{ $s->fixstation->nama_lokasi }}</td>
+                    <td>{{$s->taking_date}}</td>
                     <td>{{$s->qty}}</td>
-                    <td></td>
                     <td>{{$s->remark}}</td>
-                    <td>{{$s->peminjam}}</td>
+                    <td>{{$s->borrower->company_name}}</td>
                     <td>{{($s->approved == NULL ? 'Not yet approved' : ($s->approved ? 'Approved' : 'Rejected'))}}</td>
                     {{-- <td>{{$s->stockopname}}</td> --}}
                     <td>
