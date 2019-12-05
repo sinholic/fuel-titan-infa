@@ -15,13 +15,14 @@ class CreateCreditsTable extends Migration
     {
         Schema::create('pengajuan_hutang', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('supplier');
-            $table->string('qty');
+            $table->string('no_pengajuan');
+            $table->bigInteger('supcompanycode_id');
+            $table->bigInteger('fixstation_id');
+            $table->date('taking_date');
+            $table->float('qty');
             $table->string('remark');
-            $table->string('no_spk');
             $table->string('peminjam');
             $table->boolean('approved')->nullable();
-            $table->string('stockopname');
             $table->timestamps();
             $table->softdeletes();
         });
