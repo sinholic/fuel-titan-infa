@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CratePiutangsTable extends Migration
+class CreateImpresstransactionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CratePiutangsTable extends Migration
      */
     public function up()
     {
-        Schema::create('piutangs', function (Blueprint $table) {
+        Schema::create('impresstransactions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('no_piutang');
-            $table->integer('qty_piutang');
-            $table->string('peminjam');
-            $table->string('status_piutang');
-            $table->date('tgl_pengembalian');
+            $table->bigInteger('station_id');
+            $table->bigInteger('equipment_id');
+            $table->float('qty')->default(0);
             $table->timestamps();
-            $table->softdeletes();
         });
     }
 
@@ -32,6 +29,6 @@ class CratePiutangsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('impresstransactions');
     }
 }

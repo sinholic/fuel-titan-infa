@@ -41,7 +41,7 @@
 
 					<div class="form-group">
 						<label>Received Qty</label>
-						<input type="number" value="{{old('qty')}}" name="qty" placeholder="" class="form-control" required autofocus>
+						<input type="number" step="0.01" value="{{old('qty')}}" name="qty" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group">
