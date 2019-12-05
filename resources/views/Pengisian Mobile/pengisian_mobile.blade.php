@@ -55,7 +55,7 @@
                  @foreach($pengisian_mobile ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->equipmentuser->name}}</td>
+                    <td>{{$s->equipmentuser}}</td>
                     <td>{{$s->equipment->equipment_number}}</td>
                     <td>{{$s->qty}}</td>
                     <td>{{$s->odometer}}</td>

@@ -27,4 +27,14 @@ class MobileModel extends Model
     {
         return $this->belongsToMany('App\User', 'userassignments', 'user_id', 'station_id')->withPivot('start_date', 'end_date','mobile')->withTimestamps();
     }
+
+    public function temp_transactions()
+    {
+        return $this->hasMany('App\Impresstransaction', 'foreign_key', 'local_key');
+    }
+
+    public function reloadingunits()
+    {
+        return $this->hasMany('App\Reloadingunit', 'foreign_key', 'local_key');
+    }
 }
