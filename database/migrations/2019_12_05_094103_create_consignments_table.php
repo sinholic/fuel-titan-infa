@@ -18,7 +18,6 @@ class CreateConsignmentsTable extends Migration
             $table->string('no_po');
             $table->string('supplier');
             $table->integer('qty');
-            $table->integer('qty_diterima');
             $table->string('no_tangki');
             $table->string('remark');
             $table->timestamps();

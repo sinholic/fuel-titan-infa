@@ -11,7 +11,7 @@ class MobileModel extends Model
     protected $table = "mobile_station";
     // protected $table = "equipment_unitdata";
     // protected $guarded = [];
-    protected $fillable = ['fixstation_id', 'equipment_id', 'impress_status', 'fuel_max_reload'];
+    protected $fillable = ['fixstation_id', 'equipment_id', 'impress_status', 'fuel_max_reload', 'stock_capacity'];
 
     public function fixstation()
     {
@@ -30,11 +30,16 @@ class MobileModel extends Model
 
     public function temp_transactions()
     {
-        return $this->hasMany('App\Impresstransaction', 'foreign_key', 'local_key');
+        return $this->hasMany('App\Impresstransaction', 'station_id', 'id');
     }
 
     public function reloadingunits()
     {
-        return $this->hasMany('App\Reloadingunit', 'foreign_key', 'local_key');
+        return $this->hasMany('App\Reloadingunit', 'mobilestation_id', 'id');
+    }
+
+    public function reloading()
+    {
+        return $this->hasMany('App\ReloadingModel', 'mobilestation_id', 'id');
     }
 }

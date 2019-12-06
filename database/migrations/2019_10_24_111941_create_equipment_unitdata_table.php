@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class EquipmentUnitdata extends Migration
+class CreateEquipmentUnitdataTable extends Migration
 {
     /**
      * Run the migrations.
@@ -28,6 +28,8 @@ class EquipmentUnitdata extends Migration
             $table->string('nomor_mesin')->nullable();
             $table->string('location');
             $table->string('fuel_capacity');
+            $table->integer('master_km')->unsigned()->nullable()->default(0);
+            $table->integer('master_hm')->unsigned()->nullable()->default(0);
             $table->unique(['equipment_number', 'companycode_id']);
             $table->timestamps();
             $table->softDeletes();

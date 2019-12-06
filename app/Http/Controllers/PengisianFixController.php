@@ -43,10 +43,11 @@ class PengisianFixController extends Controller
         $lastreload = Reloadingunit::where('equipment_id', $request->equipment_id)
         ->get()
         ->last();
-        $this->validate($request, [
-            'odometer' => 'numeric|min:'.($lastreload->odometer + 1)
-        ]);
-
+        if ($lastreload) {     
+            $this->validate($request, [
+                'odometer' => 'numeric|min:'.($lastreload->odometer + 1)
+            ]);
+        }
         Vouchercode::find($request->voucher_id)->update(['used'=>1]);
         Reloadingunit::create($request->all());
         return redirect('/pengisian_fix')->with('sukses', 'Data Berhasil Di Input!');

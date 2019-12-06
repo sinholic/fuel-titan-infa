@@ -17,7 +17,7 @@ class CreatePenerimaanTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('purchaseorder_id');
             $table->string('remark');
-            $table->string('qty');
+            $table->float('qty');
             $table->string('fixstation_id');
             $table->timestamps();
             $table->softDeletes();

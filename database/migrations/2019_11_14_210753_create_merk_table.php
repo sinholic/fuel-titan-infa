@@ -18,6 +18,7 @@ class CreateMerkTable extends Migration
             $table->string('merk');
             $table->string('inisial');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

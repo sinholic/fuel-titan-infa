@@ -204,19 +204,19 @@
             <ul class="nav nav-treeview offset-md-2">
                 <li class="nav-item">
                     <a href="/pengajuan" class="nav-link">
-                        <p>(07) Pengajuan</p>
+                        <p>Pengajuan</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="/pengambilan" class="nav-link">
-                        <p>(08) Pengambilan Solar</p>
+                        <p>(07) Pengambilan Solar</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="/pengembalian" class="nav-link">
-                        <p>(09) Pengembalian Solar</p>
+                        <p>(08) Pengembalian Solar</p>
                     </a>
                 </li>
             </ul>
@@ -226,7 +226,7 @@
             <a href="/consignment" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    (10) Consignment
+                    (09) Consignment
                 </p>
             </a>
         </li>
@@ -235,7 +235,7 @@
             <a href="/error" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    (11) Stock Opname
+                    Stock Opname
                 </p>
             </a>
         </li>

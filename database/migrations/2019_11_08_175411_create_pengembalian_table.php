@@ -15,7 +15,8 @@ class CreatePengembalianTable extends Migration
     {
         Schema::create('pengembalian', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('qty');
+            $table->bigInteger('credit_id')->default(1);
+            $table->float('qty');
             $table->date('date');
             $table->timestamps();
             $table->softdeletes();

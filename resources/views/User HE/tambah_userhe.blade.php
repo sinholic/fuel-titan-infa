@@ -127,7 +127,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>BBM (Liter)</label>
-								<input type="number" name="bbm" value="{{ old('bbm') }}" placeholder="" class="form-control" required
+								<input type="number" name="qty" value="{{ old('qty') }}" placeholder="" class="form-control" required
 									autocomplete="">
 							</div>
 						</div>

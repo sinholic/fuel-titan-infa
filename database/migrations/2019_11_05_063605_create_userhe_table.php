@@ -23,7 +23,7 @@ class CreateUserheTable extends Migration
             $table->integer('hm_akhir')->nullable();
             $table->integer('total_jam')->nullable();
             $table->string('job_order');
-            $table->string('bbm');
+            $table->float('qty');
             $table->string('operator');
             $table->string('helper');
             $table->bigInteger('pengawas');

@@ -29,6 +29,16 @@ class ReloadingController extends Controller
 
     public function create(Request $request)
     {
+        $mobileStation = MobileModel::with('reloading')->find($request->mobilestation_id);
+        $lastReload = $mobileStation->reloading->last();
+        $this->validate($request, [
+            'odometer' => 'numeric|min:'.($lastReload->odometer + 1),
+            'qty_solar' => 'numeric|'
+        ]);
+
+        EquipmentModel::find($request->equipment_id)->update([
+            'master_km' => $request->odometer
+        ]);
         ReloadingModel::create($request->all());
         return redirect('/reloading')->with('sukses', 'Data Berhasil Di Input!');
     }
