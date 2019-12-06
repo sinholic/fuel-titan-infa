@@ -31,8 +31,13 @@ class ReloadingController extends Controller
     {
         $mobileStation = MobileModel::with('reloading')->find($request->mobilestation_id);
         $lastReload = $mobileStation->reloading->last();
+        if ($lastReload != NULL) {
+            $this->validate($request, [
+                'odometer' => 'numeric|min:'.($lastReload->odometer + 1),
+                'qty_solar' => 'numeric|'
+            ]);
+        }
         $this->validate($request, [
-            'odometer' => 'numeric|min:'.($lastReload->odometer + 1),
             'qty_solar' => 'numeric|'
         ]);
 

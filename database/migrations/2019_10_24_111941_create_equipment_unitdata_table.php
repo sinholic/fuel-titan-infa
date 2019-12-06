@@ -20,6 +20,7 @@ class CreateEquipmentUnitdataTable extends Migration
             $table->enum('status_vehicle', ['Rental', 'Internal']);
             $table->bigInteger('owner_id');
             $table->string('equipment_number');
+            $table->string('equipment_number_sap')->nullable();
             $table->string('equipment_name');
             $table->bigInteger('equipment_type');
             $table->bigInteger('equipment_category');

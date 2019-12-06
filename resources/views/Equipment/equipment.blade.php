@@ -45,8 +45,8 @@
                 <tr>
                     <th class="text-center">No</th>
                     <th class="text-center">Nomor Equipment</th>
+                    <th class="text-center">No. Equipment SAP</th>
                     <th class="text-center">Nama Equipment</th>
-                    {{-- <th class="text-center">Tipe Equipment</th> --}}
                     <th class="text-center">Equipment Category</th>
                     <th class="text-center">Status Kendaraan</th>
                     {{-- <th class="text-center">Location</th> --}}
@@ -63,8 +63,8 @@
                 <tr>
                     <td>{{$i++}}</td>
                     <td>{{$s->equipment_number}}</td>
+                    <td>{{$s->equipment_number_sap}}</td>
                     <td>{{$s->equipment_name}}</td>
-                    {{-- <td>{{$s->equipmenttipe->tipe ?? ''}}</td> --}}
                     <td>{{$s->equipmentcategory->nama ?? ''}}</td>
                     <td>{{$s->status_vehicle}}</td>
                     {{-- <td>{{$s->location}}</td> --}}
