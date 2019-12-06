@@ -28,7 +28,7 @@
     </div>
 
     <div class="card-body">
-        <table class="table table-striped table-bordered" id="myTable">
+        <table class="table table-responsive table-striped table-bordered" id="myTable">
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
@@ -49,8 +49,8 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$s->no_pengajuan}}</td>
                     <td>{{$s->supplier->company_name}}</td>
-                    <td>{{ $s->fixstation->nama_lokasi }}</td>
-                    <td>{{$s->taking_date}}</td>
+                    <td>{{$s->fixstation->nama_lokasi ?? ''}}</td>
+                    <td>{{ $s->taking_date == NULL ? '' : date('l, d-M-Y', strtotime($s->taking_date))}}</td>
                     <td>{{$s->qty}}</td>
                     <td>{{$s->remark}}</td>
                     <td>{{$s->borrower->company_name}}</td>
@@ -61,27 +61,30 @@
 
                             <!-- URL::to('/admin/category/detail.id='.$cate-id -->
                             {{-- <a href="/pengajuan/detail/{{$s->id}}" class="btn btn-info btn-sm" data-toggle="tooltip"
-                                data-placement="bottom" title="Info">
-                                <i class="fa fa-info-circle nav-icon"></i>
+                            data-placement="bottom" title="Info">
+                            <i class="fa fa-info-circle nav-icon"></i>
                             </a> --}}
 
                             @if ($s->approved == NULL)
-                            <a onClick="return confirm('Yakin ingin menyetujui peminjaman ini?')"
-                                href="/pengajuan/{{$s->id}}/approve" class="btn btn btn-success btn-sm">
+                            <a onClick="return confirm('Yakin ingin menyetujui peminjaman ini?')" href="/pengajuan/{{$s->id}}/approve" class="btn btn btn-success btn-sm">
                                 <i class="fa fa-check nav-icon"></i>
                             </a>
-                            
-                            <a onClick="return confirm('Yakin ingin mereject peminjaman ini?')"
-                                href="/pengajuan/{{$s->id}}/reject" class="btn btn btn-danger btn-sm">
+
+                            <a onClick="return confirm('Yakin ingin mereject peminjaman ini?')" href="/pengajuan/{{$s->id}}/reject" class="btn btn btn-danger btn-sm">
                                 <i class="fa fa-times nav-icon"></i>
+                            </a>
+
+                            @else
+                            <a href="/bukticetak/{{$s->id}}" class="btn btn-info btn-sm" data-toggle="tooltip" title="Print" onclick="window.open('/bukticetak/{{$s->id}}', 'newwindow', 'width=1000px, height=1000px'); return false;">
+                                Cetak
                             </a>
                             @endif
 
-                            {{-- <a href="/pengajuan/edit/{{$s->id}}" class="btn btn-warning btn-sm"
+                            <!-- <a href="/pengajuan/edit/{{$s->id}}" class="btn btn-warning btn-sm"
                             data-toggle="tootip"
                             data-placement="bottom" title="Edit">
                             <i class="fa fa-edit nav-icon"></i>
-                            </a> --}}
+                            </a> -->
 
                             {{-- <a onClick="return confirm('Yakin ingin menghapus data?')"
                                 href="/pengajuan/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
