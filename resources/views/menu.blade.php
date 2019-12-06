@@ -102,7 +102,7 @@
 
                 <li class="nav-item">
                     <a href="/qty_solar" class="nav-link">
-                        <p>Tambah Varian Qty Solar</p>
+                        <p>Varian Qty Solar</p>
                     </a>
                 </li>
 
