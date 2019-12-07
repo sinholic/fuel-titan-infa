@@ -17,7 +17,7 @@ Route::post('login', 'API\UserController@login');
 Route::post('register', 'API\UserController@register');
 
 Route::group(['middleware' => 'auth:api'], function () {
-    Route::get('details', 'API\UserController@details');
+    Route::post('details', 'API\UserController@details');
 
     Route::group(['prefix' => 'equipment'], function () {
         Route::get('lists', 'API\EquipmentController@lists');
