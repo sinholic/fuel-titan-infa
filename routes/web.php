@@ -326,4 +326,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Daftar Pengisian
     Route::get('/daf_pengisian', 'ReloadingunitController@daf_pengisian');
+
+    //Stock Opname
+    Route::get('/stockopname', 'StockOpnameController@stockopname');
+    Route::get('/tambah_stockopname', 'StockOpnameController@tambah');
+    Route::post('/stockopname/create', 'StockOpnameController@create');
+
 });

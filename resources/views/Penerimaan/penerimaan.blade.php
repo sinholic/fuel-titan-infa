@@ -17,13 +17,13 @@
 		</div>
     @endif
     
-    <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
+    {{-- <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
 		 <i class="fas fa-file-excel"></i> Import Excel
     </button>
 
     <a href="/penerimaan/export_excel" class="btn btn-success my-1" target="_blank">
         <i class="fas fa-file-excel"></i> Export Excel
-    </a>
+    </a> --}}
     
         <a href="/tampiladdpenerimaan" class="btn btn-primary">
             <i class="fa fa-plus nav-icon"></i>
@@ -88,7 +88,7 @@
 </div>
 
  <!-- Import Excel -->
-		<div class="modal fade" id="importExcel" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		{{-- <div class="modal fade" id="importExcel" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<form method="post" action="/equipment/import_excel" enctype="multipart/form-data">
 					<div class="modal-content">
@@ -112,5 +112,5 @@
 					</div>
 				</form>
 			</div>
-		</div>
+		</div> --}}
 @endsection

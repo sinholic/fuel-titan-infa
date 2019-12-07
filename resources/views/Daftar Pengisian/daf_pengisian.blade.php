@@ -42,7 +42,7 @@
                 @foreach($daf_pengisian ?? '' as $s)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td></td>
+                    <td>{{$s->equipment->equipment_number}}</td>
                     <td>{{$s->equipmentuser}}</td>
                     <td>{{$s->qty}}</td>
                     <td>{{$s->odometer}}</td>

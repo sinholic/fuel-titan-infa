@@ -127,11 +127,11 @@
             </ul>
         </li>
 
-        <li class="nav-item has-treeview">
+        <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    Good Issue
+                    Transactions
                     <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
@@ -139,53 +139,76 @@
 
                 <li class="nav-item">
                     <a href="/pengisian_mobile" class="nav-link">
-                        <p>(01) Mobile Station</p>
+                        <p>(01) Good Issue MS</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="/pengisian_fix" class="nav-link">
-                        <p>(02) Fix Station</p>
+                        <p>(02) Good Issue FS</p>
+                    </a>
+                </li>
+
+                {{-- <li class="nav-item">
+                    <a href="/daf_pengisian" class="nav-link">
+                        <p>Daftar Pengisian</p>
+                    </a>
+                </li> --}}
+
+                <li class="nav-item">
+                    <a href="/userhe" class="nav-link">
+                        <p>(03) Timesheet HE</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="/daf_pengisian" class="nav-link">
-                        <p>Daftar Pengisian</p>
+                    <a href="/reloading" class="nav-link">
+                        {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+                        <p>
+                            (04) MS Reloading
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/penerimaan" class="nav-link">
+                        {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+                        <p>
+                            (05) Penerimaan Solar
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/piutang" class="nav-link">
+                        <p>(06) Penerimaan Piutang Solar</p>
+                    </a>
+                </li>
+
+                 <li class="nav-item">
+                    <a href="/pengambilan" class="nav-link">
+                        <p>(07) Pengambilan Hutang Solar </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/pengembalian" class="nav-link">
+                        <p>(08) Pengembalian Hutang Solar</p>
+                    </a>
+                </li>
+
+                 <li class="nav-item has-treeview">
+                    <a href="/consignment" class="nav-link">
+                        <p>
+                            (09) Consignment
+                        </p>
                     </a>
                 </li>
 
             </ul>
         </li>
 
-        <li class="nav-item has-treeview">
-            <a href="/userhe" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-                <p>
-                    (03) Timesheet HE
-                </p>
-            </a>
-        </li>
-
-        <li class="nav-item has-treeview">
-            <a href="/reloading" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-                <p>
-                    (04) Pengisian Mobile Station
-                </p>
-            </a>
-        </li>
-
-        <li class="nav-item has-treeview">
-            <a href="/penerimaan" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-                <p>
-                    (05) Penerimaan Solar
-                </p>
-            </a>
-        </li>
-
-        <li class="nav-item has-treeview">
+        {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
                 <p>
                     Piutang Solar
@@ -199,7 +222,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
 
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -215,31 +238,30 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="/pengambilan" class="nav-link">
                         <p>(07) Pengambilan Solar</p>
                     </a>
-                </li>
+                </li> --}}
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="/pengembalian" class="nav-link">
                         <p>(08) Pengembalian Solar</p>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </li>
 
-        <li class="nav-item has-treeview">
+        {{-- <li class="nav-item has-treeview">
             <a href="/consignment" class="nav-link">
-                {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
                     (09) Consignment
                 </p>
             </a>
-        </li>
+        </li> --}}
 
         <li class="nav-item has-treeview">
-            <a href="/error" class="nav-link">
+            <a href="/stockopname" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
                     Stock Opname

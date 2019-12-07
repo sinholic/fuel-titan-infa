@@ -17,9 +17,9 @@
 </div>
 @endif
 
-<button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
+{{-- <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
     <i class="fas fa-file-excel"></i> Import Excel
-</button>
+</button> --}}
 
 <a href="#" class="btn btn-success" data-toggle="tooltip" title="Print"
     onclick="window.open('/user/print-qr', 'newwindow', 'width=1000px, height=1000px'); return false;">
@@ -88,7 +88,7 @@
 </div>
 
 <!-- Import Excel -->
-<div class="modal fade" id="importExcel" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- <div class="modal fade" id="importExcel" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <form method="post" action="/equipment/import_excel" enctype="multipart/form-data">
             <div class="modal-content">
@@ -112,5 +112,5 @@
             </div>
         </form>
     </div>
-</div>
+</div> --}}
 @endsection
