@@ -117,6 +117,13 @@
                         Tipe Equipment
                     </a>
                 </li>
+
+                <!-- <li class="nav-item">
+                    <a href="/error" class="nav-link">
+                        Kalibrasi
+                    </a>
+                </li> -->
+
             </ul>
         </li>
 
@@ -143,7 +150,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/daf_pengisian" class="nav-link">
                         <p>Daftar Pengisian</p>
                     </a>
                 </li>
@@ -222,7 +229,7 @@
             </ul>
         </li>
 
-         <li class="nav-item has-treeview">
+        <li class="nav-item has-treeview">
             <a href="/consignment" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>

@@ -315,4 +315,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/piutang/{id}/reject', 'PiutangController@reject');
     Route::get('/piutang/detail/{id}', 'PiutangController@detail');
     Route::get('/cetakpiutang/{id}', 'PiutangController@bukticetak');
+
+    //Kalibrasi
+    Route::get('/kalibrasi', 'KalibrasiController@kalibrasi');
+    Route::get('/tambah_kalibrasi', 'KalibrasiController@tambah');
+    Route::post('/kalibrasi/create', 'KalibrasiController@create');
+    Route::get('/kalibrasi/edit/{id}', 'KalibrasiController@edit');
+    Route::post('/kalibrasi/update/{id}', 'KalibrasiController@update');
+    Route::get('/kalibrasi/{id}/delete', 'KalibrasiController@delete');
+
+    //Daftar Pengisian
+    Route::get('/daf_pengisian', 'ReloadingController@daf_pengisian');
 });

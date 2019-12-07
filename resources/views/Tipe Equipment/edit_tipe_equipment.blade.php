@@ -7,7 +7,7 @@
         <form action="/tipe_equipment/update/{{$tipe_equipment->id}}" method="POST">
 
             @csrf
-           
+
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Edit Tipe Equipment</h3>
@@ -23,7 +23,7 @@
 
                     <div class="form-group">
                         <label>Merk</label>
-                    <input type="text" name="merk" value="{{$tipe_equipment->merk}}" class="form-control" required autofocus readonly>
+                        <input type="text" name="merk" value="{{$tipe_equipment->equipmentmerk->merk ?? ''}}" class="form-control" required autofocus readonly>
                     </div>
 
                     <div class="form-group">

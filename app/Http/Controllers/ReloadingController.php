@@ -52,4 +52,12 @@ class ReloadingController extends Controller
         $reloading->delete($reloading);
         return redirect('/reloading')->with('sukses', 'Data berhasil dihapus!');
     }
+
+    public function daf_pengisian()
+    {
+        $daf_pengisian = ReloadingModel::with('mobilestation', 'mobilestation.equipment')->get();
+        return view('Daftar Pengisian.daf_pengisian', [
+            'daf_pengisian' => $daf_pengisian,
+        ]);
+    }
 }
