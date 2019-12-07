@@ -54,13 +54,13 @@
                     <td>
                         <div class="btn-group">
 
-                            <a href="/piutang/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
+                            {{-- <a href="/piutang/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
-                            </a>
+                            </a> --}}
 
-                            <a href="#" class="btn btn btn-danger btn-sm delete" piutang-id="{{$s->id}}">
+                            {{-- <a href="#" class="btn btn btn-danger btn-sm delete" piutang-id="{{$s->id}}">
                                 <i class="fa fa-trash nav-icon"></i>
-                            </a>
+                            </a> --}}
 
                             <a href="/cetakpiutang/{{$s->id}}" class="btn btn-info btn-sm" data-toggle="tooltip" title="Print" onclick="window.open('/cetakpiutang/{{$s->id}}', 'newwindow', 'width=1000px, height=1000px'); return false;">
                                 Cetak

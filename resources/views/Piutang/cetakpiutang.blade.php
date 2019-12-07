@@ -7,6 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cetak Bukti Piutang Hutang</title>
+    <style>
+          @media print {
+
+            .unit-identity-card-container,
+            .table-cont,
+            .float-left,
+            .print {
+                display: none;
+                visibility: hidden;
+            }
+          }
+    </style>
 </head>
 
 <body>
@@ -22,7 +34,7 @@
                     </div>
 
                     <div class="card-body">
-                        <a href="#" class="btn btn-primary" style="float: right" ; onclick="window.print();">Print</a>
+                        <a href="#" class="btn btn-primary print" style="float: right" ; onclick="window.print();">Print</a>
 
                         <div class="form-group">
                             <label>NO Piutang Solar</label><br>
