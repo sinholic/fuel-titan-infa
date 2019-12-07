@@ -76,7 +76,7 @@
                     <td>{{ $s->km_akhir - $s->km_awal }}</td>
                     <td>{{ $s->status->category .' - '.$s->status->status  }}</td>
                     <td>{{$s->job_order}}</td>
-                    <td>{{$s->bbm}}</td>
+                    <td>{{$s->qty}}</td>
                     <td>{{$s->helper}}</td>
                     <td>{{$s->operator}}</td>
                     <td>{{$s->userpengawas->name ?? ''}}</td>

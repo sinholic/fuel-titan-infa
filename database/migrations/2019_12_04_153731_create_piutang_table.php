@@ -16,7 +16,7 @@ class CreatePiutangTable extends Migration
         Schema::create('piutang', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('no_piutang');
-            $table->integer('qty_piutang');
+            $table->float('qty_piutang');
             $table->string('peminjam');
             $table->string('status_piutang');
             $table->date('tgl_pengembalian');

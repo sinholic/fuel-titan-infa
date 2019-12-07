@@ -18,7 +18,8 @@ class CreateMobileStationTable extends Migration
             $table->bigInteger('fixstation_id');
             $table->bigInteger('equipment_id')->nullable()->default(1);
             $table->boolean('impress_status')->default(false);
-            $table->string('fuel_max_reload')->nullable();
+            $table->float('fuel_max_reload')->nullable();
+            $table->float('stock_capacity')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

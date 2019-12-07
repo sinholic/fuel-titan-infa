@@ -18,9 +18,10 @@ class CreateReloadingTable extends Migration
             // $table->integer('no_po');
             $table->bigInteger('fixstation_id');
             // Get from MAster station
+            $table->bigInteger('mobilestation_id')->default(1);
             $table->bigInteger('equipment_id'); 
             $table->string('driver_mobile_statis');
-            $table->integer('qty_solar');
+            $table->float('qty_solar');
             $table->integer('odometer');
             $table->timestamps();
             $table->softDeletes();

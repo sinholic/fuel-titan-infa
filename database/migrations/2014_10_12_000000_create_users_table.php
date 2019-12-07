@@ -19,10 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('imei');
             $table->string('syncpassword');
-            $table->bigInteger('companycode_id');
+            $table->string('imei');
             $table->bigInteger('imei2');
+            $table->bigInteger('companycode_id');
             $table->bigInteger('status_id');
             $table->rememberToken();
             $table->timestamps();

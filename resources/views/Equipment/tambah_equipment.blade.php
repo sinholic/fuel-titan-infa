@@ -55,6 +55,11 @@
                         <label>Equipment Unique Number</label>
                         <input type="text" name="equipment_number" placeholder="" class="form-control unique-number" readonly>
                     </div>
+
+                    <div class="form-group">
+                        <label>Nomor Equipment SAP</label>
+                        <input type="text" name="equipment_number_sap" placeholder="" class="form-control" autofocus>
+                    </div>
  
                     <div class="form-group">
                         <label>Equipment Type</label>

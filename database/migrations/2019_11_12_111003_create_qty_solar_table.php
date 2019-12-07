@@ -15,7 +15,7 @@ class CreateQtySolarTable extends Migration
     {
         Schema::create('qty_solar', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('qty_solar');
+            $table->float('qty_solar');
             $table->timestamps();
             $table->softdeletes();
         });

@@ -19,6 +19,7 @@ class CreateEquipmentcardsTable extends Migration
             $table->integer('equipment_id');
             $table->boolean('active')->nullable()->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

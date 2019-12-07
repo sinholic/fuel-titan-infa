@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDebtsTable extends Migration
+class CreatePengambilanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,7 @@ class CreateDebtsTable extends Migration
         Schema::create('pengambilan', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('credit_id');
-            $table->string('qty');
+            $table->float('qty');
             $table->date('date');
             $table->timestamps();
             $table->softdeletes();

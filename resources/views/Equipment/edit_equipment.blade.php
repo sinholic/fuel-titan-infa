@@ -62,6 +62,11 @@
                         <label>Equipment Number</label>
                         <input type="text" name="equipment_number" value="{{$equipment->equipment_number}}" class="form-control" readonly>
                     </div>
+
+                    <div class="form-group">
+                        <label>Equipment Number SAP</label>
+                        <input type="text" name="equipment_number_sap" value="{{$equipment->equipment_number_sap}}" class="form-control">
+                    </div>
  
                     <div class="form-group">
                         <label>Equipment Type</label>

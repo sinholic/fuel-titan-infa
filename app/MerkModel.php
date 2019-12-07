@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class MerkModel extends Model
 {
     use SoftDeletes;
-    
     protected $table = "merk";
     protected $guarded = [];
 

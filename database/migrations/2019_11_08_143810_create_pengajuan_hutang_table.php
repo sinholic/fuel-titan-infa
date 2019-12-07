@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCreditsTable extends Migration
+class CreatePengajuanHutangTable extends Migration
 {
     /**
      * Run the migrations.
@@ -21,7 +21,7 @@ class CreateCreditsTable extends Migration
             $table->date('taking_date');
             $table->float('qty');
             $table->string('remark');
-            $table->string('peminjam');
+            $table->bigInteger('borcompanycode_id');
             $table->boolean('approved')->nullable();
             $table->timestamps();
             $table->softdeletes();

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Reloadingunit extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['origin', 'odometer', 'qty', 'ending_stock', 'machinehours', 'equipment_id', 'station_id', 'equipmentuser_id', 'loginuser_id', 'remark', 'remark2', 'remark3'];
+    protected $fillable = ['origin', 'odometer', 'qty', 'ending_stock', 'machinehours', 'equipment_id', 'station_id', 'equipmentuser', 'loginuser_id', 'remark', 'remark2', 'remark3'];
 
     public function equipment()
     {
