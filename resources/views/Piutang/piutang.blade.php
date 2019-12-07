@@ -62,6 +62,10 @@
                                 <i class="fa fa-trash nav-icon"></i>
                             </a>
 
+                            <a href="/cetakpiutang/{{$s->id}}" class="btn btn-info btn-sm" data-toggle="tooltip" title="Print" onclick="window.open('/cetakpiutang/{{$s->id}}', 'newwindow', 'width=1000px, height=1000px'); return false;">
+                                Cetak
+                            </a>
+
                         </div>
                     </td>
 

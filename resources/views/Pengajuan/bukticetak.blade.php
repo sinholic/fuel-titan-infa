@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Cetak Bukti Pengajuan Hutang</title>
 </head>
 
 <body>
@@ -22,6 +22,8 @@
                     </div>
 
                     <div class="card-body">
+                        <a href="#" class="btn btn-primary" style="float: right" ; onclick="window.print();">Print</a>
+
 
                         @if($errors->any())
                         <div class="alert alert-danger">
@@ -46,7 +48,7 @@
 
                         <div class="form-group">
                             <label>Tanggal Pengambilan</label><br>
-                            <label class="">{{$pengajuan->taking_date}}</label>
+                            <label for="">{{date('l, d-M-Y', strtotime($pengajuan->taking_date))}}</label>
                         </div>
 
                         <div class="form-group">

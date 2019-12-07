@@ -55,8 +55,10 @@
                     <td>{{$s->mobileassignments->last()->pivot->end_date}}</td>
                     @elseif ($s->fixassignments->last() != NULL)
                     <td>{{ $s->fixassignments->first()->name_station }}</td>
-                    <td>{{ $s->fixassignments->first()->pivot->start_date}}</td>
-                    <td>{{ $s->fixassignments->first()->pivot->end_date}}</td>
+                    <td>{{date('l, d-M-Y', strtotime($s->fixassignments->first()->pivot->start_date))}}</td>
+                    <td>{{date('l, d-M-Y', strtotime($s->fixassignments->first()->pivot->end_date))}}</td>
+
+
                     @endif
                     {{-- <td>
                         <div class="btn-group">
@@ -65,24 +67,23 @@
                                 <i class="fa fa-info-circle nav-icon"></i>
                             </a>
 
-                            <a href="/user_assign/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip"
-                                data-placement="bottom" title="Edit">
-                                <i class="fa fa-edit nav-icon"></i>
-                            </a>
+                            <a href="/user_assign/edit/{{$s->id}}" class="btn btn-warning btn-sm" data-toggle="tootip"
+                    data-placement="bottom" title="Edit">
+                    <i class="fa fa-edit nav-icon"></i>
+                    </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')"
-                                href="/user_assign/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
-                                <i class="fa fa-trash nav-icon"></i>
-                            </a>
+                    <a onClick="return confirm('Yakin ingin menghapus data?')" href="/user_assign/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
+                        <i class="fa fa-trash nav-icon"></i>
+                    </a>
 
-                        </div>
-                    </td> --}}
-
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
     </div>
+    </td> --}}
+
+    </tr>
+    @endforeach
+    </tbody>
+    </table>
+</div>
 </div>
 
 <!-- Import Excel -->

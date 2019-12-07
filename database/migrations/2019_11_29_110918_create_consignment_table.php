@@ -8,7 +8,7 @@ class CreateConsignmentTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * 
      * @return void
      */
     public function up()
@@ -18,7 +18,7 @@ class CreateConsignmentTable extends Migration
             $table->string('equipment');
             $table->string('gas_station');
             $table->date('measuring_date');
-            $table->timestamp('measuring_time')->nullable();
+            $table->timestamps('measuring_time')->nullable();
             $table->string('measuring_position');
             $table->string('fluid_type');
             $table->string('fluid_consumption');

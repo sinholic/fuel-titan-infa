@@ -43,4 +43,28 @@ class PiutangController extends Controller
         $piutang->delete($piutang);
         return redirect('/piutang')->with('sukses', 'Data berhasil dihapus!');
     }
+
+    public function bukticetak($id)
+    {
+        $piutang = PiutangModel::find($id);
+        return view('Piutang.cetakpiutang', ['piutang' => $piutang]);
+    }
+
+    public function approve($id)
+    {
+        $piutang = PiutangModel::find($id)
+            ->update([
+                'approved' => 1
+            ]);
+        return redirect('/piutang')->with('sukses', 'Peminjaman berhasil di approve!');
+    }
+
+    public function reject($id)
+    {
+        $piutang = PiutangModel::find($id)
+            ->update([
+                'approved' => 0
+            ]);
+        return redirect('/piutang')->with('sukses', 'Peminjaman berhasil di reject!');
+    }
 }

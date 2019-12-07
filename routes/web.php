@@ -311,4 +311,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/piutang/edit/{id}', 'PiutangController@edit');
     Route::post('/piutang/update/{id}', 'PiutangController@update');
     Route::get('/piutang/{id}/delete', 'PiutangController@delete');
+    Route::get('/piutang/{id}/approve', 'PiutangController@approve');
+    Route::get('/piutang/{id}/reject', 'PiutangController@reject');
+    Route::get('/piutang/detail/{id}', 'PiutangController@detail');
+    Route::get('/cetakpiutang/{id}', 'PiutangController@bukticetak');
 });

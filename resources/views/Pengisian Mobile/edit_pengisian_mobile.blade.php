@@ -23,7 +23,7 @@
 
                     <div class="form-group">
                         <label>Nama Pengawas</label>
-                        <input type="text" name="equipmentuser_id" value="{{$pengisian_mobile->equipmentuser->name}}" class="form-control" disabled autofocus>
+                        <input type="text" name="equipmentuser_id" value="{{$pengisian_mobile->equipmentuser->name ?? ''}}" class="form-control" disabled autofocus>
                     </div>
 
                     <div class="form-group">
