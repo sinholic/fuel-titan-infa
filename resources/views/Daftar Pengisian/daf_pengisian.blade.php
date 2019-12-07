@@ -28,11 +28,12 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
+                    <!-- <th class="text-center">Station Name</th> -->
                     <th class="text-center">Unit Equipment</th>
-                    <th class="text-center">Unit Mobile Station</th>
-                    <th class="text-center">Driver Mobile Statis</th>
-                    <th class="text-center">Qty Solar (Mobile)</th>
-                    <th class="text-center">Odometer (KM)</th>
+                    <th class="text-center">Driver</th>
+                    <th class="text-center">Qty</th>
+                    <th class="text-center">Odometer</th>
+                    <th class="text-center">Remark</th>
                 </tr>
             </thead>
             @php $i=1 @endphp
@@ -41,12 +42,11 @@
                 @foreach($daf_pengisian ?? '' as $s)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$s->equipment->equipment_number ?? ''}}</td>
-                    <td>{{$s->mobilestation->equipment->equipment_number}}</td>
-                    <td>{{$s->driver_mobile_statis}}</td>
-                    <td>{{$s->qty_solar}}</td>
+                    <td></td>
+                    <td>{{$s->equipmentuser}}</td>
+                    <td>{{$s->qty}}</td>
                     <td>{{$s->odometer}}</td>
-
+                    <td>{{$s->remark}}</td>
                 </tr>
                 @endforeach
             </tbody>

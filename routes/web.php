@@ -325,5 +325,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/kalibrasi/{id}/delete', 'KalibrasiController@delete');
 
     //Daftar Pengisian
-    Route::get('/daf_pengisian', 'ReloadingController@daf_pengisian');
+    Route::get('/daf_pengisian', 'ReloadingunitController@daf_pengisian');
 });

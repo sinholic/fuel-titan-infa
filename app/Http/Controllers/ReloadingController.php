@@ -68,11 +68,4 @@ class ReloadingController extends Controller
         return redirect('/reloading')->with('sukses', 'Data berhasil dihapus!');
     }
 
-    public function daf_pengisian()
-    {
-        $daf_pengisian = ReloadingModel::with('mobilestation', 'mobilestation.equipment')->get();
-        return view('Daftar Pengisian.daf_pengisian', [
-            'daf_pengisian' => $daf_pengisian,
-        ]);
-    }
 }

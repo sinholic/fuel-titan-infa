@@ -22,11 +22,11 @@ class Reloadingunit extends Model
 
     public function fixstation()
     {
-        return $this->belongsTo('App\FixStationModel', 'station_id', 'id')->where('origin', 'Fix Station');
+        return $this->belongsTo('App\FixStationModel', 'station_id', 'id');
     }
 
     public function mobilestation()
     {
-        return $this->belongsTo('App\MobileModel', 'station_id', 'id')->where('origin', 'Mobile');
+        return $this->belongsTo('App\MobileModel', 'station_id', 'id');
     }
 }
