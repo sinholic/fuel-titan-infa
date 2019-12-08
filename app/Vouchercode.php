@@ -13,6 +13,6 @@ class Vouchercode extends Model
 
     public function voucher()
     {
-        return $this->belongsTo('App\VoucherModel', 'voucher_id', 'id')->withTrashed();
+        return $this->belongsTo('App\VoucherModel', 'voucher_id', 'id');
     }
 }
