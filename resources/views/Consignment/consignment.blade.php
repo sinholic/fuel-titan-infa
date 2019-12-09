@@ -36,7 +36,6 @@
                     <th class="text-center">No PO</th>
                     <th class="text-center">Supplier</th>
                     <th class="text-center">Qty</th>
-                    <th class="text-center">Qty Diterima</th>
                     <th class="text-center">No Tangki</th>
                     <th class="text-center">Remark</th>
                     <th class="text-center" width="8%">Action</th>
@@ -51,7 +50,6 @@
                     <th>{{$s->no_po}}</th>
                     <th>{{$s->supplier}}</th>
                     <th>{{$s->qty}}</th>
-                    <th>{{$s->qty_diterima}}</th>
                     <th>{{$s->no_tangki}}</th>
                     <th>{{$s->remark}}</th>
 
