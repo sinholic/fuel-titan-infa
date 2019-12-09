@@ -47,7 +47,7 @@
                     <td></td>
                     <td></td>
                     <td>{{$s->qty}}</td>
-                    <td>{{$s->tanggal_pengukuran}}</td>                    
+                    <td>{{date('l, d-M-Y', strtotime($s->tanggal_pengukuran))}}</td>
                 </tr>
                 @endforeach
             </tbody>

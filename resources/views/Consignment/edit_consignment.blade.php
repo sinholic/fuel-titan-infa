@@ -37,11 +37,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="">Qty Diterima</label>
-                        <input type="number" name="qty_diterima" value="{{$consignment->qty_diterima}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
                         <label for="">No Tangki</label>
                         <input type="text" name="no_tangki" value="{{$consignment->no_tangki}}" class="form-control" required autofocus>
                     </div>

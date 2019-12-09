@@ -105,12 +105,12 @@
 
                     <div class="form-group">
                         <label>Last Odometer</label>
-                        <input type="text" name="odometer" value="{{ $equipment->reloadingunits->last()->odometer }}" class="form-control" disabled>
+                        <input type="text" name="odometer" value="{{ $equipment->reloadingunits->last()->odometer ?? ''}}" class="form-control" disabled>
                     </div>
 
                     <div class="form-group">
                         <label>Last Machine Hours</label>
-                        <input type="text" name="machinehours" value="{{ $equipment->reloadingunits->last()->machinehours }}" class="form-control" disabled>
+                        <input type="text" name="machinehours" value="{{ $equipment->reloadingunits->last()->machinehours ?? ''}}" class="form-control" disabled>
                     </div>
                 </div>
 

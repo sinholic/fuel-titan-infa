@@ -38,11 +38,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Qty Diterima</label>
-                        <input type="number" name="qty_diterima" placeholder="" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
                         <label for="">No Tangki</label>
                         <input type="text" name="no_tangki" placeholder="" class="form-control" required autofocus>
                     </div>
