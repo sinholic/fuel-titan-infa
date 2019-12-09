@@ -108,7 +108,7 @@
     $owner = $equipment->equipmentowner->vendor_name;
     @endphp
     @php 
-        $string = "Equipment Number: $equipment->equipment_number, Equipment Name: $equipment->equipment_name, Category: $category, Owner: $owner";
+        $string = "Equipment Number: $equipment->equipment_number, Equipment Name: $equipment->equipment_name, Category: $category, Owner: $owner, EquipmentID: $equipment->id";
     @endphp
     <div>
         <div class="float-left">
