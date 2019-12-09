@@ -41,7 +41,7 @@ class VoucherController extends Controller
             'expired_date' => 'required|date|after_or_equal:start_date'
         ], $messages);
 
-        $last_data = VoucherModel::where('owner', $request->owner)->get()->last();
+        $last_data = VoucherModel::with('vouchercodes')->where('owner', $request->owner)->whereHas('vouchercodes')->get()->last();
         $owner = OwnerModel::find($request->owner);
         $runningNumber = 0;
         if ($last_data) {
@@ -96,6 +96,9 @@ class VoucherController extends Controller
     public function delete($id)
     {
         $voucher = VoucherModel::find($id);
+        $voucher->vouchercodes()->each(function($vouchercode) {
+            $vouchercode->delete();
+        });
         $voucher->delete($voucher);
         return redirect('/voucher')->with('sukses', 'Data berhasil dihapus!');
     }
