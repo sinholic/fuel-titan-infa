@@ -18,7 +18,7 @@ class CreateAdjustmentsTable extends Migration
             $table->bigInteger('transaction_id')->default(1);
             $table->bigInteger('vouchercode_id')->default(1);
             $table->float('used_qty')->default(0);
-            $table->longText('remark')->default('text');
+            $table->longText('remark')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
