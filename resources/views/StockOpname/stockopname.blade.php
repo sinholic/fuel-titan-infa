@@ -30,9 +30,9 @@
             {{-- <div class="row"> --}}
                 <div class="form-group">
                     {!! Form::label('submit_date', 'Choose Date', []) !!}
-                    {!! Form::date('submit_date', old('submit_date'), ['class'=>'form-control mr-2 ml-2']) !!}
+                    {!! Form::date('submit_date', isset($submit_date) ? $submit_date : \Carbon\Carbon::yesterday()->toDateString(), ['class'=>'form-control mr-2 ml-2']) !!}
                 </div>
-                {!! Form::submit('Submit', ['class'=>'btn btn-default']) !!}
+                {!! Form::submit('Filter Stock Opname', ['class'=>'btn btn-default']) !!}
             {{-- </div> --}}
         {!! Form::close() !!}
     </div>

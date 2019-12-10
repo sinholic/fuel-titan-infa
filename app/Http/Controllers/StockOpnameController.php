@@ -67,6 +67,7 @@ class StockOpnameController extends Controller
 
     public function stockopnameByDate(Request $request)
     {
+        $submit_date = $request->submit_date;
         $stockopname = \DB::select("SELECT * FROM (
             SELECT cc.id as companycodeid, company_name, mt.qty, mt.transaction_type, mt.transaction_code, mt.created_at FROM `materialtransactions` mt
             JOIN reloadingunits r1 ON mt.transaction_id = r1.id AND origin = 'Mobile' AND mt.transaction_code = '01'
@@ -116,10 +117,13 @@ class StockOpnameController extends Controller
             ) as unions 
             WHERE companycodeid = ?
             AND DATE(created_at) = ?
-        ", [\Auth::user()->companycode_id, $request->submit_date]);
+        ", [\Auth::user()->companycode_id, $submit_date]);
         // dd($stockopname);
         // $stockopname = Materialtransaction::whereDate('created_at', $request->submit_date)->get();
-        return view('StockOpname.stockopname', ['stockopname' => $stockopname]);
+        return view('StockOpname.stockopname', [
+            'stockopname' => $stockopname,
+            'submit_date' => $submit_date
+        ]);
     }
 
     public function tambah()
