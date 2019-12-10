@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\PiutangModel;
+use App\FixStationModel;
 
 class PiutangController extends Controller
 {
@@ -15,7 +16,10 @@ class PiutangController extends Controller
 
     public function tambah()
     {
-        return view('Piutang.tambah_piutang');
+        $fixstations = FixStationModel::select(\DB::raw('CONCAT(name_station, " (Tangki nomor ", tank_number, ")") as text'), 'id')->pluck('text', 'id');
+        return view('Piutang.tambah_piutang', [
+            'fixstations' => $fixstations
+        ]);
     }
 
     public function create(Request $request)

@@ -19,6 +19,7 @@ class CreatePiutangTable extends Migration
             $table->float('qty_piutang');
             $table->string('peminjam');
             $table->string('status_piutang');
+            $table->bigInteger('fixstation_id')->default(1);
             $table->date('tgl_pengembalian');
             $table->timestamps();
             $table->softdeletes();

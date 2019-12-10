@@ -42,6 +42,11 @@
                     </div>
 
                     <div class="form-group">
+						<label>Lokasi pengisian solar</label>
+						{!! Form::select('fixstation_id', $fixstations, old('fixstation_id'), ['placeholder'=>'Choose a location','class'=>'form-control set-to-select2']) !!}
+					</div>
+
+                    <div class="form-group">
                         <label>Tgl Pengembalian</label>
                         <input type="date" name="tgl_pengembalian" value="{{ old('tgl_pengembalian')}}" placeholder="" class="form-control" required autofocus>
                     </div>
