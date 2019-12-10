@@ -329,6 +329,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Stock Opname
     Route::get('/stockopname', 'StockOpnameController@stockopname');
+    Route::post('/stockopname', 'StockOpnameController@stockopnameByDate');
     Route::get('/tambah_stockopname', 'StockOpnameController@tambah');
     Route::post('/stockopname/create', 'StockOpnameController@create');
 
