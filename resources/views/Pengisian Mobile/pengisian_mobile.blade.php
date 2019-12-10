@@ -55,11 +55,11 @@
                  @foreach($pengisian_mobile ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->equipmentuser}}</td>
-                    <td>{{$s->equipment->equipment_number}}</td>
-                    <td>{{$s->qty}}</td>
-                    <td>{{$s->odometer}}</td>
-                    <td>{{$s->remark}}</td>
+                    <td>{{$s->equipmentuser ?? ''}}</td>
+                    <td>{{$s->equipment->equipment_number ?? ''}}</td>
+                    <td>{{$s->qty ?? ''}}</td>
+                    <td>{{$s->odometer ?? ''}}</td>
+                    <td>{{$s->remark ?? ''}}</td>
                     <td>
                          <div class="btn-group">
 
