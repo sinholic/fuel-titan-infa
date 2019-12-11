@@ -111,7 +111,7 @@ to get the desired effect
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
                         {{-- <a href="#" class="d-block">Alexander Pierce</a> --}}
-                        <a id="navbarDropdown" class="d-block" href="#" role="button" aria-haspopup="true"
+                        <a id="navbarDropdown" class="d-block" href="/user/edit/{{Auth::user()->id}}" role="button" aria-haspopup="true"
                             aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} - 
                             @if (\Auth::user()->mobileassignments->last() != NULL)
