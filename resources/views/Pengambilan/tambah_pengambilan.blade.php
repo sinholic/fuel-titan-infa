@@ -23,10 +23,12 @@
 
 					<div class="form-group">
 						<label>No Pengajuan Hutang</label>
+						{!! Form::select('credit_id', $pengajuanss, old('credit_id'), ['class'=>'form-control set-to-select2', 'placeholder'=>'Pilih nomor pengajuan']) !!}
+{{-- 
 						<input id="debt-choice" name="debt_label" value="{{old('debt_label')}}" class="form-control"
 							required />
 						<input type="hidden" id="debt-choice-value" value="{{old('credit_id')}}" name="credit_id"
-							class="form-control" required />
+							class="form-control" required /> --}}
 					</div>
 
 					<div class="form-group">

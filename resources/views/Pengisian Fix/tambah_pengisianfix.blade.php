@@ -23,7 +23,7 @@
 
                     <div class="form-group">
                         <label>Equipment Number</label>
-                        <input id="equipment-number" name="eq_label" value="{{ old('eq_label')}}" class="form-control" placeholder="Scan Equipment Card" required />
+                        <input id="equipment-number" name="eq_label" value="{{ old('eq_label')}}" class="form-control" placeholder="Scan Equipment Card" maxlength="16" required />
                         <input type="hidden" id="equipment-number-value" value="{{ old('eq_label') }}" name="equipment_id" class="form-control" required />
                     </div>
 
@@ -35,7 +35,7 @@
 
                     <div class="form-group">
                         <label>Voucher</label>
-                        <input id="voucher" name="voucher_label" value="{{ old('voucher_label') }}" class="form-control" placeholder="Scan voucher" disabled required />
+                        <input id="voucher" name="voucher_label" value="{{ old('voucher_label') }}" class="form-control" placeholder="Scan voucher" maxlength="14" disabled required />
                         <input type="hidden" id="voucher-value" name="voucher_id" value="{{ old('voucher_id') }}" class="form-control" required />
                     </div>
 
