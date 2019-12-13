@@ -24,7 +24,7 @@ class PengisianFixController extends Controller
     {
         $equipments = EquipmentModel::with('equipmentowner','equipmentcategory')->get();
         $users = User::all();
-        $vouchers = Vouchercode::with('voucher')
+        $vouchers = Vouchercode::with('voucher', 'voucher.voucherowner')
         ->where('used', 0)
         ->where('rejected', 0)
         ->whereHas('voucher', function($query){
