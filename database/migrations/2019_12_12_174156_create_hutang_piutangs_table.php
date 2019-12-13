@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePengambilanTable extends Migration
+class CreateHutangPiutangsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreatePengambilanTable extends Migration
      */
     public function up()
     {
-        Schema::create('pengambilan', function (Blueprint $table) {
+        Schema::create('hutang_piutangs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('credit_id');
-            $table->float('qty');
-            $table->date('date');
+            $table->bigInteger('pengajuan_id');
+            $table->float('qty')->nullable()->default(0);
+            $table->date('transaction_date');
+            $table->enum('type', ['H', 'P'])->nullable();
             $table->timestamps();
-            $table->softdeletes();
+            $table->softDeletes();
         });
     }
 
@@ -30,6 +31,6 @@ class CreatePengambilanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pengambilan');
+        Schema::dropIfExists('hutang_piutangs');
     }
 }

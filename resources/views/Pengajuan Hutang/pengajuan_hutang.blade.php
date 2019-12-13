@@ -17,7 +17,7 @@
 </div>
 @endif
 
-<a href="/tambahpengajuan" class="btn btn-primary">
+<a href="/tambah_pengajuan_hutang" class="btn btn-primary">
     <i class="fa fa-plus nav-icon"></i>
 </a>
 
@@ -33,7 +33,7 @@
                 <tr>
                     <th class="text-center">No</th>
                     <th class="text-center">No Pengajuan Hutang</th>
-                    <th class="text-center">Supplier</th>
+                    <th class="text-center">Vendor</th>
                     <th class="text-center">Lokasi Pengambilan</th>
                     <th class="text-center">Tanggal Pengambilan</th>
                     <th class="text-center">Qty</th>
@@ -44,7 +44,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($pengajuan ?? '' as $s)
+                @foreach($pengajuan_hutang ?? '' as $s)
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$s->no_pengajuan}}</td>

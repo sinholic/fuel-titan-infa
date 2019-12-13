@@ -218,14 +218,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/companycode/{id}/delete', 'CompanycodeController@delete');
     Route::post('/companycode/import_excel', 'CompanycodeController@import_excel');
 
-    //Peminjaman Solar
-    Route::get('/peminjaman', 'PeminjamanController@peminjaman');
-    Route::get('/addpeminjaman', 'PeminjamanController@tambah');
-    Route::post('/peminjaman/create', 'PeminjamanController@create');
-    Route::get('/peminjaman/edit/{id}', 'PeminjamanController@edit');
-    Route::post('/peminjaman/update/{id}', 'PeminjamanController@update');
-    Route::get('/peminjaman/{id}/delete', 'PeminjamanController@delete');
-
     //Pengembalian
     Route::get('/pengembalian', 'PengembalianController@pengembalian');
     Route::get('/tambahpengembalian', 'PengembalianController@tambah');
@@ -304,18 +296,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/consignment/update/{id}', 'ConsignmentController@update');
     Route::get('/consignment/{id}/delete', 'ConsignmentController@delete');
 
-    //Piutang Solar
-    Route::get('/piutang', 'PiutangController@piutang');
-    Route::get('/tambah_piutang', 'PiutangController@tambah');
-    Route::post('/piutang/create', 'PiutangController@create');
-    Route::get('/piutang/edit/{id}', 'PiutangController@edit');
-    Route::post('/piutang/update/{id}', 'PiutangController@update');
-    Route::get('/piutang/{id}/delete', 'PiutangController@delete');
-    Route::get('/piutang/{id}/approve', 'PiutangController@approve');
-    Route::get('/piutang/{id}/reject', 'PiutangController@reject');
-    Route::get('/piutang/detail/{id}', 'PiutangController@detail');
-    Route::get('/cetakpiutang/{id}', 'PiutangController@bukticetak');
-
     //Kalibrasi
     Route::get('/kalibrasi', 'KalibrasiController@kalibrasi');
     Route::get('/tambah_kalibrasi', 'KalibrasiController@tambah');
@@ -333,4 +313,51 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/tambah_stockopname', 'StockOpnameController@tambah');
     Route::post('/stockopname/create', 'StockOpnameController@create');
 
+    //Hutang Solar
+    Route::get('/pengajuan_hutang', 'HutangController@pengajuan_hutang');
+    Route::get('/tambah_hutang', 'HutangController@tambah');
+    Route::post('/pengajuan_hutang/create', 'HutangController@create');
+    Route::get('/pengajuan_hutang/edit/{id}', 'HutangController@edit');
+    Route::post('/pengajuan_hutang/update/{id}', 'HutangController@update');
+    Route::get('/pengajuan_hutang/{id}/delete', 'HutangController@delete');
+    Route::get('/pengajuan_hutang/{id}/approve', 'HutangController@approve');
+    Route::get('/pengajuan_hutang/{id}/reject', 'HutangController@reject');
+    Route::get('/pengajuan_hutang/detail/{id}', 'HutangController@detail');
+    Route::get('/cetakhutang/{id}', 'HutangController@bukticetak');
+
+    //Piutang Solar
+    Route::get('/piutang', 'PiutangController@piutang');
+    Route::get('/tambah_piutang', 'PiutangController@tambah');
+    Route::post('/piutang/create', 'PiutangController@create');
+    Route::get('/piutang/edit/{id}', 'PiutangController@edit');
+    Route::post('/piutang/update/{id}', 'PiutangController@update');
+    Route::get('/piutang/{id}/delete', 'PiutangController@delete');
+    Route::get('/piutang/{id}/approve', 'PiutangController@approve');
+    Route::get('/piutang/{id}/reject', 'PiutangController@reject');
+    Route::get('/piutang/detail/{id}', 'PiutangController@detail');
+    Route::get('/cetakpiutang/{id}', 'PiutangController@bukticetak');
+
+    // //Pengajuan Piutang Solar
+    // Route::get('/pengajuan_piutang', 'PengajuanPiutangController@pengajuan_piutang');
+    // Route::get('/tambah_piutang', 'PengajuanPiutangController@tambah');
+    // Route::post('/pengajuan_piutang/create', 'PengajuanPiutangController@create');
+    // Route::get('/pengajuan_piutang/edit/{id}', 'PengajuanPiutangController@edit');
+    // Route::post('/pengajuan_piutang/update/{id}', 'PengajuanPiutangController@update');
+    // Route::get('/pengajuan_piutang/{id}/delete', 'PengajuanPiutangController@delete');
+    // Route::get('/pengajuan_piutang/{id}/approve', 'PengajuanPiutangController@approve');
+    // Route::get('/pengajuan_piutang/{id}/reject', 'PengajuanPiutangController@reject');
+    // Route::get('/pengajuan_piutang/detail/{id}', 'PengajuanPiutangController@detail');
+    // Route::get('/cetakpiutang/{id}', 'PengajuanPiutangController@bukticetak');
+
+    // //Pengajuan Hutang Solar
+    // Route::get('/pengajuan_hutang', 'PengajuanHutangController@pengajuan_hutang');
+    // Route::get('/tambah_hutang', 'PengajuanHutangController@tambah');
+    // Route::post('/pengajuan_hutang/create', 'PengajuanHutangController@create');
+    // Route::get('/pengajuan_hutang/edit/{id}', 'PengajuanHutangController@edit');
+    // Route::post('/pengajuan_hutang/update/{id}', 'PengajuanHutangController@update');
+    // Route::get('/pengajuan_hutang/{id}/delete', 'PengajuanHutangController@delete');
+    // Route::get('/pengajuan_hutang/{id}/approve', 'PengajuanHutangController@approve');
+    // Route::get('/pengajuan_hutang/{id}/reject', 'PengajuanHutangController@reject');
+    // Route::get('/pengajuan_hutang/detail/{id}', 'PengajuanHutangController@detail');
+    // Route::get('/cetakpiutang/{id}', 'PengajuanHutangController@bukticetak');
 });

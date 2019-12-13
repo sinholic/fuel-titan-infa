@@ -33,7 +33,6 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">No PO</th>
                     <th class="text-center">Supplier</th>
                     <th class="text-center">Qty</th>
                     <th class="text-center">No Tangki</th>
@@ -47,10 +46,9 @@
                 @foreach($consignment ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <th>{{$s->no_po}}</th>
                     <th>{{$s->supplier}}</th>
                     <th>{{$s->qty}}</th>
-                    <th>{{$s->no_tangki}}</th>
+                    <td>{{isset($s->fixstation) ? $s->fixstation->name_station. " - (Tangki nomor : ". $s->fixstation->tank_number . ")" : ''}}</td>
                     <th>{{$s->remark}}</th>
 
                     <td>
