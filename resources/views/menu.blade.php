@@ -167,7 +167,7 @@
                     <a href="/reloading" class="nav-link">
                         {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                         <p>
-                            (04) MS Reloading
+                            (04) Stock Impress
                         </p>
                     </a>
                 </li>
@@ -263,13 +263,13 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/penerimaan" class="nav-link">
                         <p>(06) Penerimaan</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="/pengambilan" class="nav-link">
+                    <a href="/pengeluaran" class="nav-link">
                         <p>(10) Pengeluaran</p>
                     </a>
                 </li>

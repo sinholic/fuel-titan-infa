@@ -218,7 +218,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/companycode/{id}/delete', 'CompanycodeController@delete');
     Route::post('/companycode/import_excel', 'CompanycodeController@import_excel');
 
-    //Pengembalian
+    //Pengembalian Hutang
     Route::get('/pengembalian', 'PengembalianController@pengembalian');
     Route::get('/tambahpengembalian', 'PengembalianController@tambah');
     Route::post('/pengembalian/create', 'PengembalianController@create');
@@ -227,7 +227,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pengembalian/{id}/delete', 'PengembalianController@delete');
     Route::get('/pengembalian/detail/{id}', 'PengembalianController@detail');
 
-    //Pengambilan
+    //Pengeluran Piutang
+    Route::get('/pengeluaran', 'PengeluaranController@pengeluaran');
+    Route::get('/tambahpengeluaran', 'PengeluaranController@tambah');
+    Route::post('/pengeluaran/create', 'PengeluaranController@create');
+    Route::get('/pengeluaran/edit/{id}', 'PengeluaranController@edit');
+    Route::post('/pengeluaran/update/{id}', 'PengeluaranController@update');
+    Route::get('/pengeluaran/{id}/delete', 'PengeluaranController@delete');
+
+    //Pengambilan Hutang
     Route::get('/pengambilan', 'PengambilanController@pengambilan');
     Route::get('/tambahpengambilan', 'PengambilanController@tambah');
     Route::post('/pengambilan/create', 'PengambilanController@create');
@@ -235,17 +243,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/pengambilan/update/{id}', 'PengambilanController@update');
     Route::get('/pengambilan/{id}/delete', 'PengambilanController@delete');
 
-    //Pengajuan
-    Route::get('/pengajuan', 'PengajuanController@pengajuan');
-    Route::get('/tambahpengajuan', 'PengajuanController@tambah');
-    Route::post('/pengajuan/create', 'PengajuanController@create');
-    Route::get('/pengajuan/edit/{id}', 'PengajuanController@edit');
-    Route::post('/pengajuan/update/{id}', 'PengajuanController@update');
-    Route::get('/pengajuan/{id}/delete', 'PengajuanController@delete');
-    Route::get('/pengajuan/{id}/approve', 'PengajuanController@approve');
-    Route::get('/pengajuan/{id}/reject', 'PengajuanController@reject');
-    Route::get('/pengajuan/detail/{id}', 'PengajuanController@detail');
-    Route::get('/bukticetak/{id}', 'PengajuanController@bukticetak');
+    //Pengambilan Piutang
+    Route::get('/pengambilan_piutang', 'PengambilanPiutangController@pengambilan_piutang');
+    Route::get('/tambahpengambilan_piutang', 'PengambilanPiutangController@tambah');
+    Route::post('/pengambilan_piutang/create', 'PengambilanPiutangController@create');
+    Route::get('/pengambilan_piutang/edit{id}', 'PengambilanPiutangController@edit');
+    Route::post('/pengambilan_piutang/update/{id}', 'PengambilanPiutangController@update');
+    Route::get('/pengambilan/{id}/delete', 'PengambilanPiutangController@delete');
 
     //Equipment Card
     Route::get('/card', 'EquipmentcardController@card');
@@ -313,7 +317,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/tambah_stockopname', 'StockOpnameController@tambah');
     Route::post('/stockopname/create', 'StockOpnameController@create');
 
-    //Hutang Solar
+    //Pengajuan Hutang
     Route::get('/pengajuan_hutang', 'HutangController@pengajuan_hutang');
     Route::get('/tambah_hutang', 'HutangController@tambah');
     Route::post('/pengajuan_hutang/create', 'HutangController@create');
@@ -325,39 +329,23 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pengajuan_hutang/detail/{id}', 'HutangController@detail');
     Route::get('/cetakhutang/{id}', 'HutangController@bukticetak');
 
-    //Piutang Solar
-    Route::get('/piutang', 'PiutangController@piutang');
+    //Pengajuan Piutang
+    Route::get('/pengajuan_piutang', 'PiutangController@pengajuan_piutang');
     Route::get('/tambah_piutang', 'PiutangController@tambah');
-    Route::post('/piutang/create', 'PiutangController@create');
-    Route::get('/piutang/edit/{id}', 'PiutangController@edit');
-    Route::post('/piutang/update/{id}', 'PiutangController@update');
-    Route::get('/piutang/{id}/delete', 'PiutangController@delete');
-    Route::get('/piutang/{id}/approve', 'PiutangController@approve');
-    Route::get('/piutang/{id}/reject', 'PiutangController@reject');
-    Route::get('/piutang/detail/{id}', 'PiutangController@detail');
+    Route::post('/pengajuan_piutang/create', 'PiutangController@create');
+    Route::get('/pengajuan_piutang/edit/{id}', 'PiutangController@edit');
+    Route::post('/pengajuan_piutang/update/{id}', 'PiutangController@update');
+    Route::get('/pengajuan_piutang/{id}/delete', 'PiutangController@delete');
+    Route::get('/pengajuan_piutang/{id}/approve', 'PiutangController@approve');
+    Route::get('/pengajuan_piutang/{id}/reject', 'PiutangController@reject');
+    Route::get('/pengajuan_piutang/detail/{id}', 'PiutangController@detail');
     Route::get('/cetakpiutang/{id}', 'PiutangController@bukticetak');
 
-    // //Pengajuan Piutang Solar
-    // Route::get('/pengajuan_piutang', 'PengajuanPiutangController@pengajuan_piutang');
-    // Route::get('/tambah_piutang', 'PengajuanPiutangController@tambah');
-    // Route::post('/pengajuan_piutang/create', 'PengajuanPiutangController@create');
-    // Route::get('/pengajuan_piutang/edit/{id}', 'PengajuanPiutangController@edit');
-    // Route::post('/pengajuan_piutang/update/{id}', 'PengajuanPiutangController@update');
-    // Route::get('/pengajuan_piutang/{id}/delete', 'PengajuanPiutangController@delete');
-    // Route::get('/pengajuan_piutang/{id}/approve', 'PengajuanPiutangController@approve');
-    // Route::get('/pengajuan_piutang/{id}/reject', 'PengajuanPiutangController@reject');
-    // Route::get('/pengajuan_piutang/detail/{id}', 'PengajuanPiutangController@detail');
-    // Route::get('/cetakpiutang/{id}', 'PengajuanPiutangController@bukticetak');
-
-    // //Pengajuan Hutang Solar
-    // Route::get('/pengajuan_hutang', 'PengajuanHutangController@pengajuan_hutang');
-    // Route::get('/tambah_hutang', 'PengajuanHutangController@tambah');
-    // Route::post('/pengajuan_hutang/create', 'PengajuanHutangController@create');
-    // Route::get('/pengajuan_hutang/edit/{id}', 'PengajuanHutangController@edit');
-    // Route::post('/pengajuan_hutang/update/{id}', 'PengajuanHutangController@update');
-    // Route::get('/pengajuan_hutang/{id}/delete', 'PengajuanHutangController@delete');
-    // Route::get('/pengajuan_hutang/{id}/approve', 'PengajuanHutangController@approve');
-    // Route::get('/pengajuan_hutang/{id}/reject', 'PengajuanHutangController@reject');
-    // Route::get('/pengajuan_hutang/detail/{id}', 'PengajuanHutangController@detail');
-    // Route::get('/cetakpiutang/{id}', 'PengajuanHutangController@bukticetak');
+    //Penerimaan Piutang
+    Route::get('/penerimaan', 'PenerimaanPiutangController@penerimaan_piutang');
+    Route::get('/tambahpengambilan', 'PenerimaanPiutangController@tambah');
+    Route::post('/penerimaan/create', 'PenerimaanPiutangController@create');
+    Route::get('/penerimaan/edit/{id}', 'PenerimaanPiutangController@edit');
+    Route::post('/penerimaan/update/{id}', 'PenerimaanPiutangController@update');
+    Route::get('/penerimaan/{id}/delete', 'PenerimaanPiutangController@delete');
 });

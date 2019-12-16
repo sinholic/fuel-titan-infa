@@ -41,9 +41,9 @@
                 <tr>
                     <th class="text-center">No</th>
                     <th class="text-center">Company Code</th>
-                    <th class="text-center">Nama Station</th>
+                    <th class="text-center">Code Station</th>
                     <th class="text-center">Alamat</th>
-                    <th class="text-center">Nama Lokasi</th>
+                    <th class="text-center">Name Description</th>
                     <th class="text-center">Koordinat GPS</th>
                     <th class="text-center">Total Tangki</th>
                     <th class="text-center">Total Kapasitas Tangki</th>
