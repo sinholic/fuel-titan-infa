@@ -312,7 +312,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/daf_pengisian', 'ReloadingunitController@daf_pengisian');
 
     //Stock Opname
-    Route::get('/stockopname', 'StockOpnameController@stockopname');
+    // Route::get('/stockopname', 'StockOpnameController@stockopname');
+    Route::get('/stockopname', 'StockOpnameController@stockopname1');
     Route::post('/stockopname', 'StockOpnameController@stockopnameByDate');
     Route::get('/tambah_stockopname', 'StockOpnameController@tambah');
     Route::post('/stockopname/create', 'StockOpnameController@create');
@@ -342,10 +343,20 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/cetakpiutang/{id}', 'PiutangController@bukticetak');
 
     //Penerimaan Piutang
-    Route::get('/penerimaan', 'PenerimaanPiutangController@penerimaan_piutang');
-    Route::get('/tambahpengambilan', 'PenerimaanPiutangController@tambah');
-    Route::post('/penerimaan/create', 'PenerimaanPiutangController@create');
-    Route::get('/penerimaan/edit/{id}', 'PenerimaanPiutangController@edit');
-    Route::post('/penerimaan/update/{id}', 'PenerimaanPiutangController@update');
-    Route::get('/penerimaan/{id}/delete', 'PenerimaanPiutangController@delete');
+    // Route::get('/penerimaan', 'PenerimaanPiutangController@penerimaan_piutang');
+    // Route::get('/tambahpengambilan', 'PenerimaanPiutangController@tambah');
+    // Route::post('/penerimaan/create', 'PenerimaanPiutangController@create');
+    // Route::get('/penerimaan/edit/{id}', 'PenerimaanPiutangController@edit');
+    // Route::post('/penerimaan/update/{id}', 'PenerimaanPiutangController@update');
+    // Route::get('/penerimaan/{id}/delete', 'PenerimaanPiutangController@delete');
+
+    //Inventori
+    Route::get('/inventori', 'InventoriController@inventori');
+    Route::get('/addInventori', 'InventoriController@addinventori');
+    Route::post('/inventori/create', 'InventoriController@create');
+    Route::get('/inventori/refresh/{id}', 'InventoriController@refresh');
+
+    //stock global
+    Route::get('/stockglobal', 'StockGlobalController@stockglobal');
+
 });

@@ -289,21 +289,43 @@
             </ul>
         </li>
 
-        {{-- <li class="nav-item has-treeview">
+        <!-- {{-- <li class="nav-item has-treeview">
             <a href="/consignment" class="nav-link">
                 <p>
                     (09) Consignment
                 </p>
             </a>
-        </li> --}}
+        </li> --}} -->
 
         <li class="nav-item has-treeview">
             <a href="/stockopname" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    Stock Opname
+                    Transaksi barang
+                    <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
+            <ul class="nav nav-treeview offset-md-2">
+                <li class="nav-item">
+                    <a href="/inventori" class="nav-link">
+                        <p>Inventori</p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview offset-md-2">
+                <li class="nav-item">
+                    <a href="/stockopname" class="nav-link">
+                        <p>Stok Opname</p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview offset-md-2">
+                <li class="nav-item">
+                    <a href="/stockglobal" class="nav-link">
+                        <p>Stok Global</p>
+                    </a>
+                </li>
+            </ul>
         </li>
 
     </ul>
