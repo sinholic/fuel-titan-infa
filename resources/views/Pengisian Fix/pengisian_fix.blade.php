@@ -37,7 +37,7 @@
                     <th class="text-center">Qty</th>
                     <th class="text-center">Odometer</th>
                     <th class="text-center">Remark</th>
-                    {{-- <th class="text-center" width="8%">Action</th> --}}
+                    <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
             @php $i=1 @endphp
@@ -51,23 +51,23 @@
                     <td>{{$s->qty}}</td>
                     <td>{{$s->odometer}}</td>
                     <td>{{$s->remark}}</td>
-                    {{-- <td>
+                    <td>
                          <div class="btn-group">
 
-                             <a href="#" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Info">
+                             {{-- <a href="#" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Info">
                                 <i class="fa fa-info-circle nav-icon"></i>
-                            </a>
+                            </a> --}}
 
                             <a href="/pengisian_fix/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/pengisian_fix/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
+                            {{-- <a onClick="return confirm('Yakin ingin menghapus data?')" href="/pengisian_fix/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
                                 <i class="fa fa-trash nav-icon"></i>
-                            </a>
+                            </a> --}}
 
                         </div>
-                    </td> --}}
+                    </td>
                     
                 </tr>
                 @endforeach

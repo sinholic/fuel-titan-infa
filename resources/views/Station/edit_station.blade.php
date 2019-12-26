@@ -22,7 +22,7 @@
                     @endif
 
                     <div class="form-group">
-                        <label>Nama Station</label>
+                        <label>Code Station</label>
                         <input type="text" name="nama_lokasi" value="{{$station->nama_lokasi}}" class="form-control" required autofocus>
                     </div>
 

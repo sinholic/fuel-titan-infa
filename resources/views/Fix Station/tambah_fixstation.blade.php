@@ -22,7 +22,7 @@
 					@endif
 
 					<div class="form-group">
-						<label>Nama Company</label>
+						<label>Company Code</label>
 						<input id="company-code" name="cc_label" value="{{ old('cc_label')}}" class="form-control"
 							required placeholder="Cari company code" />
 						<input type="hidden" id="company-code-value"
@@ -30,7 +30,7 @@
 					</div>
 
 					<div class="form-group">
-						<label>Nama Station</label>
+						<label>Code Station</label>
 						<input type="text " name="name_station" value="{{ old('name_station')}}" placeholder="" class="form-control" required autofocus>
 					</div>
 
@@ -40,7 +40,7 @@
 					</div>
 
 					<div class="form-group nama-lokasi">
-						<label>Nama Lokasi</label>
+						<label>Name Description</label>
 						<div class="input-group mb-3">
 							<div class="input-group-prepend">
 								<span class="input-group-text inisial" id="basic-addon3">Company Code</span>

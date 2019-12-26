@@ -19,65 +19,66 @@
 
 {{-- <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#importExcel">
     <i class="fas fa-file-excel"></i> Import Excel
-</button>
+</button> --}}
 
-<a href="/fix/export_excel" class="btn btn-success my-1" target="_blank">
-    <i class="fas fa-file-excel"></i> Export Excel
-</a> --}}
+<a href="#" class="btn btn-success" data-toggle="tooltip" title="Print"
+    onclick="window.open('/user/print-qr', 'newwindow', 'width=1000px, height=1000px'); return false;">
+    <i class="fas fa-print"></i>
+</a>
 
-<a href="/tampiladdfix" class="btn btn-primary">
+<a href="/addInventori" class="btn btn-primary">
     <i class="fa fa-plus nav-icon"></i>
 </a>
 
 <div class="card" style="border-top: 3px solid #9C5C22">
 
     <div class="card-header">
-        <h4>Master Fix Station</h4>
+        <h4>Inventori</h4>
     </div>
 
     <div class="card-body">
-        <table class="table table-striped table-responsive table-bordered" id="myTable">
+        <table class="table table-striped table-responsive table table-bordered" id="myTable">
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Company Code</th>
-                    <th class="text-center">Code Station</th>
-                    <th class="text-center">Alamat</th>
-                    <th class="text-center">Name Description</th>
-                    <th class="text-center">Koordinat GPS</th>
-                    <th class="text-center">Total Tangki</th>
-                    <th class="text-center">Total Kapasitas Tangki</th>
+                    <th class="text-center">Kode Barang</th>
+                    <th class="text-center">Nama Barang</th>
+                    <th class="text-center">Saldo Awal</th>
+                    <th class="text-center">IN</th>
+                    <th class="text-center">OUT</th>
+                    <th class="text-center">Saldo Akhir</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($fix ?? '' as $s)
+                @foreach($inventori ?? '' as $s)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$s->company->company_inisial ?? ''}}</td>
-                    <td>{{$s->name_station}}</td>
-                    <td>{{$s->address}}</td>
-                    <td>{{$s->nama_lokasi}}</td>
-                    <td>{{$s->koordinat_gps}}</td>
-                    <td>{{$s->total_tank}}</td>
-                    <td>{{$s->total_fuel_capacity}}</td>
+                    <td>{{$s->kode_barang}}</td>
+                    <td>{{isset($s->materials->materials) ? $s->materials->materials : ''}}</td>
+                    <td>{{$s->saldo_awal}}</td>
+                    <td>{{$s->barang_in}}</td>
+                    <td>{{$s->barang_out}}</td>
+                    <td>{{$s->saldo_akhir}}</td>
+
                     <td>
                         <div class="btn-group">
 
                             <!-- URL::to('/admin/category/detail.id='.$cate-id -->
-                            <a href="/fix/detail/{{$s->id}}" class="btn btn-info btn-sm" data-toggle="tooltip"
-                                data-placement="bottom" title="Info">
-                                <i class="fa fa-info-circle nav-icon"></i>
+                            <a href="/inventori/refresh/{{$s->id}}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom"
+                                title="Info">
+                                <i class="fa fa-refresh nav-icon">Refresh</i>
                             </a>
 
-                            <a href="/fix/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip"
+                            <!-- <a href="/user/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip"
                                 data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
-                            </a>
+                            </a> -->
 
-                            <a href="#" class="btn btn btn-danger btn-sm delete" fix-station-id="{{$s->id}}">
+                            <!-- <a onClick="return confirm('Yakin ingin menghapus data?')" href="/user/{{$s->id}}/delete"
+                                class="btn btn btn-danger btn-sm">
                                 <i class="fa fa-trash nav-icon"></i>
-                            </a>
+                            </a> -->
 
                         </div>
                     </td>
@@ -115,23 +116,4 @@
         </form>
     </div>
 </div> --}}
-
-<script>
-    $('.delete').click(function () {
-        var fix_station_id = $(this).attr('fix-station-id');
-        swal({
-                title: "Are you sure?",
-                text: "Anda yakin akan menghapus data dengan id " + fix_station_id + "?",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                console.log(willDelete);
-                if (willDelete) {
-                    window.location = "/fix/" + fix_station_id + "/delete"
-                }
-            });
-    });
-</script>
 @endsection

@@ -23,17 +23,17 @@
 
                     <div class="form-group">
                         <label for="">Unit Equipment</label>
-                        <input type="text" name="unit_equipment" value="{{$pengisian_fix->unit_equipment}}" class="form-control" required autofocus>
+                        <input type="text" name="equipment_number" value="{{$pengisian_fix->equipment->equipment_number}}" class="form-control" required autofocus readonly>
                     </div>
 
                     <div class="form-group">
                         <label>Id Driver</label>
-                        <input type="number" name="id_driver" value="{{$pengisian_fix->id_driver}}" class="form-control" required autofocus>
+                        <input type="text" name="equipmentuser" value="{{$pengisian_fix->equipmentuser}}" class="form-control" required autofocus readonly>
                     </div>
 
                     <div class="form-group">
                         <label>Qty Solar</label>
-                        <input type="number" name="qty_solar" value="{{$pengisian_fix->qty_solar}}" class="form-control" required autofocus>
+                        <input type="number" name="qty" value="{{$pengisian_fix->qty}}" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">

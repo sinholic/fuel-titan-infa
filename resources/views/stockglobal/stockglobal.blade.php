@@ -17,15 +17,15 @@
 </div>
 @endif
 
-<a href="/tambah_stockopname" class="btn btn-primary">
+<!-- <a href="/tambah_stockopname" class="btn btn-primary">
     <i class="fa fa-plus nav-icon"></i>
-</a>
+</a> -->
 
 <div class="card" style="border-top: 3px solid #9C5C22">
 
     <div class="card-header">
         <h4>Stock Opname</h4>
-        {!! Form::open(['url' => 'stockopname', 'class'=>'form-inline']) !!}
+        <!-- {!! Form::open(['url' => 'stockopname', 'class'=>'form-inline']) !!}
             {{ Form::token() }}
             {{-- <div class="row"> --}}
                 <div class="form-group">
@@ -34,7 +34,7 @@
                 </div>
                 {!! Form::submit('Filter Stock Opname', ['class'=>'btn btn-default']) !!}
             {{-- </div> --}}
-        {!! Form::close() !!}
+        {!! Form::close() !!} -->
     </div>
 
     <div class="card-body">
@@ -42,30 +42,25 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Company</th>
-                    <th class="text-center">Fix station</th>
-                    <th class="text-center">Qty</th>
-                    <th class="text-center">Tanggal Pengukuran</th>
-
-                    <!-- <th class="text-center">Transaction Type</th> -->
-                    <!-- <th class="text-center">Transaction Code</th> -->
-                    <!-- <th class="text-center">Transaction Date</th> -->
+                    <th class="text-center">Kode barang</th>
+                    <th class="text-center">Saldo akhir</th>
+                    <th class="text-center">Saldo fisik</th>
+                    <th class="text-center">Selisih</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($stockopname ?? '' as $s)
+            @foreach($stockglobal ?? '' as $s)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$s->companycode_id}}</td>
-                    <td>{{$s->fixstation_id}}</td>
-                    <td>{{$s->qty}}</td>
-                    <td>{{$s->tanggal_pengukuran}}</td>
+                    <td>{{$s->kode_barang}}</td>
+                    <!-- <td>{{isset($s->materials->materials) ? $s->materials->materials : ''}}</td> -->
+                    <td>{{$s->saldo_akhir}}</td>
+                    <td>{{$s->saldo_fisik}}</td>
+                    <td>{{$s->selisih}}</td>
 
-                    <!-- <td>{{$s->transaction_type}}</td>
-                    <td>{{$s->transaction_code}}</td>
-                    <td>{{date('d-M-Y', strtotime($s->created_at))}}</td> -->
                 </tr>
                 @endforeach
+
             </tbody>
         </table>
     </div>

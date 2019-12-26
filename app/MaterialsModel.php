@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class MaterialsModel extends Model
 {
-    protected $table = 'materials';
-    protected $fillable = ['materials'];
+    public $table = 'materials';
+    protected $guarded = [];
+    public $fillable = ['materials'];
+
+    
 }

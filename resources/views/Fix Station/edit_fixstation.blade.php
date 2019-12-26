@@ -22,7 +22,7 @@
                     @endif
 
                     <div class="form-group">
-						<label>Nama Company</label>
+						<label>Company Code</label>
 						<input id="company-code" name="cc_label" value="{{ $fix->company->company_name }}" class="form-control"
 							readonly placeholder="Cari company code" />
 						<input type="hidden" id="company-code-value" value="{{ $fix->companycode_id }}"
@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="form-group nama-lokasi">
-						<label>Nama Lokasi</label>
+						<label>Name Description</label>
 						<div class="input-group mb-3">
 							<div class="input-group-prepend">
 								<span class="input-group-text inisial" id="basic-addon3">{{ substr($fix->company->company_inisial,0, 2) }}</span>

@@ -8,16 +8,16 @@ use App\FixStationModel;
 
 class PiutangController extends Controller
 {
-   public function piutang()
+   public function pengajuan_piutang()
     {
-        $piutang = HutangPiutang::where('type', 'H');
-        return view('Piutang.piutang', ['piutang' => $piutang]);
+        $pengajuan_piutang = HutangPiutang::where('type', 'H');
+        return view('Pengajuan Piutang.pengajuan_piutang', ['pengajuan_piutang' => $pengajuan_piutang]);
     }
 
     public function tambah()
     {
         $fixstations = FixStationModel::select(\DB::raw('CONCAT(name_station, " (Tangki nomor ", tank_number, ")") as text'), 'id')->pluck('text', 'id');
-        return view('Piutang.tambah_piutang', [
+        return view('Pengajuan Piutang.tambah_pengajuan_piutang', [
             'fixstations' => $fixstations
         ]);
     }
@@ -25,50 +25,50 @@ class PiutangController extends Controller
     public function create(Request $request)
     {
         HutangPiutang::create($request->all());
-        return redirect('/piutang')->with('sukses', 'Data Berhasil Di Input!');
+        return redirect('/pengajuan_piutang')->with('sukses', 'Data Berhasil Di Input!');
     }
 
     public function edit($id)
     {
-        $piutang = HutangPiutang::find($id);
-        return view('Piutang.edit_piutang', ['piutang' => $piutang]);
+        $pengajuan_piutang = HutangPiutang::find($id);
+        return view('Pengajuan Piutang.edit_piutang', ['pengajuan_piutang' => $pengajuan_piutang]);
     }
 
     public function update(Request $request, $id)
     {
-        $piutang = HutangPiutang::find($id);
-        $piutang->update($request->all());
-        return redirect('/piutang')->with('sukses', 'Data Berhasil Di Update!');
+        $pengajuan_piutang = HutangPiutang::find($id);
+        $pengajuan_piutang->update($request->all());
+        return redirect('/pengajuan_piutang')->with('sukses', 'Data Berhasil Di Update!');
     }
 
     public function delete($id)
     {
-        $piutang = HutangPiutang::find($id);
-        $piutang->delete($piutang);
-        return redirect('/piutang')->with('sukses', 'Data berhasil dihapus!');
+        $pengajuan_piutang = HutangPiutang::find($id);
+        $pengajuan_piutang->delete($pengajuan_piutang);
+        return redirect('/pengajuan_piutang')->with('sukses', 'Data berhasil dihapus!');
     }
 
     public function bukticetak($id)
     {
-        $piutang = HutangPiutang::find($id);
-        return view('Piutang.cetakpiutang', ['piutang' => $piutang]);
+        $pengajuan_piutang = HutangPiutang::find($id);
+        return view('Pengajuan Piutang.cetakpiutang', ['pengajuan_piutang' => $pengajuan_piutang]);
     }
 
     public function approve($id)
     {
-        $piutang = HutangPiutang::find($id)
+        $pengajuan_piutang = HutangPiutang::find($id)
             ->update([
                 'approved' => 1
             ]);
-        return redirect('/piutang')->with('sukses', 'Peminjaman berhasil di approve!');
+        return redirect('/pengajuan_piutang')->with('sukses', 'Peminjaman berhasil di approve!');
     }
 
     public function reject($id)
     {
-        $piutang = HutangPiutang::find($id)
+        $pengajuan_piutang = HutangPiutang::find($id)
             ->update([
                 'approved' => 0
             ]);
-        return redirect('/piutang')->with('sukses', 'Peminjaman berhasil di reject!');
+        return redirect('/pengajuan_piutang')->with('sukses', 'Peminjaman berhasil di reject!');
     }
 }

@@ -4,7 +4,7 @@
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-              @if (\Auth::user()->status->nama == 'Admin')
+        @if (\Auth::user()->status->nama == 'Admin')
         <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
                 <p>
@@ -58,7 +58,7 @@
             </ul>
         </li>
 
-         @endif
+        @endif
         <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
                 <p>
@@ -167,7 +167,7 @@
                     <a href="/reloading" class="nav-link">
                         {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                         <p>
-                            (04) MS Reloading
+                            (04) Stock Impress
                         </p>
                     </a>
                 </li>
@@ -233,18 +233,6 @@
                         <p>(08) Pengembalian</p>
                     </a>
                 </li>
-
-                {{-- <li class="nav-item">
-                    <a href="/pengambilan" class="nav-link">
-                        <p>(07) Pengambilan Solar</p>
-                    </a>
-                </li> --}}
-
-                {{-- <li class="nav-item">
-                    <a href="/pengembalian" class="nav-link">
-                        <p>(08) Pengembalian Solar</p>
-                    </a>
-                </li> --}}
             </ul>
         </li>
 
@@ -263,47 +251,56 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/penerimaan" class="nav-link">
                         <p>(06) Penerimaan</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="/pengambilan" class="nav-link">
+                    <a href="/pengeluaran" class="nav-link">
                         <p>(10) Pengeluaran</p>
                     </a>
                 </li>
-
-                
-                {{-- <li class="nav-item">
-                    <a href="/pengambilan" class="nav-link">
-                        <p>(07) Pengambilan Solar</p>
-                    </a>
-                </li> --}}
-
-                {{-- <li class="nav-item">
-                    <a href="/pengembalian" class="nav-link">
-                        <p>(08) Pengembalian Solar</p>
-                    </a>
-                </li> --}}
             </ul>
         </li>
 
-        {{-- <li class="nav-item has-treeview">
+        <!-- {{-- <li class="nav-item has-treeview">
             <a href="/consignment" class="nav-link">
                 <p>
                     (09) Consignment
                 </p>
             </a>
-        </li> --}}
+        </li> --}} -->
 
         <li class="nav-item has-treeview">
             <a href="/stockopname" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
-                    Stock Opname
+                    Transaksi barang
+                    <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
+            <ul class="nav nav-treeview offset-md-2">
+                <li class="nav-item">
+                    <a href="/inventori" class="nav-link">
+                        <p>Inventori</p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview offset-md-2">
+                <li class="nav-item">
+                    <a href="/stockopname" class="nav-link">
+                        <p>Stok Opname</p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview offset-md-2">
+                <li class="nav-item">
+                    <a href="/stockglobal" class="nav-link">
+                        <p>Stok Global</p>
+                    </a>
+                </li>
+            </ul>
         </li>
 
     </ul>

@@ -20,7 +20,24 @@
 						{{implode('', $errors->all(':message'))}}
 					</div>
 					@endif
-
+					
+					<div class="form-group">
+						<label>Company </label>
+						<select class="form-control" name="companycode_id">
+						@foreach($company as $row)
+                            <option id="{{$row->id}}" value="{{$row->id}}">{{$row->company_name}}</option>
+                        @endforeach
+						</select>
+                    </div>
+					<div class="form-group">
+						<label>Fix Stations</label>
+						<!-- <input type="number" name="fixstation_id" value="{{ old('fixstation_id')}}" placeholder="" class="form-control" required autofocus> -->
+						<select class="form-control" name="fixstation_id">
+						@foreach($fixstation as $row)
+                            <option id="{{$row->id}}" value="{{$row->id}}">{{$row->name_station}}</option>
+                        @endforeach
+						</select>
+					</div>
 					<div class="form-group">
 						<label>Qty</label>
 						<input type="number" name="qty" value="{{ old('qty')}}" placeholder="" class="form-control" required autofocus>

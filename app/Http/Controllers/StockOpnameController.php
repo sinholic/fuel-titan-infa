@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\StockOpname;
 use App\Materialtransaction;
+use App\FixStationModel;
+use App\Companycode;
 use Illuminate\Http\Request;
 
 class StockOpnameController extends Controller
@@ -128,12 +130,21 @@ class StockOpnameController extends Controller
 
     public function tambah()
     {
-        return view('StockOpname.tambah_stockopname');
+        $company = Companycode::all();
+        $fixstation = FixStationModel::all();
+        return view('StockOpname.tambah_stockopname',['company' => $company,'fixstation' => $fixstation]);
     }
 
     public function create(Request $request)
     {
         StockOpname::create($request->all());
         return redirect('/stockopname')->with('sukses', 'Data Berhasil Di Input!');
+    }
+
+    public function stockopname1(){
+        $stockopname = StockOpname::all();
+        
+
+        return view('StockOpname.stockopname', ['stockopname' => $stockopname]);
     }
 }
