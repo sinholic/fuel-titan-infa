@@ -17,7 +17,7 @@
 </div>
 @endif
 
-<a href="/tambah_pengajuan_hutang" class="btn btn-primary">
+<a href="/tambah_hutang" class="btn btn-primary">
     <i class="fa fa-plus nav-icon"></i>
 </a>
 

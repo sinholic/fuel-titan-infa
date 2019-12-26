@@ -272,7 +272,7 @@
             </a>
         </li> --}} -->
 
-        <li class="nav-item has-treeview">
+        <li class="nav-item has-treeview menu-open">
             <a href="/stockopname" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>
