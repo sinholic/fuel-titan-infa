@@ -21,8 +21,8 @@ class PurchaseorderImport implements ToModel, WithValidation, WithHeadingRow
     {
         return new Purchaseorder([
             'purchaseorder_number' => $row['po_number'],
-            'tanggal_purchaseorder' => date('Y-m-d', strtotime($row['po_date'])),
-            'supplier' => $row['kode_supplier'],
+            'tanggal_purchaseorder' => $this->transformDate($row['po_date']),
+            'supplier' => $row['supplier'],
             'amount' => $row['qty']
         ]);
     }
@@ -31,9 +31,23 @@ class PurchaseorderImport implements ToModel, WithValidation, WithHeadingRow
     {
         return [
             'po_number' => 'required|unique:purchaseorders,purchaseorder_number',
-            'po_date' => 'required|date|after_or_equal:today',
+            'po_date' => 'required',
             'supplier' => 'required',
             'qty' => 'required|numeric'
         ];
+    }
+
+    /**
+     * Transform a date value into a Carbon object.
+     *
+     * @return \Carbon\Carbon|null
+     */
+    public function transformDate($value, $format = 'Y-m-d')
+    {
+        try {
+            return \Carbon\Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($value));
+        } catch (\ErrorException $e) {
+            return \Carbon\Carbon::createFromFormat($format, $value);
+        }
     }
 }

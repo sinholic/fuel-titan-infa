@@ -25,8 +25,10 @@ class PengambilanController extends Controller
             ->having(\DB::raw('SUM(pengambilan.qty)'), '>=', \DB::raw('pengajuan_hutang.qty'));
         })
         ->get();
+        $pengajuanss = $pengajuans->pluck('no_pengajuan', 'id');
         return view('Pengambilan.tambah_pengambilan',[
-            'pengajuans' => $pengajuans
+            'pengajuans' => $pengajuans,
+            'pengajuanss' => $pengajuanss
         ]);
     }
 
@@ -37,7 +39,7 @@ class PengambilanController extends Controller
             $totalReceive = $pengajuan->pengambilan->count() + 1;
             // dd($pengajuan->pengambilan->sum('qty'));
             $sum = $pengajuan->pengambilan->sum('qty');
-            $total = intval($pengajuan->amount) - $sum;
+            $total = intval($pengajuan->qty) - $sum;
             // dd($total);
             $request->validate(
                 [

@@ -17,7 +17,7 @@
 </div>
 @endif
 
-<a href="/tambahpengajuan" class="btn btn-primary">
+<a href="/tambahpengajuanhutang" class="btn btn-primary">
     <i class="fa fa-plus nav-icon"></i>
 </a>
 

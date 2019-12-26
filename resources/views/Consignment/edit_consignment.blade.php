@@ -22,11 +22,6 @@
                     @endif
 
                     <div class="form-group">
-                        <label>No PO</label>
-                        <input type="text" name="no_po" value="{{$consignment->no_po}}" class="form-control" required autofocus>
-                    </div>
-
-                    <div class="form-group">
                         <label for="">Supplier</label>
                         <input type="text" name="supplier" value="{{$consignment->supplier}}" class="form-control" required autofocus>
                     </div>
@@ -37,9 +32,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="">No Tangki</label>
-                        <input type="text" name="no_tangki" value="{{$consignment->no_tangki}}" class="form-control" required autofocus>
-                    </div>
+						<label>No Tangki</label>
+						{{ Form::select('fixstation_id', $fixstations, old('fixstation_id'), ['placeholder' => 'Pilih nomor tangki...', 'required', 'class' => 'form-control']) }}
+					</div>
 
                     <div class="form-group">
                         <label for="">Remark</label>

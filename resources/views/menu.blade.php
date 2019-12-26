@@ -4,6 +4,7 @@
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
+              @if (\Auth::user()->status->nama == 'Admin')
         <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
                 <p>
@@ -39,7 +40,7 @@
 
                 <li class="nav-item">
                     <a href="/owner" class="nav-link">
-                        <p>Owner</p>
+                        <p>Vendor</p>
                     </a>
                 </li>
 
@@ -57,6 +58,7 @@
             </ul>
         </li>
 
+         @endif
         <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
                 <p>
@@ -179,24 +181,6 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="/piutang" class="nav-link">
-                        <p>(06) Penerimaan Piutang Solar</p>
-                    </a>
-                </li>
-
-                 <li class="nav-item">
-                    <a href="/pengambilan" class="nav-link">
-                        <p>(07) Pengambilan Hutang Solar </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/pengembalian" class="nav-link">
-                        <p>(08) Pengembalian Hutang Solar</p>
-                    </a>
-                </li>
-
                  <li class="nav-item has-treeview">
                     <a href="/consignment" class="nav-link">
                         <p>
@@ -224,7 +208,7 @@
             </ul>
         </li> --}}
 
-        <li class="nav-item has-treeview">
+        <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
                 <p>
                     Hutang Solar
@@ -233,11 +217,64 @@
             </a>
             <ul class="nav nav-treeview offset-md-2">
                 <li class="nav-item">
-                    <a href="/pengajuan" class="nav-link">
+                    <a href="/pengajuan_hutang" class="nav-link">
                         <p>Pengajuan</p>
                     </a>
                 </li>
 
+                 <li class="nav-item">
+                    <a href="/pengambilan" class="nav-link">
+                        <p>(07) Pengambilan</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/pengembalian" class="nav-link">
+                        <p>(08) Pengembalian</p>
+                    </a>
+                </li>
+
+                {{-- <li class="nav-item">
+                    <a href="/pengambilan" class="nav-link">
+                        <p>(07) Pengambilan Solar</p>
+                    </a>
+                </li> --}}
+
+                {{-- <li class="nav-item">
+                    <a href="/pengembalian" class="nav-link">
+                        <p>(08) Pengembalian Solar</p>
+                    </a>
+                </li> --}}
+            </ul>
+        </li>
+
+        <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link">
+                <p>
+                    Piutang Solar
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview offset-md-2">
+                <li class="nav-item">
+                    <a href="/pengajuan_piutang" class="nav-link">
+                        <p>Pengajuan</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <p>(06) Penerimaan</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/pengambilan" class="nav-link">
+                        <p>(10) Pengeluaran</p>
+                    </a>
+                </li>
+
+                
                 {{-- <li class="nav-item">
                     <a href="/pengambilan" class="nav-link">
                         <p>(07) Pengambilan Solar</p>

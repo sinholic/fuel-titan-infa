@@ -40,7 +40,7 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Nama Perusahaan</th>
+                    <th class="text-center">Company Code</th>
                     <th class="text-center">Nama Station</th>
                     <th class="text-center">Alamat</th>
                     <th class="text-center">Nama Lokasi</th>
@@ -54,7 +54,7 @@
                 @foreach($fix ?? '' as $s)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$s->company->company_name ?? ''}}</td>
+                    <td>{{$s->company->company_inisial ?? ''}}</td>
                     <td>{{$s->name_station}}</td>
                     <td>{{$s->address}}</td>
                     <td>{{$s->nama_lokasi}}</td>

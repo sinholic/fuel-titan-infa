@@ -10,7 +10,7 @@
 
 			<div class="card" style="border-top: 3px solid #9C5C22">
 				<div class="card-header">
-					<h3 class="card-title">Tambah Pengajuan Peminjaman Solar</h3>
+					<h3 class="card-title">Tambah Pengajuan Piutang Solar</h3>
 				</div>
 
 				<div class="card-body">
@@ -29,7 +29,8 @@
 
 					<div class="form-group">
 						<label>Supplier</label>
-						{!! Form::select('supcompanycode_id', $companycodes, old('supcompanycode_id'), ['placeholder'=>'Choose a company', 'class'=>'form-control set-to-select2']) !!}
+						<input type="text" name="peminjam" placeholder="" class="form-control" readonly value="{{\Auth::user()->companycode->company_name}}">
+						{!! Form::hidden('supcompanycode_id', \Auth::user()->companycode->id) !!}
 					</div>
 
 					<div class="form-group">
@@ -54,15 +55,15 @@
 
 					<div class="form-group">
 						<label>Peminjam</label>
-						<input type="text" name="peminjam" placeholder="" class="form-control" readonly value="{{\Auth::user()->companycode->company_name}}">
-						{!! Form::hidden('borcompanycode_id', \Auth::user()->companycode->id) !!}
+						{!! Form::select('borcompanycode_id', $companycodes, old('borcompanycode_id'), ['placeholder'=>'Choose a company', 'class'=>'form-control set-to-select2']) !!}
+						{!! Form::hidden('type', 'P') !!}
 					</div>
 
 				</div>
 
 				<div class="card-footer">
 
-					<a href="/pengajuan" class="btn btn-default">Back</a>
+					<a href="/pengajuan_piutang" class="btn btn-default">Back</a>
 					&nbsp;&nbsp;
 					<input type="submit" value="Save" class="pull-right btn btn-primary">
 
