@@ -55,7 +55,8 @@ class PengajuanController extends Controller
         ->update([
             'approved' => 1
         ]);
-        return redirect('/pengajuan')->with('sukses', 'Peminjaman berhasil di approve!');
+        $params = $pengajuan->type == 'H' ? "_hutang" : "_piutang";
+        return redirect('/pengajuan'.$params)->with('sukses', 'Pengajuan berhasil di approve!');
     }
     
     public function reject($id)
@@ -64,13 +65,15 @@ class PengajuanController extends Controller
         ->update([
             'approved' => 0
         ]);
-        return redirect('/pengajuan')->with('sukses', 'Peminjaman berhasil di reject!');
+        $params = $pengajuan->type == 'H' ? "_hutang" : "_piutang";
+        return redirect('/pengajuan'.$params)->with('sukses', 'Pengajuan berhasil di reject!');
     }
     
     public function create(Request $request)
     {
         PengajuanModel::create($request->all());
-        return redirect('/pengajuan')->with('sukses', 'Data Berhasil Di Input!');
+        $params = $request->type == 'H' ? "_hutang" : "_piutang";
+        return redirect('/pengajuan'.$params)->with('sukses', 'Data Berhasil Di Input!');
     }
     
     public function edit($id)
@@ -83,14 +86,16 @@ class PengajuanController extends Controller
     {
         $pengajuan = PengajuanModel::find($id);
         $pengajuan->update($request->all());
-        return redirect('/pengajuan')->with('sukses', 'Data Berhasil Di Update!');
+        $params = $pengajuan->type == 'H' ? "_hutang" : "_piutang";
+        return redirect('/pengajuan'.$params)->with('sukses', 'Data Berhasil Di Update!');
     }
     
     public function delete($id)
     {
         $pengajuan = PengajuanModel::find($id);
         $pengajuan->delete($pengajuan);
-        return redirect('/pengajuan')->with('sukses', 'Data berhasil dihapus!');
+        $params = $pengajuan->type == 'H' ? "_hutang" : "_piutang";
+        return redirect('/pengajuan'.$params)->with('sukses', 'Data berhasil dihapus!');
     }
     
     public function detail($id)
