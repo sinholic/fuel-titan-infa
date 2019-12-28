@@ -42,7 +42,7 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Kode barang</th>
+                    <th class="text-center">Nama barang</th>
                     <th class="text-center">Saldo akhir</th>
                     <th class="text-center">Saldo fisik</th>
                     <th class="text-center">Selisih</th>
@@ -52,8 +52,8 @@
             @foreach($stockglobal ?? '' as $s)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$s->kode_barang}}</td>
-                    <!-- <td>{{isset($s->materials->materials) ? $s->materials->materials : ''}}</td> -->
+                    <!-- <td>{{$s->kode_barang}}</td> -->
+                    <td>{{isset($s->materials->materials) ? $s->materials->materials : ''}}</td>
                     <td>{{$s->saldo_akhir}}</td>
                     <td>{{$s->saldo_fisik}}</td>
                     <td>{{$s->selisih}}</td>

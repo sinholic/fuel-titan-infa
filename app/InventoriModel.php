@@ -19,5 +19,17 @@ class InventoriModel extends Model
         // return $this->belongsTo('App\FixStationModel', 'kode_barang', 'id');
         return $this->belongsTo('App\MaterialsModel', 'kode_barang', 'id');
     }
+    public function fixstation()
+    {
+        return $this->belongsTo('App\FixStationModel', 'fix_id', 'id');
+    }
+    public function mobilestation()
+    {
+        return $this->belongsTo('App\MobileModel', 'mobile_id', 'id');
+    }
+    public function reloading()
+    {
+        // return $this->belongsTo('App\Reloadingunit', 'mobile_id', 'id');
+    }
 
 }

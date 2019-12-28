@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\InventoriModel;
 use App\BarangModel;
 use App\MaterialsModel;
+use App\FixStationModel;
+
 use App\Materialtransaction;
 
 
@@ -21,18 +23,21 @@ class InventoriController extends Controller
     {
         //
         $inventori = InventoriModel::all();
+        $transaction = Materialtransaction::all();
+        
         // return $inventori;
         //sum qty out
         $out = Materialtransaction::join('materials','materialtransactions.material_id','=','materials.id')->where('transaction_type','=','out')->sum('qty');
         $in = Materialtransaction::join('materials','materialtransactions.material_id','=','materials.id')->where('transaction_type','=','In')->sum('qty');
-        return view('Inventori.inventori',['inventori' => $inventori,'sumout'=> $out,'sumin' => $in]);
+        return view('Inventori.inventori',['transaction'=>$transaction,'inventori' => $inventori,'sumout'=> $out,'sumin' => $in]);
 
     }
     public function addinventori(){
         $b = MaterialsModel::all();
+        $fix_station = FixStationModel::all();
         $out = Materialtransaction::join('materials','materialtransactions.material_id','=','materials.id')->where('transaction_type','=','out')->sum('qty');
         $in = Materialtransaction::join('materials','materialtransactions.material_id','=','materials.id')->where('transaction_type','=','In')->sum('qty');
-        return view('Inventori.add_inventori',['databarang' => $b,'sumout'=> $out,'sumin' => $in]);
+        return view('Inventori.add_inventori',['databarang' => $b,'sumout'=> $out,'sumin' => $in,'fix_station'=>$fix_station]);
     }
 
     /**
@@ -54,6 +59,7 @@ class InventoriController extends Controller
         $invModel = new InventoriModel;
         $invModel->kode_barang = $request->kode_barang;
         $invModel->saldo_awal = $request->saldo_awal;
+        // $invModel->fix_id = $request->fix_id;
         $invModel->barang_in = $in;
         $invModel->barang_out = $out;
         $invModel->saldo_akhir = $request->saldo_awal + $in - $out;
