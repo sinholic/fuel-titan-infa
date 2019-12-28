@@ -16,4 +16,5 @@ class ReloadingModel extends Model
     {
         return $this->belongsTo('App\MobileModel', 'mobilestation_id', 'id')->withTrashed();
     }
+   
 }

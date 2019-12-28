@@ -44,7 +44,8 @@
                     <th class="text-center">No</th>
                     <th class="text-center">Company</th>
                     <th class="text-center">Fix station</th>
-                    <th class="text-center">Qty</th>
+                    <!-- <th class="text-center">Saldo akhir</th> -->
+                    <th class="text-center">Saldo fisik</th>
                     <th class="text-center">Tanggal Pengukuran</th>
 
                     <!-- <th class="text-center">Transaction Type</th> -->
@@ -56,8 +57,9 @@
                 @foreach($stockopname ?? '' as $s)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$s->companycode_id}}</td>
-                    <td>{{$s->fixstation_id}}</td>
+                    <td>{{isset($s->company->company_name) ? $s->company->company_name : ''}}</td>
+                    <td>{{isset($s->fixstation->name_station) ? $s->fixstation->name_station : ''}}</td>
+                    <!-- <td></td> -->
                     <td>{{$s->qty}}</td>
                     <td>{{$s->tanggal_pengukuran}}</td>
 
