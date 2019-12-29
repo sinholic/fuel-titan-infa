@@ -17,14 +17,14 @@
 </div>
 @endif
 
-<a href="/tambah_hutang" class="btn btn-primary">
+<a href="/tambah_piutang" class="btn btn-primary">
     <i class="fa fa-plus nav-icon"></i>
 </a>
 
 <div class="card" style="border-top: 3px solid #9C5C22">
 
     <div class="card-header">
-        <h4>Pengajuan Hutang Solar</h4>
+        <h4>Pengajuan Piutang Solar</h4>
     </div>
 
     <div class="card-body">
@@ -32,19 +32,19 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">No Pengajuan Hutang</th>
-                    <th class="text-center">Vendor</th>
+                    <th class="text-center">No Pengajuan Piutang</th>
+                    <th class="text-center">Supplier</th>
                     <th class="text-center">Lokasi Pengambilan</th>
                     <th class="text-center">Tanggal Pengambilan</th>
                     <th class="text-center">Qty</th>
                     <th class="text-center">Remark</th>
                     <th class="text-center">Peminjam</th>
-                    <th class="text-center">Status Peminjaman</th>
+                    <th class="text-center">Status Piutang</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($pengajuan_hutang ?? '' as $s)
+                @foreach($pengajuan ?? '' as $s)
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$s->no_pengajuan}}</td>

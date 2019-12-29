@@ -120,15 +120,7 @@
     $used = $vouchercode->used ? "true" : "false";
     $rejected = $vouchercode->rejected ? "true" : "false";
     @endphp
-    @php $string =
-    "VoucherCode: $vouchercode->code_number,
-    VoucherID: $vouchercode->id,
-    SN: $vouchercode->serial_number,
-    Qty : $qty,
-    Owner: $vendorName,
-    Used: $used,
-    Rejected: $rejected,
-    Expired: $expired_date"
+    @php $string ="VoucherCode: $vouchercode->code_number,VoucherID: $vouchercode->id,SN: $vouchercode->serial_number,Qty : $qty,Owner: $vendorName,Used: $used,Rejected: $rejected,Expired: $expired_date"
     @endphp
     <div style="margin-left:20px;">
         <div class="float-left">

@@ -19,6 +19,8 @@ class CreateHutangPiutangsTable extends Migration
             $table->float('qty')->nullable()->default(0);
             $table->date('transaction_date');
             $table->enum('type', ['H', 'P'])->nullable();
+            $table->enum('transaction_type', ['In', 'Out']);
+            $table->boolean('backcharge_status')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });

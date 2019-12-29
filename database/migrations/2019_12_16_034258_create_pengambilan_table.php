@@ -20,7 +20,7 @@ class CreatePengambilanTable extends Migration
             $table->float('qty');
             $table->date('date');
             $table->timestamps();
-            $table->softdeletes();
+            $table->softDeletes();
         });
     }
 

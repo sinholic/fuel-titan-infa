@@ -44,7 +44,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($pengajuan_hutang ?? '' as $s)
+                @foreach($pengajuan ?? '' as $s)
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$s->no_pengajuan}}</td>

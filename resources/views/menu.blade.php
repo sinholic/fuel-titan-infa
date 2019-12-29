@@ -4,7 +4,7 @@
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-              @if (\Auth::user()->status->nama == 'Admin')
+        @if (\Auth::user()->status->nama == 'Admin')
         <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
                 <p>
@@ -58,7 +58,7 @@
             </ul>
         </li>
 
-         @endif
+        @endif
         <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
                 <p>
@@ -233,18 +233,6 @@
                         <p>(08) Pengembalian</p>
                     </a>
                 </li>
-
-                {{-- <li class="nav-item">
-                    <a href="/pengambilan" class="nav-link">
-                        <p>(07) Pengambilan Solar</p>
-                    </a>
-                </li> --}}
-
-                {{-- <li class="nav-item">
-                    <a href="/pengembalian" class="nav-link">
-                        <p>(08) Pengembalian Solar</p>
-                    </a>
-                </li> --}}
             </ul>
         </li>
 
@@ -273,19 +261,6 @@
                         <p>(10) Pengeluaran</p>
                     </a>
                 </li>
-
-                
-                {{-- <li class="nav-item">
-                    <a href="/pengambilan" class="nav-link">
-                        <p>(07) Pengambilan Solar</p>
-                    </a>
-                </li> --}}
-
-                {{-- <li class="nav-item">
-                    <a href="/pengembalian" class="nav-link">
-                        <p>(08) Pengembalian Solar</p>
-                    </a>
-                </li> --}}
             </ul>
         </li>
 
@@ -297,7 +272,7 @@
             </a>
         </li> --}} -->
 
-        <li class="nav-item has-treeview">
+        <li class="nav-item has-treeview menu-open">
             <a href="/stockopname" class="nav-link">
                 {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                 <p>

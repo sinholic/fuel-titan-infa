@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class PengajuanModel extends Model
 {
     protected $table = "pengajuan";
-    // protected $fillable = ['supcompanycode_id', 'fixstation_id', 'taking_date', 'qty', 'remark', 'no_pengajuan', 'borcompanycode_id', 'approved'];
-    protected $guarded = [];
+    protected $fillable = ['supcompanycode_id', 'fixstation_id', 'taking_date', 'qty', 'remark', 'no_pengajuan', 'borcompanycode_id', 'approved', 'type'];
+    // protected $guarded = [];
 
     public function pengambilan()
     {
@@ -29,4 +29,7 @@ class PengajuanModel extends Model
     {
         return $this->belongsTo('App\FixStationModel', 'fixstation_id', 'id');
     }
+
+    // protected $table = "hutang_piutangs";
+    // protected $guarded = [];
 }

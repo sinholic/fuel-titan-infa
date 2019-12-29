@@ -3,20 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\HutangPiutang;
+use App\FixStationModel;
+use App\PengajuanModel;
+use App\Companycode;
 use Illuminate\Http\Request;
 
 class HutangController extends Controller
 {
     public function pengajuan_hutang()
     {
-        $pengajuan_hutang = HutangPiutang::where('type', 'H');
+        $pengajuan_hutang = PengajuanModel::where('type', 'H');
         return view('Pengajuan Hutang.pengajuan_hutang', ['pengajuan_hutang' => $pengajuan_hutang]);
     }
 
     public function tambah()
     {
-        $fixstations = FixStationModel::select(\DB::raw('CONCAT(name_station, " (Tangki nomor ", tank_number, ")") as text'), 'id')->pluck('text', 'id');
-        return view('Pengajuan Hutang.tambah_pengajuan_hutang', [
+        $companycode = \Auth::user()->companycode->company_inisial;
+        $totalPengajuan = PengajuanModel::where('no_pengajuan', 'LIKE', '%'.$companycode.'%')->where('type','H')->whereMonth('created_at', \Carbon\Carbon::today()->month)->count();
+        $spkNumber = "H-".$companycode."/".\Carbon\Carbon::today()->format('Ymd')."0000".($totalPengajuan + 1);
+        $companycodes = Companycode::whereNotIn('id', [\Auth::user()->companycode->id])->pluck('company_name', 'id');
+        $fixstations = FixStationModel::whereNotIn('companycode_id', [\Auth::user()->companycode->id])->groupBy('name_station', 'address')->pluck('nama_lokasi','id');
+        return view('Pengajuan.tambah_pengajuan_hutang',[
+            'spkNumber' => $spkNumber,
+            'companycodes' => $companycodes,
             'fixstations' => $fixstations
         ]);
     }
