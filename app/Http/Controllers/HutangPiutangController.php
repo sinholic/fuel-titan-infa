@@ -133,7 +133,7 @@ class HutangPiutangController extends Controller
             ]);
         }
         HutangPiutang::create($request->all());
-        return redirect('/pengambilan')->with('sukses', 'Data Berhasil Di Input!');
+        return redirect('/pengembalian')->with('sukses', 'Data Berhasil Di Input!');
     }
 
     // Pengeluaran 
