@@ -353,7 +353,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/inventori/refresh/{id}', 'InventoriController@refresh');
     Route::get('/inventori/edit/{id}', 'InventoriController@edit');
     Route::post('/inventori/update/{id}', 'InventoriController@update');
-
+    
     //stock global
     Route::get('/stockglobal', 'StockGlobalController@stockglobal');
 
