@@ -1,4 +1,4 @@
-<!-- @extends('master')
+@extends('master')
 
 @section('content')
 
@@ -71,4 +71,4 @@
 
 
 
-@endsection('content') -->
+@endsection('content')

@@ -10,7 +10,7 @@
 
 			<div class="card" style="border-top: 3px solid #9C5C22">
 				<div class="card-header">
-					<h3 class="card-title">Edit Inventori</h3>
+					<h3 class="card-title">Tambah Inventori</h3>
 				</div>
 
 				<div class="card-body">
@@ -21,10 +21,30 @@
 					</div>
 					@endif
 
-				
+					
                     <div class="form-group">
-						<label>Barang Out</label>
-						<input type="text" name="barang_out" value="{{ old('inventori')}}" placeholder="" class="form-control" required autofocus>
+					<label>Material</label>
+                    <select class="form-control" name="kode_barang">
+                        @foreach($databarang as $row)
+                            <option id="{{$row->id}}" value="{{$row->id}}">{{$row->materials}}</option>
+                        @endforeach
+                    </select>
+                    </div>
+					<div class="form-group">
+					<label>Fix Stations</label>
+                    <select class="form-control" name="fix_id">
+                        @foreach($fix_station as $row)
+                            <option id="{{$row->id}}" value="{{$row->id}}">{{$row->name_station}}</option>
+                        @endforeach
+                    </select>
+                    </div>
+                    <!-- <div class="form-group">
+						<label>Kode Barang</label>
+						<input type="text" name="kode_barang" value="{{ old('inventori')}}" placeholder="" class="form-control" required autofocus>
+					</div> -->
+                    <div class="form-group">
+						<label>Saldo awal</label>
+						<input type="text" name="saldo_awal" value="{{ old('inventori')}}" placeholder="" class="form-control" required autofocus>
 					</div>
 
 				</div>
