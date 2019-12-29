@@ -23,20 +23,21 @@
 
 					
                     <div class="form-group">
+					<label>Material</label>
                     <select class="form-control" name="kode_barang">
                         @foreach($databarang as $row)
                             <option id="{{$row->id}}" value="{{$row->id}}">{{$row->materials}}</option>
                         @endforeach
                     </select>
                     </div>
-					<!-- <div class="form-group">
+					<div class="form-group">
 					<label>Fix Stations</label>
                     <select class="form-control" name="fix_id">
                         @foreach($fix_station as $row)
                             <option id="{{$row->id}}" value="{{$row->id}}">{{$row->name_station}}</option>
                         @endforeach
                     </select>
-                    </div> -->
+                    </div>
                     <!-- <div class="form-group">
 						<label>Kode Barang</label>
 						<input type="text" name="kode_barang" value="{{ old('inventori')}}" placeholder="" class="form-control" required autofocus>
