@@ -44,10 +44,11 @@
                     <th class="text-center">No</th>
                     <th class="text-center">Company</th>
                     <th class="text-center">Fix station</th>
-                    <!-- <th class="text-center">Saldo akhir</th> -->
+                    <th class="text-center">Saldo akhir</th>
                     <th class="text-center">Saldo fisik</th>
+                    <th class="text-center">Selisih</th>
                     <th class="text-center">Tanggal Pengukuran</th>
-
+                    <th class="text-center" width="8%">Action</th>
                     <!-- <th class="text-center">Transaction Type</th> -->
                     <!-- <th class="text-center">Transaction Code</th> -->
                     <!-- <th class="text-center">Transaction Date</th> -->
@@ -57,12 +58,33 @@
                 @foreach($stockopname ?? '' as $s)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{isset($s->company->company_name) ? $s->company->company_name : ''}}</td>
+                    <td>{{isset($s->fixstation->company->company_name) ? $s->fixstation->company->company_name : ''}}</td>
                     <td>{{isset($s->fixstation->name_station) ? $s->fixstation->name_station : ''}}</td>
-                    <!-- <td></td> -->
+                    <td>{{$s->saldo_akhir}}</td>
                     <td>{{$s->qty}}</td>
+                    <td>{{$s->selisih}}</td>
                     <td>{{$s->tanggal_pengukuran}}</td>
+                    <td>
+                        <div class="btn-group">
 
+                            <!-- URL::to('/admin/category/detail.id='.$cate-id -->
+                            
+                            <a href="/stockopname/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip"
+                                data-placement="bottom" title="Edit">
+                                <i class="fa fa-edit nav-icon"></i>
+                            </a>
+                            <!-- <a href="/user/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip"
+                                data-placement="bottom" title="Edit">
+                                <i class="fa fa-edit nav-icon"></i>
+                            </a> -->
+
+                            <!-- <a onClick="return confirm('Yakin ingin menghapus data?')" href="/user/{{$s->id}}/delete"
+                                class="btn btn btn-danger btn-sm">
+                                <i class="fa fa-trash nav-icon"></i>
+                            </a> -->
+
+                        </div>
+                    </td>
                     <!-- <td>{{$s->transaction_type}}</td>
                     <td>{{$s->transaction_code}}</td>
                     <td>{{date('d-M-Y', strtotime($s->created_at))}}</td> -->

@@ -7,6 +7,7 @@ use App\Materialtransaction;
 use App\FixStationModel;
 use App\Companycode;
 use Illuminate\Http\Request;
+use App\InventoriModel;
 
 class StockOpnameController extends Controller
 {
@@ -132,19 +133,39 @@ class StockOpnameController extends Controller
     {
         $company = Companycode::all();
         $fixstation = FixStationModel::all();
-        return view('StockOpname.tambah_stockopname',['company' => $company,'fixstation' => $fixstation]);
+        $fix = InventoriModel::all();
+        // return $fix;
+        return view('StockOpname.tambah_stockopname',['company' => $company,'fixstation' => $fix]);
     }
 
     public function create(Request $request)
     {
-        StockOpname::create($request->all());
+        // StockOpname::create($request->all());
+        $inv = InventoriModel::where('fix_id','=',$request->fixstation_id)->first();
+        $st = new StockOpname;
+        $st->fixstation_id = $request->fixstation_id;
+        $st->qty = $request->qty;
+        $st->tanggal_pengukuran = $request->tanggal_pengukuran;
+        if($inv != null){
+            $st->saldo_akhir = $inv->saldo_akhir;
+            $st->selisih = $request->qty - $inv->saldo_akhir;
+        }
+        $st->save();
         return redirect('/stockopname')->with('sukses', 'Data Berhasil Di Input!');
     }
 
     public function stockopname1(){
         $stockopname = StockOpname::all();
-        
-
         return view('StockOpname.stockopname', ['stockopname' => $stockopname]);
+    }
+    public function edit($id){
+        $st = StockOpname::find($id);
+        return view('StockOpname.edit_stokopname',['datastock'=>$st]);
+    }
+    public function update(Request $request, $id){
+        $st = StockOpname::find($id);
+        $st->qty = $request->qty;
+        $st->update();
+        return redirect('/stockopname');
     }
 }

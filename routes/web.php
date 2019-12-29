@@ -334,12 +334,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/stockopname', 'StockOpnameController@stockopnameByDate');
     Route::get('/tambah_stockopname', 'StockOpnameController@tambah');
     Route::post('/stockopname/create', 'StockOpnameController@create');
+    Route::post('/stockopname/update/{id}', 'StockOpnameController@update');
+    Route::get('/stockopname/edit/{id}', 'StockOpnameController@edit');
+
 
     //Inventori
     Route::get('/inventori', 'InventoriController@inventori');
     Route::get('/addInventori', 'InventoriController@addinventori');
     Route::post('/inventori/create', 'InventoriController@create');
     Route::get('/inventori/refresh/{id}', 'InventoriController@refresh');
+    Route::get('/inventori/edit/{id}', 'InventoriController@edit');
+    Route::post('/inventori/update/{id}', 'InventoriController@update');
 
     //stock global
     Route::get('/stockglobal', 'StockGlobalController@stockglobal');
