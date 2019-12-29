@@ -32,6 +32,8 @@
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
+                    <th class="text-center">Company</th>
+                    <th class="text-center">Nama Fix Station</th>
                     <th class="text-center">Unit Equipment</th>
                     <th class="text-center">Driver</th>
                     <th class="text-center">Qty</th>
@@ -46,6 +48,9 @@
                  @foreach($pengisian_fix ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
+                    <td>{{$s->fixstation->company->company_name}}</td>
+                    <td>{{$s->fixstation->name_station}}</td>
+
                     <td>{{$s->equipment->equipment_number ?? ''}}</td>
                     <td>{{$s->equipmentuser}}</td>
                     <td>{{$s->qty}}</td>
