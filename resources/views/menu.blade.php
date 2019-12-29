@@ -251,7 +251,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="/penerimaan" class="nav-link">
+                    <a href="/penerimaan_piutang" class="nav-link">
                         <p>(06) Penerimaan</p>
                     </a>
                 </li>

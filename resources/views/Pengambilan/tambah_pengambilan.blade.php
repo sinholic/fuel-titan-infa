@@ -23,7 +23,7 @@
 
 					<div class="form-group">
 						<label>No Pengajuan Hutang</label>
-						{!! Form::select('credit_id', $pengajuanss, old('credit_id'), ['class'=>'form-control set-to-select2', 'placeholder'=>'Pilih nomor pengajuan']) !!}
+						{!! Form::select('pengajuan_id', $pengajuanss, old('pengajuan_id'), ['class'=>'form-control set-to-select2', 'placeholder'=>'Pilih nomor pengajuan']) !!}
 					</div>
 
 					<div class="form-group">
@@ -33,9 +33,10 @@
 
                     <div class="form-group">
                         <label for="">Tanggal Pengambilan Solar</label>
-                        <input type="date" value="{{old('date')}}" name="date" placeholder="" class="form-control" required autofocus>
+                        <input type="date" value="{{old('transaction_date')}}" name="transaction_date" placeholder="" class="form-control" required autofocus>
 					</div>
-					{!! Form::hidden('type', 'H', [$options]) !!}
+					{!! Form::hidden('type', 'H') !!}
+					{!! Form::hidden('transaction_type', 'In') !!}
 				</div>
 
 				<div class="card-footer">
