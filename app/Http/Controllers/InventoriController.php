@@ -151,19 +151,23 @@ class InventoriController extends Controller
     public function refresh(Request $request, $id)
     {
         //
+        $invModel = InventoriModel::find($id);
+        // $idInv->barang_out = $request->barang_out;
+        // $idInv->saldo_akhir = $idInv->saldo_awal + $idInv->barang_in - $request->barang_out;
+        // $idInv->update();
+
         $out = Materialtransaction::join('materials','materialtransactions.material_id','=','materials.id')->where('transaction_type','=','out')->sum('qty');
         $in = Materialtransaction::join('materials','materialtransactions.material_id','=','materials.id')->where('transaction_type','=','In')->sum('qty');
-        $qtyout = Reloadingunit::where('origin','=','Fix Station')->where('station_id','=',$request->fix_id)->sum('qty');
-        $qtyin = PenerimaanModel::where('fixstation_id','=',$request->fix_id)->sum('qty');
+        $qtyout = Reloadingunit::where('origin','=','Fix Station')->where('station_id','=',$invModel->fix_id)->sum('qty');
+        $qtyin = PenerimaanModel::where('fixstation_id','=',$invModel->fix_id)->sum('qty');
 
-        $request->barang_in = $in;
-        $invModel = new InventoriModel;
-        $invModel->kode_barang = $request->kode_barang;
-        $invModel->saldo_awal = $request->saldo_awal;
-        $invModel->fix_id = $request->fix_id;
+        // $request->barang_in = $in;
+        // $invModel->kode_barang = $request->kode_barang;
+        // $invModel->saldo_awal = $request->saldo_awal;
+        // $invModel->fix_id = $request->fix_id;
         $invModel->barang_in = $qtyin;
         $invModel->barang_out = $qtyout;
-        $invModel->saldo_akhir = $request->saldo_awal + $qtyin - $qtyout;
+        $invModel->saldo_akhir = $invModel->saldo_awal + $qtyin - $qtyout;
         $invModel->update();
         return redirect('/inventori');
         
