@@ -256,8 +256,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pengajuan_hutang', 'PengajuanController@pengajuan_hutang');
     Route::get('/tambah_hutang', 'PengajuanController@tambah_hutang');
         // Piutang
-    Route::get('/pengajuan_piutang', 'PengajuanCOntroller@pengajuan_piutang');
-    Route::get('/tambah_piutang', 'PengajuanCOntroller@tambah_piutang');
+    Route::get('/pengajuan_piutang', 'PengajuanController@pengajuan_piutang');
+    Route::get('/tambah_piutang', 'PengajuanController@tambah_piutang');
 
     Route::post('/pengajuan/create', 'PengajuanController@create');
     Route::get('/pengajuan/edit/{id}', 'PengajuanController@edit');
