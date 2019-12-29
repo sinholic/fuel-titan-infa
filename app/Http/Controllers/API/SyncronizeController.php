@@ -14,6 +14,7 @@ use App\OwnerModel;
 use App\User;
 use App\QtySolarModel;
 use App\Timesheetstatus;
+use App\Equipmentcategory;
 
 class SyncronizeController extends Controller
 {
@@ -112,6 +113,13 @@ class SyncronizeController extends Controller
             return join(",'", $item->toArray()) . "'";
         });
         $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO qty_solar ('id, 'qty_solar, 'created_at, 'updated_at') VALUES('" . join("),('", $sql->toArray()) . ");"));
+
+        //Equipmentcategory
+        $equipmentcategories = Equipmentcategory::select('id', 'nama', 'inisial', 'created_at', 'updated_at')->get();
+        $sql = $equipmentcategories->map(function ($item, $key) {
+            return join(",'", $item->toArray()) . "'";
+        });
+        $data['sql'] .= str_replace("')'", "')", str_replace(",", "',", "INSERT INTO equipmentcategories ('id, 'inisial, 'nama, 'created_at, 'updated_at') VALUES('" . join("),('", $sql->toArray()) . ");"));
 
         //Timesheet Status
         $timesheetstatus = Timesheetstatus::select('id','category','status')->get();

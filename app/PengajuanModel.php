@@ -10,9 +10,9 @@ class PengajuanModel extends Model
     protected $fillable = ['supcompanycode_id', 'fixstation_id', 'taking_date', 'qty', 'remark', 'no_pengajuan', 'borcompanycode_id', 'approved', 'type'];
     // protected $guarded = [];
 
-    public function pengambilan()
+    public function hutangpiutangs()
     {
-        return $this->hasMany('App\PengambilanModel', 'credit_id', 'id');
+        return $this->hasMany('App\HutangPiutang', 'pengajuan_id', 'id');
     }
 
     public function supplier()

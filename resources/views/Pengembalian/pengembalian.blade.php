@@ -36,14 +36,13 @@
         </div>
 
     <div class="card-body">
-        <table class="table table-striped table-responsive table table-bordered" id="myTable">
+        <table class="table table-striped table table-bordered" id="myTable">
             <thead style="background-color: #9C5C22">
                 <tr>
                     <th class="text-center">No</th>
-                    <th class="text-center">Hutang</th>
+                    <th class="text-center">No Pengajuan</th>
                     <th class="text-center">Qty</th>
                     <th class="text-center">Date</th>
-                    <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
             @php $i=1 @endphp
@@ -52,28 +51,9 @@
                  @foreach($pengembalian ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td></td>
+                    <td>{{ $s->pengajuan->no_pengajuan }}</td>
                     <td>{{$s->qty}}</td>
-                    <td>{{date('d M Y', strtotime($s->date))}}</td>
-                    <td>
-                         <div class="btn-group">
-
-                            <!-- URL::to('/admin/category/detail.id='.$cate-id -->
-                             <a href="/pengembalian/detail/{{$s->id}}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Info">
-                                <i class="fa fa-info-circle nav-icon"></i>
-                            </a>
-
-                            <a href="/pengembalian/edit/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
-                                <i class="fa fa-edit nav-icon"></i>
-                            </a>
-
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/pengembalian/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
-                                <i class="fa fa-trash nav-icon"></i>
-                            </a>
-
-                        </div>
-                    </td>
-                    
+                    <td>{{date('d M Y', strtotime($s->transaction_date))}}</td> 
                 </tr>
                 @endforeach
             </tbody>

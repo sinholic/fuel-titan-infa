@@ -51,21 +51,21 @@ class PengajuanController extends Controller
     
     public function approve($id)
     {
-        $pengajuan = PengajuanModel::find($id)
-        ->update([
+        $pengajuan = PengajuanModel::find($id);
+        $params = $pengajuan->type == 'H' ? "_hutang" : "_piutang";
+        $pengajuan->update([
             'approved' => 1
         ]);
-        $params = $pengajuan->type == 'H' ? "_hutang" : "_piutang";
         return redirect('/pengajuan'.$params)->with('sukses', 'Pengajuan berhasil di approve!');
     }
     
     public function reject($id)
     {
-        $pengajuan = PengajuanModel::find($id)
-        ->update([
+        $pengajuan = PengajuanModel::find($id);
+        $params = $pengajuan->type == 'H' ? "_hutang" : "_piutang";
+        $pengajuan->update([
             'approved' => 0
         ]);
-        $params = $pengajuan->type == 'H' ? "_hutang" : "_piutang";
         return redirect('/pengajuan'.$params)->with('sukses', 'Pengajuan berhasil di reject!');
     }
     
