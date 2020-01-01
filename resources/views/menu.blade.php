@@ -4,7 +4,7 @@
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-        @if (\Auth::user()->status->nama == 'Admin')
+        @if (\Auth::user()->status->nama == 'Admin' || \Auth::user()->status->nama == 'Super Admin')
         <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
                 <p>

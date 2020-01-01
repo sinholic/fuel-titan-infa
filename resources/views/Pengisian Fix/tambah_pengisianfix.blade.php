@@ -107,7 +107,8 @@
 
     var local_sourcevouchers = {!!$vouchers-> toJson() !!};
     console.log(local_sourcevouchers);
-    var equipmentOwner = "";
+    var equipmentOwner = "",
+        voucherFound = "";
     // $(window).scrollTop(0);
 
     $('.btn-scan').click(function(){
@@ -140,21 +141,33 @@
                 }
                 // $('#voucher').attr('disabled', false);   
             }else if(identifier == 'VoucherCode'){
+                var voucherSN = mybarcode[2].split(':')[1].trim().toUpperCase(),
+                    voucherQty = mybarcode[3].split(':')[1].trim(),
+                    voucherED = mybarcode[4].split(':')[1].trim();
+                if (equipmentOwner=="") {
+                    alert("No equipment found!!");
+                    return
+                }
                 $.map(local_sourcevouchers, function(item, key) {
                     var serial_number = item.serial_number.toUpperCase();
-                    var voucherSN = mybarcode[2].split(':')[1].trim().toUpperCase(),
-                        voucherQty = mybarcode[3].split(':')[1].trim(),
-                        voucherED = mybarcode[4].split(':')[1].trim();
-                    if (serial_number == voucherSN && item.voucher.voucherowner.vendor_name == owner) {
-                        alert("HAI");
-                    } else {
-                        // alert("HELLO");
+                    if (serial_number == voucherSN && item.voucher.voucherowner.vendor_name == equipmentOwner) {
+                        voucherFound = item.voucher.id;
                     }
                 })
-            }else if(identifier == ''){
-
+                if (voucherFound != "") {
+                    $('#voucher').val(voucherSN);
+                    $('#voucher-value').val(voucherFound);
+                    $('#voucher-qty').val(voucherQty);
+                }else {
+                    alert("No voucher found!!");
+                }
+            }else if(identifier == 'UserID'){
+                var userID = mybarcode[2].split(':')[1].trim().toUpperCase(),
+                    userNama = mybarcode[3].split(':')[1].trim(),
+                    level = mybarcode[4].split(':')[1].trim();
+                $('#equipmentuser').val(userNama);
             }
-            alert(barcode);
+            // alert(barcode);
         } // main callback function	
     });
     // console.log(local_sourcevouchers);

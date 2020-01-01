@@ -23,12 +23,12 @@
 
                     <div class="form-group">
                         <label>Nama</label>
-                        <input type="text" name="name" value="{{$user->name}}" class="form-control" required autofocus>
+                        <input type="text" name="name" value="{{$user->name}}" class="form-control" disabled autofocus>
                     </div>
 
                     <div class="form-group">
                         <label for="">Email</label>
-                        <input type="email" name="email" value="{{$user->email}}" class="form-control" required autofocus>
+                        <input type="email" name="email" value="{{$user->email}}" class="form-control" disabled autofocus>
                     </div>
 
                     	<div class="form-group">
@@ -36,10 +36,10 @@
                         <input type="password" name="password" placeholder="Ubah Password" class="form-control">
 					</div>
 
-                    @if (\Auth::user()->status->nama == 'Admin')
+                    @if (\Auth::user()->status->nama == 'Admin' || \Auth::user()->status->nama == 'Super Admin')
 					<div class="form-group">
 						<label>Sync Password</label>
-                        <input type="password" name="syncpassword" placeholder="" class="form-control">
+                        <input type="password" name="syncpassword" value="{{$user->syncpassword}}" placeholder="" class="form-control">
 					</div>
 
                     <div class="form-group">
@@ -52,12 +52,12 @@
 						{{ Form::select('status_id', $statuses, $user->status_id, ['placeholder' => 'Pilih user level...', 'required', 'class' => 'form-control']) }}
                     </div>
                     @endif
-
+                    {!! Form::hidden('redirect', url()->previous()) !!}
                 </div>
 
                 <div class="card-footer">
 
-                    <a href="/user" class="btn btn-default">Back</a>
+                    <a href="{{ url()->previous() }}" class="btn btn-default">Back</a>
                     <input type="submit" value="Save" class="pull-right btn btn-warning">
 
                 </div>
