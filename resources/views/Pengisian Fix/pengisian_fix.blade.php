@@ -48,9 +48,8 @@
                  @foreach($pengisian_fix ?? '' as $s)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$s->fixstation->company->company_name}}</td>
-                    <td>{{$s->fixstation->name_station}}</td>
-
+                    <td>{{$s->fixstation->company->company_name ?? ''}}</td>
+                    <td>{{$s->fixstation->name_station ?? ''}}</td>
                     <td>{{$s->equipment->equipment_number ?? ''}}</td>
                     <td>{{$s->equipmentuser}}</td>
                     <td>{{$s->qty}}</td>

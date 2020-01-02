@@ -65,7 +65,7 @@
 
                     <div class="form-group">
                         <label>Equipment Number SAP</label>
-                        <input type="text" name="equipment_number_sap" value="{{$equipment->equipment_number_sap}}" class="form-control">
+                        <input type="text" name="equipment_number_sap" value="{{$equipment->equipment_number_sap}}" class="form-control" disabled>
                     </div>
  
                     <div class="form-group">
@@ -105,12 +105,12 @@
 
                     <div class="form-group">
                         <label>Last Odometer</label>
-                        <input type="text" name="odometer" value="{{ $equipment->reloadingunits->last()->odometer }}" class="form-control" disabled>
+                        <input type="text" name="odometer" value="{{ $equipment->master_km }}" class="form-control" disabled>
                     </div>
 
                     <div class="form-group">
                         <label>Last Machine Hours</label>
-                        <input type="text" name="machinehours" value="{{ $equipment->reloadingunits->last()->machinehours }}" class="form-control" disabled>
+                        <input type="text" name="machinehours" value="{{ $equipment->master_hm }}" class="form-control" disabled>
                     </div>
 
                 </div>

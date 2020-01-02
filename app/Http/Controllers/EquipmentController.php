@@ -172,8 +172,19 @@ class EquipmentController extends Controller
     {
         $equipment = EquipmentModel::with('reloadingunits')->find($id);
         // dd($equipment);
+        $tipe = TipeModel::pluck('tipe', 'id');
+        $manufactures = MerkModel::pluck('merk', 'id');
         $owners = OwnerModel::pluck('vendor_name', 'id');
         $equipment_categories = Equipmentcategory::pluck('nama', 'id');
-        return view('Equipment.detail_equipment', ['equipment' => $equipment, 'owners' => $owners, 'equipment_categories' => $equipment_categories]);
+        $companycodes = Companycode::pluck('company_name', 'id');
+        return view('Equipment.detail_equipment', [
+            'equipment' => $equipment, 
+            'owners' => $owners, 
+            'equipment_categories' => $equipment_categories,
+            'tipe' => $tipe,
+            'manufactures' => $manufactures,
+            'companycodes' => $companycodes,
+
+        ]);
     }
 }

@@ -14,7 +14,7 @@ class PengisianFixController extends Controller
 {
     public function pengisian_fix()
     {
-        $pengisian_fix = Reloadingunit::where('origin', 'Fix Station')->get();
+        $pengisian_fix = Reloadingunit::with('fixstation')->where('origin', 'Fix Station')->get();
         return view('Pengisian Fix.pengisian_fix', [
             'pengisian_fix' => $pengisian_fix
         ]);
